@@ -1,0 +1,254 @@
+*{
+  box-sizing: border-box;
+}
+  html,body{
+   margin: 0;
+   padding: 0;
+   /*background-color: #eeeeee;*/
+   /*background-color: white;*/
+}
+
+
+.full-width-col  {
+   width: 100%;
+   padding: 0;
+}
+
+#bt-override .card{
+   background: transparent;
+}
+
+ #bt-override nav,
+ #bt-override .card-bg ,
+ .full-width-col {
+   border-bottom: solid 2px black;
+   color: white;
+   background: #0F2027;  /* fallback for old browsers */
+   background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+   background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+#bt-override .card-header{
+   background: #f1f8fb26;
+}
+
+#bt-override .nav-link{
+   /* color: #ffffffe6; */
+}
+
+#bt-override .nav-link:hover{
+   color: #17a2b8a6;
+}
+
+
+#bt-override .jumbotron{
+   margin: 20px 0 0 0;
+   color: #f8f9fa;
+   background-image: url("../images/bgdjdj13.jpg");
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
+.horizontal-break{
+   overflow: visible;
+   height: 30px;
+   border-style: solid;
+   border-color: #1e37406b;
+   border-width: 1px 0 0;
+   border-radius: 20px;
+   width: 310px;
+}
+
+hr{
+   margin: 0 auto;
+}
+
+.horizontal-break:before{
+   margin: 0;
+   display: block;
+   content: "";
+   height: 30px;
+   margin-top: -31px;
+   border-style: solid;
+   border-color: #1e37406b;
+   border-width: 0 0 1px;
+   border-radius: 20px;
+}
+
+/* ---------------------------------------------------sign up */
+#bt-override .topMargin{
+   margin-top: 98px;
+}
+
+#bt-override .btn-primary {
+   color: #f8f9fa;
+   background-color: #0f2028d1;
+   border-color: #2c505f6e;
+   border-radius: 25px;
+   padding: 0.5rem 1.3rem;
+   border-width: 1px;
+}
+
+#bt-override .btn-primary:hover {
+   border-width: 1px;
+   color: #17a2b8a6;
+}
+
+
+/* ---------------------------------------------the sign in page */
+#bt-override .styledForm{
+   display: flex;
+   align-items: center;
+   border-bottom: 1px solid #ced4da;
+}
+
+#bt-override .styledInput{
+   border: 0;
+}
+
+#bt-override .styledInput:focus{
+      box-shadow: none;
+}
+
+#bt-override .signCol{
+   width: 80%;
+   margin: 0 auto;
+}
+
+#bt-override .signInButton{
+   width: 100%;
+}
+
+.quoteIdText{
+   font-style: italic;
+   font-size: 12px;
+   color: grey;
+}
+
+
+/* --------------------------------------index page --------------------------------------*/
+p .like-image{
+   width: 25px;
+}
+
+#home .genre {
+   text-transform: capitalize;
+   color: white;
+}
+
+.topMargin{
+  margin-top: 75px;
+}
+.topMargin21{
+  margin-top: 21px;
+}
+
+.topPadding260{
+  padding-top: 260px;
+  color: white;
+}
+
+.genreSelection{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.genreSelect{
+  padding:5px 7px;
+  text-transform: capitalize;
+}
+
+/* sign up page */
+#signUpPage{
+   background-image: url(../images/bg7.jpg);
+   background-size: cover;
+   background-position: top center;
+   filter-color: purple;
+}
+
+#signUpPage .signUp{
+   background: white;
+}
+
+#home .pillButton{
+   width: 40%;
+   margin: 42px auto 10px auto;
+}
+
+#home .topMargin2{
+   margin-top: 90px;
+}
+
+#home .topMargin3{
+   margin-top: 160px;
+}
+
+#home .paddingTop30{
+  padding-top: 30px;
+}
+
+#home .genderSelection{
+   display: flex;
+}
+
+#home .quote-footer{
+   text-align: left;
+}
+
+#card-content{
+   height: 230px;
+   padding: 15px 15px;
+}
+#home .card-blog{
+   margin-top:0px;
+}
+
+p .like-image{
+   cursor: pointer;
+}
+
+div .profile-photo-small{
+   display: flex;
+   align-items: center;
+}
+
+.errorMessage{
+   display: block;
+   padding: 10px 0; 
+}
+
+.grace{
+   width: 150px;
+   height: 41px;
+   border-radius: 10px;
+   padding-left: 10px;
+   background: #9f59b1;
+   color: white;
+   font-size: 16px;
+}
+
+#home .tab-space{
+   padding: 20px 0 2px 0;
+}
+
+#home .subscribe-line{
+  padding: 0;
+}
+
+#card{
+    background: rgba(255,255,255,.15);
+    color: white;
+    text-transform: capitalize;
+    height: unset;
+}
+
+#home .displayNone{
+  display: none;
+}
+
+#home #width100{
+  height: 300px;
+  width: 100%;
+}
