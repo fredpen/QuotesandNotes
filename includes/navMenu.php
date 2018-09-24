@@ -54,6 +54,7 @@
    <link href="assets/css/material-kit.css?v=1.2.1" rel="stylesheet"/>
    <link href="assets/css/custom.css" rel="stylesheet"/>
    <link href="assets/css/grid.css" rel="stylesheet"/>
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
    <!-- twitter script -->
    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -97,7 +98,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
     		</button>
-        <a class="navbar-brand" href="index.php"> Quotes&Notes</a>
+        <a class="navbar-brand" href="index.php"> <i class="fas fa-home"></i> Quotes&Notes</a>
       </div>
 
       <div class="collapse navbar-collapse">
