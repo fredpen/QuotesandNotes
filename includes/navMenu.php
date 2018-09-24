@@ -119,15 +119,14 @@
             <a href="genresPage">Genres</a>
           </li>
 
-        <?php if ($firstName) { ?>
+        
            <li class="dropdown">
-             <a href="#pablo" class="profile-photo dropdown-toggle" data-toggle="dropdown">
-               <div class="profile-photo-small">
-                 <i class="fas fa-user"></i>
-                 <b class="caret"></b>
-               </div>
-             </a>
+             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <i class="fas fa-user"></i>
+            <b class="caret"></b>
+         </a>
 
+            <?php if ($firstName) { ?>
              <ul class="dropdown-menu">
                <li class="dropdown-header">
                  <?php echo $userDetails['firstname'] ." " . $firstName; ?>
@@ -145,11 +144,7 @@
 
         <?php  } else { ?>
 
-         <li class="dropdown">
-         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <i class="material-icons"></i> Guest - Join us
-            <b class="caret"></b>
-         </a>
+         
          <ul class="dropdown-menu dropdown-with-icons">
             <li>
               <a href="register.php?">Register <i class="fas fa-user-plus"></i></a>
