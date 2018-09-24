@@ -54,6 +54,9 @@
    <link href="assets/css/material-kit.css?v=1.2.1" rel="stylesheet"/>
    <link href="assets/css/custom.css" rel="stylesheet"/>
    <link href="assets/css/grid.css" rel="stylesheet"/>
+    
+    <!-- font awesome -->
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
    <!-- twitter script -->
    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -97,14 +100,14 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
     		</button>
-        <a class="navbar-brand" href="index.php"> Quotes&Notes</a>
+        <a class="navbar-brand" href="index.php"><i class="fas fa-home"></i> Quotes&Notes </a>
       </div>
 
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
            <li>
            <a href="blog/home.php">
-             <i class="material-icons"></i> blog
+            <i class="fas fa-newspaper"></i>  blog 
            </a>
           </li>
 
@@ -120,7 +123,7 @@
            <li class="dropdown">
              <a href="#pablo" class="profile-photo dropdown-toggle" data-toggle="dropdown">
                <div class="profile-photo-small">
-                 <img src="assets/images/pp.jpg" alt="Circle Image" class="img-circle img-responsive">
+                 <i class="fas fa-user"></i>
                  <b class="caret"></b>
                </div>
              </a>
@@ -130,13 +133,13 @@
                  <?php echo $userDetails['firstname'] ." " . $firstName; ?>
                </li>
                <li>
-                 <a href="profilePage.php?id=<?php echo $userDetails['id'] ?>">Profile</a>
+                 <a href="profilePage.php?id=<?php echo $userDetails['id'] ?>">Profile <i class="fas fa-user-edit"></i></a>
                </li>
                <li>
-                 <a href="uploadQuote.php">Contribute</a>
+                 <a href="uploadQuote.php">Contribute <i class="fab fa-joomla"></i></a>
                </li>
                <li class="divider"></li>
-               <li><a href="logOut.php">Sign out</a></li>
+               <li><a href="logOut.php">Sign out <i class="fas fa-sign-out-alt"></i></a></li>
              </ul>
            </li>
 
@@ -149,13 +152,13 @@
          </a>
          <ul class="dropdown-menu dropdown-with-icons">
             <li>
-              <a href="register.php?">Register</a>
+              <a href="register.php?">Register <i class="fas fa-user-plus"></i></a>
             </li>
            <li>
-            <a href="signIn.php?">Log in</a>
+            <a href="signIn.php?">Log in <i class="fas fa-sign-in-alt"></i> </a>
           </li>
           <li>
-            <a href="uploadQuote.php">Contribute</a>
+            <a href="uploadQuote.php">Contribute <i class="fab fa-joomla"></i></a>
           </li>
         </ul>
       </li>

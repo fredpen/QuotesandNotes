@@ -118,7 +118,7 @@
                       <i class="fa fa-facebook"></i>
                     </a>
                     <button type="button" title="mail quote to a friend" class="btn btn-just-icon btn-round btn-rotate">
-                      <i class="fa fa-behance"></i>
+                      <i class="fas fa-envelope"></i>
                     </button>
                   </div>
                     
