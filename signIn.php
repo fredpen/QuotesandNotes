@@ -50,14 +50,14 @@
 
 						<div class="input-group">
 							<span class="input-group-addon">
-								<i class="material-icons"></i>
+								<i class="fas fa-user-tie"></i>
 							</span>
 							<input type="text" name="loginEmail" autofocus class="form-control" placeholder="Email or Username">
 						</div>
 
 						<div class="input-group">
 							<span class="input-group-addon">
-								<i class="material-icons"></i>
+								<i class="fas fa-lock"></i>
 							</span>
 							<input type="password" name="loginPassword" placeholder="Password..." class="form-control"/>
 						</div>
@@ -65,8 +65,7 @@
 					</div>
 					<div class="footer text-center">
 						<button type="submit" name="loginButton" class="btn btn-primary signInButton">Submit</button>
-               <p><a href="#">Forget password? Reset</a></p>
-               <p><a href="register.php">New here? Register</a></p>
+               <p><a href="#">Forget password? Reset</a>
 					</div>
 				</form>
  					</div>
