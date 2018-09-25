@@ -8,23 +8,32 @@
 
 <!-- sign in  -->
 <div style="background-image: url('assets/images/bg3.jpg'); background-size: cover; background-position: top center; background-color: purple;">
- <div class="container">
-	<div class="row">
-		<div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
 
-      <!-- bootstrap alert to document write unsuccessful log ins -->
-      <div class="col-md-12">
-         <?php
-            if ($loginFailed) {
-               echo "<div class='alert alert-warning alert-dismissible fade show' role='alert'>
-                  <strong>" . $account->getError(Constants::$loginFailed) . "</strong>
-                  <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-                     <span aria-hidden='true'>&times;</span>
-                  </button>
-               </div>";
-            }
-          ?>
+	
+
+ <div class="container-fluid">
+
+ 	<?php if ($loginFailed) { ?>
+                <div class="container-fluid topMargin3">
+			        <div class="alert alert-info">
+			          <div class="alert-icon">
+			            <i class="material-icons">info_outline</i>
+			          </div>
+			          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			            <span aria-hidden="true"><i class="material-icons">clear</i></span>
+			          </button>
+			          <b>Info alert:</b> Receipient mail column can't be left empty
+			        </div>
+			      </div>
+          <?php  }; ?>
+	<div class="row">
+
+		 <div class="col-md-12 topMargin3">
+		 	<p>my name is fred ola</p>
+           
+          
          </div>
+		<div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
 
 			<div class="card card-signup topMargin3">
 

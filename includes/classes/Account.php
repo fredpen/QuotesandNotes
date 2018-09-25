@@ -56,7 +56,7 @@
       // function to ouput error
       public function getError($error){
          if (!in_array($error, $this->errorArray)) {
-            $error = "";
+            // $error = "";
          }return "<div class='errorMessage' $error </div>";
       }
 
