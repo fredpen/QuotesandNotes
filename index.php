@@ -117,9 +117,9 @@
                     <a href="#pablo" class="btn btn-just-icon btn-round btn-facebook">
                       <i class="fa fa-facebook"></i>
                     </a>
-                    <button type="button" title="mail quote to a friend" class="btn btn-just-icon btn-round btn-rotate">
+                    <a type="button" title="mail quote to a friend" class="btn btn-just-icon btn-round btn-rotate">
                       <i class="fas fa-envelope"></i>
-                    </button>
+                    </a>
                   </div>
                     
                 </div>
