@@ -8,29 +8,28 @@
  ?>
 <!-- sign in  -->
 <div class="" style="background-image: url('assets/images/bg0.jpg'); background-size: cover; background-position: top center;">
-		<div class="container-full">
-			<div class="row">
-				<div class="topMargin70"></div>
-					<?php if ($loginFailed) { ?>
-						<div class="notification-bar">
-		                <div class="col-sm-12">
-					        <div class="alert alert-info">
-								<div class="alert-icon">
-									<i class="material-icons">info_outline</i>
-								</div>
-								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-									<span aria-hidden="true">
-										<i class="material-icons">clear</i>
-									</span>
-								</button>
-					          	<b>Info alert:</b> Receipient mail column can't be left empty
-					        </div>
-					    </div>
-					    </div>
-	  				<?php }; ?>
-				
-			</div>
+	<div class="container-full">
+		<div class="row">
+			<div class="topMargin70"></div>
+			<?php if ($loginFailed) { ?>
+				<div class="notification-bar">
+	                <div class="col-sm-12">
+				        <div class="alert alert-info">
+							<div class="alert-icon">
+								<i class="material-icons">info_outline</i>
+							</div>
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								<span aria-hidden="true">
+									<i class="material-icons">clear</i>
+								</span>
+							</button>
+				          	<b>Info alert:</b> Receipient mail column can't be left empty
+				        </div>
+				    </div>
+			    </div>
+			<?php }; ?>
 		</div>
+	</div>
 
 	<div class="container">
 		<div class="row">
@@ -53,7 +52,6 @@
 						</div>
 						<p class="description text-center">Or Be Classical</p>
 						<div class="card-content">
-
 							<div class="input-group">
 								<span class="input-group-addon">
 									<i class="material-icons">face</i>
@@ -74,13 +72,12 @@
 									Subscribe to newsletter
 								</label>
 							</div>
-						</div>
-
-						<div class="footer text-center">
-							<a href="#pablo" type="submit" name="loginButton" class="btn btn-primary btn-simple btn-wd btn-lg">Get Started</a>
-	              			<p>
-	              				<a href="#">Forget password? Reset</a>
-	              			<p>
+							<div class="footer text-center">
+								<button type="submit" name="loginButton" class="btn btn-primary btn-simple btn-wd btn-lg">Get Started</button>
+		              			<p>
+		              				<a href="#">Forget password? Reset</a>
+		              			<p>
+							</div>
 						</div>
 					</form>
 				</div>
@@ -89,4 +86,6 @@
 	</div>
 </div>
 
-<?php require_once 'includes/footer.php'; ?>
+<?php 
+require_once 'includes/footer.php';
+ ?>
