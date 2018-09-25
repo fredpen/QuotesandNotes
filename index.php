@@ -16,22 +16,32 @@
 
     <?php
       if (!$mail) { ?>
-        <div class='alert alert-warning alert-dismissible col-sm-12' role='alert'>
-          <strong>Holy guacamole!</strong> The recepient mail can not be left blank
-          <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-            <span aria-hidden='true'>&times;</span>
+        <div class="container">
+        <div class="alert alert-info">
+          <div class="alert-icon">
+            <i class="material-icons">info_outline</i>
+          </div>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true"><i class="material-icons">clear</i></span>
           </button>
+          <b>Info alert:</b> Receipient mail column can't be left empty
         </div>
+      </div>
     <?php }; ?>
 
   <?php
       if ($mailFail) { ?>
-        <div class='alert alert-warning alert-dismissible col-sm-12' role='alert'>
-          <strong>Sorry !</strong> our server is busy we can't deliver your mail at the moment
-          <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-            <span aria-hidden='true'>&times;</span>
+        <div class="container">
+        <div class="alert alert-info">
+          <div class="alert-icon">
+            <i class="material-icons">info_outline</i>
+          </div>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true"><i class="material-icons">clear</i></span>
           </button>
+          <b>Info alert:</b> our server is busy we can't deliver your mail at the moment
         </div>
+      </div>
     <?php }; ?>
     <!-- <div class="fb-share-button" 
          data-href="localhost/Quotes&Notes/index.php" 

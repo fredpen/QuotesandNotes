@@ -135,6 +135,7 @@ p .like-image{
 #home .genre {
    text-transform: capitalize;
    color: white;
+   font-size: 11px;
 }
 
 .topMargin{
@@ -251,4 +252,12 @@ div .profile-photo-small{
 #home #width100{
   height: 300px;
   width: 100%;
+}
+
+#home .close {
+     right: 0; 
+}
+
+#home .alert-dismissible {
+  right: 0;
 }
