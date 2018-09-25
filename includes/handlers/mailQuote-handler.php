@@ -1,14 +1,16 @@
 <?php 
-
+  
+  $mailFail = false;
 	if (isset($_POST['mailButton'])) {
 
+    
     $receipientMail = $_POST['receipientMail'];
     $additionalMessage = $_POST['additionalMessage'];
     $mailContent = $_POST['mailContent'];
     $mailAuthor = $_POST['mailAuthor'];
 
 	if (empty(strip_tags($receipientMail))) {
-		$receipientMail = 2;
+		  $mail = false;
 		return;
 	} else {
 		//Tell PHPMailer to use SMTP
@@ -42,6 +44,7 @@
       //send the message, check for errors
 	    if (!$mail->send()) {
 	          echo "Mailer Error: " . $mail->ErrorInfo;
+            $mailFail = true;
 	    } else {
 	        echo "Message sent!";
 	    }

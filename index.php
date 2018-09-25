@@ -15,7 +15,7 @@
   <div class="frow">
 
     <?php
-      if ($receipientMail === 2) { ?>
+      if (!$mail) { ?>
         <div class='alert alert-warning alert-dismissible col-sm-12' role='alert'>
           <strong>Holy guacamole!</strong> The recepient mail can not be left blank
           <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
@@ -24,6 +24,15 @@
         </div>
     <?php }; ?>
 
+  <?php
+      if ($mailFail) { ?>
+        <div class='alert alert-warning alert-dismissible col-sm-12' role='alert'>
+          <strong>Sorry !</strong> our server is busy we can't deliver your mail at the moment
+          <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+          </button>
+        </div>
+    <?php }; ?>
     <!-- <div class="fb-share-button" 
          data-href="localhost/Quotes&Notes/index.php" 
          data-layout="button_count" 
