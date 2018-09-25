@@ -146,8 +146,6 @@
 
               <div class="back">
                 <div class="card-content">
-
-                 
                   <form action="index.php" method="POST">
                     <input type="text" class="displayNone" value="<?php echo $row['content'];?>" name="mailContent">
                     <input type="text" class="displayNone" value="<?php echo $row['author'];?>" name="mailAuthor">
@@ -171,11 +169,11 @@
                       
                     </div>
 
-                    <div class="footer text-center">
+                    <div class="text-center">
                       <button type="submit" name="mailButton" class="btn btn-round btn-sm btn-primary text-lowercase">Mail quote
                       </button>
-                      <button type="button" class="btn btn-just-icon btn-sm btn-round btn-rotate">
-                        Back
+                      <button type="button" name="button" class="btn btn-white btn-round btn-rotate">
+                        <i class="material-icons">refresh</i> Back...
                       </button>
                     </div>
 
