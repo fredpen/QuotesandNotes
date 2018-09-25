@@ -178,12 +178,16 @@ p .like-image{
    margin: 42px auto 10px auto;
 }
 
-#home .topMargin2{
+#home .topMargin90{
    margin-top: 90px;
 }
 
 #home .topMargin3{
    margin-top: 160px;
+}
+
+#home .topMargin70{
+  margin-top: 70px;
 }
 
 #home .paddingTop30{
