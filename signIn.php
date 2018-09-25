@@ -2,7 +2,7 @@
    require_once 'includes/header.php';
 
    if (isset($_SESSION['upload'])) {
-      echo "kindly loggged in first";
+      // echo "kindly loggged in first";
    }
    $loginFailed = true;
  ?>
@@ -66,12 +66,12 @@
 								<input type="password" name="loginPassword" placeholder="Password..." class="form-control"/>
 							</div>
 
-							<div class="checkbox">
+							<!-- <div class="checkbox">
 								<label>
 									<input type="checkbox" name="optionsCheckboxes" checked>
 									Subscribe to newsletter
 								</label>
-							</div>
+							</div> -->
 							<div class="footer text-center">
 								<button type="submit" name="loginButton" class="btn btn-primary btn-simple btn-wd btn-lg">Get Started</button>
 		              			<p>
