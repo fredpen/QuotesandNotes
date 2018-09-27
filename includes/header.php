@@ -12,13 +12,17 @@
       require_once 'includes/classes/SMTP.php';
       require_once 'includes/classes/Exception.php';
 
+
+
       $account = new Account($con);
       $quote = new Quote($con);
 
       //Import PHPMailer classes into the global namespace
       use PHPMailer\PHPMailer\PHPMailer;
+
       //Create a new PHPMailer instance
       $mail = new PHPMailer;
+      require_once 'includes/handlers/mailQuote-handler.php';
 
       // fetch a quote for the quote of the moment
       $randQuote = $quote->fetchRandomQuote();

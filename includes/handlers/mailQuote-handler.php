@@ -1,6 +1,8 @@
 <?php 
   
-  $mailFail = false;
+
+  $mailSent = false;
+  $receipientMail = "";
 	if (isset($_POST['mailButton'])) {
 
     
@@ -16,7 +18,7 @@
 		//Tell PHPMailer to use SMTP
       $mail->isSMTP();
       //Enable SMTP debugging
-      $mail->SMTPDebug = 2;
+      $mail->SMTPDebug = 0;
       //Set the hostname of the mail server
       $mail->Host = 'smtp.gmail.com';
       $mail->Port = 587;
@@ -44,11 +46,15 @@
       //send the message, check for errors
 	    if (!$mail->send()) {
 	          echo "Mailer Error: " . $mail->ErrorInfo;
-            $mailFail = true;
+            $mailSent = "fail";
 	    } else {
+          $mailSent = true;
 	        echo "Message sent!";
 	    }
 	}  
+
+  // storing the email of users for subscription purposes
+  $quote->pushEmail($receipientMail);
 
 
 }

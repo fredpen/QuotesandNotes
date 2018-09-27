@@ -24,7 +24,7 @@
     <div class="row">
       <div class="col-md-5 col-md-offset-3  topMargin">
         <div class="text-center">
-          <h3 class="title">Quote of the day</h3>
+          <h3 class="title">Quote of the Moment</h3>
           <p class="description">
             <div id="card" class="card card-blog">
                <div id="card-content" class="card-content" style="height: unset;"> 

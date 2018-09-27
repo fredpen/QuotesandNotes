@@ -99,7 +99,8 @@
 
          
           <li>
-            <a href="authorsPage">Authors</a>
+            <a href="authorsPage">
+              <i class="fas fa-book-reader"></i> Authors</a>
           </li>
 
           <li>

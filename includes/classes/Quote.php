@@ -247,6 +247,13 @@
          return $query;
          // return the result of the query for the quote of the day
       }
+
+      // saving users email for subscription purposes
+      public function pushEmail($receipientMail)
+      {
+         $sql = "INSERT INTO subscriptionEmail VALUES('', '$receipientMail')";
+         $query = mysqli_query($this->con, $sql);
+      }
    
 
 

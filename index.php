@@ -1,12 +1,6 @@
 <?php
-
-  $receipientMail = "";
    require_once 'includes/header.php';
    require_once 'includes/indexLeftContainer.php';
-
-   require_once 'includes/handlers/mailQuote-handler.php';
-
-
 ?>
    
 <!-- main section of the main container -->
@@ -28,11 +22,23 @@
       </div>
     <?php }; ?>
 
-  <?php
-      if ($mailFail) { ?>
+    <?php
+      if ($mailSent) { ?>
         <div class="container">
-        <div class="alert alert-info">
+         <div class="alert alert-success">
           <div class="alert-icon">
+            <i class="material-icons">check</i>
+          </div>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true"><i class="material-icons">clear</i></span>
+          </button>
+          <b>Success:</b> quote has been sent to <?php echo $receipientMail; ?>
+        </div>
+      </div>
+    <?php } elseif ($mailSent == "fail") { ?>
+        <div class="container">
+          <div class="alert alert-info">
+            <div class="alert-icon">
             <i class="material-icons">info_outline</i>
           </div>
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
