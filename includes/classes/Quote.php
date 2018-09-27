@@ -251,8 +251,17 @@
       // saving users email for subscription purposes
       public function pushEmail($receipientMail)
       {
-         $sql = "INSERT INTO subscriptionEmail VALUES('', '$receipientMail')";
+         $sql = "SELECT email FROM subscriptionEmail";
          $query = mysqli_query($this->con, $sql);
+         $query = mysqli_fetch_array($query);
+         // check if the users emaili is not already in the database
+         while ($row = ($query['email'])) {
+            if ($row != $receipientMail) {
+               $sql ="INSERT INTO subscriptionEmail VALUES('', '$receipientMail')";
+               $query = mysqli_query($this->con, $sql);
+            }
+            return;
+         }
       }
    
 

@@ -3,7 +3,7 @@
 	<div class="container">
   	<div class="row">
   		<div class="col-md-10 col-md-offset-1">
-  		  <div class="card card-signup topMargin2">
+  		  <div class="card card-signup topMargin65">
           <h2 class="card-title text-center pillButton">
              <ul class="nav nav-pills nav-pills-rose text-center">
               <li class="active"><a href="register.php">Register</a></li>
@@ -29,27 +29,27 @@
             </div> -->
 
         		<div class="info info-horizontal">
-                <div class="icon icon-primary">
+              <!--   <div class="icon icon-primary">
                   <i class="material-icons">Quotes</i>
-                </div>
+                </div> -->
                 <div class="description">
                   <h4 class="info-title">Exercpts to get you through difficult days</h4>
                 </div>
             </div>
 
             <div class="info info-horizontal">
-        				<div class="icon icon-primary">
+        				<!-- <div class="icon icon-primary">
         					<i class="material-icons">Quotes</i>
-        				</div>
+        				</div> -->
         				<div class="description">
         					<h4 class="info-title">Exercpts to get you through difficult days</h4>
         				</div>
         		</div>
 
         		<div class="info info-horizontal">
-        			<div class="icon icon-info">
+        			<!-- <div class="icon icon-info">
         				<i class="material-icons">Notes</i>
-        			</div>
+        			</div> -->
         			<div class="description">
         				<h4 class="info-title">Words and sayings from books, quotes and poems readily available to you</h4>
         			</div>

@@ -33,6 +33,8 @@
       $gender = $_POST['gender'];
       echo $gender;
 
+      // save users email to the subsription table 
+      $quote->pushEmail($email);
 
       $registerUser = $account->register($firstName, $lastName, $username, $email, $confirmEmail, $password, $confirmPassword, $gender);
 
