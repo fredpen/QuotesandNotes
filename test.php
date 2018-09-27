@@ -14,7 +14,7 @@
 						</button>
 			          	<b>Info alert:</b> Receipient mail column can't be left empty
 			        </div>
-			    </div>
+				</div>
   			<?php }; ?>
 		</div>
 	</div>

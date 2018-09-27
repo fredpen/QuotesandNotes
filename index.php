@@ -6,7 +6,6 @@
 
    require_once 'includes/handlers/mailQuote-handler.php';
 
-  
 
 ?>
    
