@@ -40,7 +40,7 @@
 
   <div class="frow">
   <!-- left section of the main container -->
-    <div class="left-container topMargin">
+    <div class="left-container topMargin65">
 <!-- list of authors the user have interacted with  -->
       <ul class="list-group">
         <li class="list-group-item active">Authors you have shown interest in</li>
@@ -48,14 +48,14 @@
         <?php 
         foreach ($authorArray as $key => $value) { ;?>
         <li class="list-group-item">
-          <a href="author.php?author=<?php echo $quote->authorId($value);?>"><?php echo $value;?>
+          <a href="author.pwwwhp?author=<?php echo $quote->authorId($value);?>"><?php echo $value;?>
          </a>
       	</li>
         <?php }; ?>
       </ul>  
 
 
-    <div class="topMargin21">
+    <div class="topMargin65">
       <ul class="list-group">
         <li class="list-group-item active">Genres you have shown interest in</li>
         <!-- loop through authors that the user has liked  -->
@@ -71,7 +71,7 @@
   </div> <!--left container-->
 
 
-<div class="main-container topMargin">
+<div class="main-container topMargin65">
   <div class="frow">
 
     <!-- the user bio datas -->
@@ -92,7 +92,7 @@
         ?>
          <div class="card">
           <div class="card-content">
-            <h4 class="card-title">
+            <h4 class="text-cap card-title">
               <?php echo $nameString; ?>
             </h4>
           </div>

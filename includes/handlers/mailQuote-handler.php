@@ -14,6 +14,7 @@
 	if (empty(strip_tags($receipientMail))) {
 		  $mail = false;
 		return;
+
 	} else {
 		//Tell PHPMailer to use SMTP
       $mail->isSMTP();
@@ -49,12 +50,12 @@
             $mailSent = "fail";
 	    } else {
           $mailSent = true;
-	        echo "Message sent!";
 	    }
 	}  
 
   // storing the email of users for subscription purposes
   $quote->pushEmail($receipientMail);
+  return;
 
 
 }

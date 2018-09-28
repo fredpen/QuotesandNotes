@@ -56,8 +56,8 @@
       // function to ouput error
       public function getError($error){
          if (!in_array($error, $this->errorArray)) {
-            // $error = "";
-         }return "<div class='errorMessage' $error </div>";
+            $error = "";
+         }return "<div class='errorMessage'>". $error . "</div>";
       }
 
       // insert user details into the database

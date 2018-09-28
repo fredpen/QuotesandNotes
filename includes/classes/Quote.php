@@ -188,7 +188,7 @@
                   INNER JOIN genre2 ON quoteLovers.genre2=genre2.id
                   INNER JOIN genre3 ON quoteLovers.genre3=genre3.id
                   INNER JOIN author ON quoteLovers.author=author.id
-                  WHERE quoteLovers.user='$userId'";
+               WHERE quoteLovers.user='$userId'";
 
          $query = mysqli_query($this->con, $sql);
          return $query;                      

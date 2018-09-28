@@ -10,17 +10,17 @@
     <?php
       if (!$mail) { ?>
         <div class="container">
-        <div class="alert alert-info">
-          <div class="alert-icon">
-            <i class="material-icons">info_outline</i>
+          <div class="alert alert-info">
+            <div class="alert-icon">
+              <i class="material-icons">info_outline</i>
+            </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true"><i class="material-icons">clear</i></span>
+            </button>
+            <b>Info alert:</b> Receipient mail column can't be left empty
           </div>
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true"><i class="material-icons">clear</i></span>
-          </button>
-          <b>Info alert:</b> Receipient mail column can't be left empty
         </div>
-      </div>
-    <?php }; ?>
+      <?php }; ?>
 
     <?php
       if ($mailSent) { ?>
@@ -124,7 +124,7 @@
                   <div class="pull-right col-xs-12 text-right">
 
                     <?php if ($userId == 1 || $userId == 3) { ?>
-                      <a class="label label-info" href="edit.php?id=<?php echo $quoteId ?>">Edit
+                      <a data-toggle="tooltip" data-placement="top" title="Edit quote" data-container="body" class="label label-info" href="edit.php?id=<?php echo $quoteId ?>">Edit
                       </a>
                     <?php } ?>
                    
@@ -138,10 +138,10 @@
                       dara-size="large"
                       data-related="twitterapi,twitter">
                     </a>
-                    <a href="#pablo" class="btn btn-just-icon btn-round btn-facebook">
+                    <!-- <a href="#pablo" class="btn btn-just-icon btn-round btn-facebook">
                       <i class="fa fa-facebook"></i>
-                    </a>
-                    <a type="button" title="mail quote to a friend" class="btn btn-just-icon btn-round btn-rotate">
+                    </a> -->
+                    <a type="button" class="btn btn-just-icon btn-round btn-rotate" data-toggle="tooltip" data-placement="top" title="mail quote to a friend" data-container="body">
                       <i class="fas fa-envelope"></i>
                     </a>
                   </div>
