@@ -135,7 +135,6 @@
                       data-hashtags="<?php echo $row['genre1']. "," . $row['genre2']. "," . $row['genre3'] ?>"
                       data-via="freddgreat"
                       data-show-count="true"
-                      dara-size="large"
                       data-related="twitterapi,twitter">
                     </a>
                     <!-- <a href="#pablo" class="btn btn-just-icon btn-round btn-facebook">
