@@ -22,7 +22,7 @@
  <div class="subscribe-line subscribe-line-image" style="background-image: url('assets/images/bg7.jpg');">
   <div class="container">
     <div class="row">
-      <div class="col-md-5 col-md-offset-3  topMargin">
+      <div class="col-md-5 col-md-offset-3  topMargin65">
         <div class="text-center">
           <h3 class="title">Quote of the Moment</h3>
           <p class="description">
