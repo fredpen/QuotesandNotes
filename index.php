@@ -1,6 +1,7 @@
 <?php
    require_once 'includes/header.php';
    require_once 'includes/indexLeftContainer.php';
+   $notLoggedIn = false;
 ?>
    
 <!-- main section of the main container -->
@@ -18,6 +19,21 @@
               <span aria-hidden="true"><i class="material-icons">clear</i></span>
             </button>
             <b>Info alert:</b> Receipient mail column can't be left empty
+          </div>
+        </div>
+      <?php }; ?>
+
+      <?php
+      if ($notLoggedIn) { ?>
+        <div class="container">
+          <div class="alert alert-info">
+            <div class="alert-icon">
+              <i class="material-icons">info_outline</i>
+            </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true"><i class="material-icons">clear</i></span>
+            </button>
+            <b>Info alert:</b> You need to log in to that. You can do that <a href="signin.php">here</a>
           </div>
         </div>
       <?php }; ?>
@@ -190,7 +206,7 @@
           </div>
         </div>
 
-        <!-- the javascript the monitor the ajax calll and take full charge of the page -->
+        <!-- the javascript the monitor the ajax call and take full charge of the page -->
         <script type="text/javascript">
           $(document).ready(function(){
             $(".<?php echo $row['id']?>").click(function(){
@@ -219,7 +235,8 @@
                   }
                 });
               } else {
-               console.log("you've liked this quote before");
+                <?php $notLoggedIn = true; ?>
+               console.log("you need to log in to do that");
               }
             })
           })
