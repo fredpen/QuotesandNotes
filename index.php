@@ -1,7 +1,7 @@
 <?php
    require_once 'includes/header.php';
    require_once 'includes/indexLeftContainer.php';
-   $notLoggedIn = false;
+   
 ?>
    
 <!-- main section of the main container -->
@@ -23,8 +23,9 @@
         </div>
       <?php }; ?>
 
-      <?php
-      if ($notLoggedIn) { ?>
+      <script>
+      if (notLoggedIn) { 
+        console.log("jidjwij")
         <div class="container">
           <div class="alert alert-info">
             <div class="alert-icon">
@@ -36,7 +37,7 @@
             <b>Info alert:</b> You need to log in to that. You can do that <a href="signin.php">here</a>
           </div>
         </div>
-      <?php }; ?>
+      </script>
 
     <?php
       if ($mailSent) { ?>
@@ -235,7 +236,7 @@
                   }
                 });
               } else {
-                <?php $notLoggedIn = true; ?>
+                var notLoggedin = true;
                console.log("you need to log in to do that");
               }
             })
