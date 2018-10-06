@@ -18,7 +18,7 @@
 <div class="fcontainer">
   <div class="frow">
    <!-- left section of the main container -->
-    <div class="left-container  topMargin">
+    <div class="left-container  topMargin65">
       <ul class="list-group">
         <li class="list-group-item active"> Similar genres </li>
         <?php while ($row = mysqli_fetch_array($genreAll)) { 
@@ -31,9 +31,8 @@
       </ul>
     </div> <!--left container-->
 
-  <div class="main-container topMargin">
+  <div class="main-container topMargin65">
     <div class="frow">
-
       <!-- a small card that holds the image of the author  -->
       <div class="col-sm-12">
        <div class="media-area">
@@ -125,8 +124,11 @@
 
                     <!-- share and edit buttons -->
                   <div class="pull-right col-xs-12 text-right">
-                    <a class="label label-info" href="edit.php?id=<?php echo $quoteId ?>">Edit
-                    </a>
+                     <?php if ($admin) {?>
+                      <a data-toggle="tooltip" data-placement="top" title="Edit quote" data-container="body" class="label label-info" href="edit.php?id=<?php echo $quoteId ?>">Edit
+                      </a>
+                    <?php }?>
+                    
                     <a class="twitter-share-button"
                       href="https://twitter.com/share"
                       data-text="<?php echo $row['content'] ?>"

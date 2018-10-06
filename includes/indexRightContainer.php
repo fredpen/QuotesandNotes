@@ -1,6 +1,6 @@
 <?php $genreArray = $quote->fetchGenre("all"); ?>
 
-<div class="right-container topPadding30">
+<div class="right-container topMargin65">
     <ul class="list-group">
 		<li class="list-group-item active">Top Genre</li>
 		<!-- get list of genre from the database -->

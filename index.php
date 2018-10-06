@@ -1,15 +1,14 @@
 <?php
-   require_once 'includes/header.php';
-   require_once 'includes/indexLeftContainer.php';
-   
+require_once 'includes/header.php';
+require_once 'includes/indexLeftContainer.php';
+
 ?>
-   
+
 <!-- main section of the main container -->
 <div class="main-container">
   <div class="frow">
-
     <?php
-      if (!$mail) { ?>
+if (!$mail) {?>
         <div class="container">
           <div class="alert alert-info">
             <div class="alert-icon">
@@ -21,26 +20,10 @@
             <b>Info alert:</b> Receipient mail column can't be left empty
           </div>
         </div>
-      <?php }; ?>
-
-      <script>
-      if (notLoggedIn) { 
-        console.log("jidjwij")
-        <div class="container">
-          <div class="alert alert-info">
-            <div class="alert-icon">
-              <i class="material-icons">info_outline</i>
-            </div>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true"><i class="material-icons">clear</i></span>
-            </button>
-            <b>Info alert:</b> You need to log in to that. You can do that <a href="signin.php">here</a>
-          </div>
-        </div>
-      </script>
-
-    <?php
-      if ($mailSent) { ?>
+      <?php };?>
+ 
+     <?php
+if ($mailSent) {?>
         <div class="container">
          <div class="alert alert-success">
           <div class="alert-icon">
@@ -52,7 +35,7 @@
           <b>Success:</b> quote has been sent to <?php echo $receipientMail; ?>
         </div>
       </div>
-    <?php } elseif ($mailSent == "fail") { ?>
+    <?php } else {?>
         <div class="container">
           <div class="alert alert-info">
             <div class="alert-icon">
@@ -64,18 +47,18 @@
           <b>Info alert:</b> our server is busy we can't deliver your mail at the moment
         </div>
       </div>
-    <?php }; ?>
-    <!-- <div class="fb-share-button" 
-         data-href="localhost/Quotes&Notes/index.php" 
-         data-layout="button_count" 
-         data-size="small" 
+    <?php };?>
+    <!-- <div class="fb-share-button"
+         data-href="localhost/Quotes&Notes/index.php"
+         data-layout="button_count"
+         data-size="small"
          data-mobile-iframe="false">
          <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%2FQuotes%26Notes%2Findex.php&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>
     </div> -->
-  
+
     <?php
-      while ($row = mysqli_fetch_array($quoteArray)) {
-        $quoteId = $row['id'];?>
+    while ($row = mysqli_fetch_array($quoteArray)) {
+	$quoteId = $row['id'];?>
 
         <div class="col-sm-6">
           <div class="rotating-card-container manual-flip">
@@ -90,45 +73,46 @@
                   <p class="card-description">
                     <div class="genreList">
                       <span class="label label-primary">
-                        <a class="genre" href='genre.php?genre=<?php echo $row['genre1']?>'><?php echo $row['genre1']; ?></a>
+                        <a class="genre" href='genre.php?genre=<?php echo $row['genre1'] ?>'><?php echo $row['genre1']; ?></a>
                       </span>
                       <span class="label label-info">
-                        <a class="genre" href='genre.php?genre=<?php echo $row['genre2']?>'><?php echo $row['genre2']; ?></a>
+                        <a class="genre" href='genre.php?genre=<?php echo $row['genre2'] ?>'><?php echo $row['genre2']; ?></a>
                       </span>
                       <span class="label label-default">
-                        <a class="genre" href='genre.php?genre=<?php echo $row['genre3']?>'><?php echo $row['genre3']; ?></a>
+                        <a class="genre" href='genre.php?genre=<?php echo $row['genre3'] ?>'><?php echo $row['genre3']; ?></a>
                       </span>
                     </div>
 
                     <footer class="quote-footer">
                       <?php
-                      // check if a user is loggedin and if the user has like the quote before
-                        $numberOfQuoteLoveByUser = $quote->quoteLoveCheck($quoteId, $userId);
-                        $numberOfQuoteLover =$quote->numberOfQuoteLover($quoteId);
+// check if a user is loggedin and if the user has like the quote before
+	$numberOfQuoteLoveByUser = $quote->quoteLoveCheck($quoteId, $userId);
+	$numberOfQuoteLover = $quote->numberOfQuoteLover($quoteId);
 
-                        if ($userId && $numberOfQuoteLoveByUser !== 0) {
-                          $string = ($numberOfQuoteLover == 1 ? "you liked this quote" : "you and ". ($numberOfQuoteLover - 1) ."  people liked this quote"); ?>
+	if ($userId && $numberOfQuoteLoveByUser !== 0) {
+		$string = ($numberOfQuoteLover == 1 ? "you liked this quote" : "you and " . ($numberOfQuoteLover - 1) . "  people liked this quote");?>
 
                           <p>
-                            <img class="<?php echo $row['id'];?> like-image" src="assets/images/loveRed.png" alt="like button">
+                            <img class="<?php echo $row['id']; ?> like-image" src="assets/images/loveRed.png" alt="like button">
                             <span class="<?php echo $row['id'] ?>quoteText"> <?php echo $string; ?>
                             </span>
                           </p>
                         <?php } else {
-                          $string = ($numberOfQuoteLover == 1 ? "one person liked this quote" : $numberOfQuoteLover. "  people liked this quote")
-                          ?>
+		$string = ($numberOfQuoteLover == 1 ? "one person liked this quote" : $numberOfQuoteLover . "  people liked this quote")
+		?>
 
                           <p>
-                            <img class="<?php echo $row['id'];?> like-image" src="assets/images/loveBlack.png" alt="like button">
+                            <img class="<?php echo $row['id']; ?> like-image" src="assets/images/loveBlack.png" alt="like button">
                             <span class="<?php echo $row['id'] ?>quoteText"><?php echo $string; ?>
                             </span>
                           </p>
-                        <?php }; ?>
+                        <?php }
+	;?>
                     </footer>
                     <!-- quotes author and image -->
                     <div class="footnote">
                       <div class="author">
-                        <a href="author.php?author=<?php echo $quote->authorId($row['author']);?>">
+                        <a href="author.php?author=<?php echo $quote->authorId($row['author']); ?>">
                           <img src="assets/images/author/<?php echo $row['img'] ?>" alt="<?php echo $row['author'] ?>" class="avatar img-raised">
                           <span><?php echo $row['author']; ?></span>
                         </a>
@@ -140,16 +124,16 @@
                     <!-- share and edit buttons -->
                   <div class="pull-right col-xs-12 text-right">
 
-                    <?php if ($userId == 1 || $userId == 3) { ?>
+                    <?php if ($admin) {?>
                       <a data-toggle="tooltip" data-placement="top" title="Edit quote" data-container="body" class="label label-info" href="edit.php?id=<?php echo $quoteId ?>">Edit
                       </a>
-                    <?php } ?>
-                   
+                    <?php }?>
+
                     <a class="twitter-share-button"
                       href="https://twitter.com/share"
                       data-text="<?php echo $row['content'] ?>"
                       data-url="https://QuotesandNotes.com"
-                      data-hashtags="<?php echo $row['genre1']. "," . $row['genre2']. "," . $row['genre3'] ?>"
+                      data-hashtags="<?php echo $row['genre1'] . "," . $row['genre2'] . "," . $row['genre3'] ?>"
                       data-via="freddgreat"
                       data-show-count="true"
                       data-related="twitterapi,twitter">
@@ -161,15 +145,15 @@
                       <i class="fas fa-envelope"></i>
                     </a>
                   </div>
-                    
+
                 </div>
               </div>
 
               <div class="back">
                 <div class="card-content">
                   <form action="index.php" method="POST">
-                    <input type="text" class="displayNone" value="<?php echo $row['content'];?>" name="mailContent">
-                    <input type="text" class="displayNone" value="<?php echo $row['author'];?>" name="mailAuthor">
+                    <input type="text" class="displayNone" value="<?php echo $row['content']; ?>" name="mailContent">
+                    <input type="text" class="displayNone" value="<?php echo $row['author']; ?>" name="mailAuthor">
 
                     <p class="card-title paddingTop30"><?php echo $row['content']; ?></p>
 
@@ -187,7 +171,7 @@
                         </span>
                         <input type="text" name="receipientMail" class="form-control" placeholder="Enter receiver's Mail">
                       </div>
-                      
+
                     </div>
 
                     <div class="text-center">
@@ -199,8 +183,8 @@
                     </div>
 
                   </form>
-                 
-                  
+
+
                 </div>
               </div>
             </div>
@@ -210,7 +194,7 @@
         <!-- the javascript the monitor the ajax call and take full charge of the page -->
         <script type="text/javascript">
           $(document).ready(function(){
-            $(".<?php echo $row['id']?>").click(function(){
+            $(".<?php echo $row['id'] ?>").click(function(){
             // set the quote id, genres, author and user id into javascript
               quoteId = '<?php echo $row['id']; ?>';
               genre1 = '<?php echo $row['genre1']; ?>';
@@ -225,8 +209,8 @@
                   if (data === "success") {
                     console.log(data);
                     // change the image to red and increase the number of likes
-                    $(".<?php echo $row['id']?>").attr("src", "assets/images/loveRed.png");
-                    $(".span<?php echo $row['id'];?>").text("<?php echo $numberOfQuoteLover + 1; ?>");
+                    $(".<?php echo $row['id'] ?>").attr("src", "assets/images/loveRed.png");
+                    $(".span<?php echo $row['id']; ?>").text("<?php echo $numberOfQuoteLover + 1; ?>");
                     $(".<?php echo $row['id'] ?>quoteText").text("you and <?php echo $numberOfQuoteLover; ?>  people liked this quote ");
 
                   }else if (data === "failure") {
@@ -242,14 +226,15 @@
             })
           })
         </script>
-      <?php }; 
-    ?>
+      <?php }
+;
+?>
 
   </div>
 </div>
 
 <!-- right section of the main container -->
 <?php
-  require_once 'includes/indexRightContainer.php';
-  require_once 'includes/footer.php'; 
+require_once 'includes/indexRightContainer.php';
+require_once 'includes/footer.php';
 ?>

@@ -3,37 +3,36 @@
 require_once 'includes/header.php';
 $userId = "";
 if (isset($_GET['id'])) {
-  $userId = $_GET['id'];
-} else{
-  echo "user not recognised";
+	$userId = $_GET['id'];
+} else {
+	echo "user not recognised";
 }
 
-   //query all the user quotes interaction on the site 
-$profileDetails = $quote->fetchProfileDetails($userId);  
+//query all the user quotes interaction on the site
+$profileDetails = $quote->fetchProfileDetails($userId);
 $profileInfo = $quote->fetchProfileDetails($userId);
-  //query the total number of quote that are loved by the user
+//query the total number of quote that are loved by the user
 $numOfQuoteLoveByUser = $quote->numberOfQuoteLoveByUser($userId);
-  // query the user biodata submitted during registration from the database
+// query the user biodata submitted during registration from the database
 $userBiodata = $quote->fetchUserDetails($userId);
-  // create an empty array for both the author and genre to push the vakues too fron the db
+// create an empty array for both the author and genre to push the vakues too fron the db
 $genreArray = array();
 $authorArray = array();
-	// only push genre or authors that are not in the array, into the newwly created array
-while ($row = mysqli_fetch_array($profileDetails)) { 
- if (!in_array($row['genre1'] , $genreArray)) {
-  array_push($genreArray, $row['genre1']);
-}
-if (!in_array($row['genre2'] , $genreArray)) {
-  array_push($genreArray, $row['genre2']);
-}
-if (!in_array($row['genre3'] , $genreArray)) {
-  array_push($genreArray, $row['genre3']);
+// only push genre or authors that are not in the array, into the newwly created array
+while ($row = mysqli_fetch_array($profileDetails)) {
+	if (!in_array($row['genre1'], $genreArray)) {
+		array_push($genreArray, $row['genre1']);
+	}
+	if (!in_array($row['genre2'], $genreArray)) {
+		array_push($genreArray, $row['genre2']);
+	}
+	if (!in_array($row['genre3'], $genreArray)) {
+		array_push($genreArray, $row['genre3']);
 
-}if (!in_array($row['author'] , $authorArray)) {
-  array_push($authorArray, $row['author']);
+	}if (!in_array($row['author'], $authorArray)) {
+		array_push($authorArray, $row['author']);
+	}
 }
-
-}	
 ?>
 
 <div class="fcontainer">
@@ -44,27 +43,28 @@ if (!in_array($row['genre3'] , $genreArray)) {
       <ul class="list-group">
         <li class="list-group-item active">Authors you have shown interest in</li>
         <!-- loop through authors that the user has liked  -->
-        <?php 
-        foreach ($authorArray as $key => $value) { ;?>
+        <?php
+foreach ($authorArray as $key => $value) {;?>
           <li class="list-group-item">
-            <a href="author.pwwwhp?author=<?php echo $quote->authorId($value);?>"><?php echo $value;?>
+            <a href="author.php?author=<?php echo $quote->authorId($value); ?>"><?php echo $value; ?>
          </a>
       </li>
-   <?php }; ?>
-</ul>  
+   <?php }
+;?>
+</ul>
 
 
 <div class="topMargin65">
    <ul class="list-group">
      <li class="list-group-item active">Genres you have shown interest in</li>
      <!-- loop through authors that the user has liked  -->
-     <?php 
-     foreach ($genreArray as $key => $value) { ;?>
+     <?php
+foreach ($genreArray as $key => $value) {;?>
        <li class="list-group-item">
-         <a href="author.php?author=<?php echo $quote->genreId($value);?>"><?php echo $value;?>
+         <a href="author.php?author=<?php echo $quote->genreId($value); ?>"><?php echo $value; ?>
       </a>
-   </li>      
-<?php } ?>
+   </li>
+<?php }?>
 </ul>
 </div>
 </div> <!--left container-->
@@ -83,12 +83,12 @@ if (!in_array($row['genre3'] , $genreArray)) {
      </ul>
      <div class="tab-content tab-space">
         <div class="tab-pane active" id="pill1">
-          <?php 
-        // string conjured from the user bio data
-          $nameString = $userBiodata['lastname']. " also known as ". $userBiodata['username'] ." joined us on the " .$userBiodata['dt']. 
-          "<br> He has liked " .$numOfQuoteLoveByUser. " quotes
+          <?php
+// string conjured from the user bio data
+$nameString = $userBiodata['lastname'] . " also known as " . $userBiodata['username'] . " joined us on the " . $userBiodata['dt'] .
+	"<br> He has liked " . $numOfQuoteLoveByUser . " quotes
           <br> He has interacted with 3 authors and 7 genres of quotes";
-          ?>
+?>
           <div class="card">
             <div class="card-content">
               <h4 class="text-cap card-title">
@@ -98,14 +98,14 @@ if (!in_array($row['genre3'] , $genreArray)) {
        </div>
     </div>
     <div class="tab-pane" id="pill2">
-      <?php 
-        // more details conjured from the user bio data
-      $profileString = "Full Name: ".$userBiodata['firstname']." ".$userBiodata['lastname'].
-      "<br>    Email: " .$userBiodata['email']. "<br>
-      Username: " .$userBiodata['username']. "<br>
-      Gender: " .$userBiodata['gender'];
+      <?php
+// more details conjured from the user bio data
+$profileString = "Full Name: " . $userBiodata['firstname'] . " " . $userBiodata['lastname'] .
+	"<br>    Email: " . $userBiodata['email'] . "<br>
+      Username: " . $userBiodata['username'] . "<br>
+      Gender: " . $userBiodata['gender'];
 
-      ?>
+?>
       <div class="card">
        <div class="card-content">
          <h4 class="card-title">
@@ -115,11 +115,11 @@ if (!in_array($row['genre3'] , $genreArray)) {
   </div>
 </div>
 <div class="tab-pane" id="pill3">
-  <?php 
-        // more details conjured from the user bio data
-  $socialString = $userBiodata['lastname']. " has shared 20 quotes on facebook and 30 quotes on twitter";
+  <?php
+// more details conjured from the user bio data
+$socialString = $userBiodata['lastname'] . " has shared 20 quotes on facebook and 30 quotes on twitter";
 
-  ?>
+?>
   <div class="card">
     <div class="card-content">
       <h4 class="card-title">
@@ -137,8 +137,8 @@ if (!in_array($row['genre3'] , $genreArray)) {
 <!-- loop through the quotes find all where author = author id -->
 <?php
 while ($row = mysqli_fetch_array($profileInfo)) {
-   $quoteId = $row['id'];  
-   ?>
+	$quoteId = $row['id'];
+	?>
    <div class="col-sm-6">
      <div class="card card-blog">
       <div id="card-content" class="card-content">
@@ -147,45 +147,46 @@ while ($row = mysqli_fetch_array($profileInfo)) {
 
        <div class="genreList">
          <span class="label label-primary">
-           <a class="genre" href='genre.php?genre=<?php echo $row['genre1']?>'><?php echo $row['genre1']; ?></a>
+           <a class="genre" href='genre.php?genre=<?php echo $row['genre1'] ?>'><?php echo $row['genre1']; ?></a>
         </span>
         <span class="label label-info">
-          <a class="genre" href='genre.php?genre=<?php echo $row['genre2']?>'><?php echo $row['genre2']; ?></a>
+          <a class="genre" href='genre.php?genre=<?php echo $row['genre2'] ?>'><?php echo $row['genre2']; ?></a>
        </span>
        <span class="label label-default">
-         <a class="genre" href='genre.php?genre=<?php echo $row['genre3']?>'><?php echo $row['genre3']; ?></a>
+         <a class="genre" href='genre.php?genre=<?php echo $row['genre3'] ?>'><?php echo $row['genre3']; ?></a>
       </span>
    </div>
 
    <footer class="quote-footer">
     <?php
-     // check if a user is loggedin and if the user has like the quote before
-    $numberOfQuoteLoveByUser = $quote->quoteLoveCheck($quoteId, $userId);
-    $numberOfQuoteLover =$quote->numberOfQuoteLover($quoteId);
+// check if a user is loggedin and if the user has like the quote before
+	$numberOfQuoteLoveByUser = $quote->quoteLoveCheck($quoteId, $userId);
+	$numberOfQuoteLover = $quote->numberOfQuoteLover($quoteId);
 
-    if ($userId && $numberOfQuoteLoveByUser !== 0) {
-     $string = ($numberOfQuoteLover == 1 ? "you liked this quote" : "you and ". ($numberOfQuoteLover - 1) ."  people liked this quote"); ?>
+	if ($userId && $numberOfQuoteLoveByUser !== 0) {
+		$string = ($numberOfQuoteLover == 1 ? "you liked this quote" : "you and " . ($numberOfQuoteLover - 1) . "  people liked this quote");?>
 
      <p>
-      <img class="<?php echo $row['id'];?> like-image" src="assets/images/loveRed.png" alt="love button">
+      <img class="<?php echo $row['id']; ?> like-image" src="assets/images/loveRed.png" alt="love button">
       <span class="<?php echo $row['id'] ?>quoteText"> <?php echo $string; ?></span>
    </p>
 
 <?php } else {
-   $string = ($numberOfQuoteLover == 1 ? "one person liked this quote" : $numberOfQuoteLover. "  people liked this quote")
-   ?>
+		$string = ($numberOfQuoteLover == 1 ? "one person liked this quote" : $numberOfQuoteLover . "  people liked this quote")
+		?>
 
    <p>
-    <img class="<?php echo $row['id'];?> like-image" src="assets/images/loveBlack.png" alt="love button">
+    <img class="<?php echo $row['id']; ?> like-image" src="assets/images/loveBlack.png" alt="love button">
     <span class="<?php echo $row['id'] ?>quoteText"><?php echo $string; ?></span>
  </p>
 
 </footer>
-<?php }; ?>
+<?php }
+	;?>
 
 <div class="footer">
    <div class="author">
-     <a href="author.php?author=<?php echo $row['author'];?>">
+     <a href="author.php?author=<?php echo $row['author']; ?>">
       <img src="assets/images/author/<?php echo $row['img'] ?>" alt="image of <?php echo $row['author'] ?>" class="avatar img-raised">
       <span><?php echo $row['author']; ?></span>
    </a>
@@ -196,7 +197,7 @@ while ($row = mysqli_fetch_array($profileInfo)) {
  href="https://twitter.com/share"
  data-text="<?php echo $row['content'] ?>"
  data-url="https://QuotesandNotes.com"
- data-hashtags="<?php echo $row['genre1']. "," . $row['genre2']. "," . $row['genre3'] ?>"
+ data-hashtags="<?php echo $row['genre1'] . "," . $row['genre2'] . "," . $row['genre3'] ?>"
  data-via="freddgreat"
  data-show-count="true"
  data-related="freddgreat,QuotesandNotes">
@@ -220,7 +221,7 @@ while ($row = mysqli_fetch_array($profileInfo)) {
 
   $(document).ready(function(){
 
-   $(".<?php echo $row['id']?>").click(function(){
+   $(".<?php echo $row['id'] ?>").click(function(){
 
         // set the quote id and user id into javascript
         quoteId = <?php echo $row['id']; ?>
@@ -232,8 +233,8 @@ while ($row = mysqli_fetch_array($profileInfo)) {
             if (data === "success") {
              console.log(data);
                  // change the image to red and increase the number of likes
-                 $(".<?php echo $row['id']?>").attr("src", "assets/images/loveRed.png");
-                 $(".span<?php echo $row['id'];?>").text("<?php echo $numberOfQuoteLover + 1; ?>");
+                 $(".<?php echo $row['id'] ?>").attr("src", "assets/images/loveRed.png");
+                 $(".span<?php echo $row['id']; ?>").text("<?php echo $numberOfQuoteLover + 1; ?>");
                  $(".<?php echo $row['id'] ?>quoteText").text("you and <?php echo $numberOfQuoteLover; ?>  people liked this quote ");
 
               }else if (data === "failure") {
@@ -247,17 +248,18 @@ while ($row = mysqli_fetch_array($profileInfo)) {
      })
 })
 </script>
-<?php };   ?>
+<?php }
+;?>
 
 </div>
 </div>
 
 
-<!-- 
+<!--
 // number of quotes clicked
 // display the quotes clicked
 // year joined
 // quotes uploaded -->
 
 <?php require_once "includes/indexRightContainer.php";
-require_once 'includes/footer.php'; ?> 
+require_once 'includes/footer.php';?>

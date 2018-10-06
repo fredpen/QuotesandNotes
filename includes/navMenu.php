@@ -121,8 +121,8 @@
                   </ul>
                   <?php  } else { ?>
                   <ul class="dropdown-menu dropdown-with-icons">
-                     <li>href
-                        <a ="register.php?">Register <i class="fas fa-user-plus"></i></a>
+                     <li>
+                        <a href="register.php?">Register <i class="fas fa-user-plus"></i></a>
                      </li>
                      <li>
                         <a href="signIn.php?">Log in <i class="fas fa-sign-in-alt"></i> </a>

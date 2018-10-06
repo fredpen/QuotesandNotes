@@ -247,6 +247,7 @@ div .profile-photo-small{
     color: white;
     text-transform: capitalize;
     height: unset;
+    width: 50%;
 }
 
 #home .displayNone{

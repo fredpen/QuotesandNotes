@@ -19,7 +19,7 @@
 		//Tell PHPMailer to use SMTP
       $mail->isSMTP();
       //Enable SMTP debugging
-      $mail->SMTPDebug = 0;
+      $mail->SMTPDebug = 2;
       //Set the hostname of the mail server
       $mail->Host = 'smtp.gmail.com';
       $mail->Port = 587;
@@ -47,7 +47,8 @@
       //send the message, check for errors
 	    if (!$mail->send()) {
 	          echo "Mailer Error: " . $mail->ErrorInfo;
-            $mailSent = "fail";
+            $mailSent = "false";
+            return;
 	    } else {
           $mailSent = true;
 	    }

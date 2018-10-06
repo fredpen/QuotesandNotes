@@ -1,8 +1,5 @@
 <?php
 
-// i want to find a way to randmoise the array coming from the dtabase,
-// choose one and use it as the quote of the day
-
       require_once 'includes/databaseConfig.php';
       require_once 'includes/classes/Constants.php';
       require_once 'includes/classes/Account.php';
@@ -12,6 +9,12 @@
       require_once 'includes/classes/SMTP.php';
       require_once 'includes/classes/Exception.php';
 
+
+      // variables
+       $userId;
+      $userDetails;
+      $author;
+      $admin = false;
 
 
       $account = new Account($con);
@@ -43,9 +46,7 @@
       require_once 'includes/session.php';
 
       // confirming if thier is a logged in user and assign it to a variable to track it
-      $userId;
-      $userDetails;
-      $author;
+
 
       if ($userDetails) {
          $userId = $userDetails['id'];
@@ -54,7 +55,8 @@
          }
 
       $jsonUserid = json_encode($userId);
-?>
+
+     ?>
 
    <script>
       userId = <?php echo $jsonUserid; ?>;
