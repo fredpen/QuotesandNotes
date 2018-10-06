@@ -80,7 +80,7 @@
                 <h6 class="text-muted"></h6>
                 <p class="authorBio">
                   <!-- the gif temporarily takes the page why the ajax call is made to wiki api is been made -->
-                   <img src="assets/images/giphy.gif">
+                   <img style="width: 200px; height: 200px;" src="assets/images/giphy.gif">
                 </p>
 
                 <div class="media-footer">
