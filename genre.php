@@ -31,6 +31,31 @@
       </ul>
     </div> <!--left container-->
 
+     <script type="text/javascript">
+                 $(document).ready(function(){
+                    $.ajax({
+                        type: "GET",
+                        url: "http://en.wikipedia.org/w/api.php?action=parse&format=json&prop=text&section=0&page=<?php echo $genre;?>&callback=?",
+                        contentType: "application/json; charset=utf-8",
+                        async: false,
+                        dataType: "json",
+                        success: function (data, textStatus, jqXHR) {
+                            console.log(data);
+                            var markup = data.parse.text["*"];
+                            var blurb = $('<div></div>').html(markup);
+                            // remove links as they will not work
+                            blurb.find('a').each(function() { $(this).replaceWith($(this).html()); });
+                            // remove any references
+                            blurb.find('sup').remove();
+                            // remove cite error
+                            blurb.find('.mw-ext-cite-error').remove();
+                            $('.genreBio').html($(blurb).find('p'));
+                        },
+                        error: function (errorMessage) {
+                        }
+                    });
+                });
+             </script>
   <div class="main-container topMargin65">
     <div class="frow">
       <!-- a small card that holds the image of the author  -->
@@ -43,7 +68,7 @@
               <h6 class="text-muted"></h6>
 
               <p>Chance too good. God level bars. I'm so proud of @LifeOfDesiigner #1 song in the country. Panda! Don't be scared of the truth because we need to restart the human foundation in truth I stand with the most humility. We are so blessed!</p>
-              <p>All praises and blessings to the families of people who never gave up on dreams. Don't forget, You're Awesome!</p>
+              <p class="genreBio"></p>
 
               <div class="media-footer">
                 <a href="#pablo" class="btn btn-primary btn-simple pull-right">source: <span class="">wikipedia</span></a>

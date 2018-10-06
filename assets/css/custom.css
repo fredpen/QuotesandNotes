@@ -266,3 +266,8 @@ div .profile-photo-small{
 #home .alert-dismissible {
   right: 0;
 }
+
+/*the profile page*/
+#home .gif{
+  width: 25%;
+}

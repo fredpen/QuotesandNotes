@@ -79,14 +79,15 @@
                 <h4 class="media-heading"><?php echo $authorDetails['author']; ?></h4>
                 <h6 class="text-muted"></h6>
                 <p class="authorBio">
+                  <!-- the gif temporarily takes the page why the ajax call is made to wiki api is been made -->
                    <img src="assets/images/giphy.gif">
                 </p>
 
                 <div class="media-footer">
                   <a href="https://en.wikipedia.org/wiki/<?php echo $authorDetails['wikiName']; ?>" 
-                     class="text-capitalise btn btn-primary btn-simple pull-right"
+                     class="text-lowercase btn btn-primary btn-simple pull-right"
                      target="_blank">
-                    read more about <?php echo $authorDetails['author']; ?>
+                    ...read more about <?php echo $authorDetails['author']; ?>
                   </a>
                 </div>
             </div>
