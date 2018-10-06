@@ -83,8 +83,10 @@
                 </p>
 
                 <div class="media-footer">
-                  <a href="#pablo" class="btn btn-primary btn-simple pull-right">
-                    source: <span class="">wikipedia</span>
+                  <a href="https://en.wikipedia.org/wiki/<?php echo $authorDetails['wikiName']; ?>" 
+                     class="text-capitalise btn btn-primary btn-simple pull-right"
+                     target="_blank">
+                    read more about <?php echo $authorDetails['author']; ?>
                   </a>
                 </div>
             </div>
