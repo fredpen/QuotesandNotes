@@ -3,8 +3,7 @@
 
   // if ($userId !== 1 || $userId !== 3) { 
   //    header("Location: index.php");
-  //   }
-    
+  //   };
    $newUser = false;
    $quoteSuccessful = false;
    $uploadFailure = false;

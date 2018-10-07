@@ -58,7 +58,6 @@
                         async: false,
                         dataType: "json",
                         success: function (data, textStatus, jqXHR) {
-                            console.log(data);
                             var markup = data.parse.text["*"];
                             var blurb = $('<div></div>').html(markup);
                             // remove links as they will not work
@@ -141,6 +140,7 @@
                             <span class="<?php echo $row['id'] ?>quoteText"> <?php echo $string; ?>
                             </span>
                           </p>
+
                         <?php } else {
                           $string = ($numberOfQuoteLover == 1 ? "one person liked this quote" : $numberOfQuoteLover. "  people liked this quote")
                           ?>
@@ -254,9 +254,10 @@
                   if (data === "success") {
                     console.log(data);
                     // change the image to red and increase the number of likes
+                    <?php $string = ($numberOfQuoteLover == 1 ? "you liked this quote" : "you and ". ($numberOfQuoteLover - 1) ."  people liked this quote"); ?>
                     $(".<?php echo $row['id']?>").attr("src", "assets/images/loveRed.png");
                     $(".span<?php echo $row['id'];?>").text("<?php echo $numberOfQuoteLover + 1; ?>");
-                    $(".<?php echo $row['id'] ?>quoteText").text("you and <?php echo $numberOfQuoteLover; ?>  people liked this quote ");
+                    $(".<?php echo $row['id'] ?>quoteText").text("you and <?php echo $string;?> );
 
                   }else if (data === "failure") {
                    console.log("cant like the quote at the moment");
