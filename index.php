@@ -87,9 +87,8 @@ if ($mailSent) {?>
                       // variables
                       	$quoteLoveCheck = $quote->quoteLoveCheck($quoteId, $userId);
                       	$numberOfQuoteLover = $quote->numberOfQuoteLover($quoteId);
-                        $noUserString = ($numberOfQuoteLover == 1 ? "be the first to like this quote" :  ($numberOfQuoteLover - 1) . "  people liked this quote"); 
-                        $loveQuoteString = ($numberOfQuoteLover == 1 ? "you liked this quote" : "you and " . ($numberOfQuoteLover - 1) . "  people liked this quote");
-                        $loveslessQuoteString = ($numberOfQuoteLover == 1 ? "like quote" :  ($numberOfQuoteLover - 1) . "  people liked this quote");
+                        $noUserString = ($numberOfQuoteLover == 0 ? "be the first to like this quote" : $numberOfQuoteLover); 
+                        $loveQuoteString = ($numberOfQuoteLover == 1 ? "you liked this quote" : $numberOfQuoteLover);
 
                         // check if a user is loggedin 
                         if ($userId) {
@@ -100,43 +99,25 @@ if ($mailSent) {?>
                              <img class="<?php echo $row['id']; ?> like-image" src="assets/images/loveRed.png" alt="love button">
                              <span class="<?php echo $row['id'] ?>quoteText"><?php echo $loveQuoteString; ?></span>
                             </p>
-                            
+                           
                           <!--if user has not like quote before -->
-                          <?php }; else { ?>
+                          <?php } else { ?>
                            <p>
                              <img class="<?php echo $row['id']; ?> like-image" src="assets/images/loveBlack.png" alt="like button">
-                             <span class="<?php echo $row['id'] ?>quoteText"><?php echo $numberOfQuoteLover; ?> liked this quote</span>
+                             <span class="<?php echo $row['id'] ?>quoteText"><?php echo $noUserString?></span>
                             </p>
-                          <?php }; ?>
+                          <?php }; 
                           
                        // if there is no logged in user
-                       } else {
-                          <p>
-                            <img class="<?php echo $row['id']; ?> like-image" src="assets/images/loveBlack.png" alt="like button">
-                            <span class="<?php echo $row['id'] ?>quoteText"> <?php echo $noUserString; ?>
-                            </span>
-                          </p>
-                        } 
+                          } else { ?>
+                             <p>
+                               <img class="<?php echo $row['id']; ?> like-image" src="assets/images/loveBlack.png" alt="like button">
+                               <span class="<?php echo $row['id'] ?>quoteText"> <?php echo $noUserString; ?>
+                               </span>
+                             </p>
+                           <?php }; ?>
 
-                      	if ($userId && $numberOfQuoteLoveByUser !== 0) {
-                      		$userString = ($numberOfQuoteLover == 1 ? "you liked this quote" : "you and " . ($numberOfQuoteLover - 1) . "  people liked this quote");?>
-
-                          <p>
-                            <img class="<?php echo $row['id']; ?> like-image" src="assets/images/loveRed.png" alt="like button">
-                            <span class="<?php echo $row['id'] ?>quoteText"> <?php echo $userString; ?>
-                            </span>
-                          </p>
-                        <?php } else {
-                      		$noUserString = ($numberOfQuoteLover == 1 ? "one person liked this quote" : $numberOfQuoteLover . "  people liked this quote")
-                      		?>
-
-                          <p>
-                            <img class="<?php echo $row['id']; ?> like-image" src="assets/images/loveBlack.png" alt="like button">
-                            <span class="<?php echo $row['id'] ?>quoteText"><?php echo $noUserString; ?>
-                            </span>
-                          </p>
-                        <?php }
-	                       ;?>
+                      
                     </footer>
                     <!-- quotes author and image -->
                     <div class="footnote">
@@ -240,7 +221,7 @@ if ($mailSent) {?>
                     // change the image to red and increase the number of likes
                     $(".<?php echo $row['id'] ?>").attr("src", "assets/images/loveRed.png");
                     $(".span<?php echo $row['id']; ?>").text("<?php echo $numberOfQuoteLover + 1; ?>");
-                    $(".<?php echo $row['id'] ?>quoteText").text("<?php echo $userString; ?>");
+                    $(".<?php echo $row['id']?>quoteText").text("you liked this quote ");
 
                   }else if (data === "failure") {
                    console.log("cant like the quote at the moment");
