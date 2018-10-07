@@ -206,9 +206,6 @@ p .like-image{
    height: 230px;
    padding: 15px 15px;
 }
-#home .card-blog{
-   margin-top:0px;
-}
 
 p .like-image{
    cursor: pointer;
@@ -247,7 +244,6 @@ div .profile-photo-small{
     color: white;
     text-transform: capitalize;
     height: unset;
-    width: 50%;
 }
 
 #home .displayNone{

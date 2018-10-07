@@ -34,19 +34,7 @@ if ($mailSent) {?>
           <b>Success:</b> quote has been sent to <?php echo $receipientMail; ?>
         </div>
       </div>
-    <?php } else {?>
-        <div class="container">
-          <div class="alert alert-info">
-            <div class="alert-icon">
-            <i class="material-icons">info_outline</i>
-          </div>
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true"><i class="material-icons">clear</i></span>
-          </button>
-          <b>Info alert:</b> our server is busy we can't deliver your mail at the moment
-        </div>
-      </div>
-    <?php };?>
+    <?php }; ?>
     <!-- <div class="fb-share-button"
          data-href="localhost/Quotes&Notes/index.php"
          data-layout="button_count"
