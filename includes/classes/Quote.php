@@ -116,7 +116,9 @@
        {
          $sql = "SELECT id FROM quoteLovers WHERE quote='$quoteId' AND user='$userId'";
          $query = mysqli_query($this->con, $sql);
-         return mysqli_num_rows($query);
+         if (mysqli_num_rows($query) != 0 ){
+            return true;
+         };
       }
 
       // find the id of a particular genre from the database
@@ -188,7 +190,7 @@
                   INNER JOIN genre2 ON quoteLovers.genre2=genre2.id
                   INNER JOIN genre3 ON quoteLovers.genre3=genre3.id
                   INNER JOIN author ON quoteLovers.author=author.id
-                  WHERE quoteLovers.user='$userId'";
+               WHERE quoteLovers.user='$userId'";
 
          $query = mysqli_query($this->con, $sql);
          return $query;                      
@@ -246,6 +248,22 @@
          $query = mysqli_fetch_array($query);
          return $query;
          // return the result of the query for the quote of the day
+      }
+
+      // saving users email for subscription purposes
+      public function pushEmail($receipientMail)
+      {
+         $sql = "SELECT email FROM subscriptionEmail";
+         $query = mysqli_query($this->con, $sql);
+         $query = mysqli_fetch_array($query);
+
+         // check if the users email is not already in the database
+         while ($row = ($query['email'])) {
+            if ($row != $receipientMail) {
+               $sql ="INSERT INTO subscriptionEmail VALUES('', '$receipientMail')";
+               $query = mysqli_query($this->con, $sql);
+            }
+         }
       }
    
 

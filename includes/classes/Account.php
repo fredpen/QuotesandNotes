@@ -57,16 +57,15 @@
       public function getError($error){
          if (!in_array($error, $this->errorArray)) {
             $error = "";
-         }return "<div class='errorMessage' $error </div>";
+         }return "<div class='errorMessage'>". $error . "</div>";
       }
 
       // insert user details into the database
       private function insertUserDetails($firstName, $lastName, $username, $email, $password, $gender){
          $encryptedPassword = md5($password);
          $date = date("Y-m-d h:i:s");
-         $profilePic ="https://unsplash.com/photos/KtJy7cZV5OQ";
 
-         $query = mysqli_query($this->con, "INSERT INTO users VALUES('$firstName', '$lastName', '$username', '$email', '$encryptedPassword', '$gender', '$date', '$profilePic', '')");
+         $query = mysqli_query($this->con, "INSERT INTO users VALUES('$firstName', '$lastName', '$username', '$email', '$encryptedPassword', '$gender', '$date', '')");
          return $query;
 
       }

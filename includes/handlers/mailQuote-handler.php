@@ -1,15 +1,20 @@
 <?php 
+  
 
+  $mailSent = false;
+  $receipientMail = "";
 	if (isset($_POST['mailButton'])) {
 
+    
     $receipientMail = $_POST['receipientMail'];
     $additionalMessage = $_POST['additionalMessage'];
     $mailContent = $_POST['mailContent'];
     $mailAuthor = $_POST['mailAuthor'];
 
 	if (empty(strip_tags($receipientMail))) {
-		$receipientMail = 2;
+		  $mail = false;
 		return;
+
 	} else {
 		//Tell PHPMailer to use SMTP
       $mail->isSMTP();
@@ -42,10 +47,16 @@
       //send the message, check for errors
 	    if (!$mail->send()) {
 	          echo "Mailer Error: " . $mail->ErrorInfo;
+            $mailSent = "false";
+            return;
 	    } else {
-	        echo "Message sent!";
+          $mailSent = true;
 	    }
 	}  
+
+  // storing the email of users for subscription purposes
+  $quote->pushEmail($receipientMail);
+  return;
 
 
 }

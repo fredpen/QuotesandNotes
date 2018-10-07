@@ -1,30 +1,10 @@
-<!-- <!-- 
-<div id="page-header" class="page-header clear-filter" data-parallax="true" style="background-image: url('assets/images/bg8.jpg');">
-   <!-- jumbotron -->
-      <!-- <div class="container">
-        <section class="row">
-           <h1 class="display-4">Quotes&Notes</h1>
-           <p class="lead">Bringing you the best instance of spoken words by the greatest of minds</p>
-           <hr class="my-4">
-           <p>You can help us by submitting your favourite quote or your own quotes
-             <br>
-             <span class=""> We do really appreciate your contribution</span>
-           </p>
-        </section>
-
-        <a class="btn btn-primary btn-lg btn-round" href="uploadQuote.php" role="button">click here to begin
-            <i class="material-icons"></i>
-        </a>
-      </div>
-   </div> -->
-
-  <!-- quote of the day -->
+ <!-- quote of the moment -->
  <div class="subscribe-line subscribe-line-image" style="background-image: url('assets/images/bg7.jpg');">
   <div class="container">
     <div class="row">
-      <div class="col-md-5 col-md-offset-3  topMargin">
+      <div class="col-md-5 col-md-offset-3  topMargin65">
         <div class="text-center">
-          <h3 class="title">Quote of the day</h3>
+          <h3 class="title">Quote of the Moment</h3>
           <p class="description">
             <div id="card" class="card card-blog">
                <div id="card-content" class="card-content" style="height: unset;"> 

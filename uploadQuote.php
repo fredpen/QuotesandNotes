@@ -3,19 +3,17 @@
 
   // if ($userId !== 1 || $userId !== 3) { 
   //    header("Location: index.php");
-  //   }
-    
+  //   };
    $newUser = false;
    $quoteSuccessful = false;
    $uploadFailure = false;
 
   if (isset($_POST['uploadQuoteButton'])) {
     if ($userDetails && isset($_POST['author'])) {
-      $content = $_POST['quote'];
-      echo $content;
-      // $content = $quote->sanitiseQuote($_POST['quote']);
+      $content = $quote->sanitiseQuote($_POST['quote']);
+      echo strlen($content);
       $author = $_POST['author'];
-      $genre = $_POST['genreList'];
+      $genre = $_POST['genreList'];   
       $genre1 = $genre[0];
       $genre2 = $genre[1];
       $genre3 = $genre[2];
@@ -24,7 +22,7 @@
       if ($uploadQuote) {
         $quoteSuccessful = true;
       } else {
-      $uploadFailure = true;
+        $uploadFailure = true;
       }
 
     }else {
@@ -34,7 +32,7 @@
 
  ?>
 
-<div class="container topMargin">
+<div class="container topMargin65">
     <div class="row">
 
       <?php

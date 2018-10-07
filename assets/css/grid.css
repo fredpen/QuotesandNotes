@@ -1,12 +1,18 @@
 .fcontainer{
-   max-width: 1300px;
+   max-width: 1350px;
    padding: 0;
    margin: 0 auto;
 }
 
+.container-full{
+   width: 100%;
+   margin: 0 auto;
+   padding: 0;
+}
+
 .frow{
    width: 100%;
-   padding: 20px;
+   padding: 10px;
    margin: 0 auto;
    display: flex;
    flex-direction: row;
@@ -28,6 +34,7 @@
    }
    .main-container{
       width: 100%;
+      /* flex-grow: 1; */
    }
    .quote-container{
       width: 100%;
@@ -51,10 +58,11 @@
 @media screen and (min-width: 900px) {
    .left-container{
       display: block;
-      width: 20%;
+      width: 15%;
    }
    .main-container{
       width: 80%;
+      flex-grow: 1;
    }
    .quote-container{
       width: 100%;
@@ -66,13 +74,14 @@
 @media screen and (min-width: 1200px) {
    .right-container {
       display: initial;
-      width: 15%;
+      width: 11%;
    }
    .left-container{
-      width: 20%;
+      width: 13%;
    }
+
    .main-container{
-      width: 65%;
-
-
+      width: 76%;
+      flex-grow: 1;
+   }
 }

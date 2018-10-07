@@ -135,10 +135,11 @@ p .like-image{
 #home .genre {
    text-transform: capitalize;
    color: white;
+   font-size: 11px;
 }
 
-.topMargin{
-  margin-top: 75px;
+.topMargin65{
+  margin-top: 65px;
 }
 .topMargin21{
   margin-top: 21px;
@@ -177,12 +178,16 @@ p .like-image{
    margin: 42px auto 10px auto;
 }
 
-#home .topMargin2{
+#home .topMargin90{
    margin-top: 90px;
 }
 
 #home .topMargin3{
    margin-top: 160px;
+}
+
+#home .topMargin70{
+  margin-top: 70px;
 }
 
 #home .paddingTop30{
@@ -200,9 +205,6 @@ p .like-image{
 #card-content{
    height: 230px;
    padding: 15px 15px;
-}
-#home .card-blog{
-   margin-top:0px;
 }
 
 p .like-image{
@@ -251,4 +253,17 @@ div .profile-photo-small{
 #home #width100{
   height: 300px;
   width: 100%;
+}
+
+#home .close {
+     right: 0; 
+}
+
+#home .alert-dismissible {
+  right: 0;
+}
+
+/*the profile page*/
+#home .gif{
+  width: 25%;
 }

@@ -4,6 +4,7 @@ var   quoteId,
       data,
       numOfChecked,
       userId;
+      notLoggedIn = false;
 
 // ---------------------upload quote------ js---------------
 
