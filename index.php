@@ -47,9 +47,9 @@ if ($mailSent) {?>
 	$quoteId = $row['id'];?>
 
         <div class="col-sm-6">
-          <div class="rotating-card-container manual-flip">
+          <div class="rotating-card-container manual-flip" style="width: 100% !important; height: 100% !important;">
             <div class="card card-rotate">
-              <div id="width100" class="front">
+              <div class="front" style="width: 100% !important; height: 100% !important;">
                 <div class="card-content">
 
                   <p class="card-title">
@@ -85,7 +85,7 @@ if ($mailSent) {?>
                         $quoteLoveCheck = $quote->quoteLoveCheck($quoteId, $userId);
                         $numberOfQuoteLover = $quote->numberOfQuoteLover($quoteId);
                         $noUserString = ($numberOfQuoteLover == 0 ? "be the first to like this quote" : $numberOfQuoteLover); 
-                        $loveQuoteString = ($numberOfQuoteLover == 1 ? "you liked this quote" : "good man");
+                        $loveQuoteString = ($numberOfQuoteLover == 1 ? "you liked this quote" : $numberOfQuoteLover . " people liked this quote");
 
                         // check if a user is loggedin 
                         if ($userId) {
@@ -104,7 +104,7 @@ if ($mailSent) {?>
                              <span class="<?php echo $row['id'] ?>quoteText"><?php echo $noUserString?></span>
                             </p>
                           <?php }; 
-                          
+                         
                        // if there is no logged in user
                           } else { ?>
                              <p>
