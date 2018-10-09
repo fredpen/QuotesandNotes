@@ -2,7 +2,6 @@
   require_once 'includes/header.php';
   require_once 'includes/indexLeftContainer.php';
 ?>
-
 <!-- main section of the main container -->
 <div class="main-container">
   <div class="frow">
@@ -73,10 +72,20 @@ if ($mailSent) {?>
                     <footer class="quote-footer">
                       <?php
                       // variables
-                      	$quoteLoveCheck = $quote->quoteLoveCheck($quoteId, $userId);
-                      	$numberOfQuoteLover = $quote->numberOfQuoteLover($quoteId);
+                        $personString = function () {
+                          if ($numberOfQuoteLover == 0) {
+                            // return ;
+                          }elseif (numberOfQuoteLover == 1) {
+                            echo " person liked this quote";
+                          }else{
+                            echo " people liked this quote";
+                          }
+                        };
+
+                        $quoteLoveCheck = $quote->quoteLoveCheck($quoteId, $userId);
+                        $numberOfQuoteLover = $quote->numberOfQuoteLover($quoteId);
                         $noUserString = ($numberOfQuoteLover == 0 ? "be the first to like this quote" : $numberOfQuoteLover); 
-                        $loveQuoteString = ($numberOfQuoteLover == 1 ? "you liked this quote" : $numberOfQuoteLover);
+                        $loveQuoteString = ($numberOfQuoteLover == 1 ? "you liked this quote" : "good man");
 
                         // check if a user is loggedin 
                         if ($userId) {

@@ -5,7 +5,7 @@
       <div class="col-md-5 col-md-offset-3  topMargin65">
         <div class="text-center">
           <h3 class="title">Quote of the Moment</h3>
-          <p class="description">
+          <!-- <p class="description"> -->
             <div id="card" class="card card-blog">
                <div id="card-content" class="card-content" style="height: unset;"> 
                 <p class="text-lowercase quote-description"><?php echo $randQuote['content']; ?></p>
@@ -37,7 +37,7 @@
 
            </div>
            </div>
-          </p>
+          <!-- </p> -->
         </div>
       </div>
     </div>
