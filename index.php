@@ -1,9 +1,7 @@
 <?php
-require_once 'includes/header.php';
-require_once 'includes/indexLeftContainer.php';
-
+  require_once 'includes/header.php';
+  require_once 'includes/indexLeftContainer.php';
 ?>
-
 <!-- main section of the main container -->
 <div class="main-container">
   <div class="frow">
@@ -35,19 +33,7 @@ if ($mailSent) {?>
           <b>Success:</b> quote has been sent to <?php echo $receipientMail; ?>
         </div>
       </div>
-    <?php } else {?>
-        <div class="container">
-          <div class="alert alert-info">
-            <div class="alert-icon">
-            <i class="material-icons">info_outline</i>
-          </div>
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true"><i class="material-icons">clear</i></span>
-          </button>
-          <b>Info alert:</b> our server is busy we can't deliver your mail at the moment
-        </div>
-      </div>
-    <?php };?>
+    <?php }; ?>
     <!-- <div class="fb-share-button"
          data-href="localhost/Quotes&Notes/index.php"
          data-layout="button_count"
@@ -61,9 +47,9 @@ if ($mailSent) {?>
 	$quoteId = $row['id'];?>
 
         <div class="col-sm-6">
-          <div class="rotating-card-container manual-flip">
+          <div class="rotating-card-container manual-flip" style="width: 100% !important; height: 100% !important;">
             <div class="card card-rotate">
-              <div id="width100" class="front">
+              <div class="front" style="width: 100% !important; height: 100% !important;">
                 <div class="card-content">
 
                   <p class="card-title">
@@ -85,29 +71,50 @@ if ($mailSent) {?>
 
                     <footer class="quote-footer">
                       <?php
-// check if a user is loggedin and if the user has like the quote before
-	$numberOfQuoteLoveByUser = $quote->quoteLoveCheck($quoteId, $userId);
-	$numberOfQuoteLover = $quote->numberOfQuoteLover($quoteId);
+                      // variables
+                        $personString = function () {
+                          if ($numberOfQuoteLover == 0) {
+                            // return ;
+                          }elseif (numberOfQuoteLover == 1) {
+                            echo " person liked this quote";
+                          }else{
+                            echo " people liked this quote";
+                          }
+                        };
 
-	if ($userId && $numberOfQuoteLoveByUser !== 0) {
-		$string = ($numberOfQuoteLover == 1 ? "you liked this quote" : "you and " . ($numberOfQuoteLover - 1) . "  people liked this quote");?>
+                        $quoteLoveCheck = $quote->quoteLoveCheck($quoteId, $userId);
+                        $numberOfQuoteLover = $quote->numberOfQuoteLover($quoteId);
+                        $noUserString = ($numberOfQuoteLover == 0 ? "be the first to like this quote" : $numberOfQuoteLover); 
+                        $loveQuoteString = ($numberOfQuoteLover == 1 ? "you liked this quote" : $numberOfQuoteLover . " people liked this quote");
 
-                          <p>
-                            <img class="<?php echo $row['id']; ?> like-image" src="assets/images/loveRed.png" alt="like button">
-                            <span class="<?php echo $row['id'] ?>quoteText"> <?php echo $string; ?>
-                            </span>
-                          </p>
-                        <?php } else {
-		$string = ($numberOfQuoteLover == 1 ? "one person liked this quote" : $numberOfQuoteLover . "  people liked this quote")
-		?>
+                        // check if a user is loggedin 
+                        if ($userId) {
 
-                          <p>
-                            <img class="<?php echo $row['id']; ?> like-image" src="assets/images/loveBlack.png" alt="like button">
-                            <span class="<?php echo $row['id'] ?>quoteText"><?php echo $string; ?>
-                            </span>
-                          </p>
-                        <?php }
-	;?>
+                          // if user has liked the quote before
+                          if ($quoteLoveCheck) { ?>
+                            <p>
+                             <img class="<?php echo $row['id']; ?> like-image" src="assets/images/loveRed.png" alt="love button">
+                             <span class="<?php echo $row['id'] ?>quoteText"><?php echo $loveQuoteString; ?></span>
+                            </p>
+                           
+                          <!--if user has not like quote before -->
+                          <?php } else { ?>
+                           <p>
+                             <img class="<?php echo $row['id']; ?> like-image" src="assets/images/loveBlack.png" alt="like button">
+                             <span class="<?php echo $row['id'] ?>quoteText"><?php echo $noUserString?></span>
+                            </p>
+                          <?php }; 
+                         
+                       // if there is no logged in user
+                          } else { ?>
+                             <p>
+                               <img class="<?php echo $row['id']; ?> like-image" src="assets/images/loveBlack.png" alt="like button">
+                               <span class="<?php echo $row['id'] ?>quoteText"> <?php echo $noUserString; ?>
+                               </span>
+                             </p>
+                           <?php }; ?>
+
+                      
                     </footer>
                     <!-- quotes author and image -->
                     <div class="footnote">
@@ -211,7 +218,7 @@ if ($mailSent) {?>
                     // change the image to red and increase the number of likes
                     $(".<?php echo $row['id'] ?>").attr("src", "assets/images/loveRed.png");
                     $(".span<?php echo $row['id']; ?>").text("<?php echo $numberOfQuoteLover + 1; ?>");
-                    $(".<?php echo $row['id'] ?>quoteText").text("you and <?php echo $numberOfQuoteLover; ?>  people liked this quote ");
+                    $(".<?php echo $row['id']?>quoteText").text("you liked this quote ");
 
                   }else if (data === "failure") {
                    console.log("cant like the quote at the moment");

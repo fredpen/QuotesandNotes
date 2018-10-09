@@ -116,7 +116,9 @@
        {
          $sql = "SELECT id FROM quoteLovers WHERE quote='$quoteId' AND user='$userId'";
          $query = mysqli_query($this->con, $sql);
-         return mysqli_num_rows($query);
+         if (mysqli_num_rows($query) != 0 ){
+            return true;
+         };
       }
 
       // find the id of a particular genre from the database
