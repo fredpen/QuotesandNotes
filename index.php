@@ -2,6 +2,24 @@
   require_once 'includes/header.php';
   require_once 'includes/indexLeftContainer.php';
 ?>
+<!-- Modal -->
+						<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+						<div class="modal-dialog" role="document">
+						<div class="modal-content">
+						<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+						</div>
+						<div class="modal-body">
+							dhufhww8rg 8 wwafaw w dhufhww8rg 8 wwafaw w dhufhww8rg 8 wwafaw w dhufhww8rg 8 wwafaw w dhufhww8rg 8 wwafaw w
+						</div>
+						<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary">Save changes</button>
+						</div>
+						</div>
+						</div>
+						</div>
 <!-- main section of the main container -->
 <div class="main-container">
   <div class="frow">
@@ -131,11 +149,18 @@ if ($mailSent) {?>
 					<!-- share and edit buttons -->
 				  <div class="pull-right col-xs-12 text-right">
 				 
-
 					<?php if ($admin) {?>
 					  <a data-toggle="tooltip" data-placement="top" title="Edit quote" data-container="body" class="label label-info" href="edit.php?id=<?php echo $quoteId ?>">Edit
 					  </a>
 					<?php }?>
+
+					<!-- Button trigger modal for liking quotes-->
+					<p>
+						<a type="button" data-toggle="modal" data-target="#myModal">
+							<img class="<?php echo $row['id']; ?> like-image" src="assets/images/loveBlack.png" alt="like button">
+						</a>
+					</p>
+				
 
 					<a class="twitter-share-button"
 					  href="https://twitter.com/share"
