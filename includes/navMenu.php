@@ -85,7 +85,7 @@
             <ul class="nav navbar-nav navbar-right">
                <?php if ($firstName) { ?>
                <li>
-                  <a href="profilePage.php?id=<?php echo $userDetails['id'] ?>">Profile 
+                  <a href="profilePage.php?id=<?php echo $userDetails['id']; ?>"><?php echo $userDetails['lastname']; ?>
                      <i class="fas fa-user-edit"></i>
                   </a>
                </li>

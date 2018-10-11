@@ -4,7 +4,7 @@
   }else{
     header("Location: index.php");
   }
-
+  
   // import the header that houses the navbar and other dependencies
   require_once 'includes/header.php';
 
