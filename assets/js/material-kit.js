@@ -161,7 +161,7 @@ var big_image;
 
                             $(this).find('.back').css({
                                 'height': card_image_height + 'px',
-                                'width': card_image_width + 'px'
+                                // 'width': card_image_width + 'px'
                             });
                             var $append_div = $card_img.find('.front');
                         }
@@ -196,12 +196,12 @@ var big_image;
 
             $this.find('.front').css({
                 'height': card_height + 'px',
-                'width': card_width + 'px',
+                // 'width': card_width + 'px',
             });
 
             $this.find('.back').css({
                 'height': card_height + 'px',
-                'width': card_width + 'px',
+                // 'width': card_width + 'px',
             });
         });
     }, 50),
