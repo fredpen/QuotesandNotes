@@ -2,238 +2,270 @@
   require_once 'includes/header.php';
   require_once 'includes/indexLeftContainer.php';
 ?>
+
+<!-- Modal for liking quotes-->
+<div class="modal fade bs-example-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog modal-sm" role="document">
+		<div class="modal-content">
+
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="card-title modal-title" id="myModalLabel"></h4>
+			</div>
+
+			<div class="modal-body text-center">
+            <div class="card-content">
+            	<h4 class="card-title">Only members can like a quote </h4>
+              <p class="card-description">
+                Sign up for free <a href="signIn.php"> here</a>
+              </p>
+              <p class="card-description">
+                already have an account? <a href="signIn.php"> Login</a>
+              </p>
+            </div>
+			</div>
+
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+
 <!-- main section of the main container -->
 <div class="main-container">
   <div class="frow">
-    <?php
-if (!$mail) {?>
-        <div class="container">
-          <div class="alert alert-info">
-            <div class="alert-icon">
-              <i class="material-icons">info_outline</i>
-            </div>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true"><i class="material-icons">clear</i></span>
-            </button>
-            <b>Info alert:</b> Receipient mail column can't be left empty
-          </div>
-        </div>
-      <?php };?>
- 
-     <?php
-if ($mailSent) {?>
-        <div class="container">
-         <div class="alert alert-success">
-          <div class="alert-icon">
-            <i class="material-icons">check</i>
-          </div>
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true"><i class="material-icons">clear</i></span>
-          </button>
-          <b>Success:</b> quote has been sent to <?php echo $receipientMail; ?>
-        </div>
-      </div>
-    <?php }; ?>
-    <!-- <div class="fb-share-button"
-         data-href="localhost/Quotes&Notes/index.php"
-         data-layout="button_count"
-         data-size="small"
-         data-mobile-iframe="false">
-         <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%2FQuotes%26Notes%2Findex.php&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>
-    </div> -->
+	<?php
+	if (!$mail) {?>
+		<div class="container">
+		  <div class="alert alert-info">
+			<div class="alert-icon">
+			  <i class="material-icons">info_outline</i>
+			</div>
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			  <span aria-hidden="true"><i class="material-icons">clear</i></span>
+			</button>
+			<b>Info alert:</b> Receipient mail column can't be left empty
+		  </div>
+		</div>
+	  <?php };?> 
+	 <?php
 
-    <?php
-    while ($row = mysqli_fetch_array($quoteArray)) {
-	$quoteId = $row['id'];?>
+	if ($mailSent) {?>
+			<div class="container">
+			 <div class="alert alert-success">
+			  <div class="alert-icon">
+				<i class="material-icons">check</i>
+			  </div>
+			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true"><i class="material-icons">clear</i></span>
+			  </button>
+			  <b>Success:</b> quote has been sent to <?php echo $receipientMail; ?>
+			</div>
+		  </div>
+		<?php }; ?>
+		
+		<?php
+		while ($row = mysqli_fetch_array($quoteArray)) {
+		$quoteId = $row['id'];?>
 
-        <div class="col-sm-6">
-          <div class="rotating-card-container manual-flip" style="width: 100% !important; height: 100% !important;">
-            <div class="card card-rotate">
-              <div class="front" style="width: 100% !important; height: 100% !important;">
-                <div class="card-content">
+			<div class="col-sm-6">
+			  <div class="rotating-card-container manual-flip" style="width: 100% !important; height: 100% !important;">
+				<div class="card card-rotate">
+				  <div class="front" style="width: 100% !important; height: 100% !important;">
+					<div class="card-content">
+					
+					<!-- the quote  -->
+					  <p class="card-title">
+						<?php echo $row['content']; ?>
+					  </p>
+					
+					<!-- the quote genre -->
+					  <p class="card-description">
+						<div class="genreList">
+						  <span class="label label-primary">
+							<a class="genre" href='genre.php?genre=<?php echo $row['genre1'] ?>'><?php echo $row['genre1']; ?></a>
+						  </span>
+						  <span class="label label-info">
+							<a class="genre" href='genre.php?genre=<?php echo $row['genre2'] ?>'><?php echo $row['genre2']; ?></a>
+						  </span>
+						  <span class="label label-default">
+							<a class="genre" href='genre.php?genre=<?php echo $row['genre3'] ?>'><?php echo $row['genre3']; ?></a>
+						  </span>
+						</div>
 
-                  <p class="card-title">
-                    <?php echo $row['content']; ?>
-                  </p>
+					<footer class="quote-footer">
+					  <?php
+					  // variables
+						$personString = function () {
+						  if ($numberOfQuoteLover == 0) {
+							// return ;
+						  }elseif (numberOfQuoteLover == 1) {
+							echo " person liked this quote";
+						  }else{
+							echo " people liked this quote";
+						  }
+						};
 
-                  <p class="card-description">
-                    <div class="genreList">
-                      <span class="label label-primary">
-                        <a class="genre" href='genre.php?genre=<?php echo $row['genre1'] ?>'><?php echo $row['genre1']; ?></a>
-                      </span>
-                      <span class="label label-info">
-                        <a class="genre" href='genre.php?genre=<?php echo $row['genre2'] ?>'><?php echo $row['genre2']; ?></a>
-                      </span>
-                      <span class="label label-default">
-                        <a class="genre" href='genre.php?genre=<?php echo $row['genre3'] ?>'><?php echo $row['genre3']; ?></a>
-                      </span>
-                    </div>
+						$quoteLoveCheck = $quote->quoteLoveCheck($quoteId, $userId);
+						$numberOfQuoteLover = $quote->numberOfQuoteLover($quoteId);
+						$noUserString = ($numberOfQuoteLover == 0 ? "be the first to like this quote" : $numberOfQuoteLover); 
+						$loveQuoteString = ($numberOfQuoteLover == 1 ? "you liked this quote" : $numberOfQuoteLover . " people liked this quote");
 
-                    <footer class="quote-footer">
-                      <?php
-                      // variables
-                        $personString = function () {
-                          if ($numberOfQuoteLover == 0) {
-                            // return ;
-                          }elseif (numberOfQuoteLover == 1) {
-                            echo " person liked this quote";
-                          }else{
-                            echo " people liked this quote";
-                          }
-                        };
+						// check if a user is loggedin 
+						if ($userId) {
 
-                        $quoteLoveCheck = $quote->quoteLoveCheck($quoteId, $userId);
-                        $numberOfQuoteLover = $quote->numberOfQuoteLover($quoteId);
-                        $noUserString = ($numberOfQuoteLover == 0 ? "be the first to like this quote" : $numberOfQuoteLover); 
-                        $loveQuoteString = ($numberOfQuoteLover == 1 ? "you liked this quote" : $numberOfQuoteLover . " people liked this quote");
+						  // if user has liked the quote before
+						  if ($quoteLoveCheck) { ?>
+							<p>
+							 <img class="<?php echo $row['id']; ?> like-image" src="assets/images/loveRed.png" alt="love button">
+							 <span class="<?php echo $row['id'] ?>quoteText"><?php echo $loveQuoteString; ?></span>
+							</p>
+						   
+						  <!--if user has not like quote before -->
+						  <?php } else { ?>
+						   <p>
+							 <img class="<?php echo $row['id']; ?> like-image" src="assets/images/loveBlack.png" alt="like button">
+							 <span class="<?php echo $row['id'] ?>quoteText"><?php echo $noUserString?></span>
+							</p>
+						  <?php }; 
+						 
+					   // if there is no logged in user
+						  } else { ?>
+							<!-- Button trigger modal for liking quotes-->
+							 <p>
+								<a type="button" data-toggle="modal" data-target="#myModal">
+									<img class="<?php echo $row['id']; ?> like-image" src="assets/images/loveBlack.png" alt="like button">
+									<span class="<?php echo $row['id'] ?>quoteText"> <?php echo $noUserString; ?>
+								</a>
+							</p>
+						   <?php }; ?>
+						   
+					</footer>
+					<!-- quotes author and image -->
+					<div class="footnote">
+					  <div class="author">
+						<a href="author.php?author=<?php echo $quote->authorId($row['author']); ?>">
+						  <img src="assets/images/author/<?php echo $row['img'] ?>" alt="<?php echo $row['author'] ?>" class="avatar img-raised">
+						  <span><?php echo $row['author']; ?></span>
+						</a>
+					  </div>
 
-                        // check if a user is loggedin 
-                        if ($userId) {
+					</div> <!-- end of footer -->
+				  </p>
 
-                          // if user has liked the quote before
-                          if ($quoteLoveCheck) { ?>
-                            <p>
-                             <img class="<?php echo $row['id']; ?> like-image" src="assets/images/loveRed.png" alt="love button">
-                             <span class="<?php echo $row['id'] ?>quoteText"><?php echo $loveQuoteString; ?></span>
-                            </p>
-                           
-                          <!--if user has not like quote before -->
-                          <?php } else { ?>
-                           <p>
-                             <img class="<?php echo $row['id']; ?> like-image" src="assets/images/loveBlack.png" alt="like button">
-                             <span class="<?php echo $row['id'] ?>quoteText"><?php echo $noUserString?></span>
-                            </p>
-                          <?php }; 
-                         
-                       // if there is no logged in user
-                          } else { ?>
-                             <p>
-                               <img class="<?php echo $row['id']; ?> like-image" src="assets/images/loveBlack.png" alt="like button">
-                               <span class="<?php echo $row['id'] ?>quoteText"> <?php echo $noUserString; ?>
-                               </span>
-                             </p>
-                           <?php }; ?>
+					<!-- share and edit buttons -->
+				  <div class="pull-right col-xs-12 text-right">
+				 
+					<?php if ($admin) {?>
+					  <a data-toggle="tooltip" data-placement="top" title="Edit quote" data-container="body" class="label label-info" href="edit.php?id=<?php echo $quoteId ?>">Edit
+					  </a>
+					<?php }?>
 
-                      
-                    </footer>
-                    <!-- quotes author and image -->
-                    <div class="footnote">
-                      <div class="author">
-                        <a href="author.php?author=<?php echo $quote->authorId($row['author']); ?>">
-                          <img src="assets/images/author/<?php echo $row['img'] ?>" alt="<?php echo $row['author'] ?>" class="avatar img-raised">
-                          <span><?php echo $row['author']; ?></span>
-                        </a>
-                      </div>
+					
+				
 
-                    </div> <!-- end of footer -->
-                  </p>
+					<a class="twitter-share-button"
+					  href="https://twitter.com/share"
+					  data-text="<?php echo $row['content'] ?>"
+					  data-url="https://QuotesandNotes.com"
+					  data-hashtags="<?php echo $row['genre1'] . "," . $row['genre2'] . "," . $row['genre3'] ?>"
+					  data-via="freddgreat"
+					  data-show-count="true"
+					  data-related="twitterapi,twitter">
+					</a>
+					<!-- <a href="#pablo" class="btn btn-just-icon btn-round btn-facebook">
+					  <i class="fa fa-facebook"></i>
+					</a> -->
+					<a type="button" class="btn btn-just-icon btn-round btn-rotate" data-toggle="tooltip" data-placement="top" title="mail quote to a friend" data-container="body">
+					  <i class="fas fa-envelope"></i>
+					</a>
+				  </div>
 
-                    <!-- share and edit buttons -->
-                  <div class="pull-right col-xs-12 text-right">
+				</div>
+			  </div>
 
-                    <?php if ($admin) {?>
-                      <a data-toggle="tooltip" data-placement="top" title="Edit quote" data-container="body" class="label label-info" href="edit.php?id=<?php echo $quoteId ?>">Edit
-                      </a>
-                    <?php }?>
+			  <div class="back">
+				<div class="card-content">
+				  <form action="index.php" method="POST">
+					<input type="text" class="displayNone" value="<?php echo $row['content']; ?>" name="mailContent">
+					<input type="text" class="displayNone" value="<?php echo $row['author']; ?>" name="mailAuthor">
 
-                    <a class="twitter-share-button"
-                      href="https://twitter.com/share"
-                      data-text="<?php echo $row['content'] ?>"
-                      data-url="https://QuotesandNotes.com"
-                      data-hashtags="<?php echo $row['genre1'] . "," . $row['genre2'] . "," . $row['genre3'] ?>"
-                      data-via="freddgreat"
-                      data-show-count="true"
-                      data-related="twitterapi,twitter">
-                    </a>
-                    <!-- <a href="#pablo" class="btn btn-just-icon btn-round btn-facebook">
-                      <i class="fa fa-facebook"></i>
-                    </a> -->
-                    <a type="button" class="btn btn-just-icon btn-round btn-rotate" data-toggle="tooltip" data-placement="top" title="mail quote to a friend" data-container="body">
-                      <i class="fas fa-envelope"></i>
-                    </a>
-                  </div>
+					<p class="card-title paddingTop30"><?php echo $row['content']; ?></p>
 
-                </div>
-              </div>
+					<div class="text-center">
+					  <div class="input-group">
+						<span class="input-group-addon">
+						  <i class="material-icons"></i>
+						</span>
+						<input type="text" name="additionalMessage" class="form-control" placeholder="Enter additional message here">
+					  </div>
 
-              <div class="back">
-                <div class="card-content">
-                  <form action="index.php" method="POST">
-                    <input type="text" class="displayNone" value="<?php echo $row['content']; ?>" name="mailContent">
-                    <input type="text" class="displayNone" value="<?php echo $row['author']; ?>" name="mailAuthor">
+					  <div class="input-group">
+						<span class="input-group-addon">
+						  <i class="material-icons"></i>
+						</span>
+						<input type="text" name="receipientMail" class="form-control" placeholder="Enter receiver's Mail">
+					  </div>
 
-                    <p class="card-title paddingTop30"><?php echo $row['content']; ?></p>
+					</div>
 
-                    <div class="text-center">
-                      <div class="input-group">
-                        <span class="input-group-addon">
-                          <i class="material-icons"></i>
-                        </span>
-                        <input type="text" name="additionalMessage" class="form-control" placeholder="Enter additional message here">
-                      </div>
+					<div class="text-center">
+					  <button type="submit" name="mailButton" class="btn btn-round btn-sm btn-primary text-lowercase">Mail quote
+					  </button>
+					  <button type="button" name="button" class="btn btn-white btn-round btn-rotate">
+						<i class="material-icons">refresh</i> Back...
+					  </button>
+					</div>
 
-                      <div class="input-group">
-                        <span class="input-group-addon">
-                          <i class="material-icons"></i>
-                        </span>
-                        <input type="text" name="receipientMail" class="form-control" placeholder="Enter receiver's Mail">
-                      </div>
-
-                    </div>
-
-                    <div class="text-center">
-                      <button type="submit" name="mailButton" class="btn btn-round btn-sm btn-primary text-lowercase">Mail quote
-                      </button>
-                      <button type="button" name="button" class="btn btn-white btn-round btn-rotate">
-                        <i class="material-icons">refresh</i> Back...
-                      </button>
-                    </div>
-
-                  </form>
+				  </form>
 
 
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
 
-        <!-- the javascript the monitor the ajax call and take full charge of the page -->
-        <script type="text/javascript">
-          $(document).ready(function(){
-            $(".<?php echo $row['id'] ?>").click(function(){
-            // set the quote id, genres, author and user id into javascript
-              quoteId = '<?php echo $row['id']; ?>';
-              genre1 = '<?php echo $row['genre1']; ?>';
-              genre2 = '<?php echo $row['genre2']; ?>';
-              genre3 = '<?php echo $row['genre3']; ?>';
-              author = '<?php echo $row['author']; ?>';
-              // check if there is a logged in user
-              if (userId) {
-                // make ajax call to test if user has liked quote before
-                $.post("includes/handlers/ajax/loveQuote.php", { quoteId:quoteId, userId:userId, genre1:genre1, genre2:genre2, genre3:genre3, author:author }, function(data){
+		<!-- the javascript the monitor the ajax call and take full charge of the page -->
+		<script type="text/javascript">
+		  $(document).ready(function(){
+			$(".<?php echo $row['id'] ?>").click(function(){
+			// set the quote id, genres, author and user id into javascript
+			  quoteId = '<?php echo $row['id']; ?>';
+			  genre1 = '<?php echo $row['genre1']; ?>';
+			  genre2 = '<?php echo $row['genre2']; ?>';
+			  genre3 = '<?php echo $row['genre3']; ?>';
+			  author = '<?php echo $row['author']; ?>';
+			  // check if there is a logged in user
+			  if (userId) {
+				// make ajax call to test if user has liked quote before
+				$.post("includes/handlers/ajax/loveQuote.php", { quoteId:quoteId, userId:userId, genre1:genre1, genre2:genre2, genre3:genre3, author:author }, function(data){
 
-                  if (data === "success") {
-                    console.log(data);
-                    // change the image to red and increase the number of likes
-                    $(".<?php echo $row['id'] ?>").attr("src", "assets/images/loveRed.png");
-                    $(".span<?php echo $row['id']; ?>").text("<?php echo $numberOfQuoteLover + 1; ?>");
-                    $(".<?php echo $row['id']?>quoteText").text("you liked this quote ");
+				  if (data === "success") {
+					console.log(data);
+					// change the image to red and increase the number of likes
+					$(".<?php echo $row['id'] ?>").attr("src", "assets/images/loveRed.png");
+					$(".span<?php echo $row['id']; ?>").text("<?php echo $numberOfQuoteLover + 1; ?>");
+					$(".<?php echo $row['id']?>quoteText").text("you liked this quote ");
 
-                  }else if (data === "failure") {
-                   console.log("cant like the quote at the moment");
-                  }else {
-                  console.log(data);
-                  }
-                });
-              } else {
-                var notLoggedin = true;
-               console.log("you need to log in to do that");
-              }
-            })
-          })
-        </script>
-      <?php }
+				  }else if (data === "failure") {
+				   console.log("cant like the quote at the moment");
+				  }else {
+				  console.log(data);
+				  }
+				});
+			  } else {
+				var notLoggedin = true;
+			   console.log("you need to log in to do that");
+			  }
+			})
+		  })
+		</script>
+	  <?php }
 ;
 ?>
 
