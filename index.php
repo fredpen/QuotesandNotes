@@ -72,7 +72,7 @@
 		while ($row = mysqli_fetch_array($quoteArray)) {
 		$quoteId = $row['id'];?>
 
-			<div class="col-sm-6">
+			<div class="col-sm-12">
 			  <div class="rotating-card-container manual-flip" style="width: 100% !important; height: 100% !important;">
 				<div class="card card-rotate">
 				  <div class="front" style="width: 100% !important; height: 100% !important;">

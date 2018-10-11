@@ -4041,12 +4041,12 @@ h2.title {
 }
 
 .card .card-body {
-    height: 30%;
+    /*height: 30%;*/
     padding: 18px;
 }
 
 .card .card-footer {
-    height: 10%;
+    /*height: 10%;*/
     padding: 18px;
 }
 
@@ -4543,7 +4543,7 @@ h2.title {
     min-height: 280px;
     padding-top: 40px;
     padding-bottom: 40px;
-    max-width: 440px;
+    /*max-width: 440px;*/
     margin: 0 auto;
 }
 
