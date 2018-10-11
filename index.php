@@ -2,24 +2,39 @@
   require_once 'includes/header.php';
   require_once 'includes/indexLeftContainer.php';
 ?>
-<!-- Modal -->
-						<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-						<div class="modal-dialog" role="document">
-						<div class="modal-content">
-						<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title" id="myModalLabel">Modal title</h4>
-						</div>
-						<div class="modal-body">
-							dhufhww8rg 8 wwafaw w dhufhww8rg 8 wwafaw w dhufhww8rg 8 wwafaw w dhufhww8rg 8 wwafaw w dhufhww8rg 8 wwafaw w
-						</div>
-						<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary">Save changes</button>
-						</div>
-						</div>
-						</div>
-						</div>
+
+<!-- Modal for liking quotes-->
+<div class="modal fade bs-example-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog modal-sm" role="document">
+		<div class="modal-content">
+
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="card-title modal-title" id="myModalLabel"></h4>
+			</div>
+
+			<div class="modal-body text-center">
+            <div class="card-content">
+            	<h4 class="card-title">Only members can like a quote </h4>
+              <p class="card-description">
+                Sign up for free <a href="signIn.php"> here</a>
+              </p>
+              <p class="card-description">
+                already have an account? <a href="signIn.php"> Login</a>
+              </p>
+            </div>
+			</div>
+
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+
 <!-- main section of the main container -->
 <div class="main-container">
   <div class="frow">
@@ -36,56 +51,51 @@
 			<b>Info alert:</b> Receipient mail column can't be left empty
 		  </div>
 		</div>
-	  <?php };?>
- 
+	  <?php };?> 
 	 <?php
-if ($mailSent) {?>
-		<div class="container">
-		 <div class="alert alert-success">
-		  <div class="alert-icon">
-			<i class="material-icons">check</i>
+
+	if ($mailSent) {?>
+			<div class="container">
+			 <div class="alert alert-success">
+			  <div class="alert-icon">
+				<i class="material-icons">check</i>
+			  </div>
+			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true"><i class="material-icons">clear</i></span>
+			  </button>
+			  <b>Success:</b> quote has been sent to <?php echo $receipientMail; ?>
+			</div>
 		  </div>
-		  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-			<span aria-hidden="true"><i class="material-icons">clear</i></span>
-		  </button>
-		  <b>Success:</b> quote has been sent to <?php echo $receipientMail; ?>
-		</div>
-	  </div>
-	<?php }; ?>
-	<!-- <div class="fb-share-button"
-		 data-href="localhost/Quotes&Notes/index.php"
-		 data-layout="button_count"
-		 data-size="small"
-		 data-mobile-iframe="false">
-		 <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%2FQuotes%26Notes%2Findex.php&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>
-	</div> -->
+		<?php }; ?>
+		
+		<?php
+		while ($row = mysqli_fetch_array($quoteArray)) {
+		$quoteId = $row['id'];?>
 
-	<?php
-	while ($row = mysqli_fetch_array($quoteArray)) {
-	$quoteId = $row['id'];?>
-
-		<div class="col-sm-6">
-		  <div class="rotating-card-container manual-flip" style="width: 100% !important; height: 100% !important;">
-			<div class="card card-rotate">
-			  <div class="front" style="width: 100% !important; height: 100% !important;">
-				<div class="card-content">
-
-				  <p class="card-title">
-					<?php echo $row['content']; ?>
-				  </p>
-
-				  <p class="card-description">
-					<div class="genreList">
-					  <span class="label label-primary">
-						<a class="genre" href='genre.php?genre=<?php echo $row['genre1'] ?>'><?php echo $row['genre1']; ?></a>
-					  </span>
-					  <span class="label label-info">
-						<a class="genre" href='genre.php?genre=<?php echo $row['genre2'] ?>'><?php echo $row['genre2']; ?></a>
-					  </span>
-					  <span class="label label-default">
-						<a class="genre" href='genre.php?genre=<?php echo $row['genre3'] ?>'><?php echo $row['genre3']; ?></a>
-					  </span>
-					</div>
+			<div class="col-sm-6">
+			  <div class="rotating-card-container manual-flip" style="width: 100% !important; height: 100% !important;">
+				<div class="card card-rotate">
+				  <div class="front" style="width: 100% !important; height: 100% !important;">
+					<div class="card-content">
+					
+					<!-- the quote  -->
+					  <p class="card-title">
+						<?php echo $row['content']; ?>
+					  </p>
+					
+					<!-- the quote genre -->
+					  <p class="card-description">
+						<div class="genreList">
+						  <span class="label label-primary">
+							<a class="genre" href='genre.php?genre=<?php echo $row['genre1'] ?>'><?php echo $row['genre1']; ?></a>
+						  </span>
+						  <span class="label label-info">
+							<a class="genre" href='genre.php?genre=<?php echo $row['genre2'] ?>'><?php echo $row['genre2']; ?></a>
+						  </span>
+						  <span class="label label-default">
+							<a class="genre" href='genre.php?genre=<?php echo $row['genre3'] ?>'><?php echo $row['genre3']; ?></a>
+						  </span>
+						</div>
 
 					<footer class="quote-footer">
 					  <?php
@@ -125,14 +135,15 @@ if ($mailSent) {?>
 						 
 					   // if there is no logged in user
 						  } else { ?>
+							<!-- Button trigger modal for liking quotes-->
 							 <p>
-							   <img class="<?php echo $row['id']; ?> like-image" src="assets/images/loveBlack.png" alt="like button">
-							   <span class="<?php echo $row['id'] ?>quoteText"> <?php echo $noUserString; ?>
-							   </span>
-							 </p>
+								<a type="button" data-toggle="modal" data-target="#myModal">
+									<img class="<?php echo $row['id']; ?> like-image" src="assets/images/loveBlack.png" alt="like button">
+									<span class="<?php echo $row['id'] ?>quoteText"> <?php echo $noUserString; ?>
+								</a>
+							</p>
 						   <?php }; ?>
-
-					  
+						   
 					</footer>
 					<!-- quotes author and image -->
 					<div class="footnote">
@@ -154,12 +165,7 @@ if ($mailSent) {?>
 					  </a>
 					<?php }?>
 
-					<!-- Button trigger modal for liking quotes-->
-					<p>
-						<a type="button" data-toggle="modal" data-target="#myModal">
-							<img class="<?php echo $row['id']; ?> like-image" src="assets/images/loveBlack.png" alt="like button">
-						</a>
-					</p>
+					
 				
 
 					<a class="twitter-share-button"
