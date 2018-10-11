@@ -259,17 +259,8 @@ div .profile-photo-small{
   display: none;
 }
 
-#home #width100{
-  height: 300px;
-  width: 100%;
-}
-
 #home .close {
      right: 0; 
-}
-
-#home .alert-dismissible {
-  right: 0;
 }
 
 /*the profile page*/
