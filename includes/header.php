@@ -5,9 +5,12 @@
       require_once 'includes/classes/Account.php';
       require_once 'includes/classes/Quote.php';
 
+
       require_once 'includes/classes/PHPMailer.php';
       require_once 'includes/classes/SMTP.php';
       require_once 'includes/classes/Exception.php';
+
+      
 
 
       // variables
@@ -29,10 +32,10 @@
 
       // fetch a quote for the quote of the moment
       $randQuote = $quote->fetchRandomQuote();
-    
+   
       
       // save all the quotes into an array
-      $quoteArray = $quote->fetchQuote();
+      $quoteArray = $quote->fetchQuotes();
       // save the data from fetch author to authors
       $authors = $quote->fetchAuthor("5");
       $authorAll = $quote->fetchAuthor("all");
