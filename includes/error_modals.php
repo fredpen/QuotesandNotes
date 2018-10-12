@@ -29,13 +29,11 @@
     </div>
 </div>
 
-
-
 <!-- main section of the main container -->
 <div class="main-container">
   <div class="frow">
     <?php
-    if (!$mail) {?>
+      if (!$mail) {?>
         <div class="container">
           <div class="alert alert-info">
             <div class="alert-icon">
@@ -63,3 +61,5 @@
             </div>
           </div>
         <?php }; ?>
+   </div>
+ </div>

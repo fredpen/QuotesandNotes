@@ -1,16 +1,21 @@
 <?php
   require_once 'includes/header.php';
-  require_once 'includes/indexLeftContainer.php';
   require_once 'includes/error_modals.php';
+  require_once 'includes/indexLeftContainer.php';
+?>
 
+	<div class="main-container">
+		<div class="frow">
+  
+	<?php 
 		foreach ($quoteArray as $row) {
 		// while ($row = mysqli_fetch_array($quoteArray)) {
 		$quoteId = $row['id'];?>
-
+		
 			<div class="quote-container">
-			  <div class="rotating-card-container manual-flip" style="width: 100% !important; height: 100% !important;">
+			  <div class="rotating-card-container manual-flip">
 				<div class="card card-rotate">
-				  <div class="front" style="width: 100% !important; height: 100% !important;">
+				  <div class="front">
 					<div class="card-content">
 					
 					<!-- the quote  -->
@@ -99,10 +104,7 @@
 					  <a data-toggle="tooltip" data-placement="top" title="Edit quote" data-container="body" class="label label-info" href="edit.php?id=<?php echo $quoteId ?>">Edit
 					  </a>
 					<?php }?>
-
 					
-				
-
 					<a class="twitter-share-button"
 					  href="https://twitter.com/share"
 					  data-text="<?php echo $row['content'] ?>"
@@ -164,6 +166,7 @@
 			</div>
 		  </div>
 		</div>
+		
 
 		<!-- the javascript the monitor the ajax call and take full charge of the page -->
 		<script type="text/javascript">

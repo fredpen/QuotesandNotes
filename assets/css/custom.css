@@ -272,3 +272,10 @@ div .profile-photo-small{
 footer .container{
   width: 100%;
 }
+
+
+/*--------------author page-----------------*/
+#home .wikiImg{
+  width: 100%;
+  height: 100px;
+}
