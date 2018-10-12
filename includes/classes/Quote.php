@@ -45,20 +45,6 @@
          }
       }
 
-      // retrieve all quotes from the database
-      public function fetchQuote(){
-      $sql = "SELECT quotes.id, quotes.dt, quotes.content, users.firstname, users.lastname, author.author, author.img, genre1.genre1,  genre2.genre2, genre3.genre3
-               FROM quotes
-                  INNER JOIN users ON quotes.user=users.id
-                  INNER JOIN author ON quotes.author= author.id
-                  INNER JOIN genre1 ON quotes.genre1=genre1.id
-                  INNER JOIN genre2 ON quotes.genre2=genre2.id
-                  INNER JOIN genre3 ON quotes.genre3=genre3.id";
-
-         $query = mysqli_query($this->con, $sql);
-         return $query;
-      } 
-
       // retrieve a quotes from the database as quote of the day
       public function editQuote($quoteId){
       $sql = "SELECT quotes.id, quotes.dt, quotes.content, users.firstname, users.lastname, author.author, author.img, genre1.genre1,  genre2.genre2, genre3.genre3
@@ -165,7 +151,7 @@
          $query = mysqli_fetch_array($query);
          $genreId = $query['id'];
 
-         // query all the quotes with the id of the author     
+         // query all the quotes with the genreId    
          $sql = "SELECT quotes.id, quotes.dt, quotes.content, users.firstname, users.lastname, author.author, author.img, genre1.genre1,  genre2.genre2, genre3.genre3
                 FROM quotes
                   INNER JOIN users ON quotes.user=users.id
@@ -221,33 +207,59 @@
          return $query;
       }
 
-      
-      public function fetchRandomQuote()
+      // fetching the id of all quotes in the database
+       public function fetchQuoteId()
       {
          $idArray = [];
-         // query all the quotes id from the database
          $sql = "SELECT id FROM quotes";
          $query = mysqli_query($this->con, $sql);
          // push all the ids into an array
          while ($row = mysqli_fetch_array($query)) {
             array_push($idArray, $row['id']);
          }
-         // shuffle the array 
-         shuffle($idArray);
-         $randomId  = $idArray[0];
-         // query the database for the quote with the chosen id
+         return $idArray;
+      }
+
+      // fetch all the details of a partcular quote in a database
+      public function fetchQuoteDetails($quoteId){
           $sql = "SELECT quotes.id, quotes.dt, quotes.content, author.author, author.img, genre1.genre1,  genre2.genre2, genre3.genre3
                 FROM quotes
                   INNER JOIN author ON quotes.author= author.id
                   INNER JOIN genre1 ON quotes.genre1=genre1.id
                   INNER JOIN genre2 ON quotes.genre2=genre2.id
                   INNER JOIN genre3 ON quotes.genre3=genre3.id
-               WHERE quotes.id='$randomId'";
+               WHERE quotes.id='$quoteId'";
 
          $query = mysqli_query($this->con, $sql);
          $query = mysqli_fetch_array($query);
          return $query;
-         // return the result of the query for the quote of the day
+      }
+
+      // fetch all the quote from the database
+      public function fetchQuotes()
+      {
+         $quotesArray = [];
+         // fetch all quotes id
+         $idArray = $this->fetchQuoteId();
+         // shuffle the id array
+         shuffle($idArray);
+         // loop and get the details of quotes
+         foreach ($idArray as $quoteId) {
+            array_push($quotesArray, $this->fetchQuoteDetails($quoteId));
+         }
+         // return the array that has the shuffled quotes
+         return $quotesArray;
+      }
+
+
+      // fetch random quote for the quote of the moment 
+      public function fetchRandomQuote()
+      {
+         $idArray = $this->fetchQuoteId();
+         // shuffle the array 
+         shuffle($idArray);
+         $randomId  = $idArray[0];
+         return $this->fetchQuoteDetails($randomId);
       }
 
       // saving users email for subscription purposes
@@ -266,8 +278,7 @@
          }
       }
    
-
-
+       
    }
 
 

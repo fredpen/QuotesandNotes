@@ -3,7 +3,8 @@
   require_once 'includes/indexLeftContainer.php';
   require_once 'includes/error_modals.php';
 
-		while ($row = mysqli_fetch_array($quoteArray)) {
+		foreach ($quoteArray as $row) {
+		// while ($row = mysqli_fetch_array($quoteArray)) {
 		$quoteId = $row['id'];?>
 
 			<div class="quote-container">
@@ -199,9 +200,7 @@
 			})
 		  })
 		</script>
-	  <?php }
-;
-?>
+	  <?php };?>
 
   </div>
 </div>
