@@ -1,15 +1,14 @@
 <?php
   require_once 'includes/header.php';
-  require_once 'includes/error_modals.php';
   require_once 'includes/indexLeftContainer.php';
 ?>
-
 	<div class="main-container">
 		<div class="frow">
-  
+
 	<?php 
+	require_once 'includes/error_modals.php';
+	
 		foreach ($quoteArray as $row) {
-		// while ($row = mysqli_fetch_array($quoteArray)) {
 		$quoteId = $row['id'];?>
 		
 			<div class="quote-container">
