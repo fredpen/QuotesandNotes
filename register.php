@@ -18,7 +18,7 @@
           <div class="row">
 
              <!-- the left container -->
-              <div class="registerContainer right-column col-md-3 col-md-offset-1">
+              <div class="registerContainer right-column col-md-4 col-md-offset-1">
 
             		<div class="info info-horizontal">
                   <div class="description">

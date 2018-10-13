@@ -271,14 +271,15 @@
 
          // check if the users email is not already in the database
          while ($row = ($query['email'])) {
-            if ($row != $receipientMail) {
+            if ($row !== $receipientMail) {
+               // echo $row. " and " . $receipientMail;
                $sql ="INSERT INTO subscriptionEmail VALUES('', '$receipientMail')";
                $query = mysqli_query($this->con, $sql);
             }
          }
       }
    
-       
+      
    }
 
 
