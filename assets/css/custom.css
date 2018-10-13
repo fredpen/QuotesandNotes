@@ -80,6 +80,9 @@ hr{
 #bt-override .topMargin{
    margin-top: 98px;
 }
+#home .padding25{
+  padding: 25px;
+}
 
 #bt-override .btn-primary {
    color: #f8f9fa;
@@ -124,6 +127,12 @@ hr{
    font-style: italic;
    font-size: 12px;
    color: grey;
+}
+
+#home .registerNav{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
 }
 
 

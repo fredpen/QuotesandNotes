@@ -105,3 +105,15 @@
       flex-grow: 1;
    }
 }
+
+/*register page*/
+@media screen and (min-width: 10px) {
+   .registerContainer{
+      display: none;
+   }
+}
+@media screen and (min-width: 800px) {
+   .registerContainer{
+      display: block;
+   }
+}
