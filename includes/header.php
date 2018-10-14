@@ -10,8 +10,13 @@
       require_once 'includes/classes/SMTP.php';
       require_once 'includes/classes/Exception.php';
 
-      
-
+         
+     // keeping track of users information when filling a form
+      function getInputValue ($name) {
+        if (isset($_POST[$name])) {
+          echo $_POST[$name];
+        }
+      }
 
       // variables
        $userId;

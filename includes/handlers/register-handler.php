@@ -1,6 +1,7 @@
 <?php
 
-   // sanitize inputs--remove tags and empty spaces
+
+// sanitize inputs--remove tags and empty spaces
    function sanitiseStrings($strings) {
       $strings = strip_tags($strings);
       $strings = str_replace(" ", "", $strings);
@@ -41,9 +42,10 @@
       if ($registerUser) {
          $_SESSION['email'] = $email;
         header("Location: index.php");
-      } else {
-         echo "failed";
-      }
+      } 
+      // else {
+      //    echo "failed";
+      // }
 }
 
 

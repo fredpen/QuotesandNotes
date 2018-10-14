@@ -11,17 +11,6 @@
          $this->id;
       }
 
-
-   // getting user insertUserDetails
-   public function userDetails($email) {
-      $sql = "SELECT * FROM users WHERE email='$email' OR username='$email'";
-      $query = mysqli_query($this->con, $sql);
-
-      while ($row = mysqli_fetch_array($query)) {
-        return $row;
-      }
-   }
-
       // register users data
       public function register($firstName, $lastName, $username, $email, $confirmEmail, $password, $confirmPassword, $gender){
          $this->validateFirstname($firstName);
@@ -33,7 +22,8 @@
          if (empty($this->errorArray)) {
             return $this->insertUserDetails($firstName, $lastName, $username, $email, $password, $gender);
             }  else {
-            return false;
+            // return false;
+            print_r($this->errorArray);
          }
       }
 
@@ -53,12 +43,23 @@
          }
       }
 
+            // getting user insertUserDetails
+         public function userDetails($email) {
+            $sql = "SELECT * FROM users WHERE email='$email' OR username='$email'";
+            $query = mysqli_query($this->con, $sql);
+
+            while ($row = mysqli_fetch_array($query)) {
+              return $row;
+            }
+         }
+
       // function to ouput error
-      public function getError($error){
-         if (!in_array($error, $this->errorArray)) {
-            $error = "";
-         }return "<div class='errorMessage'>". $error . "</div>";
-      }
+     public function getError($error) {
+      if (!in_array($error, $this->errorArray)) {
+        $error = "";
+      }return "eroor is here";
+      // /"<span class='errorMessage'>$error</span>";
+    }
 
       // insert user details into the database
       private function insertUserDetails($firstName, $lastName, $username, $email, $password, $gender){
@@ -77,6 +78,8 @@
             return;
          }
       }
+
+
 
       // validate user's lastname
       private function validateLastname($lastName)  {
