@@ -11,8 +11,6 @@
          $this->id;
       }
 
-
-
       // register users data
       public function register($firstName, $lastName, $username, $email, $confirmEmail, $password, $confirmPassword, $gender){
          $this->validateFirstname($firstName);
@@ -41,6 +39,16 @@
             array_push($this->errorArray, Constants::$loginFailed);
          }
       }
+
+            // getting user insertUserDetails
+         public function userDetails($email) {
+            $sql = "SELECT * FROM users WHERE email='$email' OR username='$email'";
+            $query = mysqli_query($this->con, $sql);
+
+            while ($row = mysqli_fetch_array($query)) {
+              return $row;
+            }
+         }
 
       public function errorLog(){
          return $this->errorArray;
@@ -72,6 +80,8 @@
             return;
          }
       }
+
+
 
       // validate user's lastname
       private function validateLastname($lastName)  {

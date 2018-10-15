@@ -15,7 +15,8 @@
      }
    }
 
-   // sanitize inputs--remove tags and empty spaces
+
+// sanitize inputs--remove tags and empty spaces
    function sanitiseStrings($strings) {
       $strings = strip_tags($strings);
       $strings = str_replace(" ", "", $strings);
@@ -61,10 +62,18 @@
       if ($registerUser) {
          $_SESSION['email'] = $email;
         header("Location: index.php");
+<<<<<<< HEAD:includes/handlers/register-handler.php
+      } 
+      // else {
+      //    echo "failed";
+      // }
+}
+=======
        }
 
    }
 
+>>>>>>> v3:includes/handlers/account_handler.php
 
 
 // ----------------------------handling log in---------------------------

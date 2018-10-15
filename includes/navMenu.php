@@ -6,7 +6,11 @@
     ob_end_flush();
     die();
    }
+<<<<<<< HEAD
+      // keeping track of users in session
+=======
    // keeping track of users in session
+>>>>>>> v3
    if (isset($_SESSION['email'])) {
    $email =  $_SESSION['email'];
 
