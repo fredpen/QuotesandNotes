@@ -1,9 +1,22 @@
-<?php require_once 'includes/header.php';  ?>
+<?php
+
+      require_once 'includes/databaseConfig.php';
+      require_once 'includes/classes/Constants.php';
+      require_once 'includes/classes/Account.php';
+
+      $account = new Account($con);
+
+      require_once 'includes/handlers/register-handler.php';
+      require_once 'includes/navMenu.php';
+      require_once 'includes/session.php';
+
+?>
 
 	<div class="container">
   	<div class="row">
   		<div class="col-md-10 col-md-offset-1">
         <div class=" card card-signup topMargin65">
+          
 
           <!-- the register and sign in button container -->
           <div class="col-sm-12"> 
@@ -14,7 +27,7 @@
                </ul>
             </h2>
           </div>
-  
+
           <div class="row">
 
              <!-- the left container -->
@@ -55,10 +68,12 @@
                   </button>
                   <h4> or be classical </h4>
                 </div>
- 
+
+            
                 <!-- the form container -->
                 <form class="padding25 form" method="post" action="register.php">
             			<div class="form-group label-floating">
+
                     <?php echo $account->getError(Constants::$firstnameCharacter);?>
             				<label for="name" class="control-label">First Name</label>
             				<input type="text" class="form-control" name="firstName" aria-describedby="first name" required="required" value="<?php getInputValue('firstName'); ?>">
@@ -72,6 +87,7 @@
 
             			<div class="form-group label-floating">
             			  <?php echo $account->getError(Constants::$usernameCharacter);
+                   print_r($account->errorArray);
             			        echo $account->getError(Constants::$usernameAlreadyExists); ?>
                			<label for="Username" class="control-label">Username</label>
                			<input type="text" class="form-control" name="username" aria-describedby="username" required value="<?php getInputValue('username');?>">
@@ -85,7 +101,7 @@
             				<input type="email" class="form-control" name="email" aria-describedby="email" required value="<?php getInputValue('email');?>">
             				<small class="form-text text-muted">We'll never share your email with anyone else.</small>
             			</div>
-
+                  
             			<div class="form-group label-floating">
                     <?php echo $account->getError(Constants::$emailInvalid);
                				echo $account->getError(Constants::$emailDoNotMatch);

@@ -237,6 +237,7 @@ div .profile-photo-small{
 .errorMessage{
    display: block;
    padding: 10px 0; 
+   color: red;
 }
 
 .grace{

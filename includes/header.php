@@ -10,7 +10,7 @@
       require_once 'includes/classes/SMTP.php';
       require_once 'includes/classes/Exception.php';
 
-      
+    
 
 
       // variables
@@ -42,6 +42,7 @@
       // save the data from fetch genre
       $genres = $quote->fetchGenre("5");
       $genreAll = $quote->fetchGenre("all");
+
 
       require_once 'includes/handlers/register-handler.php';
       require_once 'includes/handlers/login-handler.php';

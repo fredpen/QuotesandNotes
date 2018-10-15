@@ -1,8 +1,8 @@
 <?php
    class Account {
 
-      private $con;
-      private $errorArray;
+      private $conc;
+      public $errorArray;
       public $id;
 
       function __construct($con)  {
@@ -12,15 +12,6 @@
       }
 
 
-   // getting user insertUserDetails
-   public function userDetails($email) {
-      $sql = "SELECT * FROM users WHERE email='$email' OR username='$email'";
-      $query = mysqli_query($this->con, $sql);
-
-      while ($row = mysqli_fetch_array($query)) {
-        return $row;
-      }
-   }
 
       // register users data
       public function register($firstName, $lastName, $username, $email, $confirmEmail, $password, $confirmPassword, $gender){
@@ -32,11 +23,9 @@
 
          if (empty($this->errorArray)) {
             return $this->insertUserDetails($firstName, $lastName, $username, $email, $password, $gender);
-            }  else {
+            } 
             return false;
-         }
       }
-
 
       // login user
       public function login($email, $password){
@@ -55,9 +44,20 @@
 
       // function to ouput error
       public function getError($error){
-         if (!in_array($error, $this->errorArray)) {
-            $error = "";
-         }return "<div class='errorMessage'>". $error . "</div>";
+         if (in_array($error, $this->errorArray)) {
+            // $error = "grace";
+            echo "<span class='errorMessage'>$error</span>";
+         }
+      }
+
+      // getting user insertUserDetails
+      public function userDetails($email) {
+         $sql = "SELECT * FROM users WHERE email='$email' OR username='$email'";
+         $query = mysqli_query($this->con, $sql);
+
+         while ($row = mysqli_fetch_array($query)) {
+           return $row;
+         }
       }
 
       // insert user details into the database
@@ -67,7 +67,6 @@
 
          $query = mysqli_query($this->con, "INSERT INTO users VALUES('$firstName', '$lastName', '$username', '$email', '$encryptedPassword', '$gender', '$date', '')");
          return $query;
-
       }
 
       // validate user's firstname
@@ -103,16 +102,16 @@
          if (strlen($password) < 5 || strlen($password) > 30) {
             array_push($this->errorArray, Constants::$passwordCharacter);
             return;
-
-         } if (preg_match('/[^A-Za-z0-9]/', $password)) {
+         } 
+         if (preg_match('/[^A-Za-z0-9]/', $password)) {
            array_push($this->errorArray, Constants::$passwordInvalid);
            return;
-
-        }if ($password != $confirmPassword ) {
+        }
+        if ($password != $confirmPassword ) {
             array_push($this->errorArray, Constants::$passwordDonNotMatch);
-            return;
+              return;
          }
-   }
+      }
 
       // validate emails
       private function validateEmail($email, $confirmEmail) {

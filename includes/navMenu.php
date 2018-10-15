@@ -6,12 +6,6 @@
     ob_end_flush();
     die();
    }
-   // keeping track of users information when filling a form
-   function getInputValue($name) {
-      if (isset($_POST['name'])) {
-         echo $_POST['name'];
-      }
-   }
    // keeping track of users in session
    if (isset($_SESSION['email'])) {
    $email =  $_SESSION['email'];

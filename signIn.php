@@ -4,7 +4,7 @@
    if (isset($_SESSION['upload'])) {
       // echo "kindly loggged in first";
    }
-   $loginFailed = true;
+   // $loginFailed = true;
  ?>
 <!-- sign in  -->
 <div class="" style="background-image: url('assets/images/bg0.jpg'); background-size: cover; background-position: top center;">
@@ -66,12 +66,6 @@
 								<input type="password" name="loginPassword" placeholder="Password..." class="form-control"/>
 							</div>
 
-							<!-- <div class="checkbox">
-								<label>
-									<input type="checkbox" name="optionsCheckboxes" checked>
-									Subscribe to newsletter
-								</label>
-							</div> -->
 							<div class="footer text-center">
 								<button type="submit" name="loginButton" class="btn btn-primary btn-simple btn-wd btn-lg">Get Started</button>
 		              			<p>
