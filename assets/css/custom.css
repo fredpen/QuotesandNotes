@@ -4,10 +4,12 @@
   html,body{
    margin: 0;
    padding: 0;
-   /*background-color: #eeeeee;*/
-   /*background-color: white;*/
 }
 
+#home .form-control,
+#home .form-group{
+  color: #9c27b0;
+}
 
 .full-width-col  {
    width: 100%;
@@ -187,6 +189,17 @@ p .like-image{
    filter-color: purple;
 }
 
+#home .star{
+  color: red;
+  padding: 0px 7px;
+  font-size: 10px;
+}
+
+#home .message{
+  font-size: 9px;
+  color: #f44336;
+}
+
 #signUpPage .signUp{
    background: white;
 }
@@ -208,12 +221,27 @@ p .like-image{
   margin-top: 70px;
 }
 
+
+#home .topMargin160{
+  margin-top: 160px;
+}
+
+
 #home .paddingTop30{
   padding-top: 30px;
 }
 
 #home .genderSelection{
    display: flex;
+}
+
+#home .purple{
+  color: purple;
+}
+
+#home .textBold{
+  color: #232323;
+  padding: 0 5px;
 }
 
 #home .quote-footer{
@@ -235,8 +263,10 @@ div .profile-photo-small{
 }
 
 .errorMessage{
-   display: block;
-   padding: 10px 0; 
+    display: block;
+    color: #e91e63;
+    font-size: 11px;
+    background: #8080801a;
 }
 
 .grace{

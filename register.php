@@ -1,9 +1,23 @@
-<?php require_once 'includes/header.php';  ?>
+<?php
+
+      require_once 'includes/databaseConfig.php';
+      require_once 'includes/classes/Constants.php';
+      require_once 'includes/classes/Account.php';
+
+      $account = new Account($con);
+
+      require_once 'includes/handlers/account_handler.php';
+      require_once 'includes/navMenu.php';
+      require_once 'includes/session.php';
+
+ 
+?>
 
 	<div class="container">
   	<div class="row">
   		<div class="col-md-10 col-md-offset-1">
         <div class=" card card-signup topMargin65">
+          
 
           <!-- the register and sign in button container -->
           <div class="col-sm-12"> 
@@ -14,7 +28,7 @@
                </ul>
             </h2>
           </div>
-  
+
           <div class="row">
 
              <!-- the left container -->
@@ -22,82 +36,80 @@
 
             		<div class="info info-horizontal">
                   <div class="description">
-                    <h4 class="info-title">Exercpts to get you through difficult days</h4>
+                    <h4 class="info-title purple">Words and sayings from books, quotes and poems readily available to you</h4>
                   </div>
                 </div>
 
                 <div class="info info-horizontal">
-          				<div class="description">
-          					<h4 class="info-title">Exercpts to get you through difficult days</h4>
-          				</div>
-            		</div>
+                  <div class="description">
+                    <h4 class="info-title purple">Exercpts to get you through difficult days</h4>
+                  </div>
+                </div>
 
-            		<div class="info info-horizontal">
-            			<div class="description">
-            				<h4 class="info-title">Words and sayings from books, quotes and poems readily available to you</h4>
-        		  	  </div>
-        		    </div>
-  		        </div> <!-- end of left column -->
+              <div class="info info-horizontal">
+          				<div class="description">
+          					<h4 class="info-title purple">Exercpts to get you through difficult days</h4>
+          				</div>
+              </div>
+            </div>
+
 
               <div class="col-md-6">
 
                 <!-- signing in with social buttons -->
                 <div class="social text-center">
-                  <h4>Sign up with </h4>
-                  <button class="btn btn-just-icon btn-round btn-twitter">
-                    <i class="fa fa-twitter"></i>
-                  </button>
-                  <button class="btn btn-just-icon btn-round btn-dribbble">
-                    <i class="fa fa-dribbble"></i>
-                  </button>
-                  <button class="btn btn-just-icon btn-round btn-facebook">
-                    <i class="fa fa-facebook"> </i>
-                  </button>
+
+                  <h4>Sign up with
+                    <button class="btn btn-just-icon btn-round btn-twitter">
+                      <i class="fab fa-twitter"></i>
+                    </button>
+                   </h4>
+                 
                   <h4> or be classical </h4>
+                  <p class="message text-uppercase text-muted"> all <i class="fas fa-star-of-life star"></i> fields must be filled</p>
+
                 </div>
- 
+
+           
                 <!-- the form container -->
                 <form class="padding25 form" method="post" action="register.php">
+
             			<div class="form-group label-floating">
-                    <?php echo $account->getError(Constants::$firstnameCharacter);?>
-            				<label for="name" class="control-label">First Name</label>
+                    <?php echo errorGetter(Constants::$firstnameCharacter); ?>
+            				<label for="name" class="control-label"></i>First Name</label>
             				<input type="text" class="form-control" name="firstName" aria-describedby="first name" required="required" value="<?php getInputValue('firstName'); ?>">
         			    </div>
 
             			<div class="form-group label-floating">
-            			  <?php echo $account->getError(Constants::$lastnameCharacter);?>
+                    <?php echo errorGetter(Constants::$lastnameCharacter); ?>
             				<label for="name" class="control-label">Last Name</label>
             				<input type="text" class="form-control" name="lastName" aria-describedby="last name" required="required"  value="<?php getInputValue('lastName');?>">
             			</div>
 
             			<div class="form-group label-floating">
-            			  <?php echo $account->getError(Constants::$usernameCharacter);
-            			        echo $account->getError(Constants::$usernameAlreadyExists); ?>
+                    <?php echo errorGetter(Constants::$usernameCharacter);
+                         echo errorGetter(Constants::$usernameAlreadyExists); ?>
                			<label for="Username" class="control-label">Username</label>
                			<input type="text" class="form-control" name="username" aria-describedby="username" required value="<?php getInputValue('username');?>">
             			</div>
 
             			<div class="form-group label-floating">
-            			  <?php echo $account->getError(Constants::$emailInvalid);
-                   				echo $account->getError(Constants::$emailDoNotMatch);
-                   				echo $account->getError(Constants::$emailAlreadyExists); ?>
-            				<label for="email" class="control-label">Email address</label>
+                    <?php echo errorGetter(Constants::$emailDoNotMatch);
+                          echo errorGetter(Constants::$emailInvalid);
+            			        echo errorGetter(Constants::$emailAlreadyExists); ?>
+            				<label for="email" class="control-label"></i>Email address</label>
             				<input type="email" class="form-control" name="email" aria-describedby="email" required value="<?php getInputValue('email');?>">
             				<small class="form-text text-muted">We'll never share your email with anyone else.</small>
             			</div>
                   
             			<div class="form-group label-floating">
-                    <?php echo $account->getError(Constants::$emailInvalid);
-               				echo $account->getError(Constants::$emailDoNotMatch);
-               				echo $account->getError(Constants::$emailAlreadyExists);
-                      ?>
             				<label for="email" class="control-label">Confirm Email address</label>
             				<input type="email" class="form-control" name="confirmEmail" aria-describedby="email" required value="<?php getInputValue('confirmEmail');?>">
             			</div>
 
                   <div class="form-group">
-                    <div class="title">
-                      <h3>Gender</h3>
+                    <div class="text-muted">
+                      <span>Gender</span>
                     </div>
 
                     <div class="genderSelection">
@@ -122,9 +134,9 @@
                   </div>
 
                		<div class="form-group label-floating">
-               			<?php echo $account->getError(Constants::$passwordDonNotMatch);
-               					echo $account->getError(Constants::$passwordCharacter);
-               					echo $account->getError(Constants::$passwordInvalid); ?>
+                    <?php echo errorGetter(Constants::$passwordDonNotMatch);
+                          echo errorGetter(Constants::$passwordCharacter);
+                          echo errorGetter(Constants::$passwordInvalid); ?>
                			 <label for="password" class="control-label">Password</label>
                			 <input type="password" name="password" class="form-control" required>
            		    </div>

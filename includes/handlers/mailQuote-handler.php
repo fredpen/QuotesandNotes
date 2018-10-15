@@ -1,6 +1,6 @@
 <?php 
   $mailSent = false;
-  $mail = "";
+  $mail = true;
 	if (isset($_POST['mailButton'])) {
    
     // check if there is email and store and assign variables
@@ -41,15 +41,14 @@
         //send the message, check for errors
         $mail->send();
           $mailSent = true;
-      } catch (Exception $e) {
-      echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
-      }
-    }
-
-    // receipientMail is empty
-    $mail = false;
-
-	}  
+        } catch (Exception $e) {
+        echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
+        }
+      }else{
+        // receipientMail is empty
+        $mail = false;
+        }
+  	}  
 
  
 
