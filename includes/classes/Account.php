@@ -54,16 +54,6 @@
          return $this->errorArray;
       }
 
-      // getting user insertUserDetails
-      public function userDetails($email) {
-         $sql = "SELECT * FROM users WHERE email='$email' OR username='$email'";
-         $query = mysqli_query($this->con, $sql);
-
-         while ($row = mysqli_fetch_array($query)) {
-           return $row;
-         }
-      }
-
       // insert user details into the database
       private function insertUserDetails($firstName, $lastName, $username, $email, $password, $gender){
          $encryptedPassword = md5($password);

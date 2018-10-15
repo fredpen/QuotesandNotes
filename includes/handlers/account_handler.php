@@ -62,19 +62,9 @@
       if ($registerUser) {
          $_SESSION['email'] = $email;
         header("Location: index.php");
-<<<<<<< HEAD:includes/handlers/register-handler.php
-      } 
-      // else {
-      //    echo "failed";
-      // }
-}
-=======
        }
 
    }
-
->>>>>>> v3:includes/handlers/account_handler.php
-
 
 // ----------------------------handling log in---------------------------
 
