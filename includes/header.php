@@ -43,9 +43,6 @@
       $genres = $quote->fetchGenre("5");
       $genreAll = $quote->fetchGenre("all");
 
-
-      require_once 'includes/handlers/register-handler.php';
-      require_once 'includes/handlers/login-handler.php';
       require_once 'includes/navMenu.php';
       require_once 'includes/session.php';
 

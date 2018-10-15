@@ -1,6 +1,5 @@
 <?php
 
-      $loginFailed = false;
       if (isset($_POST['loginButton'])) {
 
       $email = sanitiseStrings($_POST['loginEmail']);

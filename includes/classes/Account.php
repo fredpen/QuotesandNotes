@@ -42,12 +42,8 @@
          }
       }
 
-      // function to ouput error
-      public function getError($error){
-         if (in_array($error, $this->errorArray)) {
-            // $error = "grace";
-            echo "<span class='errorMessage'>$error</span>";
-         }
+      public function errorLog(){
+         return $this->errorArray;
       }
 
       // getting user insertUserDetails
