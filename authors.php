@@ -16,8 +16,8 @@
 	<div class="container">
 	<div class="row">
 
-		<div>
-			<a class="author_list" href="#a">a</a>
+		<div class="col-sm-12 text-center text-uppercase">
+			<a class="author_list label label-default" href="#a">a</a>
 			<a class="author_list" href="#b">b</a>
 			<a class="author_list" href="#c">c</a>
 			<a class="author_list" href="#d">d</a>
@@ -51,12 +51,10 @@
 			<a class="author_list" href="#t">t</a>
 		</div>
 		
+		
 		<div class="col-md-8 col-md-offset-2">
 			<div class="table-responsive">
 				<table class="table">
-					
-
-				<p> <div id="fred_sample">this is the sample</div> </p>
 
 					<tbody>
 						<?php $num = 1; $char = "a"; ?>

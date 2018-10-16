@@ -22,7 +22,6 @@
 .quote-container{
    padding:1% 2%;
    box-sizing: border-box;
-   flex-grow: 1;
 }
 
 @media screen and (min-width: 10px) {
