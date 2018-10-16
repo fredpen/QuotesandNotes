@@ -1,7 +1,11 @@
 <?php
   require_once 'includes/header.php';
   require_once 'includes/indexLeftContainer.php';
+
+ 
 ?>
+
+
 	<div class="main-container">
 		<div class="frow">
 

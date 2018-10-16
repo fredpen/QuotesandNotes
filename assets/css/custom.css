@@ -201,15 +201,11 @@ p .like-image{
 
 #home .pillButton{
    width: 40%;
-   margin: 42px auto 10px auto;
+   margin: 20px auto 0 auto;
 }
 
 #home .topMargin90{
    margin-top: 90px;
-}
-
-#home .topMargin3{
-   margin-top: 160px;
 }
 
 #home .topMargin70{
@@ -312,4 +308,10 @@ footer .container{
 #home .wikiImg{
   width: 100%;
   height: 100px;
+}
+
+
+/*----------------authors----------------*/
+#home .maxwidth20{
+  max-width: 20%;
 }

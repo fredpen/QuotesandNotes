@@ -90,11 +90,11 @@
                   </a>
                </li>
                <li>
-                  <a href="authorsPage">
+                  <a href="authors.php">
                   <i class="fas fa-book-reader"></i> Authors</a>
                </li>
                <li>
-                  <a href="genresPage">Genres</a>
+                  <a href="genres.php">Genres</a>
                </li>
                <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
