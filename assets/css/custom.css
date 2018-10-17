@@ -313,7 +313,7 @@ footer .container{
 
 /*----------------authors----------------*/
 #home .maxwidth20{
-  max-width: 20%;
+  max-width: 13%;
 }
 
 #home .author_nav{
@@ -348,4 +348,8 @@ footer .container{
 
 #tables{
   background: white;
+}
+
+#home .title_border{
+  border: solid 2px grey;
 }
