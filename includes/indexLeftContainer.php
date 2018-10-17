@@ -58,6 +58,7 @@
               <?php echo imagify($row['author']); ?></a>
           </li>
        <?php }; ?>
+
        </ul>
     </div> <!--left container-->
    
