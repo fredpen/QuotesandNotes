@@ -2807,7 +2807,7 @@ select.form-control[multiple],
 .navbar {
     border: 0;
     border-radius: 3px;
-    padding: 10px 0;
+    /*padding: 5px 0;*/
 }
 
 .navbar .navbar-brand {

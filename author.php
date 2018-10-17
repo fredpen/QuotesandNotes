@@ -29,7 +29,7 @@
             <?php while ($row = mysqli_fetch_array($authors)) { 
                 if ($row['id'] !== $authorId) {   ?>
                 <li class="list-group-item">
-                    <a href="author.php?author=<?php echo $row['id']; ?>"><?php echo $row['author'];?></a>
+                    <a href="author.php?author=<?php echo $row['id']; ?>"><?php echo imagify($row['author']);?></a>
                 </li>
                 <?php };
             }; ?>
@@ -45,7 +45,7 @@
             <div class="media">
               <a class="pull-left">
                 <div class="avatar">               
-                  <img class="media-object" src="assets/images/author/<?php echo $authorDetails['img'] ?>" alt="<?php echo $authorDetails['author'] ?>" />
+                  <img class="media-object" src="assets/images/author/<?php echo $authorDetails['author'] ?>.jpg" alt="<?php echo imagify($authorDetails['author']) ?>" />
                 </div>
               </a>
             <?php  ?>
@@ -54,7 +54,7 @@
                  $(document).ready(function(){
                     $.ajax({
                         type: "GET",
-                        url: "http://en.wikipedia.org/w/api.php?action=parse&format=json&prop=text&section=0&page=<?php echo $authorDetails['wikiName'];?>&callback=?",
+                        url: "http://en.wikipedia.org/w/api.php?action=parse&format=json&prop=text&section=0&page=<?php echo $authorDetails['author'];?>&callback=?",
                         contentType: "application/json; charset=utf-8",
                         async: false,
                         dataType: "json",
@@ -76,7 +76,7 @@
              </script>
 
               <div class="media-body">
-                <h4 class="media-heading"><?php echo $authorDetails['author']; ?></h4>
+                <h4 class="media-heading"><?php echo imagify($authorDetails['author']); ?></h4>
                 <h6 class="text-muted"></h6>
                 <p class="authorBio">
                   <!-- the gif temporarily takes the page why the ajax call is made to wiki api is been made -->
@@ -84,10 +84,10 @@
                 </p>
 
                 <div class="media-footer">
-                  <a href="https://en.wikipedia.org/wiki/<?php echo $authorDetails['wikiName']; ?>" 
+                  <a href="https://en.wikipedia.org/wiki/<?php echo $authorDetails['author']; ?>" 
                      class="text-lowercase btn btn-primary btn-simple pull-right"
                      target="_blank">
-                    ...read more about <?php echo $authorDetails['author']; ?>
+                    ...read more about <?php echo imagify($authorDetails['author']); ?>
                   </a>
                 </div>
             </div>
@@ -98,7 +98,7 @@
      <!-- the main container that houses the quotes by the author  -->
      <!-- loop through the quotes find all where author = author id -->
     <div class="title col-sm-12 text-center text-grey">
-      <h3 class="title"> Quotes by <?php echo $authorDetails['author']; ?></h3>
+      <h3 class="title"> Quotes by <?php echo imagify($authorDetails['author']); ?></h3>
     </div>
     <?php
       while ($row = mysqli_fetch_array($quotesFromSameAuthor)) {
@@ -181,8 +181,8 @@
           <div class="footnote">
             <div class="author">
             <a href="author.php?author=<?php echo $quote->authorId($row['author']); ?>">
-              <img src="assets/images/author/<?php echo $row['img'] ?>" alt="<?php echo $row['author'] ?>" class="avatar img-raised">
-              <span><?php echo $row['author']; ?></span>
+              <img src="assets/images/author/<?php echo $row['author'] ;?>.jpg" alt="<?php echo imagify($row['author']); ?>)" class="avatar img-raised">
+              <span><?php echo imagify($row['author']); ?></span>
             </a>
             </div>
 

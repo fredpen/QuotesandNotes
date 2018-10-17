@@ -204,8 +204,8 @@ p .like-image{
    margin: 20px auto 0 auto;
 }
 
-#home .topMargin90{
-   margin-top: 90px;
+#home .topMargin80{
+   margin-top: 80px;
 }
 
 #home .topMargin70{
@@ -314,4 +314,38 @@ footer .container{
 /*----------------authors----------------*/
 #home .maxwidth20{
   max-width: 20%;
+}
+
+#home .author_nav{
+  position: fixed;
+  top: 49px;
+  width: 100%;
+  background: #211f1f;
+  min-height: 35px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  background: #999999;
+  z-index: 2;
+}
+
+#home .label{
+  font-size: 1.2rem;
+  padding: 7px;
+}
+
+@media and screen and (min-width: 10px ) {
+  #home .label{
+    font-size: 1rem;
+  }
+
+  #home{
+    background: red;
+  }
+  /*#home .margin*/
+}
+
+#tables{
+  background: white;
 }

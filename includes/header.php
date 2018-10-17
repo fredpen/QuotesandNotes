@@ -1,4 +1,9 @@
 <?php
+      // converting the wikiname of authors to img names
+      function imagify($string){
+         $string = str_replace("_", " ", $string);
+         return $string;
+      }
 
       require_once 'includes/databaseConfig.php';
       require_once 'includes/classes/Constants.php';
@@ -31,7 +36,7 @@
       // fetch a quote for the quote of the moment
       $randQuote = $quote->fetchRandomQuote();
    
-      
+     
       // save all the quotes into an array
       $quoteArray = $quote->fetchQuotes();
       // save the data from fetch author to authors

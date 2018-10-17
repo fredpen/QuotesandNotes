@@ -1,7 +1,6 @@
 <?php
   require_once 'includes/header.php';
   require_once 'includes/indexLeftContainer.php';
-
  
 ?>
 
@@ -92,8 +91,8 @@
 					<div class="footnote">
 					  <div class="author">
 						<a href="author.php?author=<?php echo $quote->authorId($row['author']); ?>">
-						  <img src="assets/images/author/<?php echo $row['img'] ?>" alt="<?php echo $row['author'] ?>" class="avatar img-raised">
-						  <span><?php echo $row['author']; ?></span>
+						  <img src="assets/images/author/<?php echo ($randQuote['author']); ?>.jpg" alt="<?php echo imagify($randQuote['author']); ?>" class="avatar img-raised">
+						  <span><?php echo imagify($randQuote['author']); ?></span>
 						</a>
 					  </div>
 

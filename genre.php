@@ -14,14 +14,15 @@
 
  ?>
 
-
  <!-- import the left side container ... this should shows author similar to the one we considering -->
 <div class="fcontainer">
   <div class="frow">
+
    <!-- left section of the main container -->
     <div class="left-container  topMargin65">
       <ul class="list-group">
         <li class="list-group-item active"> Similar genres </li>
+
         <?php while ($row = mysqli_fetch_array($genreAll)) { 
           if ($row["genre1"] !== $genre) { ?>
             <li class="list-group-item text-capitalize">
@@ -32,56 +33,12 @@
       </ul>
     </div> <!--left container-->
 
-     <script type="text/javascript">
-                 $(document).ready(function(){
-                    $.ajax({
-                        type: "GET",
-                        url: "http://en.wikipedia.org/w/api.php?action=parse&format=json&prop=text&section=0&page=<?php echo $genre;?>&callback=?",
-                        contentType: "application/json; charset=utf-8",
-                        async: false,
-                        dataType: "json",
-                        success: function (data, textStatus, jqXHR) {
-                            console.log(data);
-                            var markup = data.parse.text["*"];
-                            var blurb = $('<div></div>').html(markup);
-                            // remove links as they will not work
-                            blurb.find('a').each(function() { $(this).replaceWith($(this).html()); });
-                            // remove any references
-                            blurb.find('sup').remove();
-                            // remove cite error
-                            blurb.find('.mw-ext-cite-error').remove();
-                            $('.genreBio').html($(blurb).find('p'));
-                        },
-                        error: function (errorMessage) {
-                        }
-                    });
-                });
-             </script>
   <div class="main-container topMargin65">
     <div class="frow">
-      <!-- a small card that holds the image of the author  -->
-      <div class="col-sm-12">
-       <div class="media-area">
-          <div class="media">
-             <!-- the other card to hold little decription or info about the author will be gotten from wikipedia -->
-            <div class="media-body">
-              <h4 class="media-heading text-capitalize"><?php echo $genre; ?> </h4>
-              <h6 class="text-muted"></h6>
 
-              <p>Chance too good. God level bars. I'm so proud of @LifeOfDesiigner #1 song in the country. Panda! Don't be scared of the truth because we need to restart the human foundation in truth I stand with the most humility. We are so blessed!</p>
-              <p class="genreBio"></p>
-
-              <div class="media-footer">
-                <a href="#pablo" class="btn btn-primary btn-simple pull-right">source: <span class="">wikipedia</span></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-       <!-- the main container that houses the quotes by the author  -->
+       <!-- the main container that houses the quotes by the genre  -->
       <div class="title col-sm-12 text-center text-grey">
-       <h3 class="text-capitalize"><?php echo $genre ?> Quotes</h3>
+       <h1 class="text-capitalize"><?php echo $genre ?> Quotes</h1>
       </div>
 
       <?php
@@ -165,8 +122,8 @@
           <div class="footnote">
             <div class="author">
             <a href="author.php?author=<?php echo $quote->authorId($row['author']); ?>">
-              <img src="assets/images/author/<?php echo $row['img'] ?>" alt="<?php echo $row['author'] ?>" class="avatar img-raised">
-              <span><?php echo $row['author']; ?></span>
+              <img src="assets/images/author/<?php echo $row['author'] ?>.jpg" alt="<?php echo imagify($row['author']) ?>" class="avatar img-raised">
+              <span><?php echo imagify($row['author']); ?></span>
             </a>
             </div>
 
@@ -291,7 +248,7 @@
       <!-- loop through authors similar  -->
       <?php while ($row = mysqli_fetch_array($authorAll)) { ?>
         <li class="list-group-item">
-          <a href="author.php?author=<?php echo $row['id']; ?>"><?php echo $row['author'];?></a>
+          <a href="author.php?author=<?php echo $row['id']; ?>"><?php echo imagify($row['author']);?></a>
         </li>
       <?php }; ?>
     </ul>   

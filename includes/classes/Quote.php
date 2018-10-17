@@ -46,7 +46,7 @@
 
       // retrieve a quotes from the database as quote of the day
       public function editQuote($quoteId){
-      $sql = "SELECT quotes.id, quotes.dt, quotes.content, users.firstname, users.lastname, author.author, author.img, genre1.genre1,  genre2.genre2, genre3.genre3
+      $sql = "SELECT quotes.id, quotes.dt, quotes.content, users.firstname, users.lastname, author.author, genre1.genre1,  genre2.genre2, genre3.genre3
                FROM quotes
                   INNER JOIN users ON quotes.user=users.id
                   INNER JOIN author ON quotes.author= author.id
@@ -128,7 +128,7 @@
       // query all the quotes that are from a particular author from the database
       public function fetchQuotesFromSameAuthor($author)
       {
-       $sql = "SELECT quotes.id, quotes.dt, quotes.content, users.firstname, users.lastname, author.author, author.img, genre1.genre1,  genre2.genre2, genre3.genre3
+       $sql = "SELECT quotes.id, quotes.dt, quotes.content, users.firstname, users.lastname, author.author, genre1.genre1,  genre2.genre2, genre3.genre3
             FROM quotes
                INNER JOIN users ON quotes.user=users.id
                INNER JOIN author ON quotes.author= author.id
@@ -151,7 +151,7 @@
          $genreId = $query['id'];
 
          // query all the quotes with the genreId    
-         $sql = "SELECT quotes.id, quotes.dt, quotes.content, users.firstname, users.lastname, author.author, author.img, genre1.genre1,  genre2.genre2, genre3.genre3
+         $sql = "SELECT quotes.id, quotes.dt, quotes.content, users.firstname, users.lastname, author.author, genre1.genre1,  genre2.genre2, genre3.genre3
                 FROM quotes
                   INNER JOIN users ON quotes.user=users.id
                   INNER JOIN author ON quotes.author= author.id
@@ -167,7 +167,7 @@
       // fetch the tracked user activities for the profile page
        public function fetchProfileDetails($userId)
       {
-         $sql = "SELECT quotes.id, quotes.content, genre1.genre1, genre2.genre2, genre3.genre3, author.author, author.img, users.firstname, users.lastname, users.username, users.email, users.gender, users.dt
+         $sql = "SELECT quotes.id, quotes.content, genre1.genre1, genre2.genre2, genre3.genre3, author.author, users.firstname, users.lastname, users.username, users.email, users.gender, users.dt
                  FROM quoteLovers
                   INNER JOIN quotes ON quoteLovers.quote=quotes.id
                   INNER JOIN users  ON quoteLovers.user=users.id
@@ -221,7 +221,7 @@
 
       // fetch all the details of a partcular quote in a database
       public function fetchQuoteDetails($quoteId){
-          $sql = "SELECT quotes.id, quotes.dt, quotes.content, author.author, author.img, genre1.genre1,  genre2.genre2, genre3.genre3
+          $sql = "SELECT quotes.id, quotes.dt, quotes.content, author.author, genre1.genre1,  genre2.genre2, genre3.genre3
                 FROM quotes
                   INNER JOIN author ON quotes.author= author.id
                   INNER JOIN genre1 ON quotes.genre1=genre1.id

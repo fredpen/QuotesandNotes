@@ -3,18 +3,22 @@
    <div class="container">
       <div class="row">
          <div class="col-md-5 col-md-offset-3  topMargin65">
+
             <div class="text-center">
                <h3 class="title">Quote of the Moment</h3>
+
                <div id="card" class="card card-blog">
                   <div id="card-content" class="card-content" style="height: unset;"> 
                      <p class="text-lowercase quote-description"><?php echo $randQuote['content']; ?></p>
                      <div class="footer">
+
                         <div class="author">
                            <span>
-                              <img src="assets/images/author/<?php echo $randQuote['img'] ?>" alt="<?php echo $randQuote['author'] ?>" class="avatar img-raised">
-                              <span><?php echo $randQuote['author']; ?></span>
+                              <img src="assets/images/author/<?php echo ($randQuote['author']) ?>.jpg" alt="<?php echo imagify($randQuote['author']) ?>" class="avatar img-raised">
+                              <span><?php echo imagify($randQuote['author']); ?></span>
                            </span>
                         </div>
+
                         <div class="pull-right col-xs-12 text-right">
                            <a class="twitter-share-button btn btn-just-icon btn-round btn-twitter"
                               href="https://twitter.com/share"
@@ -51,7 +55,7 @@
        <?php while ($row = mysqli_fetch_array($authorAll)) { ?>
           <li class="list-group-item text-capitalise">
              <a class="text-capitalise" href="author.php?author=<?php echo $quote->authorId($row['author']);?>">
-              <?php echo $row['author']; ?></a>
+              <?php echo imagify($row['author']); ?></a>
           </li>
        <?php }; ?>
        </ul>
