@@ -28,9 +28,20 @@
       // upload quote into the database
       public function uploadQuote($content, $genre1, $genre2, $genre3, $author, $userDetails){
 
+         // shorten the content to a max of 50 characters
+         $content = substr($content, 0, 50);
+         // query all quotes from the quotes database
+         $sql = "SELECT content FROM quotes WHERE content LIKE '%$content%'";
+         $query = mysqli_query($this->con, $sql);
+
+         // $query = mysqli_num_rows($query);
+         if (mysqli_num_rows($query) > 0) {
+            return false;
+         }
+
+         // if not then push the quote
          $dt = date("Y-m-d h:i:s");
          $user = $userDetails['id'];
-         $likes = 0;
 
          $sql = "INSERT INTO quotes VALUES('', '$dt', '$content', '$user', '$author', '$genre1', '$genre2', '$genre3')";
 
@@ -43,6 +54,7 @@
 
          }
       }
+   
 
       // retrieve a quotes from the database as quote of the day
       public function editQuote($quoteId){
