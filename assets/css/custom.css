@@ -4,6 +4,8 @@
   html,body{
    margin: 0;
    padding: 0;
+   /* font-family: 'PT Mono', monospace; */
+font-family: 'Inconsolata', monospace;
 }
 
 .full-width-col  {
@@ -29,9 +31,6 @@
    background: #f1f8fb26;
 }
 
-#bt-override .nav-link{
-   /* color: #ffffffe6; */
-}
 
 #bt-override .nav-link:hover{
    color: #17a2b8a6;
@@ -181,7 +180,7 @@ p .like-image{
    background-image: url(../images/bg7.jpg);
    background-size: cover;
    background-position: top center;
-   filter-color: purple;
+   /* filter-color: purple; */
 }
 
 #home .star{
@@ -336,9 +335,10 @@ footer .container{
 }
 
 @media and screen and (min-width: 10px ) {
-  #home .label{
+  #home .label {
     font-size: 1rem;
   }
+
 
   #home{
     background: red;

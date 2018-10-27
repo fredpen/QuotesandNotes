@@ -1,23 +1,24 @@
 <?php
    // redirecting function
-   function redirect_to($url) {
-    ob_start();
-    header('Location: '.$url);
-    ob_end_flush();
-    die();
-   }
+function redirect_to($url)
+{
+  ob_start();
+  header('Location: ' . $url);
+  ob_end_flush();
+  die();
+}
    // keeping track of users in session
-   if (isset($_SESSION['email'])) {
-   $email =  $_SESSION['email'];
+if (isset($_SESSION['email'])) {
+  $email = $_SESSION['email'];
 
-   $userDetails = $account->userDetails($email);
-   $firstName = $userDetails['lastname'];
-   $userId = $userDetails['id'];
+  $userDetails = $account->userDetails($email);
+  $firstName = $userDetails['lastname'];
+  $userId = $userDetails['id'];
 
-   $jsonfirstName = json_encode($firstName);
-   }  else {
-   $firstName = '';
-   }
+  $jsonfirstName = json_encode($firstName);
+} else {
+  $firstName = '';
+}
 
 ?>
 
@@ -42,6 +43,7 @@
    <!--     Fonts and icons     -->
    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+   <link href="https://fonts.googleapis.com/css?family=Inconsolata|PT+Mono" rel="stylesheet">
 
    <!-- CSS Files -->
    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
@@ -83,7 +85,8 @@
                      <i class="fas fa-user-edit"></i>
                   </a>
                </li>
-               <?php  }; ?>
+               <?php 
+            }; ?>
                <li>
                   <a href="blog/home.php">
                      <i class="fas fa-newspaper"></i>  blog 
@@ -113,7 +116,8 @@
                         </a>
                      </li>
                   </ul>
-                  <?php  } else { ?>
+                  <?php 
+                } else { ?>
                   <ul class="dropdown-menu dropdown-with-icons">
                      <li>
                         <a href="register.php?">Register <i class="fas fa-user-plus"></i></a>
@@ -125,7 +129,8 @@
                         <a href="uploadQuote.php">Contribute <i class="fab fa-joomla"></i></a>
                      </li>
                   </ul>
-                  <?php  }; ?>
+                  <?php 
+                }; ?>
                </li>
             </ul>
          </div>
