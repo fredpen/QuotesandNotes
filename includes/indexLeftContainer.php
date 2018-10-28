@@ -24,7 +24,7 @@
                               href="https://twitter.com/share"
                               data-text="<?php echo $randQuote['content'] ?>"
                               data-url="https://QuotesandNotes.com"
-                              data-hashtags="<?php echo $randQuote['genre1']. "," . $randQuote['genre2']. "," . $randQuote['genre3'] ?>"
+                              data-hashtags="<?php echo $randQuote['genre1'] . "," . $randQuote['genre2'] . "," . $randQuote['genre3'] ?>"
                               data-via="freddgreat"
                               data-show-count="true"
                               dara-size="large"
@@ -54,10 +54,11 @@
 
        <?php while ($row = mysqli_fetch_array($authorAll)) { ?>
           <li class="list-group-item text-capitalise">
-             <a class="text-capitalise" href="author.php?author=<?php echo $quote->authorId($row['author']);?>">
+             <a class="text-capitalise" href="author.php?author=<?php echo $quote->authorId($row['author']); ?>">
               <?php echo imagify($row['author']); ?></a>
           </li>
-       <?php }; ?>
+       <?php 
+    }; ?>
 
        </ul>
     </div> <!--left container-->

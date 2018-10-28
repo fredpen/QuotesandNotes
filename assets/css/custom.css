@@ -333,7 +333,7 @@ footer .container{
 
 #home .label{
   font-size: 1.2rem;
-  padding: 7px;
+  padding: 8px;
 }
 
 @media and screen and (min-width: 10px ) {
@@ -362,10 +362,13 @@ footer .container{
   max-width: 100px;
 }
 
-#home .masonry-column {
-  padding: 0 1px;
+.masonry { /* Masonry container */
+    column-count: 4;
+    column-gap: 1em;
 }
 
-#home .masonry-grid > div .thumbnail {
-  margin: 5px 1px;
+.item { /* Masonry bricks or child elements */
+   display: inline-block;
+    margin: 0 0 1em;
+    width: 100%;
 }

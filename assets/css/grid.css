@@ -19,52 +19,55 @@
    flex-wrap: wrap;
 }
 
-.quote-container{
-   padding:1% 2%;
-   box-sizing: border-box;
-}
-
-@media screen and (min-width: 10px) {
-   .right-container,.left-container{
-      display: none;
-   }
-   .main-container{
-      width: 100%;
-      /* flex-grow: 1; */
-   }
-   .quote-container{
-      width: 100%;
-   }
-
-   .genreList{
+  .genreList{
       display: flex;
       flex-wrap: nowrap;
       padding: 0 0 10px 0;
       box-sizing: border-box;
       flex-shrink: 1;
    }
+
+@media screen and (min-width: 10px) {
+   .right-container,.left-container{
+      display: none;
+   }
+ 
+   .masonry { /* Masonry container */
+    column-count: 1;
+    column-gap: 1em;
+    width: 100%;
+}
+
+.item { /* Masonry bricks or child elements */
+   display: inline-block;
+    margin: 0 0 1em;
+    width: 100%;
+}
+
 }
 
 @media screen and (min-width: 600px) {
-    .main-container{
+    .masonry{
       width: 75%;
    }
     .left-container{
       display: block;
       width: 25%;
+      padding: 0 10px;
    }
-}
+  }
 
 @media screen and (min-width: 800px) {
    .left-container{
       display: none;
    }
-   .main-container{
+   .masonry{
       width: 100%;
       flex-grow: 1;
    }
-   .quote-container{
-      width: 50%;
+     
+   .masonry{
+     column-count: 2;
    }
 
 
@@ -75,33 +78,33 @@
       display: block;
       width: 15%;
    }
-   .main-container{
+   .masonry{
       width: 85%;
       flex-grow: 1;
    }
-   .quote-container{
-      width: 50%;
-   }
 
+    .masonry{
+     column-count: 2;
+   }
 
 }
 
 @media screen and (min-width: 1200px) {
    .right-container {
-      display: initial;
-      width: 11%;
+      width: 10%;
+      display: block;
+      padding: 0 10px;
    }
    .left-container{
-      width: 13%;
+      width: 10%;
    }
 
-    .quote-container{
-      width: 50%;
-   }
-
-   .main-container{
+   .masonry{
       width: 76%;
       flex-grow: 1;
+   }
+    .masonry{
+     column-count: 3;
    }
 }
 
