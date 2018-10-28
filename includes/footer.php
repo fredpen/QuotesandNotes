@@ -29,21 +29,6 @@
         </div>
       </div>
 
-     <!--  <div class="col-md-4">
-        <h5>Instagram Feed</h5>
-        <div class="gallery-feed">
-          <img src="assets/img/faces/card-profile6-square.jpg" class="img img-raised img-rounded" alt="" />
-          <img src="assets/img/faces/christian.jpg" class="img img-raised img-rounded" alt="" />
-          <img src="assets/img/faces/card-profile4-square.jpg" class="img img-raised img-rounded" alt="" />
-          <img src="assets/img/faces/card-profile1-square.jpg" class="img img-raised img-rounded" alt="" />
-
-          <img src="assets/img/faces/marc.jpg" class="img img-raised img-rounded" alt="" />
-          <img src="assets/img/faces/kendall.jpg" class="img img-raised img-rounded" alt="" />
-          <img src="assets/img/faces/card-profile5-square.jpg" class="img img-raised img-rounded" alt="" />
-          <img src="assets/img/faces/card-profile2-square.jpg" class="img img-raised img-rounded" alt="" />
-        </div>
-
-      </div> -->
     </div>
   </div>
   <hr />

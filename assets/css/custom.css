@@ -57,7 +57,9 @@ font-family: 'Inconsolata', monospace;
 }
 
 hr{
-   margin: 0 auto;
+    margin: 0 auto;
+    width: 100%;
+    border-top: solid #8080806b 1px;
 }
 
 .horizontal-break:before{
@@ -350,6 +352,20 @@ footer .container{
   background: white;
 }
 
-#home .title_border{
-  border: solid 2px grey;
+/* #home .title_border{
+  border: solid 2px #337ab7;
+} */
+
+/* authorspage */
+#home .jumpList{
+  position: fixed;
+  max-width: 100px;
+}
+
+#home .masonry-column {
+  padding: 0 1px;
+}
+
+#home .masonry-grid > div .thumbnail {
+  margin: 5px 1px;
 }

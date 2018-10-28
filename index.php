@@ -1,20 +1,20 @@
 <?php
-  require_once 'includes/header.php';
-  require_once 'includes/indexLeftContainer.php';
- 
+require_once 'includes/header.php';
+require_once 'includes/indexLeftContainer.php';
+
 ?>
 
 
 	<div class="main-container">
-		<div class="frow">
+		<div class="frow mansory">
 
 	<?php 
-	require_once 'includes/error_modals.php';
-	
-		foreach ($quoteArray as $row) {
-		$quoteId = $row['id'];?>
+require_once 'includes/error_modals.php';
+
+foreach ($quoteArray as $row) {
+	$quoteId = $row['id']; ?>
 		
-			<div class="quote-container">
+			<div class="quote-container item">
 			  <div class="rotating-card-container manual-flip">
 				<div class="card card-rotate">
 				  <div class="front">
@@ -43,40 +43,42 @@
 					  <?php
 					  // variables
 						$personString = function () {
-						  if ($numberOfQuoteLover == 0) {
+							if ($numberOfQuoteLover == 0) {
 							// return ;
-						  }elseif (numberOfQuoteLover == 1) {
-							echo " person liked this quote";
-						  }else{
-							echo " people liked this quote";
-						  }
+							} elseif (numberOfQuoteLover == 1) {
+								echo " person liked this quote";
+							} else {
+								echo " people liked this quote";
+							}
 						};
 
 						$quoteLoveCheck = $quote->quoteLoveCheck($quoteId, $userId);
 						$numberOfQuoteLover = $quote->numberOfQuoteLover($quoteId);
-						$noUserString = ($numberOfQuoteLover == 0 ? "be the first to like this quote" : $numberOfQuoteLover); 
+						$noUserString = ($numberOfQuoteLover == 0 ? "be the first to like this quote" : $numberOfQuoteLover);
 						$loveQuoteString = ($numberOfQuoteLover == 1 ? "you liked this quote" : $numberOfQuoteLover . " people liked this quote");
 
 						// check if a user is loggedin 
 						if ($userId) {
 
 						  // if user has liked the quote before
-						  if ($quoteLoveCheck) { ?>
+							if ($quoteLoveCheck) { ?>
 							<p>
 							 <img class="<?php echo $row['id']; ?> like-image" src="assets/images/loveRed.png" alt="love button">
 							 <span class="<?php echo $row['id'] ?>quoteText"><?php echo $loveQuoteString; ?></span>
 							</p>
 						   
 						  <!--if user has not like quote before -->
-						  <?php } else { ?>
+						  <?php 
+						} else { ?>
 						   <p>
 							 <img class="<?php echo $row['id']; ?> like-image" src="assets/images/loveBlack.png" alt="like button">
-							 <span class="<?php echo $row['id'] ?>quoteText"><?php echo $noUserString?></span>
+							 <span class="<?php echo $row['id'] ?>quoteText"><?php echo $noUserString ?></span>
 							</p>
-						  <?php }; 
+						  <?php 
+						}; 
 						 
 					   // if there is no logged in user
-						  } else { ?>
+					} else { ?>
 							<!-- Button trigger modal for liking quotes-->
 							 <p>
 								<a type="button" data-toggle="modal" data-target="#myModal">
@@ -84,7 +86,8 @@
 									<span class="<?php echo $row['id'] ?>quoteText"> <?php echo $noUserString; ?>
 								</a>
 							</p>
-						   <?php }; ?>
+						   <?php 
+							}; ?>
 						   
 					</footer>
 					<!-- quotes author and image -->
@@ -98,14 +101,15 @@
 
 					</div> <!-- end of footer -->
 				  </p>
-
+					<hr class="hr">
 					<!-- share and edit buttons -->
 				  <div class="pull-right col-xs-12 text-right">
 				 
-					<?php if ($admin) {?>
+					<?php if ($admin) { ?>
 					  <a data-toggle="tooltip" data-placement="top" title="Edit quote" data-container="body" class="label label-info" href="edit.php?id=<?php echo $quoteId ?>">Edit
 					  </a>
-					<?php }?>
+					<?php 
+			} ?>
 					
 					<a class="twitter-share-button"
 					  href="https://twitter.com/share"
@@ -190,7 +194,7 @@
 					// change the image to red and increase the number of likes
 					$(".<?php echo $row['id'] ?>").attr("src", "assets/images/loveRed.png");
 					$(".span<?php echo $row['id']; ?>").text("<?php echo $numberOfQuoteLover + 1; ?>");
-					$(".<?php echo $row['id']?>quoteText").text("you liked this quote ");
+					$(".<?php echo $row['id'] ?>quoteText").text("you liked this quote ");
 
 				  }else if (data === "failure") {
 				   console.log("cant like the quote at the moment");
@@ -205,7 +209,8 @@
 			})
 		  })
 		</script>
-	  <?php };?>
+	  <?php 
+	}; ?>
 
   </div>
 </div>

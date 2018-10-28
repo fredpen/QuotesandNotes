@@ -116,7 +116,7 @@ $theError = checkError($errorMessages, $errors);
          <!-- <select class="selectpicker" data-style="btn btn-primary btn-round" title="Choose Author" data-size="7"> -->
          <select name="author" class="grace" data-style="btn btn-primary btn-round" title="Choose Author" data-size="7">
               <option name="select Author" value="author">Choose Author</option>
-           <?php while ($row = mysqli_fetch_array($authorsAll)) { ?>
+           <?php while ($row = mysqli_fetch_array($authorAll)) { ?>
               <option name="author" value="<?php echo $row['id']; ?>"><?php echo $row['author']; ?></option>
             <?php 
           } ?>
