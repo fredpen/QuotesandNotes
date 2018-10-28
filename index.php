@@ -5,8 +5,7 @@ require_once 'includes/indexLeftContainer.php';
 ?>
 
 
-	<div class="main-container">
-		<div class="frow mansory">
+		<div class="masonry">
 
 	<?php 
 require_once 'includes/error_modals.php';
@@ -14,7 +13,7 @@ require_once 'includes/error_modals.php';
 foreach ($quoteArray as $row) {
 	$quoteId = $row['id']; ?>
 		
-			<div class="quote-container item">
+			<div class="item">
 			  <div class="rotating-card-container manual-flip">
 				<div class="card card-rotate">
 				  <div class="front">
@@ -94,8 +93,8 @@ foreach ($quoteArray as $row) {
 					<div class="footnote">
 					  <div class="author">
 						<a href="author.php?author=<?php echo $quote->authorId($row['author']); ?>">
-						  <img src="assets/images/author/<?php echo ($randQuote['author']); ?>.jpg" alt="<?php echo imagify($randQuote['author']); ?>" class="avatar img-raised">
-						  <span><?php echo imagify($randQuote['author']); ?></span>
+						  <img src="assets/images/author/<?php echo ($row['author']); ?>.jpg" alt="<?php echo imagify($row['author']); ?>" class="avatar img-raised">
+						  <span><?php echo imagify($row['author']); ?></span>
 						</a>
 					  </div>
 
@@ -213,7 +212,7 @@ foreach ($quoteArray as $row) {
 	}; ?>
 
   </div>
-</div>
+<!-- </div> -->
 
 <!-- right section of the main container -->
 <?php

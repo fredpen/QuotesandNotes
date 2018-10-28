@@ -53,7 +53,7 @@
     .left-container{
       display: block;
       width: 25%;
-      padding: 0 10px;
+      padding: 0 10px 0 0;
    }
   }
 
@@ -93,7 +93,7 @@
    .right-container {
       width: 10%;
       display: block;
-      padding: 0 10px;
+      padding: 0 0 0 10px;
    }
    .left-container{
       width: 10%;
