@@ -1,16 +1,16 @@
 <?php
 
-      require_once 'includes/databaseConfig.php';
-      require_once 'includes/classes/Constants.php';
-      require_once 'includes/classes/Account.php';
+require_once 'includes/databaseConfig.php';
+require_once 'includes/classes/Constants.php';
+require_once 'includes/classes/Account.php';
 
-      $account = new Account($con);
+$account = new Account($con);
 
-      require_once 'includes/handlers/account_handler.php';
-      require_once 'includes/navMenu.php';
-      require_once 'includes/session.php';
+require_once 'includes/handlers/account_handler.php';
+require_once 'includes/navMenu.php';
+require_once 'includes/session.php';
 
-     ?>
+?>
 
 <!-- sign in  -->
 <div class="" style="background-image: url('assets/images/bg0.jpg'); background-size: cover; background-position: top center;">
@@ -33,13 +33,13 @@
 
 					<form class="form" method="post" action="signIn.php">
 						<div class="card-content">
-						<span class="text-center"><?php echo errorGetter(Constants::$loginFailed);?></span>
+						<span class="text-center"><?php echo errorGetter(Constants::$loginFailed); ?></span>
 
 							<div class="input-group">
 								<div class="input-group-addon">
 									<i class="material-icons">face</i>
 								</div>
-								<input type="text" name="loginEmail" value="<?php getInputValue('loginEmail');?>" class="form-control" placeholder="Email or Username">
+								<input type="text" name="loginEmail" value="<?php getInputValue('loginEmail'); ?>" class="form-control" placeholder="Email or Username">
 							</div>
 
 							<div class="input-group">
@@ -62,6 +62,4 @@
 	</div>
 </div>
 
-<?php 
-require_once 'includes/footer.php';
- ?>
+<?php require_once 'includes/footer.php'; ?>

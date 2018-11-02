@@ -1,21 +1,21 @@
 <?php
-   
-   if (isset($_GET['author'])) {
-      $authorId = $_GET['author'];
-      $authorId= strip_tags($authorId);
-   }else{
-      header("Location: index.php");
-   }
+
+if (isset($_GET['author'])) {
+  $authorId = $_GET['author'];
+  $authorId = strip_tags($authorId);
+} else {
+  header("Location: index.php");
+}
 
    // import the header that houses the navbar and other dependencies
-   require_once 'includes/header.php';
-   require_once 'includes/error_modals.php';
+require_once 'includes/header.php';
+require_once 'includes/error_modals.php';
 
    // query the all quotes of thesame author
-   $quotesFromSameAuthor =$quote->fetchQuotesFromSameAuthor($authorId);
+$quotesFromSameAuthor = $quote->fetchQuotesFromSameAuthor($authorId);
    // query all the detaif the author from the database
-   $authorDetails = $quote->fetchAuthorDetails($authorId);
-   ?>
+$authorDetails = $quote->fetchAuthorDetails($authorId);
+?>
 
  <div class="fcontainer">
 
@@ -26,12 +26,13 @@
         <ul class="list-group">
             <li class="list-group-item active"> Similar Authors</li>
             <!-- loop through authors similar  -->
-            <?php while ($row = mysqli_fetch_array($authors)) { 
-                if ($row['id'] !== $authorId) {   ?>
+            <?php while ($row = mysqli_fetch_array($authors)) {
+              if ($row['id'] !== $authorId) { ?>
                 <li class="list-group-item">
-                    <a href="author.php?author=<?php echo $row['id']; ?>"><?php echo imagify($row['author']);?></a>
+                    <a href="author.php?author=<?php echo $row['id']; ?>"><?php echo imagify($row['author']); ?></a>
                 </li>
-                <?php };
+                <?php 
+              };
             }; ?>
         </ul>   
       </div> <!--left container-->
@@ -54,7 +55,7 @@
                  $(document).ready(function(){
                     $.ajax({
                         type: "GET",
-                        url: "http://en.wikipedia.org/w/api.php?action=parse&format=json&prop=text&section=0&page=<?php echo $authorDetails['author'];?>&callback=?",
+                        url: "http://en.wikipedia.org/w/api.php?action=parse&format=json&prop=text&section=0&page=<?php echo $authorDetails['author']; ?>&callback=?",
                         contentType: "application/json; charset=utf-8",
                         async: false,
                         dataType: "json",
@@ -100,11 +101,13 @@
     <div class="title col-sm-12 text-center text-grey">
       <h3 class="title"> Quotes by <?php echo imagify($authorDetails['author']); ?></h3>
     </div>
+
+    <div class="masonry">
     <?php
-      while ($row = mysqli_fetch_array($quotesFromSameAuthor)) {
-        $quoteId = $row['id'];  ?>
+    while ($row = mysqli_fetch_array($quotesFromSameAuthor)) {
+      $quoteId = $row['id']; ?>
     
-       <div class="quote-container">
+       <div class="item">
         <div class="rotating-card-container manual-flip">
         <div class="card card-rotate">
           <div class="front">
@@ -135,16 +138,16 @@
             $personString = function () {
               if ($numberOfQuoteLover == 0) {
               // return ;
-              }elseif (numberOfQuoteLover == 1) {
-              echo " person liked this quote";
-              }else{
-              echo " people liked this quote";
+              } elseif (numberOfQuoteLover == 1) {
+                echo " person liked this quote";
+              } else {
+                echo " people liked this quote";
               }
             };
 
             $quoteLoveCheck = $quote->quoteLoveCheck($quoteId, $userId);
             $numberOfQuoteLover = $quote->numberOfQuoteLover($quoteId);
-            $noUserString = ($numberOfQuoteLover == 0 ? "be the first to like this quote" : $numberOfQuoteLover); 
+            $noUserString = ($numberOfQuoteLover == 0 ? "be the first to like this quote" : $numberOfQuoteLover);
             $loveQuoteString = ($numberOfQuoteLover == 1 ? "you liked this quote" : $numberOfQuoteLover . " people liked this quote");
 
             // check if a user is loggedin 
@@ -158,15 +161,17 @@
               </p>
                
               <!--if user has not like quote before -->
-              <?php } else { ?>
+              <?php 
+            } else { ?>
                <p>
                <img class="<?php echo $row['id']; ?> like-image" src="assets/images/loveBlack.png" alt="like button">
-               <span class="<?php echo $row['id'] ?>quoteText"><?php echo $noUserString?></span>
+               <span class="<?php echo $row['id'] ?>quoteText"><?php echo $noUserString ?></span>
               </p>
-              <?php }; 
+              <?php 
+            }; 
              
              // if there is no logged in user
-              } else { ?>
+          } else { ?>
               <!-- Button trigger modal for liking quotes-->
                <p>
                 <a type="button" data-toggle="modal" data-target="#myModal">
@@ -174,14 +179,15 @@
                   <span class="<?php echo $row['id'] ?>quoteText"> <?php echo $noUserString; ?>
                 </a>
               </p>
-               <?php }; ?>
+               <?php 
+            }; ?>
                
           </footer>
           <!-- quotes author and image -->
           <div class="footnote">
             <div class="author">
             <a href="author.php?author=<?php echo $quote->authorId($row['author']); ?>">
-              <img src="assets/images/author/<?php echo $row['author'] ;?>.jpg" alt="<?php echo imagify($row['author']); ?>)" class="avatar img-raised">
+              <img src="assets/images/author/<?php echo $row['author']; ?>.jpg" alt="<?php echo imagify($row['author']); ?>)" class="avatar img-raised">
               <span><?php echo imagify($row['author']); ?></span>
             </a>
             </div>
@@ -192,10 +198,11 @@
           <!-- share and edit buttons -->
           <div class="pull-right col-xs-12 text-right">
          
-          <?php if ($admin) {?>
+          <?php if ($admin) { ?>
             <a data-toggle="tooltip" data-placement="top" title="Edit quote" data-container="body" class="label label-info" href="edit.php?id=<?php echo $quoteId ?>">Edit
             </a>
-          <?php }?>
+          <?php 
+        } ?>
 
           <a class="twitter-share-button"
             href="https://twitter.com/share"
@@ -277,7 +284,7 @@
           // change the image to red and increase the number of likes
           $(".<?php echo $row['id'] ?>").attr("src", "assets/images/loveRed.png");
           $(".span<?php echo $row['id']; ?>").text("<?php echo $numberOfQuoteLover + 1; ?>");
-          $(".<?php echo $row['id']?>quoteText").text("you liked this quote ");
+          $(".<?php echo $row['id'] ?>quoteText").text("you liked this quote ");
 
           }else if (data === "failure") {
            console.log("cant like the quote at the moment");
@@ -292,9 +299,11 @@
       })
       })
     </script>
-    <?php };?>
+    <?php 
+  }; ?>
 
   </div>
+</div>
 </div>
 
 
