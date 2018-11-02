@@ -1,7 +1,7 @@
 <!--     *********    BIG FOOTER     *********      -->
 
 <footer class="footer footer-black footer-big">
-<div class="container">
+<div class="container-fluid">
 
   <div class="content">
     <div class="row">

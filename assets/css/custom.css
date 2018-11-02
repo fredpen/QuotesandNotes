@@ -209,6 +209,10 @@ p .like-image{
    margin-top: 80px;
 }
 
+#home .topMargin45{
+  margin-top: 45px;
+}
+
 #home .topMargin70{
   margin-top: 70px;
 }
@@ -345,8 +349,6 @@ footer .container{
   #home{
     background: red;
   }
-  /*#home .margin*/
-}
 
 #tables{
   background: white;
@@ -371,4 +373,5 @@ footer .container{
    display: inline-block;
     margin: 0 0 1em;
     width: 100%;
+   
 }

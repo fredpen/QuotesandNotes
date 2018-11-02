@@ -19,6 +19,10 @@
    flex-wrap: wrap;
 }
 
+.main-container{
+  max-width: 100%;
+}
+
   .genreList{
       display: flex;
       flex-wrap: nowrap;
@@ -27,27 +31,47 @@
       flex-shrink: 1;
    }
 
+   .masonry{
+     column-gap: 1em;
+    width: 100%;
+   }
+
+    .main-container{
+      flex-grow: 1;
+   }
+
+    .item{
+      -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    display: inline-block;
+    margin: 0 0 1em;
+    width: 100%;
+   }
+
+   /* for xtra small devices */
 @media screen and (min-width: 10px) {
    .right-container,.left-container{
       display: none;
    }
- 
-   .masonry { /* Masonry container */
+
+  .masonry {
     column-count: 1;
-    column-gap: 1em;
-    width: 100%;
 }
 
-.item { /* Masonry bricks or child elements */
-   display: inline-block;
-    margin: 0 0 1em;
-    width: 100%;
+.main-container{
+  width: 100%;
 }
 
 }
 
+
+/* for small devices */
 @media screen and (min-width: 600px) {
-    .masonry{
+    .main-container{
       width: 75%;
    }
     .left-container{
@@ -61,9 +85,8 @@
    .left-container{
       display: none;
    }
-   .masonry{
+   .main-container{
       width: 100%;
-      flex-grow: 1;
    }
      
    .masonry{
@@ -78,9 +101,8 @@
       display: block;
       width: 15%;
    }
-   .masonry{
+   .main-container{
       width: 85%;
-      flex-grow: 1;
    }
 
     .masonry{
@@ -94,15 +116,16 @@
       width: 10%;
       display: block;
       padding: 0 0 0 10px;
+      box-sizing: border-box;
    }
    .left-container{
       width: 10%;
    }
 
-   .masonry{
-      width: 76%;
-      flex-grow: 1;
+   .main-container{
+      width: 80%;
    }
+   
     .masonry{
      column-count: 3;
    }

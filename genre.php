@@ -16,10 +16,10 @@ $quotesFromSameGenre = $quote->fetchQuotesFromSameGenre($genre);
 
  <!-- import the left side container ... this should shows author similar to the one we considering -->
 <div class="fcontainer">
-  <div class="frow">
+  <div class="frow topMargin45">
 
    <!-- left section of the main container -->
-    <div class="left-container  topMargin65">
+    <div class="left-container ">
       <ul class="list-group">
         <li class="list-group-item active"> Similar genres </li>
 
@@ -35,19 +35,19 @@ $quotesFromSameGenre = $quote->fetchQuotesFromSameGenre($genre);
       </ul>
     </div> <!--left container-->
 
-  <div class="main-container topMargin65">
-    <div class="frow">
+  <div class="main-container">
 
        <!-- the main container that houses the quotes by the genre  -->
       <div class="title col-sm-12 text-center text-grey">
        <h1 class="text-capitalize"><?php echo $genre ?> Quotes</h1>
       </div>
 
+      <div class="masonry">
         <?php
         while ($row = mysqli_fetch_array($quotesFromSameGenre)) {
           $quoteId = $row['id']; ?>
               
-          <div class="quote-container">
+          <div class="item">
             <div class="rotating-card-container manual-flip">
             <div class="card card-rotate">
               <div class="front">

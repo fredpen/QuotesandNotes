@@ -4,7 +4,7 @@ require_once 'includes/indexLeftContainer.php';
 
 ?>
 
-
+<div class="main-container">
 		<div class="masonry">
 
 	<?php 
@@ -212,7 +212,7 @@ foreach ($quoteArray as $row) {
 	}; ?>
 
   </div>
-<!-- </div> -->
+</div>
 
 <!-- right section of the main container -->
 <?php

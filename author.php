@@ -19,10 +19,10 @@ $authorDetails = $quote->fetchAuthorDetails($authorId);
 
  <div class="fcontainer">
 
-    <div class="frow">
+    <div class="frow topMargin45">
 
        <!-- left section of the main container  -->
-      <div class="left-container  topMargin65">
+      <div class="left-container">
         <ul class="list-group">
             <li class="list-group-item active"> Similar Authors</li>
             <!-- loop through authors similar  -->
@@ -37,8 +37,7 @@ $authorDetails = $quote->fetchAuthorDetails($authorId);
         </ul>   
       </div> <!--left container-->
 
-      <div class="main-container topMargin65">
-        <div class="frow">
+      <div class="main-container">
 
       <!-- a small card that holds the image of the author  -->
         <div class="col-sm-12">
@@ -304,7 +303,7 @@ $authorDetails = $quote->fetchAuthorDetails($authorId);
 
   </div>
 </div>
-</div>
+<!-- </div> -->
 
 
  <!-- the footer -->
