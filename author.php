@@ -193,7 +193,7 @@ $authorDetails = $quote->fetchAuthorDetails($authorId);
 
           </div> <!-- end of footer -->
           </p>
-
+          <hr class="hr">
           <!-- share and edit buttons -->
           <div class="pull-right col-xs-12 text-right">
          

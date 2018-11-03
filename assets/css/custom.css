@@ -311,7 +311,7 @@ footer .container{
 
 /*--------------author page-----------------*/
 #home .wikiImg{
-  width: 100%;
+  width: 100px;
   height: 100px;
 }
 
@@ -374,4 +374,8 @@ footer .container{
     margin: 0 0 1em;
     width: 100%;
    
+}
+
+.item:hover{
+  color: red !important;
 }
