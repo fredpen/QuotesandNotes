@@ -9,7 +9,7 @@
 
                <div id="card" class="card card-blog">
                   <div id="card-content" class="card-content" style="height: unset;"> 
-                     <p class="text-lowercase quote-description"><?php echo $randQuote['content']; ?></p>
+                     <p class="quote-description"><?php echo $randQuote['content']; ?></p>
                      <div class="footer">
 
                         <div class="author">

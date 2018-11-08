@@ -286,7 +286,7 @@ div .profile-photo-small{
 #card{
     background: rgba(255,255,255,.15);
     color: white;
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
     height: unset;
 }
 

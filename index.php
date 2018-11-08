@@ -11,7 +11,7 @@ require_once 'includes/indexLeftContainer.php';
 require_once 'includes/error_modals.php';
 
 foreach ($quoteArray as $row) {
-	$quoteId = $row['id']; ?>
+    $quoteId = $row['id']; ?>
 		
 			<div class="item">
 			  <div class="rotating-card-container manual-flip">
@@ -41,26 +41,26 @@ foreach ($quoteArray as $row) {
 					<footer class="quote-footer">
 					  <?php
 					  // variables
-						$personString = function () {
-							if ($numberOfQuoteLover == 0) {
+        $personString = function () {
+            if ($numberOfQuoteLover == 0) {
 							// return ;
-							} elseif (numberOfQuoteLover == 1) {
-								echo " person liked this quote";
-							} else {
-								echo " people liked this quote";
-							}
-						};
+            } elseif (numberOfQuoteLover == 1) {
+                echo " person liked this quote";
+            } else {
+                echo " people liked this quote";
+            }
+        };
 
-						$quoteLoveCheck = $quote->quoteLoveCheck($quoteId, $userId);
-						$numberOfQuoteLover = $quote->numberOfQuoteLover($quoteId);
-						$noUserString = ($numberOfQuoteLover == 0 ? "be the first to like this quote" : $numberOfQuoteLover);
-						$loveQuoteString = ($numberOfQuoteLover == 1 ? "you liked this quote" : $numberOfQuoteLover . " people liked this quote");
+        $quoteLoveCheck = $quote->quoteLoveCheck($quoteId, $userId);
+        $numberOfQuoteLover = $quote->numberOfQuoteLover($quoteId);
+        $noUserString = ($numberOfQuoteLover == 0 ? "be the first to like this quote" : $numberOfQuoteLover);
+        $loveQuoteString = ($numberOfQuoteLover == 1 ? "you liked this quote" : $numberOfQuoteLover . " people liked this quote");
 
 						// check if a user is loggedin 
-						if ($userId) {
+        if ($userId) {
 
 						  // if user has liked the quote before
-							if ($quoteLoveCheck) { ?>
+            if ($quoteLoveCheck) { ?>
 							<p>
 							 <img class="<?php echo $row['id']; ?> like-image" src="assets/images/loveRed.png" alt="love button">
 							 <span class="<?php echo $row['id'] ?>quoteText"><?php echo $loveQuoteString; ?></span>
@@ -68,16 +68,16 @@ foreach ($quoteArray as $row) {
 						   
 						  <!--if user has not like quote before -->
 						  <?php 
-						} else { ?>
+    } else { ?>
 						   <p>
 							 <img class="<?php echo $row['id']; ?> like-image" src="assets/images/loveBlack.png" alt="like button">
 							 <span class="<?php echo $row['id'] ?>quoteText"><?php echo $noUserString ?></span>
 							</p>
 						  <?php 
-						}; 
+    }; 
 						 
 					   // if there is no logged in user
-					} else { ?>
+} else { ?>
 							<!-- Button trigger modal for liking quotes-->
 							 <p>
 								<a type="button" data-toggle="modal" data-target="#myModal">
@@ -86,7 +86,7 @@ foreach ($quoteArray as $row) {
 								</a>
 							</p>
 						   <?php 
-							}; ?>
+    }; ?>
 						   
 					</footer>
 					<!-- quotes author and image -->
@@ -108,7 +108,7 @@ foreach ($quoteArray as $row) {
 					  <a data-toggle="tooltip" data-placement="top" title="Edit quote" data-container="body" class="label label-info" href="edit.php?id=<?php echo $quoteId ?>">Edit
 					  </a>
 					<?php 
-			} ?>
+} ?>
 					
 					<a class="twitter-share-button"
 					  href="https://twitter.com/share"
@@ -209,7 +209,7 @@ foreach ($quoteArray as $row) {
 		  })
 		</script>
 	  <?php 
-	}; ?>
+}; ?>
 
   </div>
 </div>
