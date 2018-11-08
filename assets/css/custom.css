@@ -5,7 +5,7 @@
    margin: 0;
    padding: 0;
    /* font-family: 'PT Mono', monospace; */
-font-family: 'Inconsolata', monospace;
+/* font-family: 'Inconsolata', monospace; */
 }
 
 .full-width-col  {
@@ -286,7 +286,6 @@ div .profile-photo-small{
 #card{
     background: rgba(255,255,255,.15);
     color: white;
-    /* text-transform: capitalize; */
     height: unset;
 }
 
