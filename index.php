@@ -15,11 +15,11 @@ require_once 'includes/indexLeftContainer.php';
             <div class="rotating-card-container manual-flip">
                 <div class="card card-rotate">
 
-                    <div class="front">
-                        <div class="card-content">
+                    <a href="quote.php?id=<?php echo $quoteId; ?>">
 
-                            <a href="quote.php">
-        
+                        <div class="front">
+                            <div class="card-content">
+
                                 <!-- the quote  -->
                                 <p class="card-title"> <?php echo $row['content']; ?> </p>
                                 <!-- the quote genre -->
@@ -27,7 +27,7 @@ require_once 'includes/indexLeftContainer.php';
                                     <div class="genreList">
                                         <p class="label label-primary">
                                             <a class="genre" href='genre.php?genre=<?php echo $row['genre1'] ?>'><?php echo $row['genre1']; ?></a>
-                                         </p>
+                                        </p>
                                         <p class="label label-info">
                                             <a class="genre" href='genre.php?genre=<?php echo $row['genre2'] ?>'><?php echo $row['genre2']; ?></a>
                                         </p>
@@ -49,6 +49,7 @@ require_once 'includes/indexLeftContainer.php';
                                                 // if user has liked the quote before
                                             if ($quoteLoveCheck) { ?>
                                                     <p class="<?php echo $row['id']; ?>">
+                                                        <a type="button" data-toggle="modal" data-target="#unlikeQuote">
                                                         <img class="<?php echo $row['id']; ?> like-image" src="assets/images/loveRed.png" alt="love button">
                                                         <span class="<?php echo $row['id'] ?>quoteText"><?php echo $loveQuoteString; ?></span>
                                                     </p>
@@ -66,7 +67,7 @@ require_once 'includes/indexLeftContainer.php';
                                         } else { ?>
                                                 <!-- Button trigger modal for liking quotes-->
                                                 <p class="<?php echo $row['id']; ?>">
-                                                    <a type="button" data-toggle="modal" data-target="#myModal">
+                                                    <a type="button" data-toggle="modal" data-target="#signUp">
                                                         <img class="<?php echo $row['id']; ?> like-image" src="assets/images/loveBlack.png" alt="like button">
                                                         <span class="<?php echo $row['id'] ?>quoteText"> <?php echo $noUserString; ?>
                                                     </a>
@@ -117,11 +118,11 @@ require_once 'includes/indexLeftContainer.php';
                                     <a type="button" class="btn btn-just-icon btn-round btn-rotate" data-toggle="tooltip" data-placement="top" title="mail quote to a friend" data-container="body">
                                         <i class="fas fa-envelope"></i>
                                     </a>
-                                </div>
-                            </a>
 
-                        </div> <!-- end of card content -->
-                    </div> <!-- end of front -->
+                                </div>
+                            </div> <!-- end of card content -->
+                        </div> <!-- end of front -->
+                    </a>
 
                     <div class="back">
                         <div class="card-content">
