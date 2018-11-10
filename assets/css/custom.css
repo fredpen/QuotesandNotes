@@ -244,6 +244,10 @@ p .like-image{
    text-align: left;
 }
 
+#home .quote-footer p{
+   cursor: pointer;
+}
+
 #card-content{
    height: 230px;
    padding: 15px 15px;
