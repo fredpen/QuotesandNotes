@@ -3,7 +3,7 @@ require_once '../../databaseConfig.php';
 require_once '../../classes/Quote.php';
 $quote = new Quote($con);
 
-      // check if the quote,the author the genres and user id is passed
+// check if the quote,the author the genres and user id is passed
 if (isset($_POST['quoteId']) && isset($_POST['genre1']) && isset($_POST['genre2']) && isset($_POST['genre3']) && isset($_POST['author'])) {
 
       $quoteId = $_POST['quoteId'];
@@ -13,7 +13,7 @@ if (isset($_POST['quoteId']) && isset($_POST['genre1']) && isset($_POST['genre2'
       $genre3 = $_POST['genre3'];
       $author = $_POST['author'];
 
-            // change the genres and author to thier respective id's
+      // change the genres and author to thier respective id's
       $genre1 = $quote->genreId($genre1);
       $genre2 = $quote->genreId($genre2);
       $genre3 = $quote->genreId($genre3);
@@ -41,7 +41,7 @@ if (isset($_POST['quoteId']) && isset($_POST['genre1']) && isset($_POST['genre2'
       }
 
 } else {
-      echo "nothing is happening here";
+      echo "cant like quote at the moment";
 }
 
 

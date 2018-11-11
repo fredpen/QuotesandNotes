@@ -1,10 +1,10 @@
 <?php
 
 if (isset($_GET['author'])) {
-  $authorId = $_GET['author'];
-  $authorId = strip_tags($authorId);
+    $authorId = $_GET['author'];
+    $authorId = strip_tags($authorId);
 } else {
-  header("Location: index.php");
+    header("Location: index.php");
 }
 
    // import the header that houses the navbar and other dependencies
@@ -27,13 +27,13 @@ $authorDetails = $quote->fetchAuthorDetails($authorId);
             <li class="list-group-item active"> Similar Authors</li>
             <!-- loop through authors similar  -->
             <?php while ($row = mysqli_fetch_array($authors)) {
-              if ($row['id'] !== $authorId) { ?>
+                if ($row['id'] !== $authorId) { ?>
                 <li class="list-group-item">
                     <a href="author.php?author=<?php echo $row['id']; ?>"><?php echo imagify($row['author']); ?></a>
                 </li>
                 <?php 
-              };
-            }; ?>
+            };
+        }; ?>
         </ul>   
       </div> <!--left container-->
 
@@ -80,7 +80,7 @@ $authorDetails = $quote->fetchAuthorDetails($authorId);
                 <h6 class="text-muted"></h6>
                 <p class="authorBio">
                   <!-- the gif temporarily takes the page why the ajax call is made to wiki api is been made -->
-                   <img class="wikiImg" src="assets/images/giphy.gif">
+                   <!-- <img class="wikiImg" src="assets/images/giphy.gif"> -->
                 </p>
 
                 <div class="media-footer">
@@ -104,7 +104,7 @@ $authorDetails = $quote->fetchAuthorDetails($authorId);
     <div class="masonry">
     <?php
     while ($row = mysqli_fetch_array($quotesFromSameAuthor)) {
-      $quoteId = $row['id']; ?>
+        $quoteId = $row['id']; ?>
     
        <div class="item">
         <div class="rotating-card-container manual-flip">
@@ -135,13 +135,13 @@ $authorDetails = $quote->fetchAuthorDetails($authorId);
             <?php
             // variables
             $personString = function () {
-              if ($numberOfQuoteLover == 0) {
+                if ($numberOfQuoteLover == 0) {
               // return ;
-              } elseif (numberOfQuoteLover == 1) {
-                echo " person liked this quote";
-              } else {
-                echo " people liked this quote";
-              }
+                } elseif (numberOfQuoteLover == 1) {
+                    echo " person liked this quote";
+                } else {
+                    echo " people liked this quote";
+                }
             };
 
             $quoteLoveCheck = $quote->quoteLoveCheck($quoteId, $userId);
@@ -153,7 +153,7 @@ $authorDetails = $quote->fetchAuthorDetails($authorId);
             if ($userId) {
 
               // if user has liked the quote before
-              if ($quoteLoveCheck) { ?>
+                if ($quoteLoveCheck) { ?>
               <p>
                <img class="<?php echo $row['id']; ?> like-image" src="assets/images/loveRed.png" alt="love button">
                <span class="<?php echo $row['id'] ?>quoteText"><?php echo $loveQuoteString; ?></span>
@@ -170,7 +170,7 @@ $authorDetails = $quote->fetchAuthorDetails($authorId);
             }; 
              
              // if there is no logged in user
-          } else { ?>
+        } else { ?>
               <!-- Button trigger modal for liking quotes-->
                <p>
                 <a type="button" data-toggle="modal" data-target="#myModal">
@@ -299,7 +299,7 @@ $authorDetails = $quote->fetchAuthorDetails($authorId);
       })
     </script>
     <?php 
-  }; ?>
+}; ?>
 
   </div>
 </div>

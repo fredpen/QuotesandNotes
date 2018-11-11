@@ -1,38 +1,42 @@
 <?php
 
 require_once 'includes/header.php';
-$userId = "";
+// $userId = "";
 if (isset($_GET['id'])) {
-  $userId = $_GET['id'];
+    $userId = $_GET['id'];
 } else {
-  echo "user not recognised";
+    header("Location: index.php");
 }
 
 //query all the user quotes interaction on the site
 $profileDetails = $quote->fetchProfileDetails($userId);
 $profileInfo = $quote->fetchProfileDetails($userId);
+
 //query the total number of quote that are loved by the user
 $numOfQuoteLoveByUser = $quote->numberOfQuoteLoveByUser($userId);
+
 // query the user biodata submitted during registration from the database
 $userBiodata = $quote->fetchUserDetails($userId);
+
 // create an empty array for both the author and genre to push the vakues too fron the db
 $genreArray = array();
 $authorArray = array();
-// only push genre or authors that are not in the array, into the newwly created array
-while ($row = mysqli_fetch_array($profileDetails)) {
-  if (!in_array($row['genre1'], $genreArray)) {
-    array_push($genreArray, $row['genre1']);
-  }
-  if (!in_array($row['genre2'], $genreArray)) {
-    array_push($genreArray, $row['genre2']);
-  }
-  if (!in_array($row['genre3'], $genreArray)) {
-    array_push($genreArray, $row['genre3']);
 
-  }
-  if (!in_array($row['author'], $authorArray)) {
-    array_push($authorArray, $row['author']);
-  }
+// only push genre or authors that are not in the array, into the newly created array
+while ($row = mysqli_fetch_array($profileDetails)) {
+    if (!in_array($row['genre1'], $genreArray)) {
+        array_push($genreArray, $row['genre1']);
+    }
+    if (!in_array($row['genre2'], $genreArray)) {
+        array_push($genreArray, $row['genre2']);
+    }
+    if (!in_array($row['genre3'], $genreArray)) {
+        array_push($genreArray, $row['genre3']);
+
+    }
+    if (!in_array($row['author'], $authorArray)) {
+        array_push($authorArray, $row['author']);
+    }
 }
 ?>
 
@@ -49,9 +53,8 @@ while ($row = mysqli_fetch_array($profileDetails)) {
           <li class="list-group-item">
             <a href="author.php?author=<?php echo $quote->authorId($value); ?>"><?php echo $value; ?>
          </a>
-      </li>
-   <?php 
-}; ?>
+      </li> <?php 
+        }; ?>
 </ul>
 
 
@@ -66,7 +69,7 @@ while ($row = mysqli_fetch_array($profileDetails)) {
           </a>
        </li>
     <?php 
-  } ?>
+} ?>
 </ul>
 </div>
 </div> <!--left container-->
@@ -87,10 +90,10 @@ while ($row = mysqli_fetch_array($profileDetails)) {
         <div class="tab-pane active" id="pill1">
           <?php
 // string conjured from the user bio data
-          $nameString = $userBiodata['lastname'] . " also known as " . $userBiodata['username'] . " joined us on the " . $userBiodata['dt'] .
-            "<br> He has liked " . $numOfQuoteLoveByUser . " quotes
+            $nameString = $userBiodata['lastname'] . " also known as " . $userBiodata['username'] . " joined us on the " . $userBiodata['dt'] .
+                "<br> He has liked " . $numOfQuoteLoveByUser . " quotes
           <br> He has interacted with 3 authors and 7 genres of quotes";
-          ?>
+            ?>
           <div class="card">
             <div class="card-content">
               <h4 class="text-cap card-title">
@@ -102,12 +105,12 @@ while ($row = mysqli_fetch_array($profileDetails)) {
     <div class="tab-pane" id="pill2">
       <?php
 // more details conjured from the user bio data
-      $profileString = "Full Name: " . $userBiodata['firstname'] . " " . $userBiodata['lastname'] .
-        "<br>    Email: " . $userBiodata['email'] . "<br>
+        $profileString = "Full Name: " . $userBiodata['firstname'] . " " . $userBiodata['lastname'] .
+            "<br>    Email: " . $userBiodata['email'] . "<br>
       Username: " . $userBiodata['username'] . "<br>
       Gender: " . $userBiodata['gender'];
 
-      ?>
+        ?>
       <div class="card">
        <div class="card-content">
          <h4 class="card-title">
@@ -119,9 +122,9 @@ while ($row = mysqli_fetch_array($profileDetails)) {
 <div class="tab-pane" id="pill3">
   <?php
 // more details conjured from the user bio data
-  $socialString = $userBiodata['lastname'] . " has shared 20 quotes on facebook and 30 quotes on twitter";
+    $socialString = $userBiodata['lastname'] . " has shared 20 quotes on facebook and 30 quotes on twitter";
 
-  ?>
+    ?>
   <div class="card">
     <div class="card-content">
       <h4 class="card-title">
@@ -139,8 +142,8 @@ while ($row = mysqli_fetch_array($profileDetails)) {
 <!-- loop through the quotes find all where author = author id -->
 <?php
 while ($row = mysqli_fetch_array($profileInfo)) {
-  $quoteId = $row['id'];
-  ?>
+    $quoteId = $row['id'];
+    ?>
    <div class="col-sm-6">
      <div class="card card-blog">
       <div id="card-content" class="card-content">
@@ -166,7 +169,7 @@ while ($row = mysqli_fetch_array($profileInfo)) {
     $numberOfQuoteLover = $quote->numberOfQuoteLover($quoteId);
 
     if ($userId && $numberOfQuoteLoveByUser !== 0) {
-      $string = ($numberOfQuoteLover == 1 ? "you liked this quote" : "you and " . ($numberOfQuoteLover - 1) . "  people liked this quote"); ?>
+        $string = ($numberOfQuoteLover == 1 ? "you liked this quote" : "you and " . ($numberOfQuoteLover - 1) . "  people liked this quote"); ?>
 
      <p>
       <img class="<?php echo $row['id']; ?> like-image" src="assets/images/loveRed.png" alt="love button">
@@ -175,8 +178,8 @@ while ($row = mysqli_fetch_array($profileInfo)) {
 
 <?php 
 } else {
-  $string = ($numberOfQuoteLover == 1 ? "one person liked this quote" : $numberOfQuoteLover . "  people liked this quote")
-  ?>
+    $string = ($numberOfQuoteLover == 1 ? "one person liked this quote" : $numberOfQuoteLover . "  people liked this quote")
+    ?>
 
    <p>
     <img class="<?php echo $row['id']; ?> like-image" src="assets/images/loveBlack.png" alt="love button">
@@ -190,7 +193,7 @@ while ($row = mysqli_fetch_array($profileInfo)) {
 <div class="footer">
    <div class="author">
      <a href="author.php?author=<?php echo $row['author']; ?>">
-      <img src="assets/images/author/<?php echo $row['img'] ?>" alt="image of <?php echo $row['author'] ?>" class="avatar img-raised">
+      <img src="assets/images/author/<?php echo $row['author'] ?>.jpg" alt="image of <?php echo $row['author'] ?>" class="avatar img-raised">
       <span><?php echo $row['author']; ?></span>
    </a>
 </div>

@@ -184,14 +184,14 @@ class Quote
     public function fetchProfileDetails($userId)
     {
         $sql = "SELECT quotes.id, quotes.content, genre1.genre1, genre2.genre2, genre3.genre3, author.author, users.firstname, users.lastname, users.username, users.email, users.gender, users.dt
-                 FROM quoteLovers
-                  INNER JOIN quotes ON quoteLovers.quote=quotes.id
-                  INNER JOIN users  ON quoteLovers.user=users.id
-                  INNER JOIN genre1 ON quoteLovers.genre1=genre1.id
-                  INNER JOIN genre2 ON quoteLovers.genre2=genre2.id
-                  INNER JOIN genre3 ON quoteLovers.genre3=genre3.id
-                  INNER JOIN author ON quoteLovers.author=author.id
-               WHERE quoteLovers.user='$userId'";
+            FROM quoteLovers
+                INNER JOIN quotes ON quoteLovers.quote=quotes.id
+                INNER JOIN users  ON quoteLovers.user=users.id
+                INNER JOIN genre1 ON quoteLovers.genre1=genre1.id
+                INNER JOIN genre2 ON quoteLovers.genre2=genre2.id
+                INNER JOIN genre3 ON quoteLovers.genre3=genre3.id
+                INNER JOIN author ON quoteLovers.author=author.id
+            WHERE quoteLovers.user='$userId'";
 
         $query = mysqli_query($this->con, $sql);
         return $query;
