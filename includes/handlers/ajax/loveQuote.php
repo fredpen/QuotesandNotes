@@ -8,16 +8,12 @@ if (isset($_POST['quoteId']) && isset($_POST['genre1']) && isset($_POST['genre2'
 
       $quoteId = $_POST['quoteId'];
       $userId = $_POST['userId'];
-      $genre1 = $_POST['genre1'];
-      $genre2 = $_POST['genre2'];
-      $genre3 = $_POST['genre3'];
-      $author = $_POST['author'];
 
       // change the genres and author to thier respective id's
-      $genre1 = $quote->genreId($genre1);
-      $genre2 = $quote->genreId($genre2);
-      $genre3 = $quote->genreId($genre3);
-      $author = $quote->authorId($author);
+      $genre1 = $quote->genreId($_POST['genre1']);
+      $genre2 = $quote->genreId($_POST['genre2']);
+      $genre3 = $quote->genreId($_POST['genre3']);
+      $author = $quote->authorId($_POST['author']);
 
       // search the database to see if the user has like the quote before
       $sql = "SELECT * FROM quoteLovers WHERE quote='$quoteId' AND user='$userId'";
