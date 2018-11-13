@@ -28,7 +28,7 @@ if (isset($_POST['quoteId']) && isset($_POST['genre1']) && isset($_POST['genre2'
             $sql = "INSERT INTO quoteLovers (id, quote, user, genre1, genre2, genre3, author) VALUES('', '$quoteId', '$userId', '$genre1', '$genre2', '$genre3', '$author')";
             $query = mysqli_query($con, $sql);
 
-      // check if the datbase is succesfully updated
+            // check if the datbase is succesfully updated
             if ($query) {
                   echo "success";
             } else {

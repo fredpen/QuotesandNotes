@@ -51,7 +51,7 @@ while ($row = mysqli_fetch_array($profileDetails)) {
         <?php
         foreach ($authorArray as $key => $value) {; ?>
           <li class="list-group-item">
-            <a href="author.php?author=<?php echo $quote->authorId($value); ?>"><?php echo $value; ?>
+            <a href="author.php?author=<?php echo $quote->authorId($value); ?>"><?php echo imagify($value); ?>
          </a>
       </li> <?php 
         }; ?>
