@@ -2,22 +2,22 @@
    // redirecting function
 function redirect_to($url)
 {
-  ob_start();
-  header('Location: ' . $url);
-  ob_end_flush();
-  die();
+    ob_start();
+    header('Location: ' . $url);
+    ob_end_flush();
+    die();
 }
    // keeping track of users in session
 if (isset($_SESSION['email'])) {
-  $email = $_SESSION['email'];
+    $email = $_SESSION['email'];
 
-  $userDetails = $account->userDetails($email);
-  $firstName = $userDetails['lastname'];
-  $userId = $userDetails['id'];
+    $userDetails = $account->userDetails($email);
+    $firstName = $userDetails['lastname'];
+    $userId = $userDetails['id'];
 
-  $jsonfirstName = json_encode($firstName);
+    $jsonfirstName = json_encode($firstName);
 } else {
-  $firstName = '';
+    $firstName = '';
 }
 
 ?>

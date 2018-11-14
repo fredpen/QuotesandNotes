@@ -1,11 +1,27 @@
 
 <?php
 
-class Comment extends Quote
+class Comment
 {
+    private $con;
 
+    function __construct($con)
+    {
 
+        $this->con = $con;
+    }
 
+    public function fetchComments($quoteId)
+    {
+        $sql = "SELECT comment.comment, users.firstName, users.lastname, comment.date
+            FROM comment
+                INNER JOIN users ON comment.user_id=users.id
+                WHERE comment.quote_id='$quoteId'";
+
+        $query = mysqli_query($this->con, $sql);
+        // $query = mysqli_fetch_array($query);
+        return $query;
+    }
 
 
 
