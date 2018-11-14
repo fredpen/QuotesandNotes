@@ -1,5 +1,7 @@
 <?php
 
+// its worth remembering that the id on this page is the unique id of the user
+
 if (isset($_GET['id'])) {
     $quoteId = $_GET['id'];
 } else {
@@ -176,6 +178,8 @@ $comments = $comment->fetchComments($quoteId);
 
         <div class="media-area">
             <h3 class="title text-center">
+
+                <!-- number of comments on a particular quotes, output only if greater than 1 -->
                 <?php if (mysqli_num_rows($comments) > 1) {
                     echo mysqli_num_rows($comments);
                 } ?> Comments
@@ -183,15 +187,15 @@ $comments = $comment->fetchComments($quoteId);
             
             <?php while ($row = mysqli_fetch_array($comments)) { ?>
             <div class="media">
-                <a class="pull-left" href="#pablo">
+                <a class="pull-left" href="profilePage.php?id=<?php echo $row['id'] ?>">
                     <div class="avatar">
                         <img class="media-object" alt="Tim Picture" src="assets/images/placeholder.jpg">
                     </div>
                 </a>
 
                 <div class="media-body">
-                    <h4 class="media-heading"> <?php echo $row['firstName'] . " " . $row['lastname']; ?> 
-                        <small>&middot; 7 minutes ago</small>
+                    <h4 class="media-heading">
+                        <a href="profilePage.php?id=<?php echo $row['id'] ?>"><?php echo $row['firstName'] . " " . $row['lastname']; ?> </a> <small>&middot; 7 minutes ago</small>
                     </h4>
                     <!-- <h6 class="text-muted"></h6> -->
                     <p><?php echo $row['comment']; ?></p>
@@ -200,25 +204,44 @@ $comments = $comment->fetchComments($quoteId);
                 }; ?>
 
             <h3 class="text-center">Post your comment <br><small>- Logged In User -</small></h3>
-            <div class="media media-post">
-                <a class="pull-left author" href="#pablo">
+            <div class="media">
+                <a class="pull-left" href="profilePage.php?id=<?php echo $row['id'] ?>">
                     <div class="avatar">
-                        <img class="media-object" alt="64x64" src="assets/images/placeholder.jpg">
+                        <img class="media-object" alt="Tim Picture" src="assets/images/placeholder.jpg">
                     </div>
                 </a>
 
+                <!-- form for new comments -->
                 <div class="media-body">
-                    <textarea class="form-control" placeholder="Write some nice stuff or nothing..." rows="6"></textarea>
-                    <div class="media-footer">
-                        <a href="#pablo" class="btn btn-primary btn-wd pull-right">Post Comment</a>
-                    </div>
-                </div>
-            </div> <!-- end media-post -->
+                    <form class="form" action="quote.php" method="get">
+                        <textarea class="form-control" name="comment" placeholder="Write some nice stuff or nothing..." rows="6"></textarea>
+                        <div class="media-footer">
+                            <button type="submit" name="submit" class="btn btn-primary pull-right">Post Comment</button>
+                        </div>
+                    </form>
+                </div>    
 
+            </div> <!-- end media-post -->
         </div>
     </div>
 </div>
 
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".submit").click(function(){
+
+        // set the quote id, genres, author and user id into javascript
+        $comment = '<?php echo $row['comment']; ?>';
+        genre2 = '<?php echo $row['genre2']; ?>';
+        genre3 = '<?php echo $row['genre3']; ?>';
+        author = '<?php echo $row['author']; ?>';
+        // check if there is a logged in user
+        if (userId) {
+            // make ajax call to test if user has liked quote before
+            $.post("includes/handlers/ajax/postComment.php", { quoteId:quoteId, userId:userId, genre1:genre1, genre2:genre2, genre3:genre3, author:author }, function(data){
+
+
+</script>
                 
 
 

@@ -13,7 +13,7 @@ class Comment
 
     public function fetchComments($quoteId)
     {
-        $sql = "SELECT comment.comment, users.firstName, users.lastname, comment.date
+        $sql = "SELECT comment.comment, users.firstName, users.lastname, comment.date, users.id
             FROM comment
                 INNER JOIN users ON comment.user_id=users.id
                 WHERE comment.quote_id='$quoteId'";
