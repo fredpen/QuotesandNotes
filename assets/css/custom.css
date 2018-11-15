@@ -382,3 +382,8 @@ footer .container{
 .item:hover{
   color: red !important;
 }
+
+.noComment{
+  border-bottom: solid red 2px;
+  background: black;
+}

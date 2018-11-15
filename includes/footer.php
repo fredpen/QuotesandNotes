@@ -62,10 +62,10 @@
    </ul>
 
    <div class="copyright pull-right">
-    Copyright &copy;
-    <script>
-      document.write(new Date().getFullYear())
-    </script> Creative Tim All Rights Reserved.
+      &copy; 2018 - <?php echo date("Y"); ?>
+     QuotesandNotes All Rights Reserved.
+
+     
    </div>
    </div>
    </footer>

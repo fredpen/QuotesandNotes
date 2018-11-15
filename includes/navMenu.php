@@ -81,8 +81,8 @@ if (isset($_SESSION['email'])) {
             <ul class="nav navbar-nav navbar-right">
                <?php if ($firstName) { ?>
                <li>
-                  <a href="profilePage.php?id=<?php echo $userDetails['id']; ?>"><?php echo $userDetails['lastname']; ?>
-                     <i class="fas fa-user-edit"></i>
+                  <a href="profilePage.php?id=<?php echo $userDetails['id']; ?>"> <i class="fas fa-wrench"> </i><?php echo " " . $userDetails['lastname']; ?>
+                     <!-- <i class="fas fa-user-edit"></i> -->
                   </a>
                </li>
                <?php 
@@ -101,7 +101,6 @@ if (isset($_SESSION['email'])) {
                </li>
                <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                     <i class="fas fa-user"></i>
                      <b class="caret"></b>
                   </a>
                   <?php if ($firstName) { ?>
