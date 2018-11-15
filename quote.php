@@ -5,17 +5,16 @@ $date = date("Y/m/d/m/s");
 $quoteId;
 if (isset($_GET['id'])) {
     $quoteId = $_GET['id'];
+} else {
+    header("Location: index.php");
 }
-//  else {
-//     header("Location: index.php");
-// }
 
 require_once 'includes/classes/Comment.php';
-include_once "includes/header.php";
+require_once "includes/header.php";
 
 $comment = new Comment($con);
 
-include_once "includes/quote_of_moment.php";
+require_once "includes/quote_of_moment.php";
 require_once 'includes/indexLeftContainer.php';
 
 
@@ -61,17 +60,17 @@ $comments = $comment->fetchComments($quoteId);
 
                                         // if user has liked the quote before
                                     if ($quoteLoveCheck) { ?>
-                                            <p class="<?php echo $row['id']; ?>">
+                                            <p class="<?php echo $quoteDetails['id']; ?>">
                                                 <a type="button" data-toggle="modal" data-target="#unlikeQuote">
-                                                <img class="<?php echo $row['id']; ?> like-image" src="assets/images/loveRed.png" alt="love button">
-                                                <span class="<?php echo $row['id'] ?>quoteText"><?php echo $loveQuoteString; ?></span>
+                                                <img class="<?php echo $quoteDetails['id']; ?> like-image" src="assets/images/loveRed.png" alt="love button">
+                                                <span class="<?php echo $quoteDetails['id'] ?>quoteText"><?php echo $loveQuoteString; ?></span>
                                             </p>
                                         <!--if user has not like quote before -->
                                         <?php 
                                     } else { ?>
-                                            <p class="<?php echo $row['id']; ?>">
-                                                <img class="<?php echo $row['id']; ?> like-image" src="assets/images/loveBlack.png" alt="like button">
-                                                <span class="<?php echo $row['id'] ?>quoteText"><?php echo $noUserString ?></span>
+                                            <p class="<?php echo $quoteDetails['id']; ?>">
+                                                <img class="<?php echo $quoteDetails['id']; ?> like-image" src="assets/images/loveBlack.png" alt="like button">
+                                                <span class="<?php echo $quoteDetails['id'] ?>quoteText"><?php echo $noUserString ?></span>
                                                 </p>
                                         <?php 
                                     }; 
@@ -79,10 +78,10 @@ $comments = $comment->fetchComments($quoteId);
                                     // if there is no logged in user
                                 } else { ?>
                                         <!-- Button trigger modal for liking quotes-->
-                                        <p class="<?php echo $row['id']; ?>">
+                                        <p class="<?php echo $quoteDetails['id']; ?>">
                                             <a type="button" data-toggle="modal" data-target="#signUp">
-                                                <img class="<?php echo $row['id']; ?> like-image" src="assets/images/loveBlack.png" alt="like button">
-                                                <span class="<?php echo $row['id'] ?>quoteText"> <?php echo $noUserString; ?>
+                                                <img class="<?php echo $quoteDetails['id']; ?> like-image" src="assets/images/loveBlack.png" alt="like button">
+                                                <span class="<?php echo $quoteDetails['id'] ?>quoteText"> <?php echo $noUserString; ?>
                                             </a>
                                         </p><?php 
                                         }; ?>
@@ -91,9 +90,9 @@ $comments = $comment->fetchComments($quoteId);
                             <!-- quotes author and image -->
                             <div class="footnote">
                                 <div class="author">
-                                    <a href="author.php?author=<?php echo $quote->authorId($row['author']); ?>">
-                                        <img src="assets/images/author/<?php echo ($row['author']); ?>.jpg" alt="<?php echo imagify($row['author']); ?>" class="avatar img-raised">
-                                        <span><?php echo imagify($row['author']); ?></span>
+                                    <a href="author.php?author=<?php echo $quote->authorId($quoteDetails['author']); ?>">
+                                        <img src="assets/images/author/<?php echo ($quoteDetails['author']); ?>.jpg" alt="<?php echo imagify($quoteDetails['author']); ?>" class="avatar img-raised">
+                                        <span><?php echo imagify($quoteDetails['author']); ?></span>
                                     </a>
                                 </div>
                             </div> <!-- end of footer -->
@@ -111,9 +110,9 @@ $comments = $comment->fetchComments($quoteId);
                             <!-- twitter buttons -->
                             <a class="twitter-share-button"
                                 href="https://twitter.com/share"
-                                data-text="<?php echo $row['content'] ?>"
+                                data-text="<?php echo $quoteDetails['content'] ?>"
                                 data-url="https://QuotesandNotes.com"
-                                data-hashtags="<?php echo $row['genre1'] . "," . $row['genre2'] . "," . $row['genre3'] ?>"
+                                data-hashtags="<?php echo $quoteDetails['genre1'] . "," . $quoteDetails['genre2'] . "," . $quoteDetails['genre3'] ?>"
                                 data-via="freddgreat"
                                 data-show-count="true"
                                 data-related="twitterapi,twitter">
@@ -136,10 +135,10 @@ $comments = $comment->fetchComments($quoteId);
                 <div class="back">
                     <div class="card-content">
                         <form action="index.php" method="POST">
-                            <input type="text" class="displayNone" value="<?php echo $row['content']; ?>" name="mailContent">
-                            <input type="text" class="displayNone" value="<?php echo $row['author']; ?>" name="mailAuthor">
+                            <input type="text" class="displayNone" value="<?php echo $quoteDetails['content']; ?>" name="mailContent">
+                            <input type="text" class="displayNone" value="<?php echo $quoteDetails['author']; ?>" name="mailAuthor">
 
-                            <p class="card-title paddingTop30"><?php echo $row['content']; ?></p>
+                            <p class="card-title paddingTop30"><?php echo $quoteDetails['content']; ?></p>
 
                             <div class="text-center">
 
@@ -180,13 +179,12 @@ $comments = $comment->fetchComments($quoteId);
 
         <div class="media-area">
             <h3 class="title text-center">
-
-                <!-- number of comments on a particular quotes, output only if greater than 1 -->
-                <?php if (mysqli_num_rows($comments) > 1) {
-                    echo mysqli_num_rows($comments);
-                } ?> Comments
+            <!-- number of comments on a particular quotes, output only if greater than 1 -->
+            <?php if (mysqli_num_rows($comments) > 1) {
+                echo mysqli_num_rows($comments);
+            } ?> Comments
             </h3>
-            
+                              
             <?php while ($row = mysqli_fetch_array($comments)) { ?>
             <div class="media">
                 <a class="pull-left" href="profilePage.php?id=<?php echo $row['id'] ?>">
@@ -198,18 +196,7 @@ $comments = $comment->fetchComments($quoteId);
                 <div class="media-body">
                     <h4 class="media-heading">
                         <a href="profilePage.php?id=<?php echo $row['id'] ?>"><?php echo $row['firstName'] . " " . $row['lastname']; ?> </a> <small>&middot; 
-                            <?php 
-                            $dt = $row['date'];
-                            // echo $dt;
-                            // $time = strtotime("Y/m/d", $dt);
-                            var_dump($time);
-
-                            // date("Y-m-d H:i:s", strtotime("now"));
-                            // date_diff($dt, date("d/m/Y H:i:s"))
-
-
-
-                            ?> 
+                            2 mins
                             
                         </small>
                     </h4>
@@ -258,7 +245,7 @@ $(document).ready(function(){
                 $.post("includes/handlers/ajax/postComment.php", {quoteId:quoteId, userId:userId, comment:comment}, function(data){
                     console.log(data);
                     
-                    console.log("we can proceed now to ajax");
+                    // console.log("we can proceed now to ajax");
                 })
                 $("#comment").val("");
             }  
