@@ -21,6 +21,7 @@ require_once 'includes/indexLeftContainer.php';
 $quoteDetails = $quote->fetchQuoteDetails($quoteId);
 $comments = $comment->fetchComments($quoteId);
 
+
 ?>
 
 <div class="main-container">
@@ -184,27 +185,31 @@ $comments = $comment->fetchComments($quoteId);
                 echo mysqli_num_rows($comments);
             } ?> Comments
             </h3>
-                              
-            <?php while ($row = mysqli_fetch_array($comments)) { ?>
-            <div class="media">
-                <a class="pull-left" href="profilePage.php?id=<?php echo $row['id'] ?>">
-                    <div class="avatar">
-                        <img class="media-object" alt="Tim Picture" src="assets/images/placeholder.jpg">
-                    </div>
-                </a>
+            
+            <div id="commentSection"> 
+                <?php while ($row = mysqli_fetch_array($comments)) { ?>
+                <div class="media">
+                    <a class="pull-left" href="profilePage.php?id=<?php echo $row['id'] ?>">
+                        <div class="avatar">
+                            <img class="media-object" alt="Tim Picture" src="assets/images/placeholder.jpg">
+                        </div>
+                    </a>
 
-                <div class="media-body">
-                    <h4 class="media-heading">
-                        <a href="profilePage.php?id=<?php echo $row['id'] ?>"><?php echo $row['firstName'] . " " . $row['lastname']; ?> </a> <small>&middot; 
-                            2 mins
+                    <div class="media-body">
+                        <h4 class="media-heading">
+                            <a href="profilePage.php?id=<?php echo $row['id'] ?>"><?php echo $row['firstName'] . " " . $row['lastname']; ?> </a>
+                            <?php $dbint = $comment->dateInt($row['date']); ?>
+                            <small>&middot; <?php echo $dbint->format("%i minutes ago") ?> </small>
                             
-                        </small>
-                    </h4>
-                    
-                    <p><?php echo $row['comment']; ?></p>
-                </div>
-            </div> <?php 
-                }; ?>
+                            
+                            
+                        </h4>
+                        <p><?php echo $row['comment']; ?></p>
+
+                    </div>
+                </div> <?php 
+                    }; ?>
+            </div>
 
             <h3 class="text-center">Post your comment <br><small>- Logged In User -</small></h3>
             <div class="media media-post">
@@ -215,7 +220,7 @@ $comments = $comment->fetchComments($quoteId);
                 </a>
 
                 <div class="media-body">
-                    <textarea id="comment" class="form-control" name="comment" placeholder="Write some nice stuff or nothing..." rows="6"></textarea>
+                    <textarea id="comment" class="form-control" name="comment" placeholder="Write some nice stuff or nothing..." rows="4"></textarea>
                     <div class="media-footer">
                         <a id="submit" class="btn btn-primary pull-right">Post Comment</a>
                     </div>
@@ -244,8 +249,11 @@ $(document).ready(function(){
                 // make ajax call to test if user has liked quote before
                 $.post("includes/handlers/ajax/postComment.php", {quoteId:quoteId, userId:userId, comment:comment}, function(data){
                     console.log(data);
+                    if (data == "success") {
+
+                       $("#commentSection").append("</p>" + comment + "</p>");
+                    }
                     
-                    // console.log("we can proceed now to ajax");
                 })
                 $("#comment").val("");
             }  
