@@ -181,7 +181,7 @@ $comments = $comment->fetchComments($quoteId);
         <div class="media-area">
             <h3 class="title text-center">
             <!-- number of comments on a particular quotes, output only if greater than 1 -->
-            <?php if (mysqli_num_rows($comments) > 1) {
+            <?php if (mysqli_num_rows($comments) > 0) {
                 echo mysqli_num_rows($comments);
             } ?> Comments
             </h3>
@@ -198,11 +198,8 @@ $comments = $comment->fetchComments($quoteId);
                     <div class="media-body">
                         <h4 class="media-heading">
                             <a href="profilePage.php?id=<?php echo $row['id'] ?>"><?php echo $row['firstName'] . " " . $row['lastname']; ?> </a>
-                            <?php $dbint = $comment->dateInt($row['date']); ?>
-                            <small>&middot; <?php echo $dbint->format("%i minutes ago") ?> </small>
-                            
-                            
-                            
+                            <?php $dbint = $comment->dateInt($row['date']); ?>              
+                            <small> - <?php echo $dbint ?> ago</small>
                         </h4>
                         <p><?php echo $row['comment']; ?></p>
 
@@ -213,7 +210,7 @@ $comments = $comment->fetchComments($quoteId);
 
             <h3 class="text-center">Post your comment <br><small>- Logged In User -</small></h3>
             <div class="media media-post">
-                <a class="pull-left author" href="profilePage.php?id=<?php echo $row['id'] ?>">
+                <a class="pull-left author" href="profilePage.php?id=<?php echo $userId ?>">
                     <div class="avatar">
                         <img class="media-object" alt="Tim Picture" src="assets/images/placeholder.jpg">
                     </div>
@@ -251,7 +248,7 @@ $(document).ready(function(){
                     console.log(data);
                     if (data == "success") {
 
-                       $("#commentSection").append("</p>" + comment + "</p>");
+                       $("#commentSection").append("<div  class='media'><a class='pull-left' href='profilePage.php?id=" + userId + "'><div class='avatar'>                            <img class='media-object' alt='Tim Picture' src='assets/images/placeholder.jpg'></div></a><div class='media-body'><h4 class='media-heading'><a href='profilePage.php?id=" + userId + "'>" + firstname + ' ' + lastname + "</a> <small> - a second ago</small> </h4><p>" + comment + "</p></div></div>");
                     }
                     
                 })
