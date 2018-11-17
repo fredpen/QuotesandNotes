@@ -2,6 +2,8 @@
 require_once 'includes/header.php';
 include_once "includes/quote_of_moment.php";
 require_once 'includes/indexLeftContainer.php';
+
+
 ?>
 
 <div class="main-container">

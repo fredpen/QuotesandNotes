@@ -2,22 +2,29 @@
    // redirecting function
 function redirect_to($url)
 {
-    ob_start();
-    header('Location: ' . $url);
-    ob_end_flush();
-    die();
+   ob_start();
+   header('Location: ' . $url);
+   ob_end_flush();
+   die();
+}
+
+if (isset($_COOKIE['user'])) {
+   echo $_COOKIE['user'];
+   echo " cookie is here";
+} else {
+   echo "no cookie here";
 }
    // keeping track of users in session
 if (isset($_SESSION['email'])) {
-    $email = $_SESSION['email'];
+   $email = $_SESSION['email'];
 
-    $userDetails = $account->userDetails($email);
-    $firstName = $userDetails['lastname'];
-    $userId = $userDetails['id'];
+   $userDetails = $account->userDetails($email);
+   $firstName = $userDetails['lastname'];
+   $userId = $userDetails['id'];
 
-    $jsonfirstName = json_encode($firstName);
+   $jsonfirstName = json_encode($firstName);
 } else {
-    $firstName = '';
+   $firstName = '';
 }
 
 ?>
@@ -116,7 +123,7 @@ if (isset($_SESSION['email'])) {
                      </li>
                   </ul>
                   <?php 
-                } else { ?>
+               } else { ?>
                   <ul class="dropdown-menu dropdown-with-icons">
                      <li>
                         <a href="register.php?">Register <i class="fas fa-user-plus"></i></a>
@@ -129,7 +136,7 @@ if (isset($_SESSION['email'])) {
                      </li>
                   </ul>
                   <?php 
-                }; ?>
+               }; ?>
                </li>
             </ul>
          </div>

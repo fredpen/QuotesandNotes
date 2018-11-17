@@ -17,11 +17,8 @@ $comment = new Comment($con);
 require_once "includes/quote_of_moment.php";
 require_once 'includes/indexLeftContainer.php';
 
-
 $quoteDetails = $quote->fetchQuoteDetails($quoteId);
 $comments = $comment->fetchComments($quoteId);
-
-
 ?>
 
 <div class="main-container">
