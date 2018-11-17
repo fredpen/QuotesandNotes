@@ -3,8 +3,8 @@
 // converting the wikiname of authors to img names
 function imagify($string)
 {
-      $string = str_replace("_", " ", $string);
-      return $string;
+    $string = str_replace("_", " ", $string);
+    return $string;
 }
 
 require_once 'includes/databaseConfig.php';
@@ -46,22 +46,16 @@ $authorAll = $quote->fetchAuthor("all");
 $genres = $quote->fetchGenre("5");
 $genreAll = $quote->fetchGenre("all");
 
-require_once 'includes/navMenu.php';
 require_once 'includes/session.php';
+require_once 'includes/navMenu.php';
 
-if ($userDetails) {
-      $userId = $userDetails['id'];
-      $firstname = $userDetails['firstName'];
-      $lastname = $userDetails['lastname'];
-      $username = $userDetails['username'];
-} else {
-      $userId = '';
-}
-?>
 
-<script>
-    userId = <?php echo $userId; ?>;
-   var firstname = "<?php echo $firstname; ?>";
-   var lastname = "<?php echo $lastname; ?>";
-   var username = "<?php echo $username; ?>";
-</script>
+if ($userDetails) { ?>
+    <script type="text/javascript">
+        var userId = <?php echo $userDetails['id']; ?>;
+        var firstname = "<?php echo $userDetails['firstName']; ?>";
+        var lastname = "<?php echo $userDetails['lastname']; ?>";
+        var username = "<?php echo $userDetails['username']; ?>";
+    </script>
+<?php 
+}; ?>

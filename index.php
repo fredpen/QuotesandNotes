@@ -93,7 +93,6 @@ require_once 'includes/indexLeftContainer.php';
 
                                 <hr class="hr">
 
-                                
                                 <!-- share and edit buttons -->
                                 <div class="pull-right col-xs-12 text-right">
                                     <?php if ($admin) { ?>
@@ -125,7 +124,7 @@ require_once 'includes/indexLeftContainer.php';
                                 </div>
                             </div> <!-- end of card content -->
                         </div> <!-- end of front -->
-                    </a>
+                    <!-- </a> -->
 
                     <div class="back">
                         <div class="card-content">

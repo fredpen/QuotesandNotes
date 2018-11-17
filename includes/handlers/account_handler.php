@@ -1,4 +1,11 @@
 <?php
+// class Account_handler
+// {
+//     public function __construct() {
+//         $this->errorArray =
+//     }
+// }
+
 $errorArray = array();
    // getting error
 function errorGetter($error)
@@ -42,6 +49,15 @@ function sanitiseUsername($username)
     return $username;
 }
 
+// set cookie
+function cookie_init($email)
+{
+    global $account;
+    $id = $account->userDetails($email);
+    $id = $id['id'];
+    setcookie("user", $id, time() + (86400 * 90), "/");
+}
+
 if (isset($_POST['registerButton'])) {
 
       // sanitize all inputs on clicking register
@@ -65,10 +81,14 @@ if (isset($_POST['registerButton'])) {
 
       // check if the registration is succesful and redirects to home
     if ($registerUser) {
+
+         // set up the cookie
+        cookie_init($email);
+
+        // set uo the session
         $_SESSION['email'] = $email;
         header("Location: index.php");
     }
-
 }
 
 // ----------------------------handling log in---------------------------
@@ -86,7 +106,7 @@ if (isset($_POST['loginButton'])) {
     if ($loginUser) {
 
         // set up the cookie
-        setcookie("user", $email, time() + (86400 * 90), "/");
+        cookie_init($email);
 
         // set the session
         $_SESSION['email'] = $email;

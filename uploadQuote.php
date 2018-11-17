@@ -90,17 +90,15 @@ $theError = checkError($errorMessages, $errors);
 <div class="container topMargin65">
     <div class="row">
 
-      <?php
-        if ($theError) { ?>
-            <div id="errorDiv" class='alert alert-info alert-dismissible col-sm-12' role='alert'>
-               <?php echo $theError; ?>
-               <a class='alert-link' href='signIn.php'>here</a>
-               <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-                  <span aria-hidden='true'>&times;</span>
-               </button>
-            </div>
-        <?php 
-    }; ?>
+    <?php if ($theError) { ?>
+        <div id="errorDiv" class='alert alert-info alert-dismissible col-sm-12' role='alert'>
+            <?php echo $theError; ?>
+            <a class='alert-link' href='signIn.php'>here</a>
+            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                <span aria-hidden='true'>&times;</span>
+            </button>
+        </div><?php 
+            }; ?>
 
 
       <div class="col-sm-12 mx-auto">

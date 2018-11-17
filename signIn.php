@@ -7,9 +7,14 @@ require_once 'includes/classes/Account.php';
 $account = new Account($con);
 
 require_once 'includes/handlers/account_handler.php';
-require_once 'includes/navMenu.php';
 require_once 'includes/session.php';
+require_once 'includes/navMenu.php';
 
+if (isset($_GET['id'])) {
+	$new = $_GET['id'];
+	echo "love live";
+}
+$new = "new";
 ?>
 
 <!-- sign in  -->

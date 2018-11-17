@@ -105,7 +105,7 @@ while ($row = mysqli_fetch_array($profileDetails)) {
     <div class="tab-pane" id="pill2">
       <?php
 // more details conjured from the user bio data
-        $profileString = "Full Name: " . $userBiodata['firstname'] . " " . $userBiodata['lastname'] .
+        $profileString = "Full Name: " . $userBiodata['firstName'] . " " . $userBiodata['lastname'] .
             "<br>    Email: " . $userBiodata['email'] . "<br>
       Username: " . $userBiodata['username'] . "<br>
       Gender: " . $userBiodata['gender'];

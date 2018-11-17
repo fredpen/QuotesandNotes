@@ -343,16 +343,6 @@ footer .container{
   padding: 8px;
 }
 
-@media and screen and (min-width: 10px ) {
-  #home .label {
-    font-size: 1rem;
-  }
-
-
-  #home{
-    background: red;
-  }
-
 #tables{
   background: white;
 }
