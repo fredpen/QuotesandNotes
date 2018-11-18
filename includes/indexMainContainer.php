@@ -202,7 +202,7 @@
                 <div class="rotating-card-container manual-flip">
                     <div class="card card-rotate">
 
-                        <a href="quote.php?id=<?php echo $row['quoteId']; ?>">
+                        <a href="quote.php?id=<?php echo $row['id']; ?>">
 
                             <div class="front">
                                 <div class="card-content">

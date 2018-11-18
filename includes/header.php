@@ -34,15 +34,9 @@ $mail = new PHPMailer;
 require_once 'includes/handlers/mailQuote-handler.php';
 
 
-   
-     
 
- // save the data from fetch author to authors
-$authors = $quote->fetchAuthor("5");
-$authorAll = $quote->fetchAuthor("all");
-// save the data from fetch genre
-$genres = $quote->fetchGenre("5");
-$genreAll = $quote->fetchGenre("all");
+
+
 
 require_once 'includes/session.php';
 require_once 'includes/navMenu.php';
@@ -55,5 +49,7 @@ if ($userDetails) { ?>
         var lastname = "<?php echo $userDetails['lastname']; ?>";
         var username = "<?php echo $userDetails['username']; ?>";
     </script>
-<?php 
+
+    
+<?php require_once 'includes/error_modals.php';
 }; ?>

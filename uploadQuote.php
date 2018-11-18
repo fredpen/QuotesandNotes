@@ -1,9 +1,13 @@
 <?php
 require_once 'includes/header.php';
 
-  // if ($userId !== 1 || $userId !== 3) { 
-  //    header("Location: index.php");
-  //   };
+ 
+ // save the data from fetch author to authors
+$authorArray = $quote->fetchAuthor("all");
+// save the data from fetch genre
+$genreArray = $quote->fetchGenre("all");
+
+
 $newUser = false;
 $quoteSuccessful = false;
 $uploadFailure = false;
@@ -114,7 +118,7 @@ $theError = checkError($errorMessages, $errors);
          <!-- <select class="selectpicker" data-style="btn btn-primary btn-round" title="Choose Author" data-size="7"> -->
          <select name="author" class="grace" data-style="btn btn-primary btn-round" title="Choose Author" data-size="7">
               <option name="select Author" value="author">Choose Author</option>
-           <?php while ($row = mysqli_fetch_array($authorAll)) { ?>
+           <?php while ($row = mysqli_fetch_array($authorArray)) { ?>
               <option name="author" value="<?php echo $row['id']; ?>"><?php echo $row['author']; ?></option>
             <?php 
         } ?>
@@ -122,7 +126,7 @@ $theError = checkError($errorMessages, $errors);
        </div>
 
      <div class="col-sm-12 genreSelection">
-       <?php while ($row = mysqli_fetch_array($genreAll)) {; ?>
+       <?php while ($row = mysqli_fetch_array($genreArray)) {; ?>
           <div class="checkbox genreSelect">
             <label>
              <input type="checkbox" value="<?php echo $row['id']; ?>" name="genreList[]">

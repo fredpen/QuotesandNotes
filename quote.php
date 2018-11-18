@@ -26,7 +26,7 @@ $comments = $comment->fetchComments($quoteId);
 <div class="main-container">
            
     <div class="masour">
-        <?php require_once 'indexMainContainer.php'; ?>
+        <?php require_once 'includes/indexMainContainer.php'; ?>
     </div>
 
 

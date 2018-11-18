@@ -59,7 +59,6 @@ while ($row = mysqli_fetch_array($quoteDetails)) {
         }; ?>
 </ul>
 
-
 <div class="topMargin65">
    <ul class="list-group">
      <li class="list-group-item active">Genres you have shown interest in</li>
@@ -145,7 +144,7 @@ while ($row = mysqli_fetch_array($quoteDetails)) {
 
 <div class="main-container">
 	<div class="masonry">
-        <?php require_once 'indexMainContainer.php'; ?>
+        <?php require_once 'includes/indexMainContainer.php'; ?>
     </div>
 </div>
 

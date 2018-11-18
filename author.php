@@ -9,7 +9,11 @@ if (isset($_GET['author'])) {
 
    // import the header that houses the navbar and other dependencies
 require_once 'includes/header.php';
-require_once 'includes/error_modals.php';
+include_once "includes/quote_of_moment.php";
+ // save the data from fetch author to authors
+$authorArray = $quote->fetchAuthor("5");
+// save the data from fetch genre
+$genreArray = $quote->fetchGenre("5");
 
    // query the all quotes of thesame author
 $quoteArray = $quote->fetchQuotesFromSameAuthor($authorId);
@@ -19,24 +23,10 @@ $authorDetails = $quote->fetchAuthorDetails($authorId);
 ?>
 
  <div class="fcontainer">
-
-    <div class="frow topMargin45">
+    <div class="frow">
 
        <!-- left section of the main container  -->
-      <div class="left-container">
-        <ul class="list-group">
-            <li class="list-group-item active"> Similar Authors</li>
-            <!-- loop through authors similar  -->
-            <?php while ($row = mysqli_fetch_array($authors)) {
-                if ($row['id'] !== $authorId) { ?>
-                <li class="list-group-item">
-                    <a href="author.php?author=<?php echo $row['id']; ?>"><?php echo imagify($row['author']); ?></a>
-                </li>
-                <?php 
-            };
-        }; ?>
-        </ul>   
-      </div> <!--left container-->
+      <?php require_once 'includes/indexLeftContainer.php'; ?>
 
       <div class="main-container">
 
@@ -97,17 +87,15 @@ $authorDetails = $quote->fetchAuthorDetails($authorId);
     </div>
 
      <!-- the main container that houses the quotes by the author  -->
-     <!-- loop through the quotes find all where author = author id -->
     <div class="title col-sm-12 text-center text-grey">
       <h3 class="title"> Quotes by <?php echo imagify($authorDetails['author']); ?></h3>
     </div>
 
     <div class="masonry">
-      <?php require_once 'indexMainContainer.php'; ?>
+      <?php require_once 'includes/indexMainContainer.php'; ?>
 
   </div>
 </div>
-<!-- </div> -->
 
 
  <!-- the footer -->
