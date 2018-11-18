@@ -11,6 +11,7 @@ class Comment
         $this->con = $con;
     }
 
+    // fetching comments from the database
     public function fetchComments($quoteId)
     {
         $sql = "SELECT comment.comment, users.firstName, users.lastname, comment.date, users.id
@@ -22,9 +23,10 @@ class Comment
         return $query;
     }
 
+    // create a datetime interface from the database date
     public function dateInt($dbDate)
     {
-        // create a datetime interface from the database date
+
         $dbDate = date_create($dbDate);
         
         // get the current date
