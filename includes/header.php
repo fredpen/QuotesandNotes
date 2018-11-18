@@ -16,13 +16,6 @@ require_once 'includes/classes/PHPMailer.php';
 require_once 'includes/classes/SMTP.php';
 require_once 'includes/classes/Exception.php';
 
-// variables
-$userId;
-$username;
-$userDetails;
-$author;
-$admin = false;
-
 $account = new Account($con);
 $quote = new Quote($con);
 

@@ -8,11 +8,11 @@ $account = new Account($con);
 if (isset($_COOKIE['user']) || isset($_SESSION['email'])) {
 
    if ($_COOKIE['user']) {
-      $email = $_COOKIE['user'];
+      $id = $_COOKIE['user'];
    } else {
-      $email = $_SESSION['email'];
+      $id = $_SESSION['email'];
    }
-   $userDetails = $account->userDetails($email);
+   $userDetails = $account->userDetails($id);
 
    $userId = $userDetails['id'];
 

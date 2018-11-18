@@ -83,7 +83,7 @@
 
                                 <!-- share and edit buttons -->
                                 <div class="pull-right col-xs-12 text-right">
-                                    <?php if ($admin) { ?>
+                                    <?php if ($userId == 1) { ?>
                                     <a data-toggle="tooltip" data-placement="top" title="Edit quote" data-container="body" class="label label-info" href="edit.php?id=<?php echo $quoteId ?>">Edit
                                     </a> <?php 
                                     } ?>
