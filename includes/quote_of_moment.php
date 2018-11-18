@@ -1,3 +1,7 @@
+<?php 
+// fetch a quote for the quote of the moment
+$randQuote = $quote->fetchRandomQuote(); ?>
+
 <!-- quote of the moment -->
 <div class="subscribe-line subscribe-line-image" style="background-image: url('assets/images/bg7.jpg'); margin-top: 0;">
    <div class="container">

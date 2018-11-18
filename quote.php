@@ -17,162 +17,20 @@ $comment = new Comment($con);
 require_once "includes/quote_of_moment.php";
 require_once 'includes/indexLeftContainer.php';
 
+$quoteArray = "";
 $quoteDetails = $quote->fetchQuoteDetails($quoteId);
 $comments = $comment->fetchComments($quoteId);
+
 ?>
 
 <div class="main-container">
            
-    <div class="topMargin45 col-md-10 col-md-offset-1">
-        <div class="col-md-8 col-md-offset-3 rotating-card-container manual-flip">
-            <div class="card card-rotate">
-
-                <div class="front">
-                    <div class="card-content">
-
-                        <!-- the quote  -->
-                        <p class="card-title"> <?php echo $quoteDetails['content']; ?> </p>
-                        <!-- the quote genre -->
-                        <p class="card-description">
-                            <div class="genreList">
-                                <p class="label label-primary">
-                                    <a class="genre" href='genre.php?genre=<?php echo $quoteDetails['genre1'] ?>'><?php echo $quoteDetails['genre1']; ?></a>
-                                </p>
-                                <p class="label label-info">
-                                    <a class="genre" href='genre.php?genre=<?php echo $quoteDetails['genre2'] ?>'><?php echo $quoteDetails['genre2']; ?></a>
-                                </p>
-                                <p class="label label-default">
-                                    <a class="genre" href='genre.php?genre=<?php echo $quoteDetails['genre3'] ?>'><?php echo $quoteDetails['genre3']; ?></a>
-                                </p>
-                            </div>
-
-                            <footer class="quote-footer">
-                                <?php 
-                                $quoteLoveCheck = $quote->quoteLoveCheck($quoteId, $userId);
-                                $numberOfQuoteLover = $quote->numberOfQuoteLover($quoteId);
-                                $noUserString = ($numberOfQuoteLover == 0 ? "be the first to like this quote" : $numberOfQuoteLover);
-                                $loveQuoteString = ($numberOfQuoteLover == 1 ? "you liked this quote" : $numberOfQuoteLover . " people liked this quote");
-
-                                    // check if a user is loggedin 
-                                if ($userId) {
-
-                                        // if user has liked the quote before
-                                    if ($quoteLoveCheck) { ?>
-                                            <p class="<?php echo $quoteDetails['id']; ?>">
-                                                <a type="button" data-toggle="modal" data-target="#unlikeQuote">
-                                                <img class="<?php echo $quoteDetails['id']; ?> like-image" src="assets/images/loveRed.png" alt="love button">
-                                                <span class="<?php echo $quoteDetails['id'] ?>quoteText"><?php echo $loveQuoteString; ?></span>
-                                            </p>
-                                        <!--if user has not like quote before -->
-                                        <?php 
-                                    } else { ?>
-                                            <p class="<?php echo $quoteDetails['id']; ?>">
-                                                <img class="<?php echo $quoteDetails['id']; ?> like-image" src="assets/images/loveBlack.png" alt="like button">
-                                                <span class="<?php echo $quoteDetails['id'] ?>quoteText"><?php echo $noUserString ?></span>
-                                                </p>
-                                        <?php 
-                                    }; 
-                                                                
-                                    // if there is no logged in user
-                                } else { ?>
-                                        <!-- Button trigger modal for liking quotes-->
-                                        <p class="<?php echo $quoteDetails['id']; ?>">
-                                            <a type="button" data-toggle="modal" data-target="#signUp">
-                                                <img class="<?php echo $quoteDetails['id']; ?> like-image" src="assets/images/loveBlack.png" alt="like button">
-                                                <span class="<?php echo $quoteDetails['id'] ?>quoteText"> <?php echo $noUserString; ?>
-                                            </a>
-                                        </p><?php 
-                                        }; ?>
-                            </footer>
-
-                            <!-- quotes author and image -->
-                            <div class="footnote">
-                                <div class="author">
-                                    <a href="author.php?author=<?php echo $quote->authorId($quoteDetails['author']); ?>">
-                                        <img src="assets/images/author/<?php echo ($quoteDetails['author']); ?>.jpg" alt="<?php echo imagify($quoteDetails['author']); ?>" class="avatar img-raised">
-                                        <span><?php echo imagify($quoteDetails['author']); ?></span>
-                                    </a>
-                                </div>
-                            </div> <!-- end of footer -->
-                        </p>
-
-                        <hr class="hr">
-
-                        <!-- share and edit buttons -->
-                        <div class="pull-right col-xs-12 text-right">
-                            <?php if ($admin) { ?>
-                            <a data-toggle="tooltip" data-placement="top" title="Edit quote" data-container="body" class="label label-info" href="edit.php?id=<?php echo $quoteId ?>">Edit
-                            </a> <?php 
-                            } ?>
-                            
-                            <!-- twitter buttons -->
-                            <a class="twitter-share-button"
-                                href="https://twitter.com/share"
-                                data-text="<?php echo $quoteDetails['content'] ?>"
-                                data-url="https://QuotesandNotes.com"
-                                data-hashtags="<?php echo $quoteDetails['genre1'] . "," . $quoteDetails['genre2'] . "," . $quoteDetails['genre3'] ?>"
-                                data-via="freddgreat"
-                                data-show-count="true"
-                                data-related="twitterapi,twitter">
-                            </a>
-
-                            <!-- facebook buttons -->
-                            <a href="#pablo" class="btn btn-just-icon btn-round btn-facebook">
-                                <i class="fa fa-facebook"></i>
-                            </a>
-
-                            <!-- mail button -->
-                            <a type="button" class="btn btn-just-icon btn-round btn-rotate" data-toggle="tooltip" data-placement="top" title="mail quote to a friend" data-container="body">
-                                <i class="fas fa-envelope"></i>
-                            </a>
-                            
-                        </div>
-                    </div> <!-- end of card content -->
-                </div> <!-- end of front -->
-
-                <div class="back">
-                    <div class="card-content">
-                        <form action="index.php" method="POST">
-                            <input type="text" class="displayNone" value="<?php echo $quoteDetails['content']; ?>" name="mailContent">
-                            <input type="text" class="displayNone" value="<?php echo $quoteDetails['author']; ?>" name="mailAuthor">
-
-                            <p class="card-title paddingTop30"><?php echo $quoteDetails['content']; ?></p>
-
-                            <div class="text-center">
-
-                                <!-- enter additional message -->
-                                <div class="input-group">
-                                    <span class="input-group-addon">
-                                        <i class="material-icons"></i>
-                                    </span>
-                                    <input type="text" name="additionalMessage" class="form-control" placeholder="Enter additional message here">
-                                </div>
-
-                                <!-- enter receipientMail -->
-                                <div class="input-group">
-                                    <span class="input-group-addon">
-                                        <i class="material-icons"></i>
-                                    </span>
-                                    <input type="text" name="receipientMail" class="form-control" placeholder="Enter receiver's Mail">
-                                </div>
-
-                            </div>
-                            
-                            <!-- mail sent buttons -->
-                            <div class="text-center">
-                                <button type="submit" name="mailButton" class="btn btn-round btn-sm btn-primary text-lowercase">Mail quote </button>
-                                <button type="button" name="button" class="btn btn-white btn-round btn-rotate">
-                                    <i class="material-icons">refresh</i> Back...
-                                </button>
-                            </div>
-
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="masour">
+        <?php require_once 'indexMainContainer.php'; ?>
     </div>
 
+
+    <!-- comments -->
     <div class="col-md-8 col-md-offset-2">
 
         <div class="media-area">

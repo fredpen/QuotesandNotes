@@ -33,12 +33,10 @@ use PHPMailer\PHPMailer\PHPMailer;
 $mail = new PHPMailer;
 require_once 'includes/handlers/mailQuote-handler.php';
 
-// fetch a quote for the quote of the moment
-$randQuote = $quote->fetchRandomQuote();
+
    
      
-// save all the quotes into an array
-$quoteArray = $quote->fetchQuotes();
+
  // save the data from fetch author to authors
 $authors = $quote->fetchAuthor("5");
 $authorAll = $quote->fetchAuthor("all");

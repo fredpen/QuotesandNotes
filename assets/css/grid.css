@@ -31,6 +31,13 @@
       flex-shrink: 1;
    }
 
+   /* for the quote page that has only one item */
+   .masour{
+      column-gap: 1em;
+      width: 50%;
+      column-count: 1;
+      margin: 0 auto;
+   }
    .masonry{
      column-gap: 1em;
     width: 100%;

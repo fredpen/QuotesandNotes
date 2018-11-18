@@ -4,6 +4,8 @@ include_once "includes/quote_of_moment.php";
 require_once 'includes/indexLeftContainer.php';
 require_once 'includes/error_modals.php';
 
+// save all the quotes into an array
+$quoteArray = $quote->fetchQuotes();
 ?>
 
 <div class="main-container">

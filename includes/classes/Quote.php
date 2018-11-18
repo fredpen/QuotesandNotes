@@ -181,12 +181,11 @@ class Quote
     }
 
       // fetch the tracked user activities for the profile page
-    public function fetchProfileDetails($userId)
+    public function fetchQuotesLovedByUser($userId)
     {
-        $sql = "SELECT quotes.id, quotes.content, genre1.genre1, genre2.genre2, genre3.genre3, author.author, users.firstname, users.lastname, users.username, users.email, users.gender, users.dt
+        $sql = "SELECT quotes.id, quotes.content, genre1.genre1, genre2.genre2, genre3.genre3, author.author
             FROM quoteLovers
                 INNER JOIN quotes ON quoteLovers.quote=quotes.id
-                INNER JOIN users  ON quoteLovers.user=users.id
                 INNER JOIN genre1 ON quoteLovers.genre1=genre1.id
                 INNER JOIN genre2 ON quoteLovers.genre2=genre2.id
                 INNER JOIN genre3 ON quoteLovers.genre3=genre3.id
@@ -200,7 +199,7 @@ class Quote
       // fetch the number of quotes a user has liked
     public function numberOfQuoteLoveByUser($userId)
     {
-        $query = $this->fetchProfileDetails($userId);
+        $query = $this->fetchQuotesLovedByUser($userId);
         $query = mysqli_num_rows($query);
         return $query;
     }
