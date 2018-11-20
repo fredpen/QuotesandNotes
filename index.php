@@ -9,6 +9,12 @@ $genreArray = $quote->fetchGenre("5");
 
 // save all the quotes into an array
 $quoteArray = $quote->fetchQuotes();
+
+$content = "benjam";
+$tester = $quote->tester($content);
+var_dump($tester);
+
+
 ?>
 
 <div class="fcontainer">

@@ -1,19 +1,25 @@
 <?php
 
-   ob_start();
-   session_start();
+ob_start();
+session_start();
+$timezone = date_default_timezone_set("Africa/Lagos");
 
-   $timezone = date_default_timezone_set("Africa/Lagos");
-   $dbServername = "localhost";
-   $dbUsername ="root";
-   $dbPassword = "";
-   $dbName = "quote";
+// error reporting and logging
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
-   $con = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
+// create a new database connection
+try {
+   $con = new mysqli("localhost", "root", "", "quote");
+   $con->set_charset("utf8mb4");
+} catch (Exception $e) {
+   error_log($e->getMessage());
+   die("connection to the database failed ");
+}
 
-   if (!$con) {
-      echo "connection failed because of " . mysqli_connect_error();
-   }
 
 
- ?>
+
+
+
+
+?>

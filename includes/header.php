@@ -42,7 +42,13 @@ if ($userDetails) { ?>
         var lastname = "<?php echo $userDetails['lastname']; ?>";
         var username = "<?php echo $userDetails['username']; ?>";
     </script>
+    <?php 
+} else { ?>
+     <script type="text/javascript">
+        userId = "";
+    </script>
+    <?php 
+}
 
-    
-<?php require_once 'includes/error_modals.php';
-}; ?>
+require_once 'includes/error_modals.php';
+?>

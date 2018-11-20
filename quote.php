@@ -15,13 +15,22 @@ require_once "includes/header.php";
 $comment = new Comment($con);
 
 require_once "includes/quote_of_moment.php";
-require_once 'includes/indexLeftContainer.php';
+ // save the data from fetch author to authors
+$authorArray = $quote->fetchAuthor("5");
+// save the data from fetch genre
+$genreArray = $quote->fetchGenre("5");
 
 $quoteArray = "";
 $quoteDetails = $quote->fetchQuoteDetails($quoteId);
 $comments = $comment->fetchComments($quoteId);
 
 ?>
+
+<div class="fcontainer">
+    <div class="frow">
+
+    <!-- left section of the main container  -->
+     <?php require_once 'includes/indexLeftContainer.php'; ?>
 
 <div class="main-container">
            
@@ -103,7 +112,7 @@ $(document).ready(function(){
                     console.log(data);
                     if (data == "success") {
 
-                       $("#commentSection").append("<div  class='media'><a class='pull-left' href='profilePage.php?id=" + userId + "'><div class='avatar'>                            <img class='media-object' alt='Tim Picture' src='assets/images/placeholder.jpg'></div></a><div class='media-body'><h4 class='media-heading'><a href='profilePage.php?id=" + userId + "'>" + firstname + ' ' + lastname + "</a> <small> - a second ago</small> </h4><p>" + comment + "</p></div></div>");
+                       $("#commentSection").append("<div  class='media'><a class='pull-left' href='profilePage.php?id=" + userId + "'><div class='avatar'><img class='media-object' alt='Tim Picture' src='assets/images/placeholder.jpg'></div></a><div class='media-body'><h4 class='media-heading'><a href='profilePage.php?id=" + userId + "'>" + firstname + ' ' + lastname + "</a> <small> - a second ago</small> </h4><p>" + comment + "</p></div></div>");
                     }
                     
                 })
@@ -112,8 +121,8 @@ $(document).ready(function(){
 
         // prompt the user to log in 
         }else{
+            // <a type="button" data-toggle="modal" data-target="#unlikeQuote">
             console.log("u need to login");
-            
         }
     })
 })

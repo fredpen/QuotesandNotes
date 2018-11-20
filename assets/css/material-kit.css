@@ -3491,7 +3491,7 @@ fieldset[disabled] .navbar .btn-link:focus {
 .alert {
     border: 0;
     border-radius: 0;
-    padding: 20px 15px;
+    padding: 0 15px;
     line-height: 20px;
 }
 

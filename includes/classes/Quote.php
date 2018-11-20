@@ -23,37 +23,44 @@ class Quote
         $quote = strip_tags($quote);
         $quote = str_replace("  ", " ", $quote);
         $quote = ucfirst($quote);
+
         return $quote;
     }
 
-      // upload quote into the database
-    public function uploadQuote($content, $genre1, $genre2, $genre3, $author, $userDetails)
+    public function tester($search)
     {
+        $search = "%{$search}%";
+        $stmt = $this->con->prepare("SELECT * FROM author WHERE author LIKE ?");
+        $stmt->bind_param("s", $search);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if ($stmt->affected_rows !== 0) return false;
+        $results = $result->fetch_all(MYSQLI_ASSOC);
 
+        return $results;
+
+    }
+
+      // upload quote into the database
+    public function uploadQuote($content, $genre1, $genre2, $genre3, $author, $userId)
+    {
          // shorten the content to a max of 50 characters
-        $contentMin = substr($content, 0, 50);
-         // query all quotes from the quotes database
-        $sql = "SELECT content FROM quotes WHERE content LIKE '%$contentMin%'";
+        $search = substr($content, 0, 50);
+        $sql = "SELECT content FROM quotes WHERE content LIKE '%$search%'";
         $query = mysqli_query($this->con, $sql);
 
-      //    check if there is already a quote similar to the quote to be uploaded
-        if (mysqli_num_rows($query) > 0) {
-            return false;
-        }
-
+        // check if there is already a quote similar to the quote to be uploaded
+        if (mysqli_num_rows($query) > 0) return false;
+        
          // if not then push the quote
         $dt = date("Y-m-d h:i:s");
-        $user = $userDetails['id'];
-
-        $sql = "INSERT INTO quotes VALUES('', '$dt', '$content', '$user', '$author', '$genre1', '$genre2', '$genre3')";
-
-        $query = mysqli_query($this->con, $sql);
-
-        if ($query) {
-            return true;
-        } else {
+        $stmt = $this->con->prepare("INSERT INTO quotes VALUES('', ?, ?, ?, ?, ?, ?, ? )");
+        $stmt->bind_param("sssssss", $dt, $content, $userId, $author, $genre1, $genre2, $genre3);
+        $stmt->execute();
+        if ($stmt->affected_rows === 0) {
             return false;
-
+        } else {
+            return true;
         }
     }
    
@@ -61,6 +68,17 @@ class Quote
       // retrieve a quotes from the database as quote of the day
     public function editQuote($quoteId)
     {
+        $stmt = $this->con->prepare("SELECT quotes.id, quotes.dt, quotes.content, users.firstname, users.lastname, author.author, genre1.genre1,  genre2.genre2, genre3.genre3
+               FROM quotes
+                  INNER JOIN users ON quotes.user=users.id
+                  INNER JOIN author ON quotes.author= author.id
+                  INNER JOIN genre1 ON quotes.genre1=genre1.id
+                  INNER JOIN genre2 ON quotes.genre2=genre2.id
+                  INNER JOIN genre3 ON quotes.genre3=genre3.id
+               WHERE quotes.id = ?");
+        $stmt->bind_param("i", $quoteId);
+
+
         $sql = "SELECT quotes.id, quotes.dt, quotes.content, users.firstname, users.lastname, author.author, genre1.genre1,  genre2.genre2, genre3.genre3
                FROM quotes
                   INNER JOIN users ON quotes.user=users.id
@@ -72,7 +90,8 @@ class Quote
 
         $query = mysqli_query($this->con, $sql);
         $query = mysqli_fetch_array($query);
-        return $query;
+
+        if ($query) return $query;
     }
 
       // fetch a particular author from the database --   // fetch all author if the parameter say all
