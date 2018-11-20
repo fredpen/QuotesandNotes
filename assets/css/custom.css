@@ -100,8 +100,6 @@ hr{
    border-width: 1px;
    color: #17a2b8a6;
 }
-
-
 /* ---------------------------------------------the sign in page */
 #bt-override .styledForm{
    display: flex;
@@ -182,8 +180,16 @@ p .like-image{
     margin-top: 0;
 }
 
-/* sign up page */
-#signUpPage{
+/* sign up page-------------------------------------------------- */
+
+#home #registerContainer{
+   background-image: url("../images/registerbg.jpg");
+   background-size: contain;
+   background-position: center;
+   background-repeat: round;
+}
+
+#{
    background-image: url(../images/bg7.jpg);
    background-size: cover;
    background-position: top center;

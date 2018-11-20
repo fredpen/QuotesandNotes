@@ -99,11 +99,11 @@
 
                             <ul class="dropdown-menu dropdown-with-icons">
                                 <li>
-                                    <a href="register.php?">Register <i class="fas fa-user-plus"></i></a>
+                                    <a href="register.php">Register <i class="fas fa-user-plus"></i></a>
                                 </li>
 
                                 <li>
-                                    <a href="signIn.php?">Log in <i class="fas fa-sign-in-alt"></i> </a>
+                                    <a href="signIn.php">Log in <i class="fas fa-sign-in-alt"></i> </a>
                                 </li>
 
                                 <li>

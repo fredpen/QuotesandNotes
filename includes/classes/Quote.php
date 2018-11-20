@@ -11,37 +11,19 @@ class Quote
 
     function __construct($con)
     {
-
         $this->con = $con;
         $this->errorArray = array();
-
     }
 
-      // sanitise quotes
+    // sanitise quotes
     public function sanitiseQuote($quote)
     {
         $quote = strip_tags($quote);
         $quote = str_replace("  ", " ", $quote);
-        $quote = ucfirst($quote);
-
-        return $quote;
+        return ucfirst($quote);
     }
 
-    public function tester($search)
-    {
-        $search = "%{$search}%";
-        $stmt = $this->con->prepare("SELECT * FROM author WHERE author LIKE ?");
-        $stmt->bind_param("s", $search);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        if ($stmt->affected_rows !== 0) return false;
-        $results = $result->fetch_all(MYSQLI_ASSOC);
-
-        return $results;
-
-    }
-
-      // upload quote into the database
+    // upload quote into the database
     public function uploadQuote($content, $genre1, $genre2, $genre3, $author, $userId)
     {
          // shorten the content to a max of 50 characters
@@ -57,15 +39,10 @@ class Quote
         $stmt = $this->con->prepare("INSERT INTO quotes VALUES('', ?, ?, ?, ?, ?, ?, ? )");
         $stmt->bind_param("sssssss", $dt, $content, $userId, $author, $genre1, $genre2, $genre3);
         $stmt->execute();
-        if ($stmt->affected_rows === 0) {
-            return false;
-        } else {
-            return true;
-        }
+        return ($stmt->affected_rows === 0 ? fasle : true);
     }
-   
 
-      // retrieve a quotes from the database as quote of the day
+    // retrieve a quotes from the database as quote of the day
     public function editQuote($quoteId)
     {
         $stmt = $this->con->prepare("SELECT quotes.id, quotes.dt, quotes.content, users.firstname, users.lastname, author.author, genre1.genre1,  genre2.genre2, genre3.genre3
@@ -77,49 +54,33 @@ class Quote
                   INNER JOIN genre3 ON quotes.genre3=genre3.id
                WHERE quotes.id = ?");
         $stmt->bind_param("i", $quoteId);
-
-
-        $sql = "SELECT quotes.id, quotes.dt, quotes.content, users.firstname, users.lastname, author.author, genre1.genre1,  genre2.genre2, genre3.genre3
-               FROM quotes
-                  INNER JOIN users ON quotes.user=users.id
-                  INNER JOIN author ON quotes.author= author.id
-                  INNER JOIN genre1 ON quotes.genre1=genre1.id
-                  INNER JOIN genre2 ON quotes.genre2=genre2.id
-                  INNER JOIN genre3 ON quotes.genre3=genre3.id
-               WHERE quotes.id = '$quoteId'";
-
-        $query = mysqli_query($this->con, $sql);
-        $query = mysqli_fetch_array($query);
-
-        if ($query) return $query;
+        $stmt->execute();
+        if ($stmt->num_rows === 0) return false;
+        $results = $stmt->get_result();
+        return $results->fetch_assoc();
     }
 
-      // fetch a particular author from the database --   // fetch all author if the parameter say all
+    // fetch a particular author from the database
     public function fetchAuthor($num)
     {
         if ($num == "all") {
             $sql = "SELECT * FROM author ORDER BY author";
-            $query = mysqli_query($this->con, $sql);
-            return $query;
+            return mysqli_query($this->con, $sql);
         } else {
             $sql = "SELECT * FROM author ORDER BY author LIMIT $num";
-            $query = mysqli_query($this->con, $sql);
-            return $query;
+            return mysqli_query($this->con, $sql);
         }
     }
 
-      // fetch a particular number of genre from the database  --      // fetch all genre if the parameter say all
+    // fetch a particular number of genre from the database 
     public function fetchGenre($num)
     {
         if ($num == "all") {
             $sql = "SELECT * FROM genre1 ORDER BY genre1";
-            $query = mysqli_query($this->con, $sql);
-            return $query;
+            return mysqli_query($this->con, $sql);
         } else {
             $sql = "SELECT * FROM genre1 ORDER BY genre1 LIMIT $num";
-            $query = mysqli_query($this->con, $sql);
-            return $query;
-
+            return mysqli_query($this->con, $sql);
         }
     }
 
@@ -136,9 +97,7 @@ class Quote
     {
         $sql = "SELECT id FROM quoteLovers WHERE quote='$quoteId' AND user='$userId'";
         $query = mysqli_query($this->con, $sql);
-        if (mysqli_num_rows($query) != 0) {
-            return true;
-        };
+        if (mysqli_num_rows($query) !== 0) return true;
     }
 
       // find the id of a particular genre from the database
@@ -171,9 +130,7 @@ class Quote
                INNER JOIN genre2 ON quotes.genre2=genre2.id
                INNER JOIN genre3 ON quotes.genre3=genre3.id
             WHERE quotes.author='$author'";
-
-        $query = mysqli_query($this->con, $sql);
-        return $query;
+        return mysqli_query($this->con, $sql);
     }
 
       // querry all the quotes from the database with a particular genre
@@ -211,16 +168,14 @@ class Quote
                 INNER JOIN author ON quoteLovers.author=author.id
             WHERE quoteLovers.user='$userId'";
 
-        $query = mysqli_query($this->con, $sql);
-        return $query;
+        return mysqli_query($this->con, $sql);
     }
     
       // fetch the number of quotes a user has liked
     public function numberOfQuoteLoveByUser($userId)
     {
         $query = $this->fetchQuotesLovedByUser($userId);
-        $query = mysqli_num_rows($query);
-        return $query;
+        return mysqli_query($this->con, $sql);
     }
 
 
@@ -228,16 +183,14 @@ class Quote
     {
         $sql = "SELECT * FROM author WHERE id='$authorId'";
         $query = mysqli_query($this->con, $sql);
-        $query = mysqli_fetch_array($query);
-        return $query;
+        return mysqli_query($this->con, $sql);
     }
 
     public function fetchUserDetails($userId)
     {
         $sql = "SELECT * FROM users WHERE id='$userId'";
         $query = mysqli_query($this->con, $sql);
-        $query = mysqli_fetch_array($query);
-        return $query;
+        return mysqli_query($this->con, $sql);
     }
 
       // fetching the id of all quotes in the database
@@ -265,8 +218,7 @@ class Quote
                WHERE quotes.id='$quoteId'";
 
         $query = mysqli_query($this->con, $sql);
-        $query = mysqli_fetch_array($query);
-        return $query;
+        return mysqli_fetch_array($query);
     }
 
       // fetch all the quote from the database

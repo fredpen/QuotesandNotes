@@ -68,13 +68,12 @@ if (isset($_POST['registerButton'])) {
     $confirmEmail = sanitiseStrings($_POST['confirmEmail']);
     $password = sanitisePasswords($_POST['password']);
     $confirmPassword = sanitisePasswords($_POST['confirmPassword']);
-    $gender = $_POST['gender'];
 
      
       // save users email to the subsription table 
       // $quote->pushEmail($email);
 
-    $registerUser = $account->register($firstName, $lastName, $username, $email, $confirmEmail, $password, $confirmPassword, $gender);
+    $registerUser = $account->register($firstName, $lastName, $username, $email, $confirmEmail, $password, $confirmPassword);
 
       // check the logs for error from validating inputs
     $errorArray = $account->errorLog();
@@ -82,7 +81,7 @@ if (isset($_POST['registerButton'])) {
       // check if the registration is succesful and redirects to home
     if ($registerUser) {
 
-         // set up the cookie
+        // call the fred defined cookie function to set cookie
         cookie_init($email);
 
         // set uo the session

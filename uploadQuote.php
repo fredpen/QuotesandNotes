@@ -22,7 +22,7 @@ $errors = [
 
 function upload()
 {
-    $uploadQuote = $quote->uploadQuote($content, $genre1, $genre2, $genre3, $author, $userDetails);
+    $uploadQuote = $quote->uploadQuote($content, $genre1, $genre2, $genre3, $author, $userId);
         // if quotes already exists
     if ($uploadQuote == "exists") {
         array_push($errorMessages, $duplicateError);
@@ -65,7 +65,7 @@ if (isset($_POST['uploadQuoteButton'])) {
             $genre2 = $genre[1];
             $genre3 = $genre[2];
 
-            $uploadQuote = $quote->uploadQuote($content, $genre1, $genre2, $genre3, $author, $userDetails);
+            $uploadQuote = $quote->uploadQuote($content, $genre1, $genre2, $genre3, $author, $userId);
         // if quotes already exists
             if (!$uploadQuote) {
                 array_push($errorMessages, $duplicateError);

@@ -1,6 +1,10 @@
 <?php
 if (isset($_GET['author'])) {
-    $authorId = $_GET['author'];
+    // var_dump($_GET['author']);
+    $authorId = (int)$_GET['author'];
+    // var_dump($authorId);
+
+    // is_integer($authorId)
     $authorId = strip_tags($authorId);
 } else {
     header("Location: index.php");
