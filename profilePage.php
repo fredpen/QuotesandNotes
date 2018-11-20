@@ -108,10 +108,8 @@ while ($row = mysqli_fetch_array($quoteDetails)) {
 // more details conjured from the user bio data
         $profileString = "Full Name: " . $userBiodata['firstName'] . " " . $userBiodata['lastname'] .
             "<br>    Email: " . $userBiodata['email'] . "<br>
-      Username: " . $userBiodata['username'] . "<br>
-      Gender: " . $userBiodata['gender'];
-
-        ?>
+      Username: " . $userBiodata['username']; ?>
+      
       <div class="card">
        <div class="card-content">
          <h4 class="card-title">

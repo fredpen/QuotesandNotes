@@ -175,22 +175,23 @@ class Quote
     public function numberOfQuoteLoveByUser($userId)
     {
         $query = $this->fetchQuotesLovedByUser($userId);
-        return mysqli_query($this->con, $sql);
+        return mysqli_num_rows($query);
     }
 
 
     public function fetchAuthorDetails($authorId)
     {
         $sql = "SELECT * FROM author WHERE id='$authorId'";
-        $query = mysqli_query($this->con, $sql);
         return mysqli_query($this->con, $sql);
     }
 
     public function fetchUserDetails($userId)
     {
-        $sql = "SELECT * FROM users WHERE id='$userId'";
-        $query = mysqli_query($this->con, $sql);
-        return mysqli_query($this->con, $sql);
+        $stmt = $this->con->prepare("SELECT * FROM users WHERE id=?");
+        $stmt->bind_param("i", $userId);
+        $stmt->execute();
+        $results = $stmt->get_result();
+        return $results->fetch_assoc();
     }
 
       // fetching the id of all quotes in the database

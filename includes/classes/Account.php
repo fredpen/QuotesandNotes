@@ -25,7 +25,7 @@ class Account
         return (empty($this->errorArray) ? $this->insertUserDetails($firstName, $lastName, $username, $email, $password) : false);
     }
 
-      // login user
+    // login user
     public function login($email, $password)
     {   
         // encrypt the password
@@ -109,27 +109,10 @@ class Account
         $stmt->execute();
         $stmt->get_result();
         if ($stmt->affected_rows !== 0) return array_push($this->errorArray, Constants::$emailAlreadyExists);
-
-
-
-
-        // $query = mysqli_query($this->con, "SELECT * FROM users WHERE email ='$email'");
-        // if (mysqli_num_rows($query) > 0) {
-        //     array_push($this->errorArray, Constants::$emailAlreadyExists);
-        //     return;
-        // }
-
-        // if ($email != $confirmEmail) {
-        //     array_push($this->errorArray, Constants::$emailDoNotMatch);
-        //     return;
-        // }
     }
 
 
 
 
 }
-/**end of class */
-
-
 ?>
