@@ -38,6 +38,14 @@
       column-count: 1;
       margin: 0 auto;
    }
+
+   /* for the profile page */
+   .profilePagemasonry{
+       column-gap: 1em;
+      width: 100%;
+      column-count: 2;
+   }
+
    .masonry{
      column-gap: 1em;
     width: 100%;
@@ -68,11 +76,20 @@
   .masonry {
     column-count: 1;
 }
+ .profilePagemasonry{
+    column-count: 1;
+}
 
 .main-container{
   width: 100%;
 }
 
+}
+
+@media screen and (min-width: 800px) {
+   .profilePagemasonry{
+    column-count: 2;
+   }
 }
 
 
