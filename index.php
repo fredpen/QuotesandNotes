@@ -9,9 +9,6 @@ $genreArray = $quote->fetchGenre("5");
 
 // save all the quotes into an array
 $quoteArray = $quote->fetchQuotes();
-
-$arroe = true;
-(is_int($arroe) && 2 == 2 ? $quote->fetchGenre("5") : "sola");
 ?>
 
 <div class="fcontainer">

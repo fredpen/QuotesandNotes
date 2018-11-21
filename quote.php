@@ -49,7 +49,7 @@ $comments = $comment->fetchComments($quoteId);
                 echo mysqli_num_rows($comments);
             } ?> Comments
             </h3>
-            
+
             <div id="commentSection"> 
                 <?php while ($row = mysqli_fetch_array($comments)) { ?>
                 <div class="media">
