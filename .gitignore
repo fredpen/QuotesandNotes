@@ -1,7 +1,4 @@
 allsql.sql
-.vscode/
-htdocs
 test.php
-notes.md
-nextSteps.md
-databaseConfig.php
+includes/databaseConfig.php
+.vscode/

@@ -38,7 +38,6 @@ $comments = $comment->fetchComments($quoteId);
         <?php require_once 'includes/indexMainContainer.php'; ?>
     </div>
 
-
     <!-- comments -->
     <div class="col-md-8 col-md-offset-2">
 
