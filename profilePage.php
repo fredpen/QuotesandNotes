@@ -5,9 +5,9 @@ include_once 'includes/classes/Comment.php';
 $comment = new Comment($con);
 
 if (isset($_GET['id'])) {
-    $userId = $_GET['id'];
+	$userId = $_GET['id'];
 } else {
-    header("Location: index.php");
+	header("Location: index.php");
 }
 
 $quoteDetails = $quote->fetchQuotesLovedByUser($userId);
@@ -23,19 +23,19 @@ $authorArray = array();
 
 // only push genre or authors that are not in the array, into the newly created array
 while ($row = mysqli_fetch_array($quoteDetails)) {
-    if (!in_array($row['genre1'], $genreArray)) {
-        array_push($genreArray, $row['genre1']);
-    }
-    if (!in_array($row['genre2'], $genreArray)) {
-        array_push($genreArray, $row['genre2']);
-    }
-    if (!in_array($row['genre3'], $genreArray)) {
-        array_push($genreArray, $row['genre3']);
+	if (!in_array($row['genre1'], $genreArray)) {
+		array_push($genreArray, $row['genre1']);
+	}
+	if (!in_array($row['genre2'], $genreArray)) {
+		array_push($genreArray, $row['genre2']);
+	}
+	if (!in_array($row['genre3'], $genreArray)) {
+		array_push($genreArray, $row['genre3']);
 
-    }
-    if (!in_array($row['author'], $authorArray)) {
-        array_push($authorArray, $row['author']);
-    }
+	}
+	if (!in_array($row['author'], $authorArray)) {
+		array_push($authorArray, $row['author']);
+	}
 }
 ?>
 <div class="profile-page">
@@ -110,7 +110,7 @@ while ($row = mysqli_fetch_array($quoteDetails)) {
                     <!-- the tab with the quotes collections -->
 			        <div class="tab-pane active work" id="work">
 				        <div class="row">
-	                        <div class="col-md-9">
+	                        <div class="col-md-10">
 		                        <h4 class="title"><?php echo $userBiodata['lastname']; ?>'s Latest Collections</h4>
 		                        <!-- <div class="row collections"> -->
                                     <div class="col-md-12">
@@ -118,7 +118,7 @@ while ($row = mysqli_fetch_array($quoteDetails)) {
 			                        </div>
                                 <!-- </div> -->
 		                    </div>
-		                    <div class="col-md-2 col-md-offset-1 stats">
+		                    <div class="col-md-2 stats">
 			                    <h4 class="title">Interactions Stats</h4>
 			                    <ul class="list-unstyled">
 				                    <li><b><?php echo count($genreArray) ?></b> Genres</li>

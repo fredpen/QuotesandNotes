@@ -4,4 +4,4 @@ htdocs
 test.php
 notes.md
 nextSteps.md
-includes/databaseConfig.php
+databaseConfig.php
