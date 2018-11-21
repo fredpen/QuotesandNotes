@@ -74,7 +74,7 @@
                             </div> <!-- end of footer -->
                         </p>
 
-                        <!-- <hr class="hr"> -->
+                        <hr class="hr">
 
                         <!-- share and edit buttons -->
                         <div class="pull-right col-xs-12 text-right">
@@ -96,13 +96,18 @@
 
                             <!-- facebook buttons -->
                             <a href="#pablo" class="btn btn-just-icon btn-round btn-facebook">
-                                <i class="fa fa-facebook"></i>
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+
+                            <!-- whatsappp buttons -->
+                            <a href="#pablo" class="btn btn-just-icon btn-round btn-facebook">
+                                <i class="fab fa-whatsapp"></i>
                             </a>
                             
                             <!-- class="btn btn-just-icon btn-round btn-rotate" -->
                             <!-- mail button -->
-                            <a href="quote.php?id=<?php echo $quoteId; ?>" class="btn-round btn-rotate" data-toggle="tooltip" data-placement="top" title="mail quote to a friend" data-container="body">
-                                <i class="far fa-envelope"></i>
+                            <a href="quote.php?id=<?php echo $quoteId; ?>" class="btn btn-just-icon btn-round btn-github" data-toggle="tooltip" data-placement="top" title="mail quote to a friend" data-container="body">
+                                <i class="fas fa-envelope"></i>
                             </a>
 
                         </div>

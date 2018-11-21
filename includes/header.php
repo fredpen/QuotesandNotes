@@ -25,12 +25,6 @@ use PHPMailer\PHPMailer\PHPMailer;
 //Create a new PHPMailer instance
 $mail = new PHPMailer;
 require_once 'includes/handlers/mailQuote-handler.php';
-
-
-
-
-
-
 require_once 'includes/session.php';
 require_once 'includes/navMenu.php';
 

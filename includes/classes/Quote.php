@@ -182,7 +182,8 @@ class Quote
     public function fetchAuthorDetails($authorId)
     {
         $sql = "SELECT * FROM author WHERE id='$authorId'";
-        return mysqli_query($this->con, $sql);
+        $results = mysqli_query($this->con, $sql);
+        return mysqli_fetch_array($results);
     }
 
     public function fetchUserDetails($userId)
