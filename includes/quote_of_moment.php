@@ -6,9 +6,21 @@ $randQuote = $quote->fetchRandomQuote(); ?>
 <div class="subscribe-line subscribe-line-image" style="background-image: url('assets/images/bg7.jpg'); margin-top: 0;">
    <div class="container">
       <div class="row">
+
+      <div>
+         <div class="col-md-5 col-md-offset-3  topMargin65">
+            <form method="post">
+  <input type="text" class="textbox" placeholder="Search">
+  <input title="Search" value="" type="submit" class="button">
+</form>
+</div>
+</div>
          <div class="col-md-5 col-md-offset-3  topMargin65">
 
             <div class="text-center">
+
+
+
                <h3 class="title">Quote of the Moment</h3>
 
                <div id="card" class="card card-blog">

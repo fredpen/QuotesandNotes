@@ -1,4 +1,6 @@
- <?php if ($quoteArray) {
+ <?php 
+
+if ($quoteArray) {
     foreach ($quoteArray as $row) {
         $quoteId = $row['id']; ?>
 
@@ -257,6 +259,11 @@
                                         <!-- facebook buttons -->
                                         <a href="#pablo" class="btn btn-just-icon btn-round btn-facebook">
                                             <i class="fa fa-facebook"></i>
+                                        </a>
+
+                                         <!-- whatsappp buttons -->
+                                        <a href="#pablo" class="btn btn-just-icon btn-round btn-facebook">
+                                            <i class="fab fa-whatsapp"></i>
                                         </a>
 
                                         <!-- mail button -->

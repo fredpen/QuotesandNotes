@@ -34,7 +34,8 @@
    /* for the quote page that has only one item */
    .masour{
       column-gap: 1em;
-      width: 50%;
+      width: 70%;
+      max-width: 500px;;
       column-count: 1;
       margin: 0 auto;
    }

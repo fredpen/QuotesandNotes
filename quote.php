@@ -20,26 +20,28 @@ $authorArray = $quote->fetchAuthor("5");
 // save the data from fetch genre
 $genreArray = $quote->fetchGenre("5");
 
-$quoteArray = "";
 $quoteDetails = $quote->fetchQuoteDetails($quoteId);
 $comments = $comment->fetchComments($quoteId);
-
+$quoteArray = "";
 ?>
 
-<div class="fcontainer">
+<div class="fcontainer" style="background: #fff;">
     <div class="frow">
 
     <!-- left section of the main container  -->
-     <?php require_once 'includes/indexLeftContainer.php'; ?>
+    <?php require_once 'includes/indexLeftContainer.php'; ?>
 
-<div class="main-container">
+    <div class="main-container">
            
-    <div class="masour">
-        <?php require_once 'includes/indexMainContainer.php'; ?>
-    </div>
+        <div class="masour">
+
+            <?php require_once 'includes/indexMainContainer.php'; ?>
+        </div>
+
+           
 
     <!-- comments -->
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-10 col-md-offset-1">
 
         <div class="media-area">
             <h3 class="title text-center">
@@ -49,7 +51,7 @@ $comments = $comment->fetchComments($quoteId);
             } ?> Comments
             </h3>
 
-            <div id="commentSection"> 
+            <div id="commentSection" class="blockquote"> 
                 <?php while ($row = mysqli_fetch_array($comments)) { ?>
                 <div class="media">
                     <a class="pull-left" href="profilePage.php?id=<?php echo $row['id'] ?>">

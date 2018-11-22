@@ -4199,7 +4199,8 @@ h2.title {
     top: 5px;
 }
 
-.card .author .avatar {
+.card .author .avatar,
+.author .avatar {
     width: 30px;
     height: 30px;
     overflow: hidden;
