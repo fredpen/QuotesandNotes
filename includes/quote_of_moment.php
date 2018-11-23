@@ -6,24 +6,15 @@ $randQuote = $quote->fetchRandomQuote(); ?>
 <div class="subscribe-line subscribe-line-image" style="background-image: url('assets/images/bg7.jpg'); margin-top: 0;">
    <div class="container">
       <div class="row">
-
-      <div>
-         <div class="col-md-5 col-md-offset-3  topMargin65">
-            <form method="post">
-  <input type="text" class="textbox" placeholder="Search">
-  <input title="Search" value="" type="submit" class="button">
-</form>
-</div>
-</div>
-         <div class="col-md-5 col-md-offset-3  topMargin65">
+              <div class="col-md-5 col-md-offset-3  topMargin65">
 
             <div class="text-center">
 
 
 
-               <h3 class="title">Quote of the Moment</h3>
+               <h3 class="text-center title">Quote of the Moment</h3>
 
-               <div id="card" class="card card-blog">
+               <div id="card" class="text-center card card-blog">
                   <div id="card-content" class="card-content" style="height: unset;"> 
                      <p class="quote-description"><?php echo $randQuote['content']; ?></p>
                      <div class="footer">

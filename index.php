@@ -1,6 +1,8 @@
 <?php
 require_once 'includes/header.php';
-include_once "includes/quote_of_moment.php";
+// include_once "includes/quote_of_moment.php";
+include_once "includes/searchbar.php";
+
 
  // save the data from fetch author to authors
 $authorArray = $quote->fetchAuthor("5");

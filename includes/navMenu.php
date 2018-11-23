@@ -22,10 +22,12 @@
         <link href="https://fonts.googleapis.com/css?family=Inconsolata|PT+Mono" rel="stylesheet">
 
         <!-- CSS Files -->
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-        <link href="assets/css/material-kit.css?v=1.2.1" rel="stylesheet"/>
+        <!-- <link href="assets/css/main.css" rel="stylesheet" /> -->
+        <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet" />
+        <link href="assets/css/lib/material-kit.css?v=1.2.1" rel="stylesheet"/>
         <link href="assets/css/custom.css" rel="stylesheet"/>
         <link href="assets/css/grid.css" rel="stylesheet"/>
+        
             
             <!-- font awesome -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
@@ -33,11 +35,13 @@
         <!-- twitter script -->
         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         <!-- jquery script -->
-        <script src="assets/js/jquery.min.js" type="text/javascript"></script>
+        <script src="assets/js/lib/jquery.min.js" type="text/javascript"></script>
+
+
 
     </head>
 
- <!-- navbar-color-on-scroll" color-on-scroll=" " -->
+    <!-- navbar-color-on-scroll" color-on-scroll=" " -->
     <body id="home" class="index-page">
 
         <nav class="navbar navbar-default navbar-primary navbar-fixed-top" id="sectionsNav">

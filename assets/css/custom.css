@@ -394,19 +394,8 @@ footer .container{
 }
 
 
-
-body {
-  background: url('http://i.hizlireim.com/v4Qykv.png') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  font-family: 'Roboto', Tahoma, Arial, sans-serif;
-  line-height: 1.5;
-  font-size: 13px;
-}
-
-form {
+/* the search box styles-------------------------------- */
+/* form {
   outline: 0;
   float: left;
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -417,8 +406,6 @@ form {
 
 form > .textbox {
   outline: 0;
-  height: 42px;
-  width: 244px;
   line-height: 42px;
   padding: 0 16px;
   background-color: rgba(255, 255, 255, 0.8);
@@ -439,8 +426,8 @@ form > .button {
   background: none;
   background-color: rgba(38, 50, 56, 0.8);
   float: left;
-  height: 42px;
-  width: 42px;
+  /* height: 42px; */
+  /* width: 42px; 
   text-align: center;
   line-height: 42px;
   border: 0;
@@ -457,4 +444,4 @@ form > .button {
 
 form > .button:hover {
   background-color: rgba(0, 150, 136, 0.8);
-}
+} */
