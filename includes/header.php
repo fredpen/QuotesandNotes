@@ -26,10 +26,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 $mail = new PHPMailer;
 require_once 'includes/handlers/mailQuote-handler.php';
 require_once 'includes/session.php';
-
-if ($userDetails) {
-    $jsonUserId = json_encode($userDetails['id']);
-}
+require_once 'includes/navMenu.php';
 
 if ($userDetails) { ?>
     <script type="text/javascript">
@@ -47,6 +44,6 @@ if ($userDetails) { ?>
 }
 
 
-require_once 'includes/navMenu.php';
+
 require_once 'includes/error_modals.php';
 ?>

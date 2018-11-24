@@ -14,14 +14,12 @@
         <meta property="og:description"   content="Bringing you the best of words from the greatest of minds" />
         <meta property="og:image"         content="" />
 
-        <title>Quotes&Notes - We got you</title>
+        <title>Quotes&Notes - <?php echo $pageTitle; ?></title>
 
         <!--     Fonts and icons     -->
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css?family=Inconsolata|PT+Mono" rel="stylesheet">
-
+    
         <!-- CSS Files -->
         <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet" />
         <link href="assets/css/lib/material-kit.css?v=1.2.1" rel="stylesheet"/>
@@ -37,83 +35,60 @@
         <script src="assets/js/custom.js"></script>
     </head>
 
-    <!-- navbar-color-on-scroll" color-on-scroll=" " -->
     <body id="home" class="index-page">
 
-        <nav class="navbar navbar-default navbar-primary navbar-fixed-top" id="sectionsNav">
-            <div class="container-fluid">     
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-
-                    <a class="navbar-brand" href="index.php">
-                        <i class="fas fa-home"></i> Quotes&Notes 
-                    </a>
-                </div>
-
-                <!-- navbar collapse -->
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-right">
+        <!-- auth nav -->
+        <nav  id="authNavContainer" class="navbar navbar-default navbar-default navbar-fixed-top">
+            <div class="container-fluid"> 
+                <div id="topNav">
+                    <ul class="navbar-nav nav">
+                        <li id="navBrand"></i><a href="index.php">Quotes&Notes</a></li>
+                    </ul>
+                  
+                    <ul id="authNav" class="nav">
 
                         <?php if ($userDetails) { ?>
-                        <li>
-                            <a href="profilePage.php?id=<?php echo $userDetails['id']; ?>"> <i class="fas fa-wrench"> </i><?php echo " " . $userDetails['lastname']; ?></a>
-                        </li><?php 
+                            <li>
+                                <a href="profilePage.php?id=<?php echo $userDetails['id']; ?>"> <i class="fas fa-user"></i> </i> Hi <?php echo " " . $userDetails['lastname']; ?></a>
+                            </li>
+                            <li>
+                                <a href="logOut.php">Sign out <i class="fas fa-sign-out-alt"></i></a>
+                            </li>
+                            <?php 
+                        } else { ?>
+                            <li>
+                                <a href="register.php">Hi Guest</i></a>
+                            </li>
+                             <li>
+                                <a href="signIn.php">Log in <i class="fas fa-sign-in-alt"></i> </a>
+                            </li>
+                            <li>
+                                <a href="register.php">Register <i class="fas fa-user"></i></a>
+                            </li>
+                           
+                            <?php 
                         }; ?>
-
-                        <li>
-                            <a href="blog/home.php"><i class="fas fa-newspaper"></i> blog</a>
-                        </li>
-
-                        <li>
-                            <a href="authors.php"><i class="fas fa-book-reader"></i> Authors</a>
-                        </li>
-
-                        <li>
-                            <a href="genres.php">Genres</a>
-                        </li>
-
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <b class="caret"></b>
-                            </a>
-
-                            <?php if ($userDetails) { ?>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="uploadQuote.php">Contribute <i class="fab fa-joomla"></i></a>
-                                </li>
-
-                                <li class="divider"></li>
-
-                                <li>
-                                    <a href="logOut.php">Sign out<i class="fas fa-sign-out-alt"></i></a>
-                                </li>
-                            </ul><?php 
-                            } else { ?>
-
-                            <ul class="dropdown-menu dropdown-with-icons">
-                                <li>
-                                    <a href="register.php">Register <i class="fas fa-user-plus"></i></a>
-                                </li>
-
-                                <li>
-                                    <a href="signIn.php">Log in <i class="fas fa-sign-in-alt"></i> </a>
-                                </li>
-
-                                <li>
-                                    <a href="uploadQuote.php">Contribute <i class="fab fa-joomla"></i></a>
-                                </li>
-                            </ul><?php 
-                            }; ?>
-
-                        </li>
                     </ul>
                 </div>
+            </div>
+        </nav>
+                    
+        <!-- main nav -->
+        <nav class="navbar navbar-default navbar-primary navbar-fixed-top auth">
+            <div id="mainNavContainer" class="container-fluid">     
+                <ul id="mainNav" class="nav navbar-nav">
+                    <li>
+                        <a href="uploadQuote.php">Contribute <i class="fab fa-joomla"></i></a>
+                    </li>
+                    <li>
+                        <a href="blog/home.php"><i class="fas fa-newspaper"></i> blog</a>
+                    </li>
+                    <li>
+                        <a href="authors.php"><i class="fas fa-book-reader"></i> Authors</a>
+                    </li>
+                    <li>
+                        <a href="genres.php">Genres</a>
+                    </li>
+                </ul>
             </div>
         </nav>

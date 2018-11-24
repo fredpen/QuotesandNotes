@@ -1,7 +1,7 @@
 <?php
 // its worth remembering that the id on this page is the unique id of the user not of the quote
 $date = date("Y/m/d/m/s");
-$quoteId;
+// $quoteId;
 if (isset($_GET['id'])) {
     $quoteId = $_GET['id'];
 } else {

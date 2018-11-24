@@ -2,18 +2,26 @@
 // fetch a quote for the quote of the moment
 $randQuote = $quote->fetchRandomQuote(); ?>
 
+<div class="searchContainer">
+    <div class="container">
+  
+        <div class="row">
+            <div class="col-sm-12">
+                <form method="get" action="index.php" class="col-sm-12 searchForm">
+                    <div class="form-group search">
+                        <input type="text" name="searchString" placeholder="Search quotes" class="form-control searchControl">
+                        <button type="submit" data-toggle="tooltip" title="search quotes"><i class="fas fa-search"></i></button>
+                    </div>
+                </form>
+            </div>
 
-
-<div class="container-fluid">
-    <div class="row">
-            <div id="searchbar" class="" style="background-image: url('assets/images/searchbg.jpg">
-                <div class="col-md-10 col-md-offset-1 topMargin65">
-                    <form method="post">
-                        <input type="text" class="textbox" placeholder="Search">
-                        <input title="Search" value="" type="submit" class="button">
-                    </form>
+            <div class="col-sm-12" id="searchResults"">
+                <div class="searchResult">
+                    <h1>what are u doing here</h1>   
                 </div>
             </div>
+
+
         </div>
     </div>
 </div>
