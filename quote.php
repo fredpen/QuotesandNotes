@@ -90,7 +90,6 @@ $quoteArray = "";
         $("#submit").click(function(){
 
             var quoteId = <?php echo $quoteId; ?>;
-            
             if (userId) {
                 
                 // get the details of the comment from the textarea
@@ -125,3 +124,4 @@ $quoteArray = "";
 require_once 'includes/indexRightContainer.php';
 include_once "includes/footer.php"
 ?>
+ 

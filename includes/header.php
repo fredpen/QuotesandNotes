@@ -26,12 +26,14 @@ use PHPMailer\PHPMailer\PHPMailer;
 $mail = new PHPMailer;
 require_once 'includes/handlers/mailQuote-handler.php';
 require_once 'includes/session.php';
-require_once 'includes/navMenu.php';
 
+if ($userDetails) {
+    $jsonUserId = json_encode($userDetails['id']);
+}
 
 if ($userDetails) { ?>
     <script type="text/javascript">
-        var userId = <?php echo $userDetails['id']; ?>;
+        var userId = "<?php echo $userDetails['id']; ?>";
         var firstname = "<?php echo $userDetails['firstName']; ?>";
         var lastname = "<?php echo $userDetails['lastname']; ?>";
         var username = "<?php echo $userDetails['username']; ?>";
@@ -44,5 +46,7 @@ if ($userDetails) { ?>
     <?php 
 }
 
+
+require_once 'includes/navMenu.php';
 require_once 'includes/error_modals.php';
 ?>

@@ -91,7 +91,7 @@ if (isset($_POST['uploadQuoteButton'])) {
 $theError = checkError($errorMessages, $errors);
 ?>
 
-<div class="container topMargin65">
+<div class="container topMargin65 light">
     <div class="row">
 
     <?php if ($theError) { ?>
