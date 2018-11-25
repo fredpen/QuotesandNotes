@@ -18,10 +18,7 @@ $quoteArray = $quote->fetchQuotes();
      <?php require_once 'includes/indexLeftContainer.php'; ?>
 
     <div class="main-container">
-        <div class="masonry"><?php require_once
-                                // 'includes/indexMainContainer.php';
-                            'test.php';
-                            ?></div>
+        <div class="masonry"><?php require_once 'includes/indexMainContainer.php'; ?></div>
 
 </div>
 

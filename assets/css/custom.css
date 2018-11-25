@@ -37,7 +37,20 @@ body{
     width: 100%;
     display: flex;
     flex-wrap: nowrap;
-    justify-content: center;
+}
+
+#home #mainNavContainer{
+    display: flex;
+}
+
+#mainNavContainerDropdown{
+    display: flex;
+}
+
+#dropdownMenu1{
+    background: inherit;
+    text-transform: inherit;
+    
 }
 
 #topNav{

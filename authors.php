@@ -3,8 +3,8 @@
  	// converting the wikiname of authors to img names
 function imagify($string)
 {
-	$string = str_replace("_", " ", $string);
-	return $string;
+   $string = str_replace("_", " ", $string);
+   return $string;
 }
 
 require_once 'includes/databaseConfig.php';
@@ -19,25 +19,17 @@ $char = $author->validChar();
 
 ?>
 <?php
-   // redirecting function
-function redirect_to($url)
-{
-	ob_start();
-	header('Location: ' . $url);
-	ob_end_flush();
-	die();
-}
    // keeping track of users in session
 if (isset($_SESSION['email'])) {
-	$email = $_SESSION['email'];
+   $email = $_SESSION['email'];
 
-	$userDetails = $account->userDetails($email);
-	$firstName = $userDetails['lastname'];
-	$userId = $userDetails['id'];
+   $userDetails = $account->userDetails($email);
+   $firstName = $userDetails['lastname'];
+   $userId = $userDetails['id'];
 
-	$jsonfirstName = json_encode($firstName);
+   $jsonfirstName = json_encode($firstName);
 } else {
-	$firstName = '';
+   $firstName = '';
 }
 
 ?>
@@ -106,7 +98,7 @@ if (isset($_SESSION['email'])) {
                   </a>
                </li>
                <?php 
-													}; ?>
+            }; ?>
                <li>
                   <a href="blog/home.php">
                      <i class="fas fa-newspaper"></i>  blog 
@@ -137,7 +129,7 @@ if (isset($_SESSION['email'])) {
                      </li>
                   </ul>
                   <?php 
-																} else { ?>
+               } else { ?>
                   <ul class="dropdown-menu dropdown-with-icons">
                      <li>
                         <a href="register.php?">Register <i class="fas fa-user-plus"></i></a>
@@ -150,7 +142,7 @@ if (isset($_SESSION['email'])) {
                      </li>
                   </ul>
                   <?php 
-																}; ?>
+               }; ?>
                </li>
             </ul>
          </div>
@@ -173,7 +165,7 @@ if (isset($_SESSION['email'])) {
 							<a class="author_list label label-default" href="#<?php echo $letter; ?>"><?php echo $letter; ?></a>
 						</li>
 					<?php 
-			}; ?>
+   }; ?>
 					</ul>
 			</div>
 			</nav>
@@ -204,8 +196,8 @@ if (isset($_SESSION['email'])) {
 							 		</tr>
 							 	</tbody>
 								<?php 
-						};
-					}; ?>
+      };
+   }; ?>
 
 							<!-- </tbody> -->
 						</table>

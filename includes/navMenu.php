@@ -42,41 +42,21 @@
             <div class="container-fluid"> 
                 <div id="topNav">
                     <ul class="navbar-nav nav">
-                        <li id="navBrand"></i><a href="index.php">Quotes&Notes</a></li>
+                        <li id="navBrand"></i><a href="authors.php">Authors: </a></li>
                     </ul>
                   
-                    <ul id="authNav" class="nav">
-
-                        <?php if ($userDetails) { ?>
-                            <li>
-                                <a href="profilePage.php?id=<?php echo $userDetails['id']; ?>"> <i class="fas fa-user"></i> </i> Hi <?php echo " " . $userDetails['lastname']; ?></a>
-                            </li>
-                            <li>
-                                <a href="logOut.php">Sign out <i class="fas fa-sign-out-alt"></i></a>
-                            </li>
-                            <?php 
-                        } else { ?>
-                            <li>
-                                <a href="register.php">Hi Guest</i></a>
-                            </li>
-                             <li>
-                                <a href="signIn.php">Log in <i class="fas fa-sign-in-alt"></i> </a>
-                            </li>
-                            <li>
-                                <a href="register.php">Register <i class="fas fa-user"></i></a>
-                            </li>
-                           
-                            <?php 
-                        }; ?>
-                    </ul>
+                    
                 </div>
             </div>
         </nav>
                     
         <!-- main nav -->
         <nav class="navbar navbar-default navbar-primary navbar-fixed-top auth">
-            <div id="mainNavContainer" class="container-fluid">     
+            <div id="mainNavContainer" class="container-fluid">
+
                 <ul id="mainNav" class="nav navbar-nav">
+                    <li id="navBrand"></i>
+                        <a href="index.php">Quotes&Notes</a></li>
                     <li>
                         <a href="uploadQuote.php">Contribute <i class="fab fa-joomla"></i></a>
                     </li>
@@ -90,5 +70,39 @@
                         <a href="genres.php">Genres</a>
                     </li>
                 </ul>
+                
+                <div id="mainNavContainerDropdown" class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Hi 
+                        <?php if ($userDetails) {
+                            echo $userDetails['lastname'];
+                        } else {
+                            echo "Guest";
+                        } ?>
+                        <span class="caret"></span>
+                    </button>
+
+                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                         <?php if ($userDetails) { ?>
+                            <li>
+                                <a href="profilePage.php?id=<?php echo $userDetails['id']; ?>">Profile <i class="fas fa-user"></i></i></a>
+                            </li>
+                            <li>
+                                <a href="logOut.php">Sign out <i class="fas fa-sign-out-alt"></i></a>
+                            </li>
+                            <?php 
+                        } else { ?>
+                            <li>
+                                <a href="signIn.php">Log in <i class="fas fa-sign-in-alt"></i> </a>
+                            </li>
+                            <li>
+                                <a href="register.php">Register <i class="fas fa-user"></i></a>
+                            </li>
+                           
+                            <?php 
+                        }; ?>
+                    </ul>
+                </div>  
+
             </div>
         </nav>
+
