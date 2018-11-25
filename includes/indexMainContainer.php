@@ -8,7 +8,9 @@ if ($quoteArray) {
             <div class="card">
                 <a href="quote.php?id=<?php echo $quoteId; ?>">
                     <div class="card-content">
-                    <!-- the quote  -->
+                        <!-- comment number -->
+                        <div class="numComments"><i class="fas fa-comment"></i> <i class="far fa-comment"></i> <?php echo mysqli_num_rows($comment->fetchComments($quoteId)) + 1; ?></div>
+                        <!-- the quote  -->
                         <p class="card-title"> <?php echo $row['content']; ?> </p>
                         <!-- the quote genre -->
                         <p class="card-description">
@@ -23,7 +25,7 @@ if ($quoteArray) {
                                     <a class="genre" href='genre.php?genre=<?php echo $row['genre3'] ?>'><?php echo $row['genre3']; ?></a>
                                 </p>
                             </div>
-
+                        </p>
                             <footer class="quote-footer">
                                 <?php 
                                 $quoteLoveCheck = $quote->quoteLoveCheck($quoteId, $userId);
@@ -62,7 +64,7 @@ if ($quoteArray) {
                                         </p>
                                     <?php 
                                 }; ?>
-                            
+
                             </footer>
 
                             <!-- quotes author and image -->

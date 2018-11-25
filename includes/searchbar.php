@@ -4,7 +4,6 @@ $randQuote = $quote->fetchRandomQuote(); ?>
 
 <div class="searchContainer">
     <div class="container">
-  
         <div class="row">
             <div class="col-sm-12">
                 <form method="get" action="index.php" class="col-sm-12 searchForm">
@@ -20,8 +19,6 @@ $randQuote = $quote->fetchRandomQuote(); ?>
                     <h1>what are u doing here</h1>   
                 </div>
             </div>
-
-
         </div>
     </div>
 </div>

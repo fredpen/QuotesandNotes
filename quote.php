@@ -1,18 +1,12 @@
 <?php
-// its worth remembering that the id on this page is the unique id of the user not of the quote
 $date = date("Y/m/d/m/s");
-// $quoteId;
 if (isset($_GET['id'])) {
     $quoteId = $_GET['id'];
 } else {
     header("Location: index.php");
 }
 
-require_once 'includes/classes/Comment.php';
 require_once "includes/header.php";
-
-$comment = new Comment($con);
-
 require_once "includes/quote_of_moment.php";
  // save the data from fetch author to authors
 $authorArray = $quote->fetchAuthor("5");

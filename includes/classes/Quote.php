@@ -4,7 +4,6 @@
  *
  */
 class Quote
-
 {
     private $con;
     private $errorArray;

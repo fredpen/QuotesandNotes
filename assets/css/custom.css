@@ -48,11 +48,6 @@ body{
     height: 40px;
 }
 
-#navBrand{
-    color: red;
-    font-family: 'Cookie', cursive;
-}
-
 /* reset some custom settings */
 #home .navbar-nav{
     margin: 0;
@@ -63,7 +58,7 @@ body{
 hr{
     margin: 0 auto;
     width: 100%;
-    border-top: solid #8080806b 1px;
+    border-top: solid #8080804a 1px;
 }
 
 
@@ -89,13 +84,8 @@ hr{
 
 
 /* --------------------------------------index page --------------------------------------*/
-#home .rotating-card-container .manual-flip{
-  width: 100% !important;
-  height: unset !important;
-}
-
-p .like-image{
-   width: 25px;
+.card .card-content {
+    padding: 15px 15px;
 }
 
 #home .genre {
@@ -203,11 +193,15 @@ p .like-image{
 }
 
 #home .quote-footer{
-   text-align: left;
+    justify-content: flex-start;
+    display: flex;
+    flex-shrink: 1;
 }
 
 #home .quote-footer p{
    cursor: pointer;
+   margin: 0;
+   font-size: 0.9em;
 }
 
 #card-content{
@@ -215,9 +209,6 @@ p .like-image{
    padding: 15px 15px;
 }
 
-p .like-image{
-   cursor: pointer;
-}
 
 div .profile-photo-small{
    display: flex;
@@ -321,15 +312,12 @@ footer .container{
     column-gap: 1em;
 }
 
-.item { /* Masonry bricks or child elements */
-   display: inline-block;
-    margin: 0 0 1em;
-    width: 100%;
-   
-}
 
-.item:hover{
-  color: red !important;
+.numComments{
+    padding: 0 3%;
+    flex-grow: 1;
+    font-weight: 400;
+    font-size: 0.9em;
 }
 
 .noComment{
@@ -425,3 +413,21 @@ footer .container{
 }
 
 
+/* the liking quote icon */
+.red{
+    color: red;
+}
+
+.black{
+    color: black;
+}
+
+.btn.btn-just-icon, .navbar .navbar-nav > li > a.btn.btn-just-icon {
+    font-size: 17px;
+    padding: 10px;
+    line-height: 1em;
+}
+
+.footnote .author{
+    padding-bottom: 10px;
+}

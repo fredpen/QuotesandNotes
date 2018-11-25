@@ -11,6 +11,7 @@ require_once 'includes/databaseConfig.php';
 require_once 'includes/classes/Constants.php';
 require_once 'includes/classes/Account.php';
 require_once 'includes/classes/Quote.php';
+require_once 'includes/classes/Comment.php';
 
 require_once 'includes/classes/PHPMailer.php';
 require_once 'includes/classes/SMTP.php';
@@ -18,6 +19,7 @@ require_once 'includes/classes/Exception.php';
 
 $account = new Account($con);
 $quote = new Quote($con);
+$comment = new Comment($con);
 
 //Import PHPMailer classes into the global namespace
 use PHPMailer\PHPMailer\PHPMailer;
