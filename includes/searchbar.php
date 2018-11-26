@@ -2,24 +2,26 @@
 // fetch a quote for the quote of the moment
 $randQuote = $quote->fetchRandomQuote(); ?>
 
-<div class="searchContainer">
+<div id="jumbotron" class="jumbotron">
     <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <form method="get" action="index.php" class="col-sm-12 searchForm">
-                    <div class="form-group search">
-                        <input type="text" name="searchString" placeholder="Search quotes" class="form-control searchControl">
-                        <button type="submit" data-toggle="tooltip" title="search quotes"><i class="fas fa-search"></i></button>
-                    </div>
-                </form>
-            </div>
-
-            <div class="col-sm-12" id="searchResults"">
-                <div class="searchResult">
-                    <h1>what are u doing here</h1>   
+        <h1 class="text-center">Quotes and Notes</h1>
+        <p class="text-center">... be inspired</p>
+        <div class="col-sm-12">
+            <form method="get" action="index.php">
+                <div class="form-group search">
+                    <button type="submit" data-toggle="tooltip" title="search quotes"><i class="fas fa-search"></i></button>
+                    <input type="text" name="searchString" placeholder="Search quotes" class="form-control searchControl">
                 </div>
+            </form>
+        </div>
+
+        <div class="col-sm-12">
+            <div class="searchResult">
+                <h1>what are u doing here</h1>   
             </div>
         </div>
+
     </div>
 </div>
+
 

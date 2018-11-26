@@ -99,7 +99,6 @@ if ($quoteArray) {
                                 <i class="fab fa-whatsapp"></i>
                             </a>
                             
-                            <!-- class="btn btn-just-icon btn-round btn-rotate" -->
                             <!-- mail button -->
                             <a href="quote.php?id=<?php echo $quoteId; ?>" class="btn btn-just-icon btn-round btn-github" data-toggle="tooltip" data-placement="top" title="mail quote to a friend" data-container="body">
                                 <i class="fas fa-envelope"></i>

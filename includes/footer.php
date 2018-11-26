@@ -62,12 +62,19 @@
    </ul>
 
    <div class="copyright pull-right">
-      &copy; 2018 - <?php echo date("Y"); ?>
-     QuotesandNotes All Rights Reserved.
-
+<a href="#pablo">
+         Contact Us
+      </a>
      
    </div>
    </div>
+    <hr/>
+
+              <div class="copyright pull-center">
+                 &copy; 2018 - <?php echo date("Y"); ?>
+     QuotesandNotes All Rights Reserved.
+                
+              </div>
    </footer>
 
 </body>

@@ -14,6 +14,8 @@ class Quote
         $this->errorArray = array();
     }
 
+    
+
     // sanitise quotes
     public function sanitiseQuote($quote)
     {
@@ -228,12 +230,12 @@ class Quote
         $quotesArray = [];
          // fetch all quotes id
         $idArray = $this->fetchQuoteId();
-         // shuffle the id array
-        shuffle($idArray);
-         // loop and get the details of quotes
+        // loop and get the details of quotes
         foreach ($idArray as $quoteId) {
             array_push($quotesArray, $this->fetchQuoteDetails($quoteId));
         }
+        // shuffle the id array
+        shuffle($quotesArray);
          // return the array that has the shuffled quotes
         return $quotesArray;
     }

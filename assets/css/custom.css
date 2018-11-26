@@ -342,88 +342,13 @@ footer .container{
    border-left: 9px solid #d2d2d2;
 }
 
-
-/* the search box styles-------------------------------- */
-.searchContainer{
-    height: 60vh;
-    width: 100%;
-    background: #99999933;
-    background: url(../images/bg0.jpg);
-    background-position: top center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-.searchContainer .container,
-.searchContainer .row,
-.searchContainer .col-sm-12{
-    height: 100%;
-    position: relative;
-}
-
-.searchContainer .searchForm{
-    display: flex;
-}
-
-.searchContainer button{
-    background: transparent;
-    border: 0;
-    font-size: 2.1em;
-}
-
-
 .search:hover,
 .search:active{
     border: 2px solid grey;
 }
 
-.search{
-    display: flex;
-    align-items: center;
-    align-self: center;
-    background: #ffffff;
-    border-radius: 30px;
-    padding: 0 20px;
-    border: 1px solid #d2d2d2cf;
-    height: 60px;
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    margin-top: 8%;
-}
 
-#home .searchControl{
-    background-image: linear-gradient(#ffffffeb, #ffffffeb);
-    color: #9c27b0;
-    font-size: 13px;
-    font-family: monospace;
-    margin-bottom: 0;
-}
 
-#searchResults {
-    display: none;
-    position: absolute;
-    top: 80%;
-    z-index: 1000;
-}
-
-.searchResult{
-    display: flex;
-    align-items: center;
-    align-self: center;
-    background: #ffffffde;
-    padding: 0 20px;
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    
-}
-
-@media screen and (max-width: 768px) {
-    #searchResults{
-        /* left: 10px; */
-    }
-}
 
 
 /* the liking quote icon */
@@ -444,3 +369,67 @@ footer .container{
 .footnote .author{
     padding-bottom: 10px;
 }
+
+/* new styles */
+
+/* the jumbotron */
+#jumbotron{
+    margin-top: 90px;
+    height: 70vh;
+    padding: 0;
+    margin: 90px 0 0 0;
+    display: flex;
+    align-items: center;
+    background: #99999933;
+    background: url(../images/bg0.jpg);
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+.jumbotron .container {
+    position: relative;
+}
+
+.search{
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 0 20px;
+    border: 1px solid #d2d2d2cf;
+    height: 60px;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* the search icon */
+.search button{
+    background: transparent;
+    border: 0;
+    font-size: 184%;
+}
+
+#home .searchControl {
+    background-image: linear-gradient(#ffffffeb, #ffffffeb);
+    color: #9c27b0;
+    font-size: 13px;
+    font-family: monospace;
+    margin: 0 0 0 10px;
+}
+
+
+/* search result cpntainer */
+.searchResult{
+    display: none;
+    background: #ffffffde;
+    padding: 10px;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 10px;
+    
+}
+
+

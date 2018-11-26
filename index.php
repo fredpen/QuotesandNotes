@@ -13,13 +13,11 @@ $quoteArray = $quote->fetchQuotes();
 
 <div class="fcontainer">
     <div class="frow">
+        <!-- left section of the main container  -->
+        <?php require_once 'includes/indexLeftContainer.php'; ?>
 
-    <!-- left section of the main container  -->
-     <?php require_once 'includes/indexLeftContainer.php'; ?>
-
-    <div class="main-container">
-        <div class="masonry"><?php require_once 'includes/indexMainContainer.php'; ?></div>
-
+        <div class="main-container">
+            <div class="masonry"><?php require_once 'includes/indexMainContainer.php'; ?></div>
 </div>
 
 <!-- right section of the main container -->
