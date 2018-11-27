@@ -28,9 +28,7 @@ if ($quoteArray) {
                                 <?php 
                                 $quoteLoveCheck = $quote->quoteLoveCheck($quoteId, $userId);
                                 $numberOfQuoteLover = $quote->numberOfQuoteLover($quoteId);
-                                $noUserString = ($numberOfQuoteLover == 0 ? "be the first to like this quote" : $numberOfQuoteLover);
-                                $loveQuoteString = ($numberOfQuoteLover == 1 ? "you liked this quote" : $numberOfQuoteLover . " people liked this quote");
-
+                                $loveQuoteString = $quote->numberOfQuoteLoverString($quoteId, $userId);
                                 // check if a user is loggedin 
                                 if ($userId) {
                                     // if user has liked the quote before
@@ -47,7 +45,7 @@ if ($quoteArray) {
                                     } else { ?>
                                         <p class="<?php echo $row['id']; ?>">
                                             <i class="<?php echo $row['id']; ?> fas fa-heart black"></i>
-                                            <span class="<?php echo $row['id'] ?>quoteText"><?php echo $noUserString ?></span>
+                                            <span class="<?php echo $row['id'] ?>quoteText"><?php echo $loveQuoteString ?></span>
                                         </p>
                                         <?php 
                                     }; 
@@ -58,7 +56,7 @@ if ($quoteArray) {
                                         <!-- Button trigger modal for liking quotes-->
                                         <a type="button" data-toggle="modal" data-target="#signUp">
                                             <i class="<?php echo $row['id']; ?> fas fa-heart black"></i>
-                                            <span class="<?php echo $row['id'] ?>quoteText"> <?php echo $noUserString; ?>
+                                            <span class="<?php echo $row['id'] ?>quoteText"><?php echo $loveQuoteString ?>                       
                                         </a>
                                     </p>
                                     <?php 
@@ -137,11 +135,9 @@ if ($quoteArray) {
                     $.post("includes/handlers/ajax/loveQuote.php", { quoteId:quoteId, userId:userId, genre1:genre1, genre2:genre2, genre3:genre3, author:author }, function(data){
 
                         if (data === "success") {
+                            $(".<?php echo $row['id'] ?>quoteText").text("<?php echo $numberOfQuoteLover + 1 ?>");
                             // change the image to red and increase the number of likes
                             $(".<?php echo $row['id'] ?>.fas.fa-heart").removeClass("black").addClass("red");
-                            $(".span<?php echo $row['id']; ?>").text("<?php echo $numberOfQuoteLover + 1; ?>");
-                            $(".<?php echo $row['id'] ?>quoteText").text("you liked this quote ");
-
                         } else if (data === "failure") {
                         console.log("cant like the quote at the moment");
                         }else {

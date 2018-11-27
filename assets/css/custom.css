@@ -344,7 +344,7 @@ footer .container{
 
 .search:hover,
 .search:active{
-    border: 2px solid grey;
+    border: 2px solid #808080bd;
 }
 
 
@@ -429,7 +429,22 @@ footer .container{
     max-width: 800px;
     margin: 0 auto;
     margin-top: 10px;
-    
 }
 
 
+/* left index container */
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
+    z-index: 2;
+    color: #fff;
+    background-color: #aaaaaa;
+    border-color: #aaaaaa;
+}
+
+a:hover, a:focus {
+    color: #337ab7;
+    text-decoration: none;
+}
+
+.list-group-item:hover {
+    background-color: #e5ecec21;
+}

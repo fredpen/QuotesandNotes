@@ -58,13 +58,13 @@
                     <li id="navBrand"></i>
                         <a href="index.php">Quotes&Notes</a></li>
                     <li>
-                        <a href="uploadQuote.php">Contribute <i class="fab fa-joomla"></i></a>
+                        <a href="uploadQuote.php">Contribute</a>
                     </li>
                     <li>
-                        <a href="blog/home.php"><i class="fas fa-newspaper"></i> blog</a>
+                        <a href="blog/home.php">blog</a>
                     </li>
                     <li>
-                        <a href="authors.php"><i class="fas fa-book-reader"></i> Authors</a>
+                        <a href="authors.php">Authors</a>
                     </li>
                     <li>
                         <a href="genres.php">Genres</a>

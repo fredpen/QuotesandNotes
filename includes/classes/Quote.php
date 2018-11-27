@@ -93,12 +93,36 @@ class Quote
         return mysqli_num_rows($query);
     }
 
+    // number of quoteLover string
+    public function numberOfQuoteLoverString($quoteId, $userId)
+    {
+        if (empty($userId) || $this->quoteLoveCheck($quoteId, $userId) == false) {
+            $num = $this->numberOfQuoteLover($quoteId);
+            if ($num > 1) {
+                return $num . " people love this quote";
+            } else {
+                return ($num == 0 ? " be the first to love this quote" : $num . " person love this quote");
+            }
+        } else {
+            if ($this->quoteLoveCheck($quoteId, $userId) == true) {
+                $num = $this->numberOfQuoteLover($quoteId);
+                if ($num > 2) {
+                    return " you and " . ($num - 1) . " people love this quote";
+                } elseif ($num == 2) {
+                    return " you and " . ($num - 1) . " person love this quote";
+                } else {
+                    return ($num == 0 ? " be the first to love this quote" : $num . " you love this quote");
+                }
+            }
+        }
+    }
+
        // check if a user is loggedin and if the user has like the quote before
     public function quoteLoveCheck($quoteId, $userId)
     {
         $sql = "SELECT id FROM quoteLovers WHERE quote='$quoteId' AND user='$userId'";
         $query = mysqli_query($this->con, $sql);
-        if (mysqli_num_rows($query) !== 0) return true;
+        return (mysqli_num_rows($query) !== 0 ? true : false);
     }
 
       // find the id of a particular genre from the database

@@ -1,12 +1,10 @@
 <div class="left-container">
     <ul class="list-group">
-        <li class="list-group-item active"> Authors</li>
-
-        <?php foreach ($authorArray as $row) { ?>
-
-            <li class="list-group-item text-capitalise">
-                <a class="text-capitalise" href="author.php?author=<?php echo $quote->authorId($row['author']); ?>">
-            <?php echo imagify($row['author']); ?></a>
+        <li class="list-group-item active">Top Genre</li>
+		<!-- get list of genre from the database -->
+		<?php while ($row = mysqli_fetch_array($genreArray)) { ?>
+            <li class="list-group-item text-capitalize">
+                <a href="genre.php?genre=<?php echo $row['genre1']; ?>"><?php echo $row['genre1']; ?></a>
             </li>
             <?php 
         }; ?>
