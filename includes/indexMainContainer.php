@@ -71,7 +71,7 @@ if ($quoteArray) {
                         <!-- quotes author and image -->
                         <div class="footnote">
                             <div class="author">
-                                <a href="author.php?author=<?php echo $quote->authorId($row['author']); ?>">
+                                <a href="author.php?nm=<?php echo $row['author'] ?>&author=<?php echo $quote->authorId($row['author']); ?>">
                                     <img src="assets/images/author/<?php echo ($row['author']); ?>.jpg" alt="<?php echo imagify($row['author']); ?>" class="avatar img-raised">
                                     <span><?php echo imagify($row['author']); ?></span>
                                 </a>

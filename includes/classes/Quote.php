@@ -24,6 +24,12 @@ class Quote
         return ucfirst($quote);
     }
 
+    public function imagify($string)
+    {
+        $string = str_replace("_", " ", $string);
+        return $string;
+    }
+
     // upload quote into the database
     public function uploadQuote($content, $genre1, $genre2, $genre3, $author, $userId)
     {

@@ -1,5 +1,10 @@
-// ---------------------upload quote------ js---------------
+// variables
+var userId,
+    firstname,
+    lastname,
+    username;
 
+// ---------------------upload quote------ js---------------
 $(document).ready(function () {
 
     // call tool tip

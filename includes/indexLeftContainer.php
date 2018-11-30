@@ -1,6 +1,6 @@
 <div class="left-container">
     <ul class="list-group">
-        <li class="list-group-item active">Top Genre</li>
+        <li class="list-group-item active">Genre A - Z</li>
 		<!-- get list of genre from the database -->
 		<?php while ($row = mysqli_fetch_array($genreArray)) { ?>
             <li class="list-group-item text-capitalize">

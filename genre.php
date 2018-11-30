@@ -6,6 +6,7 @@ if (isset($_GET['genre'])) {
     header("Location: index.php");
 }
 
+$pageTitle = $genre;
 // import the header that houses the navbar and other dependencies
 require_once 'includes/header.php';
 include_once "includes/quote_of_moment.php";

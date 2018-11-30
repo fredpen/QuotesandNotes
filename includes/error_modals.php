@@ -1,5 +1,10 @@
-<!-- tracking errors from sending the mail -->
-<?php if (!$mail) { ?>
+<!-- unsetting all variables -->
+<?php
+$mailSent = false;
+$mail = true;
+
+// tracking errors from sending the mail 
+if (!$mail) { ?>
     <div class="col-sm-12">
         <div class="alert alert-info">
             <div class="alert-icon">
@@ -13,8 +18,6 @@
     </div>
     <?php 
 }; ?>  
-
-
 
 <?php if ($mailSent) { ?>
     <div class="col-sm-12">
@@ -30,8 +33,6 @@
     </div>
     <?php 
 }; ?>
-
-
 
 <!-- Modal for liking quotes-->
 <div class="modal fade bs-example-modal-sm" id="signUp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

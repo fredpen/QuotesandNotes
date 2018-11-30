@@ -5,7 +5,7 @@ $randQuote = $quote->fetchRandomQuote(); ?>
 <div id="jumbotron" class="jumbotron">
     <div class="container">
         <h1 class="text-center">Quotes and Notes</h1>
-        <p class="text-center">... be inspired</p>
+        <p class="text-center">... illuminate, inspire, sustain</p>
         <div class="col-sm-12">
             <form method="get" action="index.php">
                 <div class="form-group search">

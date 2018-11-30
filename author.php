@@ -1,10 +1,9 @@
 <?php
-if (isset($_GET['author'])) {
-    // var_dump($_GET['author']);
+$pageTitle = "Author";
+if (isset($_GET['author']) && isset($_GET['nm'])) {
     $authorId = (int)$_GET['author'];
-    // var_dump($authorId);
-
-    // is_integer($authorId)
+    $pageTitle = $_GET['nm'];
+    $pageTitle = strip_tags(str_replace("_", " ", ($pageTitle)));
     $authorId = strip_tags($authorId);
 } else {
     header("Location: index.php");
@@ -22,7 +21,7 @@ $genreArray = $quote->fetchGenre("5");
 // query the all quotes of thesame author
 $quoteArray = $quote->fetchQuotesFromSameAuthor($authorId);
 
-   // query all the detaif the author from the database
+// query all the detaif the author from the database
 $authorDetails = $quote->fetchAuthorDetails($authorId);
 ?>
 

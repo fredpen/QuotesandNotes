@@ -1,5 +1,5 @@
 <?php
-
+$pageTitle = "Authors";
  	// converting the wikiname of authors to img names
 function imagify($string)
 {

@@ -387,6 +387,21 @@ footer .container{
     background-repeat: no-repeat;
 }
 
+#jumbotron h1{
+    font-size: 6em;
+    color: white;
+    font-weight: 500;
+}
+
+#jumbotron p{
+    color: white;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.3em;
+}
+
+
+
 
 .jumbotron .container {
     position: relative;
@@ -447,4 +462,10 @@ a:hover, a:focus {
 
 .list-group-item:hover {
     background-color: #e5ecec21;
+}
+
+@media screen and (max-width : 578px){
+    #home #mainNav{
+        display: none;
+    }
 }

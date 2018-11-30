@@ -33,6 +33,19 @@
         <script src="assets/js/lib/jquery.min.js" type="text/javascript"></script>
         <!-- custom js -->
         <script src="assets/js/custom.js"></script>
+
+        <script>
+            <?php if ($userDetails) { ?>
+                userId = "<?php echo $userDetails['id']; ?>";
+                firstname = "<?php echo $userDetails['firstName']; ?>";
+                lastname = "<?php echo $userDetails['lastname']; ?>";
+                username = "<?php echo $userDetails['username']; ?>";
+                <?php 
+            } else { ?>
+                userId = "";
+                <?php 
+            }; ?>
+        </script>
     </head>
 
     <body id="home" class="index-page">
@@ -49,6 +62,9 @@
                 </div>
             </div>
         </nav>
+        <!-- <div class="col-sm-12">
+            Authors
+        </div> -->
                     
         <!-- main nav -->
         <nav class="navbar navbar-default navbar-primary navbar-fixed-top auth">
@@ -69,6 +85,31 @@
                     <li>
                         <a href="genres.php">Genres</a>
                     </li>
+                </ul>
+
+                <!-- only show at smaller media screen -->
+                <div id="mainNavContainerDropdown" class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fas fa-align-justify"></i> <i class="fas fa-angle-double-down"></i>
+                    </button>
+                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                    <?php if ($userDetails) { ?>
+                        <li>
+                            <a href="profilePage.php?id=<?php echo $userDetails['id']; ?>">Profile <i class="fas fa-user"></i></i></a>
+                        </li>
+                        <li>
+                            <a href="logOut.php">Sign out <i class="fas fa-sign-out-alt"></i></a>
+                        </li>
+                        <?php 
+                    } else { ?>
+                        <li>
+                                <a href="signIn.php">Log in <i class="fas fa-sign-in-alt"></i> </a>
+                        </li>
+                        <li>
+                            <a href="register.php">Register <i class="fas fa-user"></i></a>
+                        </li>
+                        
+                        <?php 
+                    }; ?>
                 </ul>
                 
                 <div id="mainNavContainerDropdown" class="dropdown">
