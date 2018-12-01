@@ -50,21 +50,11 @@
 
     <body id="home" class="index-page">
 
-        <!-- auth nav -->
-        <nav  id="authNavContainer" class="navbar navbar-default navbar-default navbar-fixed-top">
-            <div class="container-fluid"> 
-                <div id="topNav">
-                    <ul class="navbar-nav nav">
-                        <li id="navBrand"></i><a href="authors.php">Authors: </a></li>
-                    </ul>
-                  
-                    
-                </div>
-            </div>
-        </nav>
-        <!-- <div class="col-sm-12">
-            Authors
-        </div> -->
+        <div id="topNav">
+            <ul class="navbar-nav nav">
+                <li id="navBrand"></i><a href="authors.php">Authors: </a></li>
+            </ul>
+        </div>
                     
         <!-- main nav -->
         <nav class="navbar navbar-default navbar-primary navbar-fixed-top auth">

@@ -83,7 +83,7 @@ if ($quoteArray) {
                         <!-- share and edit buttons -->
                         <div class="pull-right col-xs-12 text-right">
                             <?php if ($userId == 1) { ?>
-                            <a data-toggle="tooltip" data-placement="top" title="Edit quote" data-container="body" class="label label-info" href="edit.php?id=<?php echo $quoteId ?>">Edit
+                            <a data-toggle="tooltip" data-placement="top" title="Edit quote" data-container="body" class="btn btn-just-icon btn-round btn-twitter" href="edit.php?id=<?php echo $quoteId ?>"><i class="fas fa-edit"></i>
                             </a> <?php 
                             } ?>
                             

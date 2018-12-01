@@ -23,14 +23,9 @@ body{
 }
 
 /* the auth nav styles--------------- */
-#home #authNav{
-    display: flex;
-    width: 100%;
-    justify-content: flex-end;
-}
 
 #home .auth{
-    margin-top: 40px;
+    margin-top: 30px;
 }
 
 #home #mainNav{
@@ -50,15 +45,24 @@ body{
 #dropdownMenu1{
     background: inherit;
     text-transform: inherit;
-    
+    display: none;
 }
 
-#topNav{
+#topNav {
+    width: 100%;
     display: flex;
     align-items: center;
-    margin: 0;
-    padding: 0;
-    height: 40px;
+    height: 30px;
+    background:#aaaaaa80;
+    position: fixed;
+    top: 0px;
+    z-index: 1000;
+}
+
+#home #topNav ul{
+    display: flex;
+    width: 100%;
+    justify-content: center;
 }
 
 /* reset some custom settings */
@@ -347,10 +351,6 @@ footer .container{
     border: 2px solid #808080bd;
 }
 
-
-
-
-
 /* the liking quote icon */
 .red{
     color: red;
@@ -377,7 +377,7 @@ footer .container{
     margin-top: 90px;
     height: 70vh;
     padding: 0;
-    margin: 90px 0 0 0;
+    margin: 77px 0 0 0;
     display: flex;
     align-items: center;
     background: #99999933;
@@ -388,7 +388,7 @@ footer .container{
 }
 
 #jumbotron h1{
-    font-size: 6em;
+    font-size: 6vw;
     color: white;
     font-weight: 500;
 }
@@ -397,11 +397,9 @@ footer .container{
     color: white;
     font-style: italic;
     font-weight: 400;
-    font-size: 1.3em;
+    font-size: 3vw;
+    padding: 16px 0;
 }
-
-
-
 
 .jumbotron .container {
     position: relative;
@@ -467,5 +465,8 @@ a:hover, a:focus {
 @media screen and (max-width : 578px){
     #home #mainNav{
         display: none;
+    }
+    #dropdownMenu1 {
+        display: flex;
     }
 }
