@@ -1,6 +1,6 @@
 <!--     *********    BIG FOOTER     *********      -->
 
-<footer class="footer footer-black footer-big">
+<footer id="footer" class="footer footer-black footer-big">
 <div class="container-fluid">
 
   <div class="content">

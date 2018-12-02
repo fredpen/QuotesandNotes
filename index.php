@@ -9,7 +9,7 @@ $authorArray = $quote->fetchAuthor("5");
 $genreArray = $quote->fetchGenre("5");
 // save all the quotes into an array
 $quoteArray = $quote->fetchQuotes();
-?>
+?> 
 
 <div class="fcontainer">
     <div class="frow">

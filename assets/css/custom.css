@@ -498,3 +498,27 @@ a:hover, a:focus {
 #singleCard{
     max-width: 600px;
 }
+
+#commentSection .commentarea{
+    background: #eee;
+}
+
+
+#footer{
+    width: 100vw;
+}
+
+#postComment{
+    background: #eee;
+    margin-bottom: 20px;
+}
+
+.singleCard{
+    display: flex;
+    justify-content: center;
+}
+
+.singleCardGenreList{
+    display: flex;
+    justify-content: center;
+}

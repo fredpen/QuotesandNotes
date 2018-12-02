@@ -22,13 +22,16 @@ $quoteArray = "";
     <div class="frow">
 
     <!-- left section of the main container  -->
-    <?php require_once 'includes/indexLeftContainer.php'; ?>
+    <?php 
+    // require_once 'includes/indexLeftContainer.php';
+    ?>
 
     <div class="main-container">
-        <?php require_once 'includes/indexMainContainer.php'; ?>
 
         <!-- comments -->
-        <div class="col-md-10 col-md-offset-1">
+        <div class="col-md-10">
+
+            <?php require_once 'includes/indexMainContainer.php'; ?>
 
             <div class="media-area">
                 <h3 class="title text-center">
@@ -40,7 +43,7 @@ $quoteArray = "";
 
                 <div id="commentSection" class="blockquote"> 
                     <?php while ($row = mysqli_fetch_array($comments)) { ?>
-                    <div class="media">
+                    <div class="media commentarea">
                         <a class="pull-left" href="profilePage.php?id=<?php echo $row['id'] ?>">
                             <div class="avatar">
                                 <img class="media-object" alt="Tim Picture" src="assets/images/placeholder.jpg">
@@ -61,7 +64,7 @@ $quoteArray = "";
                 </div>
 
                 <h3 class="text-center">Post your comment <br><small>- Logged In User -</small></h3>
-                <div class="media media-post">
+                <div id="postComment" class="media media-post">
                     <a class="pull-left author" href="profilePage.php?id=<?php echo $userId ?>">
                         <div class="avatar">
                             <img class="media-object" alt="Tim Picture" src="assets/images/placeholder.jpg">
@@ -79,6 +82,8 @@ $quoteArray = "";
             </div>
         </div>
     </div>
+
+    
 
     <script type="text/javascript">
     $(document).ready(function(){
@@ -98,7 +103,7 @@ $quoteArray = "";
                         console.log(data);
                         if (data == "success") {
 
-                        $("#commentSection").append("<div  class='media'><a class='pull-left' href='profilePage.php?id=" + userId + "'><div class='avatar'><img class='media-object' alt='Tim Picture' src='assets/images/placeholder.jpg'></div></a><div class='media-body'><h4 class='media-heading'><a href='profilePage.php?id=" + userId + "'>" + firstname + ' ' + lastname + "</a> <small> - a second ago</small> </h4><p>" + comment + "</p></div></div>");
+                        $("#commentSection").append("<div  class='media commentarea'><a class='pull-left' href='profilePage.php?id=" + userId + "'><div class='avatar'><img class='media-object' alt='Tim Picture' src='assets/images/placeholder.jpg'></div></a><div class='media-body'><h4 class='media-heading'><a href='profilePage.php?id=" + userId + "'>" + firstname + ' ' + lastname + "</a> <small> - a second ago</small> </h4><p>" + comment + "</p></div></div>");
                         }
                         
                     })

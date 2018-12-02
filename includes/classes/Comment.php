@@ -7,7 +7,6 @@ class Comment
 
     function __construct($con)
     {
-
         $this->con = $con;
     }
 
@@ -26,7 +25,6 @@ class Comment
     // create a datetime interface from the database date
     public function dateInt($dbDate)
     {
-
         $dbDate = date_create($dbDate);
         
         // get the current date

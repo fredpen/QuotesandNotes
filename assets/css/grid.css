@@ -22,6 +22,9 @@
 
 .main-container{
   max-width: 100%;
+  display: flex;
+  justify-content: center;
+   flex-grow: 1;
 }
 
   .genreList{
@@ -53,9 +56,6 @@
     width: 100%;
    }
 
-    .main-container{
-      flex-grow: 1;
-   }
 
    .item{
       -webkit-user-select: none;

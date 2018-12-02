@@ -3334,13 +3334,6 @@ fieldset[disabled] .navbar .btn-link:focus {
     border-radius: 0;
 }
 
-@media (max-width: 1199px) {
-    .navbar {
-        /*
-    .navbar-form {
-      margin-top: 10px;
-    }
-*/
     }
     .navbar .navbar-brand {
         height: 50px;
@@ -3718,7 +3711,7 @@ h6, .h6 {
 .footer-big h4 a,
 .media .media-heading,
 .media .media-heading a {
-    color: #3C4858;
+    color: #337ab7;
     text-decoration: none;
 }
 
@@ -5074,7 +5067,7 @@ hr.on-light {
 }
 
 .media p {
-    color: #999999;
+    color: #232323;
     font-size: 16px;
     line-height: 1.6em;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
