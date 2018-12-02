@@ -8,7 +8,7 @@ if (isset($_GET['id'])) {
 
 $pageTitle = "Quote";
 require_once "includes/header.php";
-require_once "includes/quote_of_moment.php";
+// require_once "includes/quote_of_moment.php";
  // save the data from fetch author to authors
 $authorArray = $quote->fetchAuthor("5");
 // save the data from fetch genre

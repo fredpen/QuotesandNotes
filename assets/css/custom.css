@@ -475,3 +475,26 @@ a:hover, a:focus {
         display: flex;
     }
 }
+
+
+/* /* -------------------------quote single page------------------------- */ 
+#singleCard .numComments{
+    padding: 0;
+    flex-grow: 0;
+}
+
+#singleCard .quote-footer{
+    justify-content: space-between;
+}
+
+#singleCard{
+    padding: 4px;
+}
+
+#singleCard .form-group{
+    margin-top: 5px;
+}
+
+#singleCard{
+    max-width: 600px;
+}

@@ -1,5 +1,6 @@
 .fcontainer{
-   max-width: 1350px;
+   max-width: 1500px;
+   width: 98vw;
    padding: 0;
    margin: 0 auto;
 }
@@ -75,23 +76,16 @@
    }
 
   .masonry {
-    column-count: 1;
-}
- .profilePagemasonry{
-    column-count: 1;
-}
-
-.main-container{
-  width: 100%;
-}
-}
-
-@media screen and (min-width: 800px) {
+      column-count: 1;
+   }
    .profilePagemasonry{
-    column-count: 2;
+      column-count: 1;
+   }
+
+   .main-container{
+   width: 100%;
    }
 }
-
 
 /* for small devices */
 @media screen and (min-width: 600px) {
@@ -134,18 +128,13 @@
 }
 
 @media screen and (min-width: 1200px) {
-   .right-container {
-      width: 10%;
-      padding: 0 0 0 10px;
-      box-sizing: border-box;
-   }
-
+   
    .left-container{
       width: 10%;
    }
 
    .main-container{
-      width: 80%;
+      width: 90%;
    }
    
     .masonry{
@@ -162,6 +151,13 @@
 @media screen and (min-width: 992px) {
    .registerContainer{
       display: block;
+   }
+}
+
+/* profile page -------------- */
+@media screen and (min-width: 800px) {
+   .profilePagemasonry{
+    column-count: 2;
    }
 }
 
