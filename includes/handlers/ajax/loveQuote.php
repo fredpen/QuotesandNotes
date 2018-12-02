@@ -4,44 +4,34 @@ require_once '../../classes/Quote.php';
 $quote = new Quote($con);
 
 // check if the quote,the author the genres and user id is passed
-if (isset($_POST['quoteId']) && isset($_POST['genre1']) && isset($_POST['genre2']) && isset($_POST['genre3']) && isset($_POST['author'])) {
+if (isset($_POST['quoteId'])) {
 
-      $quoteId = $_POST['quoteId'];
-      $userId = $_POST['userId'];
+    $quoteId = $_POST['quoteId'];
+    $userId = $_POST['userId']; 
 
-      // change the genres and author to thier respective id's
-      $genre1 = $quote->genreId($_POST['genre1']);
-      $genre2 = $quote->genreId($_POST['genre2']);
-      $genre3 = $quote->genreId($_POST['genre3']);
-      $author = $quote->authorId($_POST['author']);
+      // check if the user has liked the quote before
+    $sql = "SELECT id FROM quoteLovers WHERE quote='$quoteId' AND user='$userId'";
+    $query = mysqli_query($con, $sql);
 
-      // search the database to see if the user has like the quote before
-      $sql = "SELECT * FROM quoteLovers WHERE quote='$quoteId' AND user='$userId'";
-      $query = mysqli_query($con, $sql);
-
-      if (mysqli_num_rows($query) == 0) {
-      // push the userid,genres, author and the quote id into the quotelovers database
-            $sql = "INSERT INTO quoteLovers (id, quote, user, genre1, genre2, genre3, author) VALUES('', '$quoteId', '$userId', '$genre1', '$genre2', '$genre3', '$author')";
-            $query = mysqli_query($con, $sql);
-
-            // check if the datbase is succesfully updated
-            if ($query) {
-                  echo "success";
-            } else {
-                  echo "failure";
-            }
-
-      // if logged in user already like the quote
-      } else {
-            echo "you've liked this quote before";
-      }
-
+    if (mysqli_num_rows($query) == 0) {
+        // if no fetch the quote details
+        $quoteDetails = $quote->fetchQuoteDetails($quoteId);
+        $genre1 = $quoteDetails['genre1'];
+        $genre2 = $quoteDetails['genre2'];
+        $genre3 = $quoteDetails['genre3'];
+        $author = $quoteDetails['author'];
+        // push the details into quotelovers
+        $sql = "INSERT INTO quoteLovers (id, quote, user, genre1, genre2, genre3, author) VALUES('', '$quoteId', '$userId', '$genre1', '$genre2', '$genre3', '$author')";
+        $query = mysqli_query($con, $sql);
+        if ($query) {
+            echo "success";
+        } else {
+            echo "failure";
+        }
+    } else {
+        echo "You'have liked this quote before";
+    }
 } else {
-      echo "cant like quote at the moment";
+    echo "You cant like a quote at the moment";
 }
-
-
-
-
-
 ?>

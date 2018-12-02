@@ -18,14 +18,14 @@ $comments = $comment->fetchComments($quoteId);
 $quoteArray = "";
 ?>
 
-<div class="fcontainer" style="background: #fff;">
+<div class="fcontainer">
     <div class="frow">
 
     <!-- left section of the main container  -->
     <?php require_once 'includes/indexLeftContainer.php'; ?>
 
     <div class="main-container">
-        <div class="masour"><?php require_once 'includes/indexMainContainer.php'; ?></div>
+        <?php require_once 'includes/indexMainContainer.php'; ?>
 
         <!-- comments -->
         <div class="col-md-10 col-md-offset-1">

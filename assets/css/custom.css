@@ -370,6 +370,11 @@ footer .container{
     padding-bottom: 10px;
 }
 
+.footnote{
+    display: flex;
+    justify-content: space-between;
+}
+
 /* new styles */
 
 /* the jumbotron */

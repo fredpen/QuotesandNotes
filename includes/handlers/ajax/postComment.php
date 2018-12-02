@@ -1,9 +1,7 @@
 <?php
 require_once '../../databaseConfig.php';
 
-// check if the quote id and the user id is set
 if (isset($_POST['userId']) && isset($_POST['quoteId']) && isset($_POST['comment'])) {
-
     // variables
     $userId = $_POST['userId'];
     $quoteId = $_POST['quoteId'];

@@ -13,9 +13,7 @@ class Quote
         $this->con = $con;
         $this->errorArray = array();
     }
-
-    
-
+ 
     // sanitise quotes
     public function sanitiseQuote($quote)
     {
@@ -201,6 +199,21 @@ class Quote
 
         return mysqli_query($this->con, $sql);
     }
+
+    // // fetch the tracked user activities for the profile page
+    // public function fetchDetailsOfQuotesLovedByUser($userId, $quoteId)
+    // {
+    //     $sql = "SELECT genre1.genre1, genre2.genre2, genre3.genre3, author.author
+    //         FROM quoteLovers
+    //             INNER JOIN genre1 ON quoteLovers.genre1=genre1.id
+    //             INNER JOIN genre2 ON quoteLovers.genre2=genre2.id
+    //             INNER JOIN genre3 ON quoteLovers.genre3=genre3.id
+    //             INNER JOIN author ON quoteLovers.author=author.id
+    //         WHERE quoteLovers.user='$userId' AND quoteLovers.quote='$quoteId'";
+
+    //     $query = mysqli_query($this->con, $sql);
+    //     return mysqli_fetch_array($query);
+    // }
     
       // fetch the number of quotes a user has liked
     public function numberOfQuoteLoveByUser($userId)
