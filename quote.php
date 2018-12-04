@@ -37,8 +37,8 @@ $quoteArray = "";
                 <h3 class="title text-center">
                 <!-- number of comments on a particular quotes, output only if greater than 1 -->
                 <?php if (mysqli_num_rows($comments) > 0) {
-                    echo mysqli_num_rows($comments);
-                } ?> Comments
+                    echo (mysqli_num_rows($comments) == 1 ? "Comment" : mysqli_num_rows($comments) . " Comments");
+                } ?>
                 </h3>
 
                 <div id="commentSection" class="blockquote"> 
