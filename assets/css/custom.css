@@ -288,6 +288,10 @@ footer .container{
   height: 100px;
 }
 
+#authorDetails{
+    display: none;
+}
+
 
 /*----------------authors----------------*/
 #home .maxwidth20{

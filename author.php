@@ -34,7 +34,7 @@ $authorDetails = $quote->fetchAuthorDetails($authorId);
         <div class="main-container">
 
             <!-- a small card that holds the image of the author  -->
-            <div class="col-sm-12">
+            <div id="authorDetails" class="col-sm-12">
                 <div class="media-area">
                     <div class="media">
 
@@ -63,6 +63,7 @@ $authorDetails = $quote->fetchAuthorDetails($authorId);
                                         // remove cite error
                                         blurb.find('.mw-ext-cite-error').remove();
                                         $('.authorBio').html($(blurb).find('p'));
+                                        $('#authorDetails').css("display", "block");
                                     },
                                     error: function (errorMessage) {
                                     }

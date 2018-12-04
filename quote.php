@@ -26,7 +26,7 @@ $quoteArray = "";
     // require_once 'includes/indexLeftContainer.php';
     ?>
 
-    <div class="main-container">
+    <div id="main-container"class="main-container">
 
         <!-- comments -->
         <div class="col-md-10">
