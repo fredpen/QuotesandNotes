@@ -1,5 +1,5 @@
 <?php
-
+$pageTitle = "Register";
 require_once 'includes/databaseConfig.php';
 require_once 'includes/classes/Constants.php';
 require_once 'includes/classes/Account.php';

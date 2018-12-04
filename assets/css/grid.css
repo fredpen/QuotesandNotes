@@ -127,7 +127,7 @@
    }
 
     .masonry{
-     column-count: 2;
+     column-count: 3;
    }
 }
 
@@ -142,7 +142,7 @@
    }
    
     .masonry{
-     column-count: 3;
+     column-count: 4;
    }
 }
 
@@ -165,7 +165,6 @@
    }
 }
 
-
 /* media queries for the h1 and p on the jumbotron */
 @media screen and (min-width: 10px){
    #jumbotron h1{
@@ -177,7 +176,6 @@
    }
 }
 
-
 @media screen and (min-width: 1000px){
    #jumbotron h1{
       font-size: 6em
@@ -187,3 +185,29 @@
       font-size: 3vw;
    }
 }
+
+/* media quries for the navbar */
+@media screen and (max-width: 770px){
+   #home #mainNavContainer .navbar-main,
+   #topNav{
+      display: none;
+   }
+   #home #mainNavContainer .navbar-main2{
+      display: flex;
+   }
+
+   #home .auth{
+      margin-top: 0;
+   }
+
+   #jumbotron{
+      margin-top: 45px;
+   }
+
+   #dropdownMenu1,
+   #home #mainNavContainer div button{
+      text-align: center;
+      font-size: 0.9em;
+   }
+}
+

@@ -1,4 +1,5 @@
 <?php
+$pageTitle = "Profile Page";
 include_once 'includes/header.php';
 include_once 'includes/classes/Comment.php';
 
@@ -16,6 +17,7 @@ $userBiodata = $quote->fetchUserDetails($userId);
 $quoteArray = $quote->fetchQuotesLovedByUser($userId);
 //query the total number of quote that are loved by the user
 $numOfQuoteLoveByUser = $quote->numberOfQuoteLoveByUser($userId);
+
 
 // create an empty array for both the author and genre to push the vakues too fron the db
 $genreArray = array();
@@ -53,18 +55,18 @@ while ($row = mysqli_fetch_array($quoteDetails)) {
 	                        </div>
 	                        <div class="name">
                                 <h3 class="title"><?php echo $userBiodata['firstName'] . " " . $userBiodata['lastname']; ?> </h3>
-                                <span> - joined <?php echo $comment->dateInt($userBiodata['dt']); ?> ago </span>
+                                <h6 class="title"> joined <?php echo $comment->dateInt($userBiodata['dt']); ?> ago </h6>
 								<a href="#pablo" class="btn btn-just-icon btn-simple btn-dribbble"><i class="fa fa-dribbble"></i></a>
                                 <a href="#pablo" class="btn btn-just-icon btn-simple btn-twitter"><i class="fa fa-twitter"></i></a>
                                 <a href="#pablo" class="btn btn-just-icon btn-simple btn-pinterest"><i class="fa fa-pinterest"></i></a>
 	                        </div>
 	                    </div>
     	            </div>
-                    <div class="col-xs-2 follow">
+                    <!-- <div class="col-xs-2 follow">
 	                   <button class="btn btn-fab btn-primary" rel="tooltip" title="Follow this user">
                             <i class="material-icons">add</i>
                         </button>
-	                </div>
+	                </div> -->
                 </div>
 
 
@@ -112,18 +114,18 @@ while ($row = mysqli_fetch_array($quoteDetails)) {
 				        <div class="row">
 	                        <div class="col-md-10">
 		                        <h4 class="title"><?php echo $userBiodata['lastname']; ?>'s Latest Collections</h4>
-		                        <!-- <div class="row collections"> -->
-                                    <div class="col-md-12">
-                                        <div class="profilePagemasonry"><?php include 'includes/indexMainContainer.php'; ?></div>
-			                        </div>
-                                <!-- </div> -->
+								<div class="col-md-12">
+									<div class="profilePagemasonry"><?php include 'includes/indexMainContainer.php'; ?></div>
+								</div>
 		                    </div>
 		                    <div class="col-md-2 stats">
 			                    <h4 class="title">Interactions Stats</h4>
 			                    <ul class="list-unstyled">
+									<li><b><?php echo $quote->numOfQuoteUploaded($userId); ?></b> Contributions</li>
 				                    <li><b><?php echo count($genreArray) ?></b> Genres</li>
 				                    <li><b><?php echo count($authorArray) ?></b> Authors</li>
 				                    <li><b><?php echo $numOfQuoteLoveByUser; ?></b> Likes</li>
+				                    
 				                </ul>
 				                <hr />
 				                <h4 class="title">About his Work</h4>

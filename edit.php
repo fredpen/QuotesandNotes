@@ -1,9 +1,10 @@
 <?php
+$pageTitle = "Edit Quote";
 if (isset($_GET['id'])) {
-    $quoteId = $_GET['id'];
-    $quoteId = strip_tags($quoteId);
+  $quoteId = $_GET['id'];
+  $quoteId = strip_tags($quoteId);
 } else {
-    header("Location: index.php");
+  header("Location: index.php");
 }
   // import the header that houses the navbar and other dependencies
 require_once 'includes/header.php';
@@ -71,25 +72,25 @@ $editQuote = $quote->editQuote($quoteId);
             </option>
             <!-- loop through all the author in the database -->
            <?php while ($row = mysqli_fetch_array($authorArray)) {
-                if ($row['author'] != $editQuote['author']) { ?>
+            if ($row['author'] != $editQuote['author']) { ?>
             <option 
               name="author" value="<?php echo $row['id']; ?>"><?php echo $row['author']; ?>
             </option>
             <!-- select author of the current quote -->
             <?php 
-        } else { ?>
+          } else { ?>
             <option 
               name="author" selected="selected" value="<?php echo $row['id']; ?>"><?php echo $row['author']; ?>
             </option>
             <?php 
-        };
-    }; ?>
+          };
+        }; ?>
          </select>
        </div>
 
        <div class="col-sm-12 genreSelection">
          <?php while ($row = mysqli_fetch_array($genreArray)) {
-            if ($row['genre1'] == $editQuote['genre1'] || $row['genre1'] == $editQuote['genre2'] || $row['genre1'] == $editQuote['genre3']) { ?>
+          if ($row['genre1'] == $editQuote['genre1'] || $row['genre1'] == $editQuote['genre2'] || $row['genre1'] == $editQuote['genre3']) { ?>
              <div class="checkbox genreSelect">
               <label>
                  <input type="checkbox" checked value="<?php echo $row['id']; ?>" name="genreList[]">
@@ -107,7 +108,7 @@ $editQuote = $quote->editQuote($quoteId);
           <?php 
         };
 
-    }; ?>
+      }; ?>
        </div>
       
       <div class="col-sm-12">

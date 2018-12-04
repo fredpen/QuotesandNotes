@@ -1,5 +1,4 @@
 <?php
-$pageTitle = "Author";
 if (isset($_GET['author']) && isset($_GET['nm'])) {
     $authorId = (int)$_GET['author'];
     $pageTitle = $_GET['nm'];

@@ -1,7 +1,6 @@
 <?php
+$pageTitle = "Contribute";
 require_once 'includes/header.php';
-
- 
  // save the data from fetch author to authors
 $authorArray = $quote->fetchAuthor("all");
 // save the data from fetch genre

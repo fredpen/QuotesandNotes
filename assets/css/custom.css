@@ -36,6 +36,34 @@ body{
 
 #home #mainNavContainer{
     display: flex;
+    align-items: center;
+}
+
+#home #mainNavContainer div,
+#home #mainNavContainer div button{
+    flex-grow: 1;
+    flex-shrink: 2;
+}
+
+#home #mainNavContainer .navbar-main{
+    display: flex;
+    justify-content: center;
+    flex-grow: 5;
+    flex-shrink: 1;
+}
+
+#home #mainNavContainer .navbar-main2{
+    display: none;
+}
+
+#home #mainNavContainer a,
+#home #mainNavContainer div button{
+    font-weight: 500;
+    font-size: 1.1em;
+}
+
+#home #mainNavContainer a:hover{
+    color: black;
 }
 
 #mainNavContainerDropdown{
@@ -45,7 +73,8 @@ body{
 #dropdownMenu1{
     background: inherit;
     text-transform: inherit;
-    display: none;
+    width: 100%;
+    text-align: right;
 }
 
 #topNav {
@@ -69,8 +98,6 @@ body{
 #home .navbar-nav{
     margin: 0;
 }
-
-
 
 hr{
     margin: 0 auto;
@@ -252,10 +279,7 @@ div .profile-photo-small{
 #home .tab-space{
    padding: 20px 0 2px 0;
 }
-/*
-#home .subscribe-line{
-  padding: 0;
-}*/
+
 
 #card{
     background: rgba(255,255,255,.15);
@@ -383,7 +407,6 @@ footer .container{
 
 /* the jumbotron */
 #jumbotron{
-    margin-top: 90px;
     height: 70vh;
     padding: 0;
     margin: 77px 0 0 0;
@@ -471,15 +494,6 @@ a:hover, a:focus {
     background-color: #e5ecec21;
 }
 
-@media screen and (max-width : 578px){
-    #home #mainNav{
-        display: none;
-    }
-    #dropdownMenu1 {
-        display: flex;
-    }
-}
-
 
 /* /* -------------------------quote single page------------------------- */ 
 #singleCard .numComments{
@@ -507,10 +521,10 @@ a:hover, a:focus {
     background: #eee;
 }
 
-
+/* 
 #footer{
     width: 100vw;
-}
+} */
 
 #postComment{
     background: #eee;
@@ -525,4 +539,14 @@ a:hover, a:focus {
 .singleCardGenreList{
     display: flex;
     justify-content: center;
+}
+
+
+/* modal styles------------------------------- */
+#home .modal-dialog {
+    position: relative;
+    width: 90%;
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 16%;
 }
