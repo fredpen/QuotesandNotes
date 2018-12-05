@@ -171,6 +171,15 @@ class Quote
         return mysqli_query($this->con, $sql);
     }
 
+    public function numOfQuotesFromSameAuthor($authorId)
+    {
+        $sql = "SELECT id FROM quotes WHERE author='$authorId'";
+        $query = mysqli_query($this->con, $sql);
+        return mysqli_num_rows($query);
+    }
+
+        
+
       // querry all the quotes from the database with a particular genre
     public function fetchQuotesFromSameGenre($genre)
     {

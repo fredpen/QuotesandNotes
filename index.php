@@ -22,6 +22,6 @@ $quoteArray = $quote->fetchQuotes();
 
 <!-- right section of the main container -->
 <?php
-require_once 'includes/indexRightContainer.php';
+// require_once 'includes/indexRightContainer.php';
 require_once 'includes/footer.php';
 ?>

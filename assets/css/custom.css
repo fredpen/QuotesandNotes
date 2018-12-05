@@ -566,3 +566,15 @@ a:hover, a:focus {
     margin: 0 auto;
     margin-top: 16%;
 }
+
+
+/* authors table and home=------------- */
+.main-container .table-responsive{
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    /* padding: 12px 38px; */
+}

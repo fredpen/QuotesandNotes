@@ -16,7 +16,11 @@ class Author
     {
         $sql = "SELECT * FROM author WHERE author LIKE '$char%'";
         $query = mysqli_query($this->con, $sql);
-        return mysqli_fetch_array($query);
+        $charArray = array();
+        while ($row = mysqli_fetch_array($query)) {
+            array_push($charArray, $row);
+        }
+        return $charArray;
     }
 
       // validate character that has authors

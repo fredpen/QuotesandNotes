@@ -22,73 +22,72 @@
 
 .main-container{
   max-width: 100%;
- }
+  flex-grow: 2;
+}
 
 #main-container{
-  max-width: 100%;
-  display: flex;
-  justify-content: center;
+   max-width: 100%;
+   display: flex;
+   justify-content: center;
    flex-grow: 1;
 }
 
-  .genreList{
-      display: flex;
-      flex-wrap: nowrap;
-      padding: 0;
-      box-sizing: border-box;
-      flex-shrink: 1;
-   }
+.genreList{
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-   /* for the quote page that has only one item */
-   .masour{
-      column-gap: 1em;
-      width: 70%;
-      max-width: 500px;;
-      column-count: 1;
-      margin: 0 auto;
-   }
+/* for the quote page that has only one item */
+.masour{
+    column-gap: 1em;
+    width: 70%;
+    max-width: 500px;;
+    column-count: 1;
+    margin: 0 auto;
+}
 
-   /* for the profile page */
-   .profilePagemasonry{
-       column-gap: 1em;
-      width: 100%;
-      column-count: 2;
-   }
-
-   .masonry{
-     column-gap: 1em;
+/* for the profile page */
+.profilePagemasonry{
+    column-gap: 1em;
     width: 100%;
-   }
+    column-count: 2;
+}
 
+.masonry{
+    column-gap: 1em;
+width: 100%;
+}
 
-   .item{
-      -webkit-user-select: none;
-      -khtml-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      -o-user-select: none;
-      user-select: none;
-      display: inline-block;
-      width: 100%;
-      margin-bottom: 0;
-   }
+.item{
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 0;
+}
 
-   /* for xtra small devices */
+/* for xtra small devices */
 @media screen and (min-width: 10px) {
-   .right-container,.left-container{
-      display: none;
-   }
+    .right-container,.left-container{
+        display: none;
+    }
 
-  .masonry {
-      column-count: 1;
-   }
-   .profilePagemasonry{
-      column-count: 1;
-   }
+    .masonry {
+        column-count: 1;
+    }
+    .profilePagemasonry{
+        column-count: 1;
+    }
 
-   .main-container{
-   width: 100%;
-   }
+    .main-container{
+    width: 100%;
+    }
 }
 
 /* for small devices */
@@ -96,11 +95,13 @@
     .main-container{
       width: 85%;
    }
+
     .left-container{
       display: block;
       width: 15%;
       padding: 0 10px 0 0;
    }
+
    .masonry{
      column-count: 2;
    }
@@ -121,27 +122,33 @@
 }
 
 @media screen and (min-width: 1000px) {
-   .left-container{
-      display: block;
-      width: 15%;
-   }
-   .main-container{
-      width: 85%;
-   }
+    .left-container{
+        display: block;
+        width: 15%;
+    }
+
+    .main-container{
+        width: 85%;
+    }
 
     .masonry{
-     column-count: 3;
-   }
+        column-count: 3;
+    }
 }
 
 @media screen and (min-width: 1200px) {
-   
    .left-container{
       width: 10%;
    }
 
+   .right-container{
+       display: flex;
+       max-width: 10%;
+   }
+
    .main-container{
-      width: 90%;
+      width: 70%;
+      
    }
    
     .masonry{
@@ -151,65 +158,65 @@
 
 /*register page*/
 @media screen and (min-width: 10px) {
-   .registerContainer{
-      display: none;
-   }
+    .registerContainer{
+        display: none;
+    }
 }
 @media screen and (min-width: 992px) {
-   .registerContainer{
-      display: block;
-   }
+    .registerContainer{
+        display: block;
+    }
 }
 
 /* profile page -------------- */
 @media screen and (min-width: 800px) {
-   .profilePagemasonry{
+    .profilePagemasonry{
     column-count: 2;
-   }
+    }
 }
 
 /* media queries for the h1 and p on the jumbotron */
 @media screen and (min-width: 10px){
-   #jumbotron h1{
-      font-size: 9vw
-   }
+    #jumbotron h1{
+        font-size: 9vw
+    }
 
-   #jumbotron p{
-      font-size: 3vw;
-   }
+    #jumbotron p{
+        font-size: 3vw;
+    }
 }
 
 @media screen and (min-width: 1000px){
-   #jumbotron h1{
-      font-size: 6em
-   }
+    #jumbotron h1{
+        font-size: 6em
+    }
 
-   #jumbotron p{
-      font-size: 3vw;
-   }
+    #jumbotron p{
+        font-size: 3vw;
+    }
 }
 
 /* media quries for the navbar */
 @media screen and (max-width: 770px){
-   #home #mainNavContainer .navbar-main,
-   #topNav{
-      display: none;
-   }
-   #home #mainNavContainer .navbar-main2{
-      display: flex;
-   }
+    #home #mainNavContainer .navbar-main,
+    #topNav{
+        display: none;
+    }
+    #home #mainNavContainer .navbar-main2{
+        display: flex;
+    }
 
-   #home .auth{
-      margin-top: 0;
-   }
+    #home .auth{
+        margin-top: 0;
+    }
 
-   #jumbotron{
-      margin-top: 45px;
-   }
+    #jumbotron{
+        margin-top: 45px;
+    }
 
-   #dropdownMenu1,
-   #home #mainNavContainer div button{
-      text-align: center;
-   }
+    #dropdownMenu1,
+    #home #mainNavContainer div button{
+        text-align: center;
+    }
 }
 

@@ -19,7 +19,6 @@ $genreArray = $quote->fetchGenre("5");
 
 // query the all quotes of thesame author
 $quoteArray = $quote->fetchQuotesFromSameAuthor($authorId);
-
 // query all the detaif the author from the database
 $authorDetails = $quote->fetchAuthorDetails($authorId);
 ?>
@@ -103,5 +102,5 @@ $authorDetails = $quote->fetchAuthorDetails($authorId);
 
  <!-- the footer -->
 <?php 
-require_once 'includes/indexRightContainer.php';
+// require_once 'includes/indexRightContainer.php';
 require_once 'includes/footer.php' ?>

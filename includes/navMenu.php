@@ -59,10 +59,14 @@
                 }; ?> 
             </ul>
         </div>
+
+        <!-- set navigation -->
+        <?php $nav = ($pageTitle == "authors" ? "" : " navbar-fixed-top auth") ?>
                     
         <!-- main nav -->
        
-        <nav class="navbar navbar-default navbar-primary navbar-fixed-top auth">
+        <!-- <nav class="navbar navbar-default navbar-primary navbar-fixed-top auth"> -->
+        <nav class="navbar navbar-default navbar-primary <?php echo ($pageTitle == "Authors" ? "" : "navbar-fixed-top") ?>  auth">
             <div id="mainNavContainer" class="container-fluid">
 
                 <div>
