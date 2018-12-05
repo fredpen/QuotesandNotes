@@ -53,6 +53,10 @@
         <div id="topNav">
             <ul class="navbar-nav nav">
                 <li id="navBrand"></i><a href="authors.php">Authors: </a></li>
+                <?php foreach ($validChar as $key) { ?>
+                    <li><a class="text-uppercase" href="authors.php#<?php echo $key; ?>"><?php echo $key; ?></a></li>
+                    <?php 
+                }; ?> 
             </ul>
         </div>
                     

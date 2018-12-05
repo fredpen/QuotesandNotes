@@ -59,8 +59,13 @@ body{
 #home #mainNavContainer a,
 #home #mainNavContainer div button{
     font-weight: 500;
-    font-size: 1.1em;
+    font-size: 0.9em;
 }
+
+#home #mainNavContainer a{
+    font-size: 1.2em
+}
+
 
 #home #mainNavContainer a:hover{
     color: black;
@@ -82,7 +87,7 @@ body{
     display: flex;
     align-items: center;
     height: 30px;
-    background:#aaaaaa80;
+    background:#eeeeeecf;
     position: fixed;
     top: 0px;
     z-index: 1000;
@@ -92,6 +97,16 @@ body{
     display: flex;
     width: 100%;
     justify-content: center;
+    align-items: center;
+}
+
+#home #topNav ul li a{
+    color: #000000de;
+    padding: 4px;
+}
+
+#home #navBrand{
+    /* color: #211f1f; */
 }
 
 /* reset some custom settings */
@@ -483,6 +498,7 @@ footer .container{
     color: #fff;
     background-color: #aaaaaa;
     border-color: #aaaaaa;
+    font-size: 13px
 }
 
 a:hover, a:focus {

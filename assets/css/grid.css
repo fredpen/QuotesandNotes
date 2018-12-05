@@ -94,14 +94,17 @@
 /* for small devices */
 @media screen and (min-width: 600px) {
     .main-container{
-      width: 75%;
+      width: 85%;
    }
     .left-container{
       display: block;
-      width: 25%;
+      width: 15%;
       padding: 0 10px 0 0;
    }
-      }
+   .masonry{
+     column-count: 2;
+   }
+}
 
 @media screen and (min-width: 800px) {
    .left-container{
@@ -207,7 +210,6 @@
    #dropdownMenu1,
    #home #mainNavContainer div button{
       text-align: center;
-      font-size: 0.9em;
    }
 }
 

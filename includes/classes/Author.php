@@ -1,43 +1,43 @@
 <?php
-    /**
-     * 
-     */
-   class Author
-   {
-      private $con;
 
-      function __construct($con)
-      {
-         $this->con = $con;
-      }
+/**
+ * 
+ */
+class Author
+{
+    private $con;
 
-      public function authorDetails($char)
-      {
-         $sql = "SELECT * FROM author WHERE author LIKE '$char%'";
-         $query = mysqli_query($this->con, $sql);
-         return $query;
-      }
+    function __construct($con)
+    {
+        $this->con = $con;
+    }
+
+    public function authorDetails($char)
+    {
+        $sql = "SELECT * FROM author WHERE author LIKE '$char%'";
+        $query = mysqli_query($this->con, $sql);
+        return mysqli_fetch_array($query);
+    }
 
       // validate character that has authors
-      public function validChar()
-      {
-         $validCharac = array();
-         $alpha =["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+    public function validChar()
+    {
+        $validCharac = array();
+        $alpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-         foreach ($alpha as $key) {
-           $query = $this->authorDetails($key);
-           $query = mysqli_fetch_array($query);
-
-           if (is_array($query)) { 
-               array_push($validCharac, $key);
+        foreach ($alpha as $char) {
+            $sql = "SELECT * FROM author WHERE author LIKE '$char%'";
+            $query = mysqli_query($this->con, $sql);
+            if (mysqli_num_rows($query) !== 0) {
+                array_push($validCharac, $char);
             }
-         }
-         return $validCharac;
-
-      }
-
-
+        }
+        return $validCharac;
 
     }
-  ?>
+
+
+
+}
+?>
 

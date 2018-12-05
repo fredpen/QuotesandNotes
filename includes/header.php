@@ -10,13 +10,18 @@ require_once 'includes/databaseConfig.php';
 require_once 'includes/classes/Constants.php';
 require_once 'includes/classes/Account.php';
 require_once 'includes/classes/Quote.php';
+require_once 'includes/classes/Author.php';
 require_once 'includes/classes/Comment.php';
 require_once 'includes/session.php';
 
 $account = new Account($con);
 $quote = new Quote($con);
 $comment = new Comment($con);
+$author = new Author($con);
+// character that has corresponding author in the database
+$validChar = $author->validChar();
 
 require_once 'includes/navMenu.php';
 require_once 'includes/error_modals.php';
+
 ?>
