@@ -6,9 +6,11 @@ include_once "includes/searchbar.php";
  // save the data from fetch author to authors
 $authorArray = $quote->fetchAuthor("5");
 // save the data from fetch genre
-$genreArray = $quote->fetchGenre("5");
+$genreArray = $quote->fetchGenre("5");  
 // save all the quotes into an array
-$quoteArray = $quote->fetchQuotes();
+$rawArray = $quote->fetchQuotes();
+// the quotes to be diplayed
+$quoteArray = $quote->quotePlaylist($rawArray, 10);
 ?> 
 
 <div class="fcontainer">
@@ -20,8 +22,7 @@ $quoteArray = $quote->fetchQuotes();
             <div class="masonry"><?php require_once 'includes/indexMainContainer.php'; ?></div>
 </div>
 
-<!-- right section of the main container -->
 <?php
-// require_once 'includes/indexRightContainer.php';
+
 require_once 'includes/footer.php';
 ?>

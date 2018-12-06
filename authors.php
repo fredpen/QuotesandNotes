@@ -27,7 +27,6 @@ $num = 0;
                     </thead>
                     <tbody>
                         <?php foreach ($validChar as $key) { ?>
-                            <div id="<?php echo $key; ?>">
                                 <?php $authorDetails = $author->authorDetails($key);
                                 foreach ($authorDetails as $row) { ?>
                                     <tr>
@@ -44,7 +43,7 @@ $num = 0;
                                     </tr>
                                     <?php 
                                 }; ?>
-                            </div>
+                            <!-- </div> -->
                              <?php 
                         }; ?>
                     </tbody>
@@ -55,6 +54,6 @@ $num = 0;
 
 <!-- right section of the main container -->
 <?php
-// require_once 'includes/indexRightContainer.php';
+require_once 'includes/indexRightContainer.php';
 require_once 'includes/footer.php';
 ?>

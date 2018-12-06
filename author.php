@@ -102,5 +102,4 @@ $authorDetails = $quote->fetchAuthorDetails($authorId);
 
  <!-- the footer -->
 <?php 
-// require_once 'includes/indexRightContainer.php';
 require_once 'includes/footer.php' ?>

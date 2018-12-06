@@ -330,6 +330,27 @@ if ($quoteArray) {
         })
     </script>
     <?php 
-};
-
+}; ?>
+<button class="loadContent">more quotes</button>
+<script type="text/javascript">
+    $(document).ready(function(){
+        var quoteArray = <?php echo json_encode($rawArray); ?>;
+        $(".loadContent").click(function(){
+            $.post("includes/handlers/ajax/moreContent.php", {quoteArray: quoteArray}, function(data) {
+                if (data) {
+                    data = <?php echo json_encode($quoteArray); ?>;
+                    console.log(data);
+                    for (let index = 0; index < data.length; index++) {
+                        
+                        var content = (data[index].content);
+                        
+                        console.log(content);
+                        return;
+                    }
+                }
+                
+            })
+        })
+    })
+</script>
     

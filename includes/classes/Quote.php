@@ -270,21 +270,7 @@ class Quote
         return mysqli_fetch_array($query);
     }
 
-      // fetch all the quote from the database
-    public function fetchQuotes()
-    {
-        $quotesArray = [];
-         // fetch all quotes id
-        $idArray = $this->fetchQuoteId();
-        // loop and get the details of quotes
-        foreach ($idArray as $quoteId) {
-            array_push($quotesArray, $this->fetchQuoteDetails($quoteId));
-        }
-        // shuffle the id array
-        shuffle($quotesArray);
-         // return the array that has the shuffled quotes
-        return $quotesArray;
-    }
+    
 
 
       // fetch random quote for the quote of the moment 
@@ -312,6 +298,39 @@ class Quote
                 $query = mysqli_query($this->con, $sql);
             }
         }
+    }
+
+    // make a playlist of quotes
+    public function quotePlaylist($quoteArray, $num)
+    {
+        $shuffledArray = array();
+        $a = 0;
+        foreach ($quoteArray as $key) {
+            if ($a < $num) {
+                array_push($shuffledArray, $key);
+                $a++;
+            } else {
+                return $shuffledArray;
+            }
+
+        }
+    }
+
+
+    // fetch all the quote from the database
+    public function fetchQuotes()
+    {
+        $quotesArray = [];
+         // fetch all quotes id
+        $idArray = $this->fetchQuoteId();
+        // loop and get the details of quotes
+        foreach ($idArray as $quoteId) {
+            array_push($quotesArray, $this->fetchQuoteDetails($quoteId));
+        }
+        // shuffle the id array
+        shuffle($quotesArray);
+         // return the array that has the shuffled quotes
+        return $quotesArray;
     }
 
 
