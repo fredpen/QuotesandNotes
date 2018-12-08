@@ -101,7 +101,7 @@ class Quote
       // fetch the number of likes of a particular quote
     public function numberOfQuoteLover($quoteId)
     {
-        $sql = "SELECT * FROM quoteLovers WHERE quote='$quoteId'";
+        $sql = "SELECT id FROM quoteLovers WHERE quote='$quoteId'";
         $query = mysqli_query($this->con, $sql);
         return mysqli_num_rows($query);
     }

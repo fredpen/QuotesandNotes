@@ -16,10 +16,10 @@ if (isset($_POST['quoteId'])) {
     if (mysqli_num_rows($query) == 0) {
         // if no fetch the quote details
         $quoteDetails = $quote->fetchQuoteDetails($quoteId);
-        $genre1 = $quoteDetails['genre1'];
-        $genre2 = $quoteDetails['genre2'];
-        $genre3 = $quoteDetails['genre3'];
-        $author = $quoteDetails['author'];
+        $genre1 = $quote->genreId($quoteDetails['genre1']);
+        $genre2 = $quote->genreId($quoteDetails['genre2']);
+        $genre3 = $quote->genreId($quoteDetails['genre3']);
+        $author = $quote->authorId($quoteDetails['author']);
         // push the details into quotelovers
         $sql = "INSERT INTO quoteLovers (id, quote, user, genre1, genre2, genre3, author) VALUES('', '$quoteId', '$userId', '$genre1', '$genre2', '$genre3', '$author')";
         $query = mysqli_query($con, $sql);
