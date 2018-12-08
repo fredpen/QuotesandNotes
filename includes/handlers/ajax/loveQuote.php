@@ -21,7 +21,7 @@ if (isset($_POST['quoteId'])) {
         $genre3 = $quote->genreId($quoteDetails['genre3']);
         $author = $quote->authorId($quoteDetails['author']);
         // push the details into quotelovers
-        $sql = "INSERT INTO quoteLovers (id, quote, user, genre1, genre2, genre3, author) VALUES('', '$quoteId', '$userId', '$genre1', '$genre2', '$genre3', '$author')";
+        $sql = "INSERT INTO quoteLovers (id, quote, user) VALUES('', '$quoteId', '$userId')";
         $query = mysqli_query($con, $sql);
         if ($query) {
             echo "success";
