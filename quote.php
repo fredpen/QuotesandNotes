@@ -102,7 +102,19 @@ $quoteArray = "";
                     $.post("includes/handlers/ajax/postComment.php", {quoteId:quoteId, userId:userId, comment:comment}, function(data){
                         console.log(data);
                         if (data == "success") {
-
+                            let comment = `<div  class='media commentarea'> 
+                                                <a class='pull-left' href='profilePage.php?id=" + userId + "'>
+                                                    <div class='avatar'>
+                                                        <img class='media-object' alt='Tim Picture' src='assets/images/placeholder.jpg'>
+                                                    </div>
+                                                </a>
+                                                <div class='media-body'>
+                                                    <h4 class='media-heading'>
+                                                        <a href='profilePage.php?id=" + userId + "'>" + firstname + ' ' + lastname + "</a> <small> - a second ago</small> 
+                                                    </h4><p>" + comment + "</p>
+                                                </div>
+                                            </div>`;
+                        
                         $("#commentSection").append("<div  class='media commentarea'><a class='pull-left' href='profilePage.php?id=" + userId + "'><div class='avatar'><img class='media-object' alt='Tim Picture' src='assets/images/placeholder.jpg'></div></a><div class='media-body'><h4 class='media-heading'><a href='profilePage.php?id=" + userId + "'>" + firstname + ' ' + lastname + "</a> <small> - a second ago</small> </h4><p>" + comment + "</p></div></div>");
                         }
                         

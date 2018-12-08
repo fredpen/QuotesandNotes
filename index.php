@@ -10,7 +10,7 @@ $genreArray = $quote->fetchGenre("5");
 // save all the quotes into an array
 $rawArray = $quote->fetchQuotes();
 // the quotes to be diplayed
-$quoteArray = $quote->quotePlaylist($rawArray, 10);
+$quoteArray = $quote->quotePlaylist($rawArray, 5);
 ?> 
 
 <div class="fcontainer">
@@ -23,6 +23,5 @@ $quoteArray = $quote->quotePlaylist($rawArray, 10);
 </div>
 
 <?php
-
 require_once 'includes/footer.php';
 ?>

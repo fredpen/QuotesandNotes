@@ -1,15 +1,14 @@
  <?php 
+
 $num = 1;
 if ($quoteArray) {
     foreach ($quoteArray as $row) {
-        $quoteId = $row['id'];
-        ?>
-
+        $quoteId = $row['id']; ?>
+        
         <div class="item">                
             <div class="card">
                 <a href="quote.php?id=<?php echo $quoteId; ?>">
                     <div class="card-content">
-                        <!-- the quote  -->
                         <p class="card-title"> <?php echo $row['content']; ?> </p>
                         <!-- the quote genre -->
                         <div class="card-description genreList">
@@ -23,7 +22,6 @@ if ($quoteArray) {
                                 <a class="genre" href='genre.php?genre=<?php echo $row['genre3'] ?>'><?php echo $row['genre3']; ?></a>
                             </p>
                         </div>
-
                         <footer class="quote-footer">
                             <div>
                                 <?php 
@@ -119,7 +117,6 @@ if ($quoteArray) {
                 </a>
             </div>
         </div>
-        <!-- </div> -->
                     
         <!-- the javascript the monitor the ajax call and take full charge of the page -->
         <script type="text/javascript">
@@ -334,18 +331,18 @@ if ($quoteArray) {
 <button class="loadContent">more quotes</button>
 <script type="text/javascript">
     $(document).ready(function(){
-        var quoteArray = <?php echo json_encode($rawArray); ?>;
+        var quotePlaylist = <?php echo json_encode($rawArray); ?>;
         $(".loadContent").click(function(){
-            $.post("includes/handlers/ajax/moreContent.php", {quoteArray: quoteArray}, function(data) {
+            $.post("includes/handlers/ajax/moreContent.php", {quotePlaylist: quotePlaylist}, function(data) {
                 if (data) {
-                    data = <?php echo json_encode($quoteArray); ?>;
+                    data = JSON.parse(data);
                     console.log(data);
                     for (let index = 0; index < data.length; index++) {
                         
                         var content = (data[index].content);
                         
                         console.log(content);
-                        return;
+                        return; 
                     }
                 }
                 
