@@ -19,9 +19,10 @@ $quoteArray = $quote->quotePlaylist($rawArray, 5);
         <?php require_once 'includes/indexLeftContainer.php'; ?>
 
         <div class="main-container">
-            <div class="masonry"><?php require_once 'includes/indexMainContainer.php'; ?></div>
+            <div class="masonry"><?php require_once 'test.php'; ?></div>
 </div>
 
 <?php
 require_once 'includes/footer.php';
+require_once 'includes/moreContent.php';
 ?>

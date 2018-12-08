@@ -1,17 +1,8 @@
 <?php
 $pageTitle = "Register";
-require_once 'includes/databaseConfig.php';
-require_once 'includes/classes/Constants.php';
-require_once 'includes/classes/Account.php';
-
-$account = new Account($con);
-
-require_once 'includes/handlers/account_handler.php';
-require_once 'includes/session.php';
-require_once 'includes/navMenu.php';
-
-
+require_once 'includes/header.php';
 ?>
+
 <div id="registerContainer">
     <div class="container">
         <div class="row">
