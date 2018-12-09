@@ -203,7 +203,7 @@ class Quote
         return $query;
     }
 
-      // fetch the tracked user activities for the profile page
+    // fetch the tracked user activities for the profile page
     public function fetchQuotesLovedByUser($userId)
     {
         $sql = "SELECT quotes.id, quotes.content, genre1.genre1, genre2.genre2, genre3.genre3, author.author

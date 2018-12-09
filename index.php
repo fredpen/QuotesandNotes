@@ -23,8 +23,5 @@ $quoteArray = $quote->quotePlaylist($rawArray, 14);
 </div>
 
 <?php
-var_dump($quote->fetchQuoteDetails(81));
-// require_once 'includes/loadContent.php';
 require_once 'includes/footer.php';
-require_once 'includes/loadContent.php';
 ?>

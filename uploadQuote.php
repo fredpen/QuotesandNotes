@@ -56,7 +56,7 @@ if (isset($_POST['uploadQuoteButton'])) {
     if ($userDetails) {
       // check if all the needed boxes are filled
         if ($_POST['author'] !== "author" && isset($_POST['genreList']) && count($_POST['genreList']) == 3) {
-        // store all fields into variables
+            // store all fields into variables
             $content = $quote->sanitiseQuote($_POST['quote']);
             $author = $_POST['author'];
             $genre = $_POST['genreList'];
@@ -65,18 +65,18 @@ if (isset($_POST['uploadQuoteButton'])) {
             $genre3 = $genre[2];
 
             $uploadQuote = $quote->uploadQuote($content, $genre1, $genre2, $genre3, $author, $userId);
-        // if quotes already exists
+            // if quotes already exists
             if (!$uploadQuote) {
                 array_push($errorMessages, $duplicateError);
-        // if quote is successfully uploaded
+            // if quote is successfully uploaded
             } elseif ($uploadQuote) {
                 array_push($errorMessages, $successMessage);
-         // if quote fail to upload relating to database
+             // if quote fail to upload relating to database
             } else {
                 array_push($errorMessages, $serverError);
             }
 
-         // if there is no logged in user
+             // if there is no logged in user
         } else {
             array_push($errorMessages, $fieldError);
         }

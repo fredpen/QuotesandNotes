@@ -12,21 +12,24 @@ require_once 'includes/classes/Account.php';
 require_once 'includes/classes/Author.php';
 require_once 'includes/session.php';
 
-if ($pageTitle !== 'Login' || $pageTitle !== 'Register') {
+if ($pageTitle !== "Login" && $pageTitle !== "Register") {
     require_once 'includes/classes/Comment.php';
     require_once 'includes/classes/Quote.php';
     $comment = new Comment($con);
     $quote = new Quote($con);
 }
 
-if ($pageTitle == "Login" || $pageTitle == "Register") require_once 'includes/handlers/account_handler.php';
+if ($pageTitle == "Login" || $pageTitle == "Register") {
+    require_once 'includes/handlers/account_handler.php';
+    // echo "only loged in and register";
+}
 
 $account = new Account($con);
 $author = new Author($con);
 // character that has corresponding author in the database
 $validChar = $author->validChar();
 
-if ($pageTitle !== "Login" || $pageTitle !== "Register") require_once 'includes/error_modals.php';
+if ($pageTitle !== "Login" && $pageTitle !== "Register") require_once 'includes/error_modals.php';
 require_once 'includes/navMenu.php';
 
 

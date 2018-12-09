@@ -1,4 +1,5 @@
 <?php
+$pageTitle = "Quote";
 $date = date("Y/m/d/m/s");
 if (isset($_GET['id'])) {
     $quoteId = $_GET['id'];
@@ -6,7 +7,6 @@ if (isset($_GET['id'])) {
     header("Location: index.php");
 }
 
-$pageTitle = "Quote";
 require_once "includes/header.php";
 // require_once "includes/quote_of_moment.php";
  // save the data from fetch author to authors
