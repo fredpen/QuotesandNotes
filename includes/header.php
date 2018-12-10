@@ -21,7 +21,6 @@ if ($pageTitle !== "Login" && $pageTitle !== "Register") {
 
 if ($pageTitle == "Login" || $pageTitle == "Register") {
     require_once 'includes/handlers/account_handler.php';
-    // echo "only loged in and register";
 }
 
 $account = new Account($con);

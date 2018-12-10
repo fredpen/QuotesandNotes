@@ -32,7 +32,7 @@ if ($quoteArray) {
                                 if ($userId) {
                                     // if user has liked the quote before
                                     if ($quoteLoveCheck) { ?>
-                                        <p class="<?php echo $row['id']; ?>">
+                                        <p onclick="likeQuote(<?php echo $quoteId; ?>)" class="<?php echo $row['id']; ?>">
                                             <a type="button" data-toggle="modal" data-target="#unlikeQuote">
                                                 <i class="<?php echo $row['id']; ?> fas fa-heart red"></i>
                                                 <span class="<?php echo $row['id'] ?>quoteText"><?php echo $loveQuoteString; ?></span>
@@ -42,7 +42,7 @@ if ($quoteArray) {
                                     <!-- if user has not liked the quote before -->
                                         <?php 
                                     } else { ?>
-                                        <p class="<?php echo $row['id']; ?>">
+                                        <p onclick="likeQuote(<?php echo $quoteId; ?>)" class="<?php echo $row['id']; ?>">
                                             <i class="<?php echo $row['id']; ?> fas fa-heart black"></i>
                                             <span class="<?php echo $row['id'] ?>quoteText"><?php echo $loveQuoteString ?></span>
                                         </p>
@@ -51,7 +51,7 @@ if ($quoteArray) {
                                                                     
                                     // if there is no logged in user
                                 } else { ?>
-                                    <p class="<?php echo $row['id']; ?>">
+                                    <p onclick="likeQuote(<?php echo $quoteId; ?>)" class="<?php echo $row['id']; ?>">
                                         <!-- Button trigger modal for liking quotes-->
                                         <a type="button" data-toggle="modal" data-target="#signUp">
                                             <i class="<?php echo $row['id']; ?> fas fa-heart black"></i>
@@ -117,36 +117,6 @@ if ($quoteArray) {
                 </a>
             </div>
         </div>
-                    
-        <!-- the javascript the monitor the ajax call and take full charge of the page -->
-        <script type="text/javascript">
-            $(document).ready(function(){
-                $(".<?php echo $row['id'] ?>").click(function(){
-                quoteId = '<?php echo $row['id']; ?>';
-
-                // check if there is a logged in user
-                if (userId) {
-                    // make ajax call to test if user has liked quote before
-                    $.post("includes/handlers/ajax/loveQuote.php", { quoteId:quoteId, userId:userId }, function(data){
-
-                        if (data === "success") {
-                            $(".<?php echo $row['id'] ?>quoteText").text("<?php echo $numberOfQuoteLover + 1 ?>");
-                            // change the image to red and increase the number of likes
-                            $(".<?php echo $row['id'] ?>.fas.fa-heart").removeClass("black").addClass("red");
-                        } else if (data === "failure") {
-                        console.log("cant like the quote at the moment");
-                        }else {
-                        console.log(data);
-                        }
-                    });
-                } else {
-                    var notLoggedin = true;
-                    console.log("you need to log in to do that");
-                    }
-                })
-            })
-        </script>
-
         <?php 
         // the ads logic: for every 5 quotes put an ad up
         if ($num % 5 == 0) { ?>
@@ -160,6 +130,7 @@ if ($quoteArray) {
         $num++;
         continue;
     };
+      
 
 // if its not quote array is not coming as an associative array
 } elseif ($quoteDetails) {
@@ -193,7 +164,7 @@ if ($quoteArray) {
                                 if ($userId) {
                                     // if user has liked the quote before
                                     if ($quoteLoveCheck) { ?>
-                                        <p class="<?php echo $row['id']; ?>">
+                                        <p onclick="likeQuote(<?php echo $quoteId; ?>)" class="<?php echo $row['id']; ?>">
                                             <a type="button" data-toggle="modal" data-target="#unlikeQuote">
                                                 <i class="<?php echo $row['id']; ?> fas fa-heart red"></i>
                                                 <span class="<?php echo $row['id'] ?>quoteText"><?php echo $loveQuoteString; ?></span>
@@ -203,7 +174,7 @@ if ($quoteArray) {
                                     <!-- if user has not liked the quote before -->
                                         <?php 
                                     } else { ?>
-                                        <p class="<?php echo $row['id']; ?>">
+                                        <p onclick="likeQuote(<?php echo $quoteId; ?>)" class="<?php echo $row['id']; ?>">
                                             <i class="<?php echo $row['id']; ?> fas fa-heart black"></i>
                                             <span class="<?php echo $row['id'] ?>quoteText"><?php echo $loveQuoteString ?></span>
                                         </p>
@@ -212,7 +183,7 @@ if ($quoteArray) {
                                                                     
                                     // if there is no logged in user
                                 } else { ?>
-                                    <p class="<?php echo $row['id']; ?>">
+                                    <p onclick="likeQuote(<?php echo $quoteId; ?>)" class="<?php echo $row['id']; ?>">
                                         <!-- Button trigger modal for liking quotes-->
                                         <a type="button" data-toggle="modal" data-target="#signUp">
                                             <i class="<?php echo $row['id']; ?> fas fa-heart black"></i>
@@ -294,60 +265,10 @@ if ($quoteArray) {
             <a class="genre" href='genre.php?genre=<?php echo $row['genre3'] ?>'><?php echo $row['genre3']; ?></a>
         </p>
         <p class="label label-info">
-            <a class="genre" href='genre.php?genre=<?php echo $row['author'] ?>'><?php echo imagify($row['author']); ?></a>
+            <a class="genre" href='genre.php?genre=<?php echo $row['author'] ?>'><?php echo imagify($row['author']); ?> </a>
         </p>
     </div>
-                    
-    <!-- the javascript the monitor the ajax call and take full charge of the page -->
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $(".<?php echo $row['id'] ?>").click(function(){
-            quoteId = '<?php echo $row['id']; ?>';
-
-            // check if there is a logged in user
-            if (userId) {
-                // make ajax call to test if user has liked quote before
-                $.post("includes/handlers/ajax/loveQuote.php", { quoteId:quoteId, userId:userId }, function(data){
-
-                    if (data === "success") {
-                        $(".<?php echo $row['id'] ?>quoteText").text("<?php echo $numberOfQuoteLover + 1 ?>");
-                        // change the image to red and increase the number of likes
-                        $(".<?php echo $row['id'] ?>.fas.fa-heart").removeClass("black").addClass("red");
-                    } else if (data === "failure") {
-                    console.log("cant like the quote at the moment");
-                    }else {
-                    console.log(data);
-                    }
-                });
-            } else {
-                var notLoggedin = true;
-                console.log("you need to log in to do that");
-                }
-            })
-        })
-    </script>
     <?php 
 }; ?>
-<button class="loadContent">more quotes</button>
-<script type="text/javascript">
-    $(document).ready(function(){
-        var quotePlaylist = <?php echo json_encode($rawArray); ?>;
-        $(".loadContent").click(function(){
-            $.post("includes/handlers/ajax/moreContent.php", {quotePlaylist: quotePlaylist}, function(data) {
-                if (data) {
-                    data = JSON.parse(data);
-                    console.log(data);
-                    for (let index = 0; index < data.length; index++) {
-                        
-                        var content = (data[index].content);
-                        
-                        console.log(content);
-                        return; 
-                    }
-                }
-                
-            })
-        })
-    })
-</script>
-    
+
+

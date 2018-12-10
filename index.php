@@ -8,9 +8,9 @@ $authorArray = $quote->fetchAuthor("5");
 // save the data from fetch genre
 $genreArray = $quote->fetchGenre("5");  
 // save all the quotes into an array
-$rawArray = $quote->fetchQuotes();
+$quoteArray = $quote->fetchQuotes();
 // the quotes to be diplayed
-$quoteArray = $quote->quotePlaylist($rawArray, 2);
+// $quoteArray = $quote->quotePlaylist($rawArray, 10);
 ?> 
 
 <div class="fcontainer">
@@ -19,7 +19,7 @@ $quoteArray = $quote->quotePlaylist($rawArray, 2);
         <?php require_once 'includes/indexLeftContainer.php'; ?>
 
         <div class="main-container">
-            <div class="masonry"><?php require_once 'test.php'; ?></div>
+            <div class="masonry"><?php require_once 'includes/indexMainContainer.php'; ?></div>
 </div>
 
 <?php

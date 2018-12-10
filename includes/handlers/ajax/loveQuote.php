@@ -1,7 +1,5 @@
 <?php
 require_once '../../databaseConfig.php';
-require_once '../../classes/Quote.php';
-$quote = new Quote($con);
 
 // check if the quote,the author the genres and user id is passed
 if (isset($_POST['quoteId'])) {
