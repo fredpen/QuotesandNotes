@@ -31,7 +31,7 @@ $quoteArray = "";
         <!-- comments -->
         <div class="col-md-10">
 
-            <?php require_once 'includes/indexMainContainer.php'; ?>
+            <?php require_once 'test.php'; ?>
 
             <div class="media-area">
                 <h3 class="title text-center">

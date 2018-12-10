@@ -10,7 +10,7 @@ $genreArray = $quote->fetchGenre("5");
 // save all the quotes into an array
 $rawArray = $quote->fetchQuotes();
 // the quotes to be diplayed
-$quoteArray = $quote->quotePlaylist($rawArray, 14);
+$quoteArray = $quote->quotePlaylist($rawArray, 2);
 ?> 
 
 <div class="fcontainer">
