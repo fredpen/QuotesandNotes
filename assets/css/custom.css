@@ -231,7 +231,7 @@ hr{
    margin-top: 80px;
 }
 
-#home .topMargin45{
+#home .topMargin50{
   margin-top: 50px;
 }
 
@@ -311,6 +311,7 @@ div .profile-photo-small{
     background: rgba(255,255,255,.15);
     color: white;
     height: unset;
+    margin-bottom: 0%;
 }
 
 #home .displayNone{
@@ -340,6 +341,11 @@ footer .container{
 
 #authorDetails{
     display: none;
+}
+
+.author_title, 
+.genre_title{
+    text-transform: capitalize;
 }
 
 

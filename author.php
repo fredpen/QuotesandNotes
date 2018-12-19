@@ -90,9 +90,7 @@ $authorDetails = $quote->fetchAuthorDetails($authorId);
             </div>
 
             <!-- the main container that houses the quotes by the author  -->
-            <div class="title col-sm-12 text-center text-grey">
-                <h1 class="title"> Quotes by <?php echo imagify($authorDetails['author']); ?></h1>
-            </div>
+            <h1 class="title text-center author_title"> Quotes by <?php echo imagify($authorDetails['author']); ?></h1>
 
             <div class="masonry"><?php require_once 'includes/indexMainContainer.php'; ?>
 

@@ -79,6 +79,14 @@
     .profilePagemasonry{
         column-count: 1;
     }
+
+    /* genre and author title */
+    .genre_title {
+        font-size: 10vw;
+    }
+    .author_title {
+        font-size: 6vw;
+    }
 }
 
 /* for xtra small device landscape */
@@ -95,6 +103,15 @@
     .main-container{
       width: 60%;
    }
+
+    /* genre and author title */
+    .genre_title {
+        font-size: 8vw;
+    }
+
+     .author_title {
+        font-size: 4.5vw;
+    }
 }
 
 /* for small devices */
@@ -105,6 +122,11 @@
 
    .left-container{
         display: none;
+    }
+
+     /* genre and author title */
+    .genre_title {
+        font-size: 56px;
     }
 }
 

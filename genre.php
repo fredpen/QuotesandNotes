@@ -28,10 +28,7 @@ $quoteArray = $quote->fetchQuotesFromSameGenre($genre);
 
         
         <div class="main-container">
-
-            <div class="title col-sm-12 text-center text-grey">
-                <h1 class="text-capitalize"><?php echo $genre ?> Quotes</h1>
-            </div>
+            <h1 class="title text-center genre_title"><?php echo $genre ?> Quotes</h1>
 
             <!-- import the maincontainer -->
             <div class="masonry"><?php require_once 'includes/indexMainContainer.php'; ?>

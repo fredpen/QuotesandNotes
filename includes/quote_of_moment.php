@@ -6,7 +6,7 @@ $randQuote = $quote->fetchRandomQuote(); ?>
 <div class="subscribe-line subscribe-line-image" style="background-image: url('assets/images/bg7.jpg'); margin-top: 0;">
     <div class="container">
         <div class="row">
-                <div class="col-md-5 col-md-offset-3  topMargin65">
+                <div class="col-md-5 col-md-offset-3  topMargin50">
 
                     <div class="text-center">
 
