@@ -17,13 +17,13 @@ if (isset($_GET['quote_string'])) {
     // check if the search string has corresponding quote(s) in the database
     if (mysqli_num_rows($query) > 0) {
         // create a new array and push all search results into the array
-        $searchResults = array();
         while ($row = mysqli_fetch_array($query)) {
-            array_push($searchResults, $row);
+            echo '<li class="list-group-item text-capitalise">
+                        <a class="text-capitalise" href="quote.php?id=' . $row["id"] . '">' . $row["content"] . '</a>
+                    </li>';
         }
-        echo json_encode($searchResults);
     } else {
-        echo "false";
+        echo '<li class="list-group-item text-capitalise">we do not have any quote related to your search term at the moment, please check back later</li>';
     }
 }
 ?>

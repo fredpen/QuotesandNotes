@@ -9,6 +9,15 @@
 /* font-family: 'Inconsolata', monospace; */
 }
 
+.testing{
+    position: fixed;
+    z-index: 30;
+    top: 90vh;
+    color: #eee;
+    background: grey;
+    padding: 10px;
+}
+
 .light{
   background: #eee;
 }
@@ -105,9 +114,7 @@ body{
     padding: 4px;
 }
 
-#home #navBrand{
-    /* color: #211f1f; */
-}
+
 
 /* reset some custom settings */
 #home .navbar-nav{
@@ -189,12 +196,12 @@ hr{
    background-repeat: round;
 }
 
-#{
+/* #{
    background-image: url(../images/bg7.jpg);
    background-size: cover;
    background-position: top center;
    /* filter-color: purple; */
-}
+/* } */ */
 
 #home .star{
   color: red;
@@ -571,9 +578,4 @@ a:hover, a:focus {
 .main-container .table-responsive{
     max-width: 500px;
     margin: 0 auto;
-}
-
-
-.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
-    /* padding: 12px 38px; */
 }

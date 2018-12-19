@@ -40,5 +40,5 @@ $quoteArray = $quote->fetchQuotesFromSameGenre($genre);
 </div>
 
 <?php 
-require_once 'includes/indexRightContainer.php';
+// require_once 'includes/indexRightContainer.php';
 require_once 'includes/footer.php' ?>

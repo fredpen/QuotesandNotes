@@ -120,11 +120,11 @@ if ($quoteArray) {
         <?php 
         // the ads logic: for every 5 quotes put an ad up
         if ($num % 5 == 0) { ?>
-            <div class="item">                
+            <!-- <div class="item">                
                 <div class="card">
-                    <h1>put ur ads here</h1>
+                    <h1> ads</h1>
                 </div>
-            </div>
+            </div> -->
             <?php 
         }
         $num++;
