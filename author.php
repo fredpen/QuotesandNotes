@@ -2,7 +2,7 @@
 if (isset($_GET['author']) && isset($_GET['nm'])) {
     $authorId = (int)$_GET['author'];
     $pageTitle = $_GET['nm'];
-    $pageTitle = strip_tags(str_replace("_", " ", ($pageTitle)));
+    $pageTitle = strip_tags(str_replace("_", " ", ($pageTitle))) . " Quotes";
     $authorId = strip_tags($authorId);
 } else {
     header("Location: index.php");

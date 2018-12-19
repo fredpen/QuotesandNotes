@@ -12,7 +12,7 @@
 .testing{
     position: fixed;
     z-index: 30;
-    top: 90vh;
+    bottom: 2vh;
     color: #eee;
     background: grey;
     padding: 10px;

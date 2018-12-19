@@ -1,24 +1,6 @@
 <!doctype html>
 <html lang="en">
     <head>
-
-        <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
-        <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
-        <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
-        <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
-        <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
-        <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
-        <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
-        <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-        <link rel="manifest" href="/manifest.json">
-        <meta name="msapplication-TileColor" content="#ffffff">
-        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-        <meta name="theme-color" content="#ffffff">
         
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130716173-1"></script>
@@ -26,7 +8,6 @@
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-
           gtag('config', 'UA-130716173-1');
         </script>
 
@@ -34,14 +15,35 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
+        <!-- favicon -->
+        <link rel="apple-touch-icon" sizes="57x57" href="assets/images/icon/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="assets/images/icon/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="assets/images/icon/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="assets/images/icon/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="assets/images/icon/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="assets/images/icon/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="assets/images/icon/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="assets/images/icon/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/images/icon/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="assets/images/icon/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/images/icon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="assets/images/icon/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/images/icon/favicon-16x16.png">
+        <link rel="manifest" href="assets/js/lib/manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="assets/images/icon/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="icon" type="image/ico" sizes="16x16" href="favicon.ico">
+
         <!-- <!-- You can use Open Graph tags to customize link previews. -->
-        <meta property="og:url"           content="http://localhost/Quotes&Notes/index.php" />
+        <!-- <meta property="og:url"           content="http://localhost/Quotes&Notes/index.php" />
         <meta property="og:type"          content="website" />
         <meta property="og:title"         content="Quotes and Notes" />
         <meta property="og:description"   content="Bringing you the best of words from the greatest of minds" />
-        <meta property="og:image"         content="" />
+        <meta property="og:image"         content="" /> -->
 
-        <title> <?php echo $pageTitle; ?></title>
+        <title> QN - <?php echo $pageTitle; ?></title>
 
         <!--     Fonts and icons     -->
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
@@ -97,7 +99,7 @@
 
                 <div>
                      <ul class="nav navbar-nav">
-                        <li id="navBrand"><a href="index.php">Quotes&Notes</a></li>
+                        <li id="navBrand"><a href="index.php">QN</a></li>
                     </ul>
                 </div>
 
@@ -127,14 +129,14 @@
                 </div>
                 
                 <div id="mainNavContainerDropdown" class="dropdown">
-                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Hi 
+                    <span class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Hi 
                         <?php if ($userDetails) {
                             echo $userDetails['lastname'];
                         } else {
                             echo "Guest";
                         } ?>
                         <span class="caret"></span>
-                    </button>
+                    </span>
 
                     <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
                          <?php if ($userDetails) { ?>
