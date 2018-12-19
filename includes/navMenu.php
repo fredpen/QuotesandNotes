@@ -129,14 +129,14 @@
                 </div>
                 
                 <div id="mainNavContainerDropdown" class="dropdown">
-                    <span class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Hi 
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Hi 
                         <?php if ($userDetails) {
                             echo $userDetails['lastname'];
                         } else {
                             echo "Guest";
                         } ?>
                         <span class="caret"></span>
-                    </span>
+                    </button>
 
                     <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
                          <?php if ($userDetails) { ?>

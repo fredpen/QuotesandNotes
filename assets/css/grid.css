@@ -1,19 +1,13 @@
 .fcontainer{
-   max-width: 1500px;
-   width: 98vw;
+   max-width: 3000px;
+   width: 100vw;
    padding: 0;
    margin: 0 auto;
-}
-
-.container-full{
-   width: 100%;
-   margin: 0 auto;
-   padding: 0;
 }
 
 .frow{
    width: 100%;
-   padding: 10px;
+   padding: 20px;
    margin: 0 auto;
    display: flex;
    flex-direction: row;
@@ -41,7 +35,7 @@
 
 /* for the quote page that has only one item */
 .masour{
-    column-gap: 1em;
+    column-gap: 1.5em;
     width: 70%;
     max-width: 500px;;
     column-count: 1;
@@ -56,8 +50,8 @@
 }
 
 .masonry{
-    column-gap: 1em;
-width: 100%;
+    column-gap: 20px;
+    width: 100%;
 }
 
 .item{
@@ -69,90 +63,96 @@ width: 100%;
     user-select: none;
     display: inline-block;
     width: 100%;
-    margin-bottom: 0;
+    margin-bottom: 20px;
 }
 
 /* for xtra small devices */
 @media screen and (min-width: 10px) {
-    .right-container,.left-container{
+    .left-container{
         display: none;
     }
 
     .masonry {
         column-count: 1;
     }
+
     .profilePagemasonry{
+        column-count: 1;
+    }
+}
+
+/* for xtra small device landscape */
+@media screen and (min-width: 500px) {
+    .left-container{
+        display: flex;
+        width: 135px;
+    }
+
+    .masonry {
         column-count: 1;
     }
 
     .main-container{
-    width: 100%;
-    }
+      width: 60%;
+   }
 }
 
 /* for small devices */
-@media screen and (min-width: 600px) {
-    .main-container{
-      width: 85%;
-   }
-
-    .left-container{
-      display: block;
-      width: 15%;
-      padding: 0 10px 0 0;
-   }
-
+@media screen and (min-width: 720px) {
    .masonry{
      column-count: 2;
    }
+
+   .left-container{
+        display: none;
+    }
 }
 
 @media screen and (min-width: 800px) {
    .left-container{
-      display: none;
+      display: flex;
    }
-   .main-container{
-      width: 100%;
-   }
-     
+
    .masonry{
      column-count: 2;
    }
-  
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 980px) {
     .left-container{
-        display: block;
-        width: 15%;
-    }
-
-    .main-container{
-        width: 85%;
+      display: none;
     }
 
     .masonry{
         column-count: 3;
     }
+}  
+
+@media screen and (min-width: 1170px) {
+    .masonry{
+        column-count: 3;
+    }
+
+     .left-container{
+      display: flex;
+   }
 }
 
-@media screen and (min-width: 1200px) {
-   .left-container{
-      width: 10%;
-   }
-
-   .right-container{
-       display: flex;
-       max-width: 10%;
-   }
-
-   .main-container{
-      width: 70%;
-      
-   }
-   
+@media screen and (min-width: 1500px) {
     .masonry{
-     column-count: 3;
+     column-count: 4;
+   }
+}
+
+@media screen and (min-width: 1800px) {
+    .masonry{
+     column-count: 5;
+   }
+}
+
+@media screen and (min-width: 2200px) {
+    .masonry{
+     column-count: 6;
    }
 }
 
