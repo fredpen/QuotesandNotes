@@ -240,5 +240,9 @@
     #home #mainNavContainer div button{
         text-align: center;
     }
+
+    .notifs {
+    top: 60px;
+    }
 }
 

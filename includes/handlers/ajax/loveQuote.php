@@ -15,15 +15,15 @@ if (isset($_POST['quoteId'])) {
         // push the details into quotelovers
         $sql = "INSERT INTO quoteLovers (id, quote, user) VALUES('', '$quoteId', '$userId')";
         $query = mysqli_query($con, $sql);
+
         if ($query) {
             echo "success";
         } else {
             echo "failure";
         }
-    } else {
-        echo "You'have liked this quote before";
     }
+
 } else {
-    echo "You cant like a quote at the moment";
+    echo "server busy";
 }
 ?>

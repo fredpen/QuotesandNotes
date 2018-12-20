@@ -58,8 +58,13 @@
         <!-- twitter script -->
         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
+       
+
         <!-- jquery script -->
         <script src="assets/js/lib/jquery.min.js" type="text/javascript"></script>
+
+         <!-- custom js -->
+        <script src="assets/js/custom.js"></script>
         
 
         <script>
@@ -167,17 +172,29 @@
             <p>This site is under development. suggestions are welcome and should be submitted to contactus@quotesandnote.com</p>
         </div>
 
-         <div class="notifs">
+        <div id="alert_notifs" class="notifs">
+            <div class="alert alert-warning">
+                <div class="alert-icon">
+                    <i class="material-icons">warning</i>
+                </div>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true"><i class="material-icons">clear</i></span>
+                </button>
+                <span>Warning Alert:</span> <span class="notifs_message"></span>
+            </div>
+        </div>
+        
+        <div id="success_notifs" class="notifs">
             <div class="alert alert-success">
                 <div class="alert-icon">
                     <i class="material-icons">check</i>
                 </div>
-
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true"><i class="material-icons">clear</i></span>
                 </button>
-
-                <span class="notifs_message">lets test</span>
+                <b>Success Alert:</b> <span class="notifs_message"></span>
             </div>
         </div>
+        
+        
 

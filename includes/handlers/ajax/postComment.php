@@ -30,7 +30,7 @@ if (isset($_POST['userId']) && isset($_POST['quoteId']) && isset($_POST['comment
 
                 <div class="media-body">
                     <h4 class="media-heading">
-                        <a href="profilePage.php?id=' . $row["id"] . '">' . $row["firstName"] . '" "' . $row["lastname"] . '</a>
+                        <a href="profilePage.php?id=' . $row["id"] . '">' . $row["firstName"] . ' ' . $row["lastname"] . '</a>
                         <small> -  a second ago</small>
                     </h4>
                     <p>' . $comment . ' </p>

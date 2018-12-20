@@ -42,7 +42,7 @@ function post_comment(quoteId) {
         var comment = $("#comment").val();
         if (comment.length == 0) {
             $("#comment").css("border", "1px solid red");
-            $(".notifs").fadeIn("fast");
+            $("#alert_notifs").fadeIn("fast");
             $(".notifs_message").text("Comment field cannot be empty");
         } else {
             // make ajax call to test if user has liked quote before
@@ -50,7 +50,7 @@ function post_comment(quoteId) {
                 // console.log(data);
                 if (data) {
                     $("#commentSection").append(data);
-                    $(".notifs").fadeIn("fast");
+                    $("#success_notifs").fadeIn("fast");
                     $(".notifs_message").text("Your comment has been posted");
                     $("#comment").val("");
                 }
@@ -58,10 +58,44 @@ function post_comment(quoteId) {
             })
         }
     } else {
-        $(".notifs").fadeIn("fast");
-        $(".notifs_message").html("You need to <a href='signIn.php'>log in</a> to do that");
+        $("#alert_notifs").fadeIn("fast");
+        $(".notifs_message").html("You need to <a href='signIn.php'>log in</a> to dsdsddo that");
     }
 }
+
+
+// like quote
+function likeQuote(quoteId, check, num) {
+
+    if (userId) {
+
+        if (check === true) {
+            $("#success_notifs").fadeIn("fast");
+            $(".notifs_message").html("You have liked this quote before");
+
+        } else {
+
+            // make ajax call to test if user has liked quote before
+            $.post("includes/handlers/ajax/loveQuote.php", { quoteId: quoteId, userId: userId }, function (data) {
+                if (data === "success") {
+                    $("#success_notifs").fadeIn("fast");
+                    $(".notifs_message").html("Thanks for the love");
+                    $("." + quoteId + "quoteText").text((num + 1) + "you liked this quote");
+                    $("." + quoteId + ".fas.fa-heart").removeClass("black").addClass("red");
+
+                } else if (data === "failure") {
+                    $("#success_notifs").fadeIn("fast");
+                    $(".notifs_message").html("server error");
+                }
+            });
+        }
+
+    } else {
+        $("#alert_notifs").fadeIn("fast");
+        $(".notifs_message").html("You need to <a href='signIn.php'>log in</a> to do that");
+    }
+};
+
 
 
 

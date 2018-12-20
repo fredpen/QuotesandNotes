@@ -79,12 +79,7 @@
 
 </body>
 
-<?php 
-if ($pageTitle !== "Login" && $pageTitle !== "Register" && $pageTitle !== "Contribute" && $pageTitle !== "Authors") require_once 'includes/scriptContent.php';
 
-?>
-<!-- custom js -->
-<script src="assets/js/custom.js"></script>
 <!--   Core JS Files   -->
 <script src="assets/js/lib/bootstrap.min.js" type="text/javascript"></script>
 <script src="assets/js/lib/material.min.js"></script>

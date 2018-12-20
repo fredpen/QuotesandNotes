@@ -24,24 +24,22 @@ if ($quoteArray) {
                     <footer class="quote-footer">
                         <div>
                             <?php 
-                            $quoteLoveCheck = $quote->quoteLoveCheck($quoteId, $userId);
+                            $check = ($quote->quoteLoveCheck($quoteId, $userId) ? "true" : "false");
                             $numberOfQuoteLover = $quote->numberOfQuoteLover($quoteId);
                             $loveQuoteString = $quote->numberOfQuoteLoverString($quoteId, $userId);
                             // check if a user is loggedin 
                             if ($userId) {
                                 // if user has liked the quote before
-                                if ($quoteLoveCheck) { ?>
-                                    <p onclick="likeQuote(<?php echo $quoteId; ?>)" class="<?php echo $row['id']; ?>">
-                                        <a type="button" data-toggle="modal" data-target="#unlikeQuote">
+                                if ($check) { ?>
+                                    <p onclick="likeQuote(<?php echo $quoteId; ?>, <?php echo $check; ?>,  <?php echo $numberOfQuoteLover; ?>)" class="<?php echo $row['id']; ?>">
                                             <i class="<?php echo $row['id']; ?> fas fa-heart red"></i>
                                             <span class="<?php echo $row['id'] ?>quoteText"><?php echo $loveQuoteString; ?></span>
-                                        </a>
                                     </p>
 
                                 <!-- if user has not liked the quote before -->
                                     <?php 
                                 } else { ?>
-                                    <p onclick="likeQuote(<?php echo $quoteId; ?>)" class="<?php echo $row['id']; ?>">
+                                    <p onclick="likeQuote(<?php echo $quoteId; ?>, <?php echo $check; ?>,  <?php echo $numberOfQuoteLover; ?>)" class="<?php echo $row['id']; ?>">
                                         <i class="<?php echo $row['id']; ?> fas fa-heart black"></i>
                                         <span class="<?php echo $row['id'] ?>quoteText"><?php echo $loveQuoteString ?></span>
                                     </p>
@@ -50,12 +48,10 @@ if ($quoteArray) {
                                                                 
                                 // if there is no logged in user
                             } else { ?>
-                                <p onclick="likeQuote(<?php echo $quoteId; ?>)" class="<?php echo $row['id']; ?>">
+                                <p onclick="likeQuote(<?php echo $quoteId; ?>, <?php echo $check; ?>,  <?php echo $numberOfQuoteLover; ?>)" class="<?php echo $row['id']; ?>">
                                     <!-- Button trigger modal for liking quotes-->
-                                    <a type="button" data-toggle="modal" data-target="#signUp">
                                         <i class="<?php echo $row['id']; ?> fas fa-heart black"></i>
                                         <span class="<?php echo $row['id'] ?>quoteText"><?php echo $loveQuoteString ?>                       
-                                    </a>
                                 </p>
                                 <?php 
                             }; ?>
@@ -155,24 +151,22 @@ if ($quoteArray) {
                             <!-- the house for love checks -->
                             <div>
                                 <?php 
-                                $quoteLoveCheck = $quote->quoteLoveCheck($quoteId, $userId);
+                                $check = ($quote->quoteLoveCheck($quoteId, $userId) ? "true" : "false");
                                 $numberOfQuoteLover = $quote->numberOfQuoteLover($quoteId);
                                 $loveQuoteString = $quote->numberOfQuoteLoverString($quoteId, $userId);
                                 // check if a user is loggedin 
                                 if ($userId) {
                                     // if user has liked the quote before
-                                    if ($quoteLoveCheck) { ?>
-                                        <p onclick="likeQuote(<?php echo $quoteId; ?>)" class="<?php echo $row['id']; ?>">
-                                            <a type="button" data-toggle="modal" data-target="#unlikeQuote">
+                                    if ($check) { ?>
+                                          <p onclick="likeQuote(<?php echo $quoteId; ?>, <?php echo $check; ?>,  <?php echo $numberOfQuoteLover; ?>)" class="<?php echo $row['id']; ?>">
                                                 <i class="<?php echo $row['id']; ?> fas fa-heart red"></i>
                                                 <span class="<?php echo $row['id'] ?>quoteText"><?php echo $loveQuoteString; ?></span>
-                                            </a>
                                         </p>
 
                                     <!-- if user has not liked the quote before -->
                                         <?php 
                                     } else { ?>
-                                        <p onclick="likeQuote(<?php echo $quoteId; ?>)" class="<?php echo $row['id']; ?>">
+                                          <p onclick="likeQuote(<?php echo $quoteId; ?>, <?php echo $check; ?>,  <?php echo $numberOfQuoteLover; ?>)" class="<?php echo $row['id']; ?>">
                                             <i class="<?php echo $row['id']; ?> fas fa-heart black"></i>
                                             <span class="<?php echo $row['id'] ?>quoteText"><?php echo $loveQuoteString ?></span>
                                         </p>
@@ -181,12 +175,10 @@ if ($quoteArray) {
                                                                     
                                     // if there is no logged in user
                                 } else { ?>
-                                    <p onclick="likeQuote(<?php echo $quoteId; ?>)" class="<?php echo $row['id']; ?>">
+                                      <p onclick="likeQuote(<?php echo $quoteId; ?>, <?php echo $check; ?>,  <?php echo $numberOfQuoteLover; ?>)" class="<?php echo $row['id']; ?>">
                                         <!-- Button trigger modal for liking quotes-->
-                                        <a type="button" data-toggle="modal" data-target="#signUp">
                                             <i class="<?php echo $row['id']; ?> fas fa-heart black"></i>
                                             <span class="<?php echo $row['id'] ?>quoteText"><?php echo $loveQuoteString ?>                       
-                                        </a>
                                     </p>
                                     <?php 
                                 }; ?>

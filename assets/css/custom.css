@@ -272,6 +272,11 @@ hr{
    cursor: pointer;
    margin: 0;
    font-size: 0.9em;
+   color: #ae42c8;
+}
+
+#home .quote-footer p:hover{
+   color: blue;
 }
 
 #card-content{
@@ -594,8 +599,10 @@ a:hover, a:focus {
 .notifs{
     display: none;
     position: fixed;
-    top: 14vh;
-    z-index: 30;
-    right: 0;
-    width: 247px;
+    top: 90px;
+    z-index: 90;
+    right: 2vw;
+    width: 300px;
+    box-sizing: border-box;
+    background: transparent;
 }
