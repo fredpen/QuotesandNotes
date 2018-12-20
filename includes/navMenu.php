@@ -36,7 +36,7 @@
         <link rel="shortcut icon" href="favicon.ico">
         <link rel="icon" type="image/ico" sizes="16x16" href="favicon.ico">
 
-        <!-- <!-- You can use Open Graph tags to customize link previews. -->
+        <!-- You can use Open Graph tags to customize link previews. -->
         <!-- <meta property="og:url"           content="http://localhost/Quotes&Notes/index.php" />
         <meta property="og:type"          content="website" />
         <meta property="og:title"         content="Quotes and Notes" />
@@ -57,9 +57,6 @@
         
         <!-- twitter script -->
         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-       
-
         <!-- jquery script -->
         <script src="assets/js/lib/jquery.min.js" type="text/javascript"></script>
 
@@ -83,7 +80,7 @@
 
     <body id="home" class="index-page">
 
-        <div id="topNav">
+        <nav id="topNav">
             <ul class="navbar-nav nav">
                 <li id="navBrand"></i><a href="authors.php">Authors: </a></li>
                 <?php foreach ($validChar as $key) { ?>
@@ -91,15 +88,9 @@
                     <?php 
                 }; ?> 
             </ul>
-        </div>
+        </nav>
 
-        <!-- set navigation -->
-        <?php $nav = ($pageTitle == "authors" ? "" : " navbar-fixed-top auth") ?>
-                    
-        <!-- main nav -->
-       
-        <!-- <nav class="navbar navbar-default navbar-primary navbar-fixed-top auth"> -->
-        <nav class="navbar navbar-default navbar-primary <?php echo ($pageTitle == "Authors" ? "" : "navbar-fixed-top") ?>  auth">
+        <nav class="navbar navbar-default navbar-primary <?php echo ($pageTitle == "Authors" ? "" : "navbar-fixed-top"); ?>  auth">
             <div id="mainNavContainer" class="container-fluid">
 
                 <div>
@@ -107,13 +98,12 @@
                         <li id="navBrand"><a href="index.php">QN</a></li>
                     </ul>
                 </div>
-
                 <div class="navbar-main">
                     <ul class="nav navbar-nav">
                         <li><a href="uploadQuote.php">Contribute</a></li>
                         <li><a href="blog/home.php">blog</a></li>
                         <li><a href="authors.php">Authors</a></li>
-                        <li><a href="genres.php">Genres</a></li>
+                        <!-- <li><a href="genres.php">Genres</a></li> -->
                     </ul>
                 </div>
 
@@ -128,7 +118,7 @@
                             <li><a href="uploadQuote.php">Contribute</a></li>
                             <li><a href="blog/home.php">blog</a></li>
                             <li><a href="authors.php">Authors</a></li>
-                            <li><a href="genres.php">Genres</a></li>
+                           <!-- <li><a href="genres.php">Genres</a></li> -->
                         </ul>
                     </div>  
                 </div>

@@ -28,7 +28,6 @@ $author = new Author($con);
 // character that has corresponding author in the database
 $validChar = $author->validChar();
 
-if ($pageTitle !== "Login" && $pageTitle !== "Register") require_once 'includes/error_modals.php';
 require_once 'includes/navMenu.php';
 
 

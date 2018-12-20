@@ -7,7 +7,7 @@
     <div class="row">
       <div class="col-md-6">
         <h5>About Us</h5>
-        <p>Creative Tim is a startup that creates design tools that make the web development process faster and easier. </p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic nostrum, itaque dignissimos provident quis voluptas, vitae ratione dolor, placeat quidem sit dolore suscipit tempora quaerat deleniti. Distinctio necessitatibus explicabo quibusdam. </p>
         <p>We love the web and care deeply for how users interact with a digital product. We power businesses and individuals to create better looking web projects around the world. </p>
       </div>
 
@@ -61,12 +61,6 @@
     </li>
    </ul>
 
-   <div class="copyright pull-right">
-<a href="#pablo">
-         Contact Us
-      </a>
-     
-   </div>
    </div>
     <hr/>
 

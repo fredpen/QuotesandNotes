@@ -14,24 +14,25 @@ $(document).ready(function () {
 
 // search for quotes from the database based on user search term
 function searchQuotes() {
-    // capture the value of the search string 
+
     let quote_string = $("#seachQuotes").val();
-    // check if the search string is atleast 3 characters
+
     if (quote_string.length >= 2) {
-        $(".notifs").fadeIn("fast");
-        $(".notifs_message").html('<p>Searching<br><img src="assets/images/gipkhy.gif" alt=""></p>');
-        // make an ajax call searching for the search string
+        $("#success_notifs").fadeIn("fast");
+        $(".notifs_message").text('Searching . . .');
+
         $.get("includes/handlers/ajax/searchQuote.php", { quote_string: quote_string }, function (data) {
             if (data) {
                 // make the result container visible
                 $(".searchResult").fadeIn("fast");
                 // $("#searchResult").html(searchString);
                 $("#searchResult").html(data);
-                $(".notifs").fadeOut("fast");
+                $(".notifs_message").text('search done, thanks for the patience');
             }
         })
     } else {
         $(".searchResult").fadeOut("slow");
+        $("#success_notifs").fadeOut("fast");
     }
 }
 

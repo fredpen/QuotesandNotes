@@ -100,9 +100,9 @@ if ($quoteArray) {
                         <a class="twitter-share-button"
                             href="https://twitter.com/share"
                             data-text="<?php echo $row['content'] ?>"
-                            data-url="https://QuotesandNotes.com"
+                            data-url="https://quotesandnote.com"
                             data-hashtags="<?php echo $row['genre1'] . "," . $row['genre2'] . "," . $row['genre3'] ?>"
-                            data-via="freddgreat"
+                            data-via="d_name_is_fred"
                             data-show-count="true"
                             data-related="twitterapi,twitter">
                         </a>
@@ -226,12 +226,12 @@ if ($quoteArray) {
                             <a class="twitter-share-button"
                                 href="https://twitter.com/share"
                                 data-text="<?php echo $row['content'] ?>"
-                                data-url="https://QuotesandNotes.com"
+                                data-url="https://quotesandnote.com"
                                 data-hashtags="<?php echo $row['genre1'] . "," . $row['genre2'] . "," . $row['genre3'] ?>"
-                                data-via="freddgreat"
+                                data-via="d_name_is_fred"
                                 data-show-count="true"
                                 data-related="twitterapi,twitter">
-                            </a>
+                            </a>    
                         </div>
                         </div>
                     </form>

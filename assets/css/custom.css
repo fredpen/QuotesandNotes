@@ -67,14 +67,13 @@ body{
 
 #home #mainNavContainer a,
 #home #mainNavContainer div button{
-    font-weight: 500;
-    font-size: 0.9em;
+    /* font-size: 1.2em; */
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-family: cursive;
+    font-weight: 900;
+    font-style: oblique;
 }
-
-#home #mainNavContainer a{
-    font-size: 1.2em
-}
-
 
 #home #mainNavContainer a:hover{
     color: black;
@@ -152,6 +151,11 @@ hr{
 /* --------------------------------------index page --------------------------------------*/
 .card .card-content {
     padding: 15px 15px;
+}
+
+#home .card-title{
+    font-size: 16px;
+    line-height: 24px;
 }
 
 .item .card{
@@ -332,11 +336,6 @@ div .profile-photo-small{
   width: 25%;
 }
 
-/*footer */
-footer .container{
-  width: 100%;
-}
-
 
 /*--------------author page-----------------*/
 #home .wikiImg{
@@ -425,8 +424,8 @@ footer .container{
 }
 
 .btn.btn-just-icon, .navbar .navbar-nav > li > a.btn.btn-just-icon {
-    font-size: 17px;
-    padding: 10px;
+    font-size: 12px;
+    padding: 8px;
     line-height: 1em;
 }
 
@@ -557,10 +556,10 @@ a:hover, a:focus {
     background: #eee;
 }
 
-/* 
+
 #footer{
     width: 100vw;
-} */
+}
 
 #postComment{
     background: #eee;
