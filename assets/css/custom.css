@@ -588,3 +588,14 @@ a:hover, a:focus {
     max-width: 500px;
     margin: 0 auto;
 }
+
+
+/* notification */
+.notifs{
+    display: none;
+    position: fixed;
+    top: 14vh;
+    z-index: 30;
+    right: 0;
+    width: 247px;
+}

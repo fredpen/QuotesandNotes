@@ -167,3 +167,17 @@
             <p>This site is under development. suggestions are welcome and should be submitted to contactus@quotesandnote.com</p>
         </div>
 
+         <div class="notifs">
+            <div class="alert alert-success">
+                <div class="alert-icon">
+                    <i class="material-icons">check</i>
+                </div>
+
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true"><i class="material-icons">clear</i></span>
+                </button>
+
+                <span class="notifs_message">lets test</span>
+            </div>
+        </div>
+
