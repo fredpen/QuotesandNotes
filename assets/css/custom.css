@@ -67,12 +67,9 @@ body{
 
 #home #mainNavContainer a,
 #home #mainNavContainer div button{
-    /* font-size: 1.2em; */
     padding-top: 15px;
     padding-bottom: 15px;
     font-family: cursive;
-    font-weight: 900;
-    font-style: oblique;
 }
 
 #home #mainNavContainer a:hover{
@@ -110,9 +107,20 @@ body{
 
 #home #topNav ul li a{
     color: #000000de;
-    padding: 4px;
+    padding: 5px;
 }
 
+#home #topNav ul li a:hover{
+    color: white;
+    padding: 5px;
+    background: black;
+}
+
+#navBrand a{
+    font-size: 18px;
+    font-weight: 900;
+    font-family: cursive;
+}
 
 
 /* reset some custom settings */
@@ -165,7 +173,7 @@ hr{
 #home .genre {
    text-transform: capitalize;
    color: white;
-   font-size: 11px;
+   font-size: 12px;
 }
 
 .topMargin65{
@@ -508,6 +516,10 @@ div .profile-photo-small{
     padding: 10px;
     max-width: 800px;
     margin: 0 auto;
+    z-index: 9999;
+    max-height: 34vh;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
 }
 
 

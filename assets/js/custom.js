@@ -7,8 +7,9 @@ var userId,
 $(document).ready(function () {
 
     // fadeout the search term and bar when it loses focus
-    $(".searchResult").on("blur", function () {
-        $(".searchResult").fadeOut("slow");
+    $(".frow").on("click", function () {
+        $(".searchResult").fadeOut("fast");
+        $("#success_notifs").fadeOut("fast");
     })
 });
 

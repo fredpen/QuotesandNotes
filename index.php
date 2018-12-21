@@ -6,7 +6,7 @@ include_once "includes/searchbar.php";
  // save the data from fetch author to authors
 $authorArray = $quote->fetchAuthor("5");
 // save the data from fetch genre
-$genreArray = $quote->fetchGenre("5");  
+$genreArray = $quote->fetchGenre("15");  
 // save all the quotes into an array
 $quoteArray = $quote->fetchQuotes();
 // the quotes to be diplayed

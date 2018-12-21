@@ -8,7 +8,6 @@ $randQuote = $quote->fetchRandomQuote(); ?>
         <div class="row">
                 <div class="col-md-5 col-md-offset-3  topMargin50">
 
-                    <div class="text-center">
 
                         <h3 class="text-center title">Quote of the Moment</h3>
 
@@ -26,12 +25,12 @@ $randQuote = $quote->fetchRandomQuote(); ?>
                                     </div>
 
                                     <div class="pull-right col-xs-12 text-right">
-                                        <a class="twitter-share-button btn btn-just-icon btn-round btn-twitter"
+                                        <a class="twitter-share-button"
                                             href="https://twitter.com/share"
                                             data-text="<?php echo $randQuote['content'] ?>"
-                                            data-url="https://QuotesandNotes.com"
+                                            data-url="https://quotesandnote.com"
                                             data-hashtags="<?php echo $randQuote['genre1'] . "," . $randQuote['genre2'] . "," . $randQuote['genre3'] ?>"
-                                            data-via="freddgreat"
+                                            data-via="d_name_is_fred"
                                             data-show-count="true"
                                             dara-size="large"
                                             data-related="twitterapi,twitter">
@@ -45,7 +44,6 @@ $randQuote = $quote->fetchRandomQuote(); ?>
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
         </div>
     </div>
