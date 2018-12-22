@@ -94,7 +94,7 @@ $theError = checkError($errorMessages, $errors);
         <div id="contribute_container" class="main-container light">
 
             <?php if ($theError) { ?>
-                <div id="errorDiv" class='alert alert-info alert-dismissible col-sm-12' role='alert'>
+                <div id="errorDiv" class='' role='alert'>
                     <?php echo $theError; ?>
                     <a class='alert-link' href='signIn.php'>here</a>
                     <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
@@ -136,7 +136,7 @@ $theError = checkError($errorMessages, $errors);
                 </div>
                 
                 <div class="col-sm-12  text-center">
-                    <button id="submitQuote" type="submit" name="uploadQuoteButton" class="btn btn-primary btn-lg" data-toggle="tooltip" data-Button group placement="top" title="Select three genre category before submitting the quote">Submit
+                    <button onclick="contribute()" ondblclick="contribute()" id="submitQuote" type="submit" name="uploadQuoteButton" class="btn btn-primary btn-lg" data-toggle="tooltip" data-Button group placement="top" title="Select three genre category before submitting the quote">Submit
                     </button>
                 </div>
             </form>

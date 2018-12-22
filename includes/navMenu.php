@@ -167,30 +167,10 @@
         <div class="testing">
             <p>This site is under development. suggestions are welcome and should be submitted to contactus@quotesandnote.com</p>
         </div>
-
-        <div id="alert_notifs" class="notifs">
-            <div class="alert alert-warning">
-                <div class="alert-icon">
-                    <i class="material-icons">warning</i>
-                </div>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true"><i class="material-icons">clear</i></span>
-                </button>
-                <span>Warning Alert:</span> <span class="notifs_message"></span>
+        
+        <div id="errorDiv" role='alert'>
+            <span class="notifs_message">kdkdkdk</span>
+            <div class="button_container">
+                <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>X</span></button>
             </div>
         </div>
-        
-        <div id="success_notifs" class="notifs">
-            <div class="alert alert-success">
-                <div class="alert-icon">
-                    <i class="material-icons">check</i>
-                </div>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true"><i class="material-icons">clear</i></span>
-                </button>
-                <b>Success Alert:</b> <span class="notifs_message"></span>
-            </div>
-        </div>
-        
-        
-

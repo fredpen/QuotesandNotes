@@ -65,6 +65,11 @@
     margin-bottom: 20px;
 }
 
+.item:hover{
+    border: 3px solid #8080801c;
+}
+
+
 /* for xtra small devices */
 @media screen and (min-width: 10px) {
     .left-container{
@@ -90,6 +95,8 @@
     .frow{
         padding: 10px;
     }
+
+  
 }
 
 /* for xtra small device landscape */
@@ -233,6 +240,7 @@
     #topNav{
         display: none;
     }
+
     #home #mainNavContainer .navbar-main2{
         display: flex;
     }
@@ -241,13 +249,9 @@
         margin-top: 0;
     }
 
-    #jumbotron,
-        margin-top: 45px;
+     #errorDiv{
+        top: 50px;
     }
-
-    /* #contribute_container{
-        margin-top: 35px;
-    } */
 
     #dropdownMenu1,
     #home #mainNavContainer div button{

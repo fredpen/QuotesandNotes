@@ -1,7 +1,24 @@
+// $(document).ready(function () {
+//     $("[data-toggle='tooltip']").tooltip();
 
+//     // disable the submit button to prevent unsuccesful uploads
+//     $("#submitQuote").attr("disabled", "true");
 
-$(document).ready(function () {
+//     // check the number of checkboxes clicked and disbled the rest at three
+//     $("input[type= checkbox]").on("click", function () {
 
-    // alert("whats going on here");
+//         // number of checked boxes
+//         numOfChecked = $("input[type = checkbox]:checked").length;
 
-});
+//         if (numOfChecked == 3) {
+//             $("#submitQuote").removeAttr("disabled");
+//             $("input[type = checkbox]:not(:checked)").attr("disabled", "true");
+//         } else if (numOfChecked >= 3) {
+//             $("#submitQuote").attr("disabled", "true");
+
+//         } else {
+//             $("input[type = checkbox]:not(:checked)").removeAttr("disabled");
+//             $("#submitQuote").attr("disabled", "true");
+//         }
+//     });
+// });

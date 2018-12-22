@@ -337,9 +337,6 @@ div .profile-photo-small{
   display: none;
 }
 
-#home .close {
-     right: 0; 
-}
 
 /*the profile page*/
 #home .gif{
@@ -600,20 +597,41 @@ a:hover, a:focus {
     margin: 0 auto;
 }
 
-/* notification */
-.notifs{
-    display: none;
-    position: fixed;
-    top: 90px;
-    z-index: 90;
-    right: 2vw;
-    width: 300px;
-    box-sizing: border-box;
-    background: transparent;
-}
-
 /* contribut page */
 .options:hover{
     background: #337ab7;
 }
 
+#errorDiv{
+    display: none;
+   padding: 15px 10px;
+    position: fixed;
+    top: 80px;
+    max-width: 90vw;
+    right: 0;
+    z-index: 99999;
+    background: #4caf50;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+#errorDiv:hover{
+    border: 1px solid transparent;
+}
+.notifs_message{
+    margin: 0;
+    align-self: center;
+    padding: 0 5px;
+}
+
+.button_container{
+    align-self: center;
+    padding: 0 10px 0 20px;
+    font-size: 1.2em;
+}
+
+.blue{
+    font-size: 13px;
+    padding: 0 8px;
+}

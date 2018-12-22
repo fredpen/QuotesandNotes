@@ -91,7 +91,7 @@ $quoteArray = "";
 
                     <div class="media-body">
                         <textarea id="comment" class="form-control" name="comment" placeholder="Write some nice stuff or nothing..." rows="4"></textarea>
-                        <div class="media-footer">
+                        <div class="media-footer text-center">
                             <a id="submit" onclick="post_comment(<?php echo $quoteId; ?>)" class="btn btn-primary pull-right">Post Comment</a>
                         </div>
                     </div>    
