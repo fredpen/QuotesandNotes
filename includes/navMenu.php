@@ -62,8 +62,14 @@
 
          <!-- custom js -->
         <script src="assets/js/custom.js"></script>
-        
 
+        <?php if ($pageTitle == "Contribute") { ?>
+            <!-- contribute script -->
+            <script src="assets/js/contribute.js"></script>
+            <?php 
+        } ?>
+        
+        
         <script>
             <?php if ($userDetails) { ?>
                 userId = "<?php echo $userDetails['id']; ?>";
@@ -90,7 +96,7 @@
             </ul>
         </nav>
 
-        <nav class="navbar navbar-default navbar-primary <?php echo ($pageTitle == "Authors" ? "" : "navbar-fixed-top"); ?>  auth">
+        <nav class="navbar navbar-default navbar-primary <?php echo ($pageTitle == "Authors" || $pageTitle == "Contribute" ? "" : "navbar-fixed-top"); ?>  auth">
             <div id="mainNavContainer" class="container-fluid">
 
                 <div>

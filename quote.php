@@ -100,8 +100,9 @@ $quoteArray = "";
             </div>
         </div>
     </div>
+    </div>
 <?php
-require_once 'includes/indexRightContainer.php';
+// require_once 'includes/indexRightContainer.php';
 include_once "includes/footer.php"
 ?>
 

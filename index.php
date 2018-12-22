@@ -20,6 +20,7 @@ $quoteArray = $quote->fetchQuotes();
 
         <div class="main-container">
             <div class="masonry"><?php require_once 'includes/indexMainContainer.php'; ?></div>
+    </div>
 </div>
 
 <?php

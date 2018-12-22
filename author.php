@@ -96,6 +96,7 @@ $authorDetails = $quote->fetchAuthorDetails($authorId);
 
     </div>
 </div>
+</div>
 
 
  <!-- the footer -->

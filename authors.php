@@ -13,7 +13,9 @@ $num = 0;
 
 <div class="fcontainer">
     <div class="frow">
-        <?php require_once 'includes/indexLeftContainer.php'; ?>
+        <?php 
+        // require_once 'includes/indexLeftContainer.php'; 
+        ?>
 
         <div class="main-container">
             <div class="text-center table-responsive">
@@ -49,11 +51,12 @@ $num = 0;
                     </tbody>
                 </table>
             </div>
+        </div>
             
 </div>
 
 <!-- right section of the main container -->
 <?php
-require_once 'includes/indexRightContainer.php';
+// require_once 'includes/indexRightContainer.php';
 require_once 'includes/footer.php';
 ?>

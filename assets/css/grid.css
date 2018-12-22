@@ -1,6 +1,5 @@
 .fcontainer{
    max-width: 3000px;
-   /* width: 100vw; */
    padding: 0;
    margin: 0 auto;
 }
@@ -242,9 +241,13 @@
         margin-top: 0;
     }
 
-    #jumbotron{
+    #jumbotron,
         margin-top: 45px;
     }
+
+    /* #contribute_container{
+        margin-top: 35px;
+    } */
 
     #dropdownMenu1,
     #home #mainNavContainer div button{

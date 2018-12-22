@@ -33,6 +33,7 @@ $quoteArray = $quote->fetchQuotesFromSameGenre($genre);
             <!-- import the maincontainer -->
             <div class="masonry"><?php require_once 'includes/indexMainContainer.php'; ?>
 
+        </div>
     </div>
 </div>
 
