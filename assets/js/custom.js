@@ -11,6 +11,12 @@ $(document).ready(function () {
         $(".searchResult").fadeOut("fast");
     })
 
+    // clear search term
+    $("#clear").on("click", function () {
+        $("#seachQuotes").val("");
+        $("#errorDiv").fadeOut("fast");
+    })
+
     $(".close").on("click", function () {
         $("#errorDiv").fadeOut("fast");
     })
@@ -45,7 +51,7 @@ function post_comment(quoteId) {
         // get the details of the comment from the textarea
         var comment = $("#comment").val();
         if (comment.length == 0) {
-            $("#comment").css("border", "1px solid red");
+            $("#comment").css("border-bottom", "1px solid red");
             $("#errorDiv").css("display", "flex");
             $(".notifs_message").text("Comment field cannot be empty");
         } else {
@@ -55,7 +61,7 @@ function post_comment(quoteId) {
                 if (data) {
                     $("#commentSection").append(data);
                     $("#errorDiv").css("display", "flex");
-                    $(".notifs_message").text("Your comment has been posted");
+                    $(".notifs_message").text("Your comment has been posted, thanks for sharing");
                     $("#comment").val("");
                 }
 

@@ -87,22 +87,9 @@ if (isset($_POST['uploadQuoteButton'])) {
 $theError = checkError($errorMessages, $errors);
 ?>
 
-
-
 <div class="fcontainer">
     <div class="frow">
         <div id="contribute_container" class="main-container light">
-
-            <?php if ($theError) { ?>
-                <div id="errorDiv" class='' role='alert'>
-                    <?php echo $theError; ?>
-                    <a class='alert-link' href='signIn.php'>here</a>
-                    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-                        <span aria-hidden='true'>&times;</span>
-                    </button>
-                </div>
-                <?php 
-            }; ?>
 
             <form action="uploadQuote.php" method="post">
                 <div class="col-sm-12 mx-auto">

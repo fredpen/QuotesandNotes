@@ -88,9 +88,9 @@
 
         <nav id="topNav">
             <ul class="navbar-nav nav">
-                <li id="navrand"></i><a href="authors.php">Authors: </a></li>
+                <li id="navrand"></i>Authors:</li>
                 <?php foreach ($validChar as $key) { ?>
-                    <li><a class="text-uppercase" href="authors.php#<?php echo $key; ?>"><?php echo $key; ?></a></li>
+                    <li><a href="authors.php#<?php echo $key; ?>"><?php echo $key; ?></a></li>
                     <?php 
                 }; ?> 
             </ul>

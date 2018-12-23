@@ -1,11 +1,4 @@
 <?php
-// class Account_handler
-// {
-//     public function __construct() {
-//         $this->errorArray =
-//     }
-// }
-
 $errorArray = array();
    // getting error
 function errorGetter($error)
