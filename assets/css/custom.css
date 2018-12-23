@@ -4,7 +4,7 @@
   html,body{
    margin: 0;
    padding: 0;
-   font-family: 'Open Sans', sans-serif;
+   /* font-family: 'Open Sans', sans-serif; */
 }
 
 .testing{
@@ -571,6 +571,11 @@ a:hover, a:focus {
     top: 5px;
     right: 9px;
 }
+
+.single_card_icon span{
+    font-size: 15px;
+}
+
 
 .mailButton{
     display: block;

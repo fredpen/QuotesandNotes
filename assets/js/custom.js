@@ -7,19 +7,6 @@ var userId,
 
 $(document).ready(function () {
 
-    // if (navigator.userAgent.match(/Android/i) ||
-    //     navigator.userAgent.match(/webOS/i) ||
-    //     navigator.userAgent.match(/iPhone/i) ||
-    //     navigator.userAgent.match(/BlackBerry/i) ||
-    //     navigator.userAgent.match(/iPhone|iPad|iPod/i) ||
-    //     navigator.userAgent.match(/IEMobile/i)) {
-    //     alert("This is a mobile device");
-    // } else {
-    //     alert("This is nt a mobile device");
-    //     $("#whatsapp").fadeOut();
-    // }
-
-
     // fadeout the search term and bar when it loses focus
     $(".frow").on("click", function () {
         $(".searchResult").fadeOut("fast");
@@ -155,30 +142,8 @@ function likeSingleQuote(quoteId, check, num) {
     }
 };
 
-
-function whatsapp() {
-    var isMobile = {
-        Android: function () {
-            return navigator.userAgent.match(/Android/i);
-        },
-        BlackBerry: function () {
-            return navigator.userAgent.match(/BlackBerry/i);
-        },
-        iOS: function () {
-            return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-        },
-        Opera: function () {
-            return navigator.userAgent.match(/Opera Mini/i);
-        },
-        Windows: function () {
-            return navigator.userAgent.match(/IEMobile/i);
-        },
-        any: function () {
-            return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
-        }
-    };
-
-    if (isMobile.any()) {
-        //some code...
-    }
+function whats_app() {
+    $("#errorDiv").css("display", "flex");
+    $(".notifs_message").text('You can only share with whatsapp on mobile');
 }
+

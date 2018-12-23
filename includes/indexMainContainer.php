@@ -94,7 +94,12 @@ if ($quoteArray) {
                                 <i class="fab fa-whatsapp"></i>
                             </a>
                             <?php 
-                        }; ?>
+                        } else { ?>
+                            <a onclick="whats_app()" class="btn btn-just-icon btn-round btn-whatsapp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <?php 
+                        } ?>
                        
                         
                         <!-- mail button -->
