@@ -1,5 +1,4 @@
 <?php 
-// fetch a quote for the quote of the moment
 $randQuote = $quote->fetchRandomQuote(); ?>
 
 <div id="jumbotron" class="jumbotron">

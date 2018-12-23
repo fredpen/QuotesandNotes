@@ -21,18 +21,19 @@ if ($quoteArray) {
                             <a class="genre" href='genre.php?genre=<?php echo $row['genre3'] ?>'><?php echo $row['genre3']; ?></a>
                         </p>
                     </div>
-                    <footer class="quote-footer">
+                    <footer class="quote-footer quote_footer">
                         <div>
                             <?php 
                             $check = ($quote->quoteLoveCheck($quoteId, $userId) ? "true" : "false");
                             $numberOfQuoteLover = $quote->numberOfQuoteLover($quoteId);
                             $loveQuoteString = $quote->numberOfQuoteLoverString($quoteId, $userId);
+
                             // check if a user is loggedin 
                             if ($userId) {
                                 // if user has liked the quote before
-                                if ($check) { ?>
+                                if ($check == "true") { ?>
                                     <p onclick="likeQuote(<?php echo $quoteId; ?>, <?php echo $check; ?>,  <?php echo $numberOfQuoteLover; ?>)" class="<?php echo $row['id']; ?>">
-                                            <i class="<?php echo $row['id']; ?> fas fa-heart red"></i>
+                                            <i class="<?php echo $row['id']; ?> fas fa-heart red"> </i>
                                             <span class="<?php echo $row['id'] ?>quoteText"><?php echo $loveQuoteString; ?></span>
                                     </p>
 
@@ -87,9 +88,14 @@ if ($quoteArray) {
                         </a>
 
                         <!-- whatsappp buttons -->
-                        <a href="#pablo" class="btn btn-just-icon btn-round btn-facebook">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
+                        <?php if (detectMobile()) {
+                            $urlencodedtext = urlencode($row['content']); ?>
+                            <a id="whatsapp" href="https://wa.me/?text=urlencodedtext" class="btn btn-just-icon btn-round btn-whatsapp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <?php 
+                        }; ?>
+                       
                         
                         <!-- mail button -->
                         <a href="quote.php?id=<?php echo $quoteId; ?>" class="btn btn-just-icon btn-round btn-github" data-toggle="tooltip" data-placement="top" title="mail quote to a friend" data-container="body">
@@ -131,7 +137,7 @@ if ($quoteArray) {
     $row = $quoteDetails; ?>
 
     <div class="singleCard">
-        <div id="singleCard" class="card topMargin80">
+        <div id="singleCard" class="card">
             <div class="front">
                 <div class="card-content">
                     <!-- the quote  -->
@@ -148,37 +154,36 @@ if ($quoteArray) {
                                     </a>
                                 </div>
                             </div>
-                            <!-- the house for love checks -->
-                            <div>
+
+                            <div class="single_card_icon">
                                 <?php 
                                 $check = ($quote->quoteLoveCheck($quoteId, $userId) ? "true" : "false");
                                 $numberOfQuoteLover = $quote->numberOfQuoteLover($quoteId);
-                                $loveQuoteString = $quote->numberOfQuoteLoverString($quoteId, $userId);
+                                // $loveQuoteString = $quote->numberOfQuoteLoverString($quoteId, $userId);
                                 // check if a user is loggedin 
                                 if ($userId) {
                                     // if user has liked the quote before
-                                    if ($check) { ?>
-                                          <p onclick="likeQuote(<?php echo $quoteId; ?>, <?php echo $check; ?>,  <?php echo $numberOfQuoteLover; ?>)" class="<?php echo $row['id']; ?>">
-                                                <i class="<?php echo $row['id']; ?> fas fa-heart red"></i>
-                                                <span class="<?php echo $row['id'] ?>quoteText"><?php echo $loveQuoteString; ?></span>
+                                    if ($check == "true") { ?>
+                                          <p onclick="likeSingleQuote(<?php echo $quoteId; ?>, <?php echo $check; ?>,  <?php echo $numberOfQuoteLover; ?>)" class="<?php echo $row['id']; ?>">
+                                                <span class="<?php echo $row['id'] ?>quoteText"><?php echo $numberOfQuoteLover ?></span>    
+                                                  <i class="<?php echo $row['id']; ?> fas fa-heart red"></i> 
                                         </p>
 
                                     <!-- if user has not liked the quote before -->
                                         <?php 
                                     } else { ?>
-                                          <p onclick="likeQuote(<?php echo $quoteId; ?>, <?php echo $check; ?>,  <?php echo $numberOfQuoteLover; ?>)" class="<?php echo $row['id']; ?>">
-                                            <i class="<?php echo $row['id']; ?> fas fa-heart black"></i>
-                                            <span class="<?php echo $row['id'] ?>quoteText"><?php echo $loveQuoteString ?></span>
+                                          <p onclick="likeSingleQuote(<?php echo $quoteId; ?>, <?php echo $check; ?>,  <?php echo $numberOfQuoteLover; ?>)" class="<?php echo $row['id']; ?>">
+                                            <span class="<?php echo $row['id'] ?>quoteText"><?php echo $numberOfQuoteLover ?> </span>  
+                                            <i class="<?php echo $row['id']; ?> fas fa-heart black"></i>  
                                         </p>
                                         <?php 
                                     }; 
                                                                     
                                     // if there is no logged in user
                                 } else { ?>
-                                      <p onclick="likeQuote(<?php echo $quoteId; ?>, <?php echo $check; ?>,  <?php echo $numberOfQuoteLover; ?>)" class="<?php echo $row['id']; ?>">
-                                        <!-- Button trigger modal for liking quotes-->
-                                            <i class="<?php echo $row['id']; ?> fas fa-heart black"></i>
-                                            <span class="<?php echo $row['id'] ?>quoteText"><?php echo $loveQuoteString ?>                       
+                                      <p onclick="likeSingleQuote(<?php echo $quoteId; ?>, <?php echo $check; ?>,  <?php echo $numberOfQuoteLover; ?>)" class="<?php echo $row['id']; ?>">
+                                            <span class="<?php echo $row['id'] ?>quoteText"><?php echo $numberOfQuoteLover ?></span>         
+                                            <i class="<?php echo $row['id']; ?> fas fa-heart black"></i>              
                                     </p>
                                     <?php 
                                 }; ?>
@@ -190,23 +195,25 @@ if ($quoteArray) {
                         <!-- enter additional message -->
                         <div class="input-group">
                             <span class="input-group-addon">
-                                <i class="material-icons"></i>
+                                <i class="material-icons">edit</i>
                             </span>
-                            <input type="text" name="additionalMessage" class="form-control" placeholder="Enter additional message here">
+                            <input type="text" name="additionalMessage" class="form-control" placeholder="text goes here">
                         </div>
 
                         <!-- enter receipientMail -->
                         <div class="input-group">
                             <span class="input-group-addon">
-                                <i class="material-icons"></i>
+                                <i class="material-icons">mail</i>
                             </span>
-                            <input type="text" name="receipientMail" class="form-control" placeholder="Enter receiver's Mail">
+                            <input type="text" name="receipientMail" class="form-control" placeholder="receipient's mail">
                         </div>
 
                         <!-- mail sent buttons -->
-                        <div class="text-center">
+                        <div class="mailButton">
                             <button type="submit" name="mailButton" class="btn btn-round btn-md btn-primary text-lowercase">Mail quote </button>
-                            <div class="pull-right text-right">
+                        </div>
+
+                        <div class="pull-right text-right">
                             <?php if ($userId == 1) { ?>
                             <a data-toggle="tooltip" data-placement="top" title="Edit quote" data-container="body" class="btn btn-just-icon btn-round btn-twitter" href="edit.php?id=<?php echo $quoteId ?>"><i class="fas fa-edit"></i>
                             </a> <?php 
@@ -218,7 +225,7 @@ if ($quoteArray) {
                             </a>
 
                             <!-- whatsappp buttons -->
-                            <a href="#pablo" class="btn btn-just-icon btn-round btn-facebook">
+                            <a href="#pablo" class="btn btn-just-icon btn-round btn-whatsapp">
                                 <i class="fab fa-whatsapp"></i>
                             </a>
                             
@@ -233,8 +240,9 @@ if ($quoteArray) {
                                 data-related="twitterapi,twitter">
                             </a>    
                         </div>
-                        </div>
+
                     </form>
+
                 </div> 
             </div>
         </div>

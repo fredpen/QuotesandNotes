@@ -4,7 +4,21 @@ var userId,
     lastname,
     username;
 
+
 $(document).ready(function () {
+
+    // if (navigator.userAgent.match(/Android/i) ||
+    //     navigator.userAgent.match(/webOS/i) ||
+    //     navigator.userAgent.match(/iPhone/i) ||
+    //     navigator.userAgent.match(/BlackBerry/i) ||
+    //     navigator.userAgent.match(/iPhone|iPad|iPod/i) ||
+    //     navigator.userAgent.match(/IEMobile/i)) {
+    //     alert("This is a mobile device");
+    // } else {
+    //     alert("This is nt a mobile device");
+    //     $("#whatsapp").fadeOut();
+    // }
+
 
     // fadeout the search term and bar when it loses focus
     $(".frow").on("click", function () {
@@ -14,6 +28,7 @@ $(document).ready(function () {
     // clear search term
     $("#clear").on("click", function () {
         $("#seachQuotes").val("");
+        $(".searchResult").fadeOut("fast");
         $("#errorDiv").fadeOut("fast");
     })
 
@@ -81,6 +96,40 @@ function likeQuote(quoteId, check, num) {
 
         if (check === true) {
             $("#errorDiv").css("display", "flex");
+            $(".notifs_message").html(" You have liked this quote before");
+
+        } else {
+
+            // make ajax call to test if user has liked quote before
+            $.post("includes/handlers/ajax/loveQuote.php", { quoteId: quoteId, userId: userId }, function (data) {
+                if (data === "success") {
+                    $("#errorDiv").css("display", "flex");
+                    $(".notifs_message").html("Thanks for the love");
+                    $("." + quoteId + "quoteText").text((num + 1) + " you liked this quote");
+                    $("." + quoteId + ".fas.fa-heart").removeClass("black").addClass("red");
+
+                } else if (data === "failure") {
+                    $("#errorDiv").css("display", "flex");
+                    $(".notifs_message").html(" server error");
+                }
+            });
+        }
+
+    } else {
+        $("#errorDiv").css("display", "flex");
+        $(".notifs_message").html("You need to <a class='blue' href='signIn.php'> log in </a> to do that");
+    }
+};
+
+
+
+// like quote on the quote page
+function likeSingleQuote(quoteId, check, num) {
+
+    if (userId) {
+
+        if (check === true) {
+            $("#errorDiv").css("display", "flex");
             $(".notifs_message").html("You have liked this quote before");
 
         } else {
@@ -90,7 +139,7 @@ function likeQuote(quoteId, check, num) {
                 if (data === "success") {
                     $("#errorDiv").css("display", "flex");
                     $(".notifs_message").html("Thanks for the love");
-                    $("." + quoteId + "quoteText").text((num + 1) + "you liked this quote");
+                    $("." + quoteId + "quoteText").html((num + 1));
                     $("." + quoteId + ".fas.fa-heart").removeClass("black").addClass("red");
 
                 } else if (data === "failure") {
@@ -105,3 +154,31 @@ function likeQuote(quoteId, check, num) {
         $(".notifs_message").html("You need to <a class='blue' href='signIn.php'> log in </a> to do that");
     }
 };
+
+
+function whatsapp() {
+    var isMobile = {
+        Android: function () {
+            return navigator.userAgent.match(/Android/i);
+        },
+        BlackBerry: function () {
+            return navigator.userAgent.match(/BlackBerry/i);
+        },
+        iOS: function () {
+            return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+        },
+        Opera: function () {
+            return navigator.userAgent.match(/Opera Mini/i);
+        },
+        Windows: function () {
+            return navigator.userAgent.match(/IEMobile/i);
+        },
+        any: function () {
+            return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+        }
+    };
+
+    if (isMobile.any()) {
+        //some code...
+    }
+}

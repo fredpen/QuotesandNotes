@@ -18,16 +18,9 @@
   flex-grow: 2;
 }
 
-#main-container{
-   max-width: 100%;
-   display: flex;
-   justify-content: center;
-   flex-grow: 1;
-}
-
 .genreList{
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     padding: 0;
     box-sizing: border-box;
 }
@@ -41,12 +34,7 @@
     margin: 0 auto;
 }
 
-/* for the profile page */
-.profilePagemasonry{
-    column-gap: 1em;
-    width: 100%;
-    column-count: 2;
-}
+
 
 .masonry{
     column-gap: 20px;
@@ -69,6 +57,28 @@
     border: 3px solid #8080801c;
 }
 
+/* for profile page, different masory style */
+@media screen and (min-width: 10px) {
+    .profilePagemasonry{
+        column-gap: 1em;
+        width: 100%;
+        column-count: 1;
+    }
+}
+
+@media screen and (min-width: 760px) {
+    .profilePagemasonry{
+        column-count: 2;
+    }
+}
+@media screen and (min-width: 1220px) {
+    .profilePagemasonry{
+        column-count: 3;
+    }
+}
+
+
+
 
 /* for xtra small devices */
 @media screen and (min-width: 10px) {
@@ -77,10 +87,6 @@
     }
 
     .masonry {
-        column-count: 1;
-    }
-
-    .profilePagemasonry{
         column-count: 1;
     }
 
@@ -131,7 +137,7 @@
 }
 
 /* for small devices */
-@media screen and (min-width: 720px) {
+@media screen and (min-width: 730px) {
    .masonry{
      column-count: 2;
    }
@@ -206,12 +212,6 @@
     }
 }
 
-/* profile page -------------- */
-@media screen and (min-width: 800px) {
-    .profilePagemasonry{
-    column-count: 2;
-    }
-}
 
 /* media queries for the h1 and p on the jumbotron */
 @media screen and (min-width: 10px){
@@ -251,6 +251,17 @@
 
      #errorDiv{
         top: 50px;
+    }
+
+    .media .avatar {
+        width: 25px;
+        height: 25px;
+    }
+
+    .quote_moment_card {
+        margin-top: 70px;
+        font-size: 14px;
+        max-width: 90vw;
     }
 
     #dropdownMenu1,

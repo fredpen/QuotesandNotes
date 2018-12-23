@@ -4,9 +4,7 @@
   html,body{
    margin: 0;
    padding: 0;
-/* font-family: 'Cookie', cursive; */
-   /* font-family: 'PT Mono', monospace; */
-/* font-family: 'Inconsolata', monospace; */
+   font-family: 'Open Sans', sans-serif;
 }
 
 .testing{
@@ -70,7 +68,7 @@ body{
 #home #mainNavContainer div button{
     padding-top: 15px;
     padding-bottom: 15px;
-    font-family: cursive;
+    
 }
 
 #home #mainNavContainer a:hover{
@@ -121,7 +119,7 @@ body{
 #navBrand a{
     font-size: 18px;
     font-weight: 900;
-    font-family: cursive;
+    font-family: 'Berkshire Swash', cursive;
 }
 
 
@@ -182,6 +180,7 @@ hr{
 .topMargin65{
   margin-top: 65px;
 }
+
 .topMargin21{
   margin-top: 21px;
 }
@@ -281,10 +280,10 @@ hr{
   padding: 0 5px;
 }
 
-#home .quote-footer{
-    justify-content: flex-start;
+.quote_footer{
     display: flex;
-    flex-shrink: 1;
+    align-items: center;
+    justify-content: space-around;
 }
 
 #home .quote-footer p{
@@ -299,7 +298,6 @@ hr{
 }
 
 #card-content{
-   height: 230px;
    padding: 15px 15px;
 }
 
@@ -329,11 +327,25 @@ div .profile-photo-small{
    padding: 20px 0 2px 0;
 }
 
-#card{
-    background: rgba(255,255,255,.15);
-    color: white;
-    height: unset;
-    margin-bottom: 0%;
+#quote_moment{
+    background: #0F2027;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: #ddd;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+#quote_moment .author a{
+    color: #aaaaaa;
+}
+
+.quote_moment_card{
+    display: flex;
+    justify-content: center;
+    max-width: 60vw;
+    margin: 0 auto;
+    margin-top: 111px;
 }
 
 #home .displayNone{
@@ -342,8 +354,10 @@ div .profile-photo-small{
 
 
 /*the profile page*/
-#home .gif{
-  width: 25%;
+#profile_page_header{
+    background: #0F2027;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 /*--------------author page-----------------*/
@@ -415,10 +429,6 @@ div .profile-photo-small{
   background: black;
 }
 
-#home blockquote{
-   border-left: 9px solid #d2d2d2;
-}
-
 .search:hover,
 .search:active{
     border: 2px solid #808080bd;
@@ -433,6 +443,9 @@ div .profile-photo-small{
 }
 
 /* the liking quote icon */
+.fas{
+    font-size: 16px;
+}
 .red{
     color: red;
 }
@@ -442,9 +455,9 @@ div .profile-photo-small{
 }
 
 .btn.btn-just-icon, .navbar .navbar-nav > li > a.btn.btn-just-icon {
-    font-size: 12px;
+    font-size: 19px;
     padding: 8px;
-    line-height: 1em;
+    /* line-height: 1em; */
 }
 
 .footnote .author{
@@ -553,12 +566,16 @@ a:hover, a:focus {
     flex-grow: 0;
 }
 
-#singleCard .quote-footer{
-    justify-content: space-between;
+.single_card_icon{
+    position: absolute;
+    top: 5px;
+    right: 9px;
 }
 
-#singleCard{
-    padding: 4px;
+.mailButton{
+    display: block;
+    width: 100%;
+    text-align: center;
 }
 
 #singleCard .form-group{
@@ -566,13 +583,21 @@ a:hover, a:focus {
 }
 
 #singleCard{
-    max-width: 600px;
+    max-width: 500px;
+}
+
+#singleCard .card-title {
+    padding-right: 24px;
 }
 
 #commentSection .commentarea{
     background: #eee;
 }
 
+.comment_section{
+    max-width: 780px;
+    margin: 0 auto;
+}
 
 #footer{
     max-width: 100vw;
@@ -590,6 +615,7 @@ a:hover, a:focus {
 
 .singleCardGenreList{
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
 }
 
@@ -623,8 +649,9 @@ a:hover, a:focus {
     z-index: 99999;
     background: #4caf50;
     color: #ffffff;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 600;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.2);
 }
 
 #errorDiv:hover{
@@ -645,4 +672,8 @@ a:hover, a:focus {
 .blue{
     font-size: 13px;
     padding: 0 8px;
+}
+
+#whatsapp{
+    /* display: none; */
 }
