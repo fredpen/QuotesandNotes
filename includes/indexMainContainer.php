@@ -89,8 +89,8 @@ if ($quoteArray) {
 
                         <!-- whatsappp buttons -->
                         <?php if (detectMobile()) {
-                            $urlencodedtext = urlencode($row['content']); ?>
-                            <a id="whatsapp" href="https://wa.me/?text=urlencodedtext" class="btn btn-just-icon btn-round btn-whatsapp">
+                            $urlencodedtext = urlencode($row['content']) ?>
+                            <a id="whatsapp" href="https://wa.me/?text=<?php echo $urlencodedtext; ?>" class="btn btn-just-icon btn-round btn-whatsapp">
                                 <i class="fab fa-whatsapp"></i>
                             </a>
                             <?php 
