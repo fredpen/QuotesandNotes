@@ -150,14 +150,18 @@ function mail_quote(author, quoteId) {
     let email = $("#quote_mail").val();
 
     if (ValidateEmail(email)) {
+        fade_in();
+        $(".notifs_message").text('sending quote to ' + email);
 
         // make the ajax call
         $.post("includes/handlers/ajax/mail_quote_handler.php", { email: email, author: author, quoteId: quoteId, message: message }, function (data) {
+
             if (data) {
-                alert("am back");
-
-                console.log(data);
-
+                $(".notifs_message").text('quote has been sent to ' + email);
+            } else if (data == "invalid_email") {
+                $(".notifs_message").text('The email you entered is invalid');
+            } else {
+                $(".notifs_message").text('Sorry, but we couldnt send your quote at the moment');
             }
         })
 
