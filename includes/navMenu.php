@@ -170,7 +170,7 @@
         </div>
         
         <div id="errorDiv" role='alert'>
-            <span class="notifs_message">kdkdkdk</span>
+            <span class="notifs_message"></span>
             <div class="button_container">
                 <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>X</span></button>
             </div>

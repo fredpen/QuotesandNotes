@@ -2,28 +2,18 @@
 require_once '../../databaseConfig.php';
 
 // check if the quote,the author the genres and user id is passed
-if (isset($_POST['quoteId'])) {
+$quoteId = $_POST['quoteId'];
+$userId = $_POST['userId']; 
 
-    $quoteId = $_POST['quoteId'];
-    $userId = $_POST['userId']; 
+// check if the user has liked the quote before
+$sql = "SELECT id FROM quoteLovers WHERE quote='$quoteId' AND user='$userId'";
+$query = mysqli_query($con, $sql);
 
-      // check if the user has liked the quote before
-    $sql = "SELECT id FROM quoteLovers WHERE quote='$quoteId' AND user='$userId'";
+if (mysqli_num_rows($query) == 0) {
+    // push the details into quotelovers
+    $sql = "INSERT INTO quoteLovers (id, quote, user) VALUES('', '$quoteId', '$userId')";
     $query = mysqli_query($con, $sql);
 
-    if (mysqli_num_rows($query) == 0) {
-        // push the details into quotelovers
-        $sql = "INSERT INTO quoteLovers (id, quote, user) VALUES('', '$quoteId', '$userId')";
-        $query = mysqli_query($con, $sql);
-
-        if ($query) {
-            echo "success";
-        } else {
-            echo "failure";
-        }
-    }
-
-} else {
-    echo "server busy";
+    echo ($query ? "success" : "failure");
 }
 ?>

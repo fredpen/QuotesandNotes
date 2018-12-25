@@ -178,7 +178,7 @@ hr{
 }
 
 .topMargin65{
-  margin-top: 65px;
+  margin-top: 88px;
 }
 
 .topMargin21{
@@ -212,18 +212,14 @@ hr{
 /* sign up page-------------------------------------------------- */
 
 #home #registerContainer{
-   background-image: url("../images/registerbg.jpg");
-   background-size: contain;
-   background-position: center;
-   background-repeat: round;
+   background: #1f4037;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #99f2c8, #1f4037);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #99f2c8, #1f4037); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    /* background-image: url("../images/registerbg.jpg"); */
+    background-size: contain;
+    background-position: center;
+    background-repeat: round;
 }
-
-/* #{
-   background-image: url(../images/bg7.jpg);
-   background-size: cover;
-   background-position: top center;
-   /* filter-color: purple; */
-/* } */ */
 
 #home .star{
   color: red;
@@ -242,7 +238,7 @@ hr{
 
 #home .pillButton{
    width: 40%;
-   margin: 20px auto 0 auto;
+   margin: 12px auto 0 auto;
 }
 
 #home .topMargin80{
@@ -471,16 +467,17 @@ div .profile-photo-small{
 
 /* the jumbotron */
 #jumbotron{
-    height: 70vh;
+    height: 100vh;
     padding: 0;
-    margin: 14px 0 0 0;
     display: flex;
     align-items: center;
-    background: #99999933;
-    background: url(../images/bg0.jpg);
+    background: #0F2027;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background-position: top center;
     background-size: cover;
     background-repeat: no-repeat;
+    margin-bottom: 0;
 }
 
 #jumbotron h1{
@@ -499,6 +496,7 @@ div .profile-photo-small{
 
 .jumbotron .container {
     position: relative;
+    margin-top: -40px;
 }
 
 .search{
@@ -644,7 +642,8 @@ a:hover, a:focus {
     background: #337ab7;
 }
 
-#errorDiv{
+
+.errorDiv{
     display: none;
    padding: 15px 10px;
     position: fixed;
@@ -659,7 +658,7 @@ a:hover, a:focus {
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.2);
 }
 
-#errorDiv:hover{
+.errorDiv:hover{
     border: 1px solid transparent;
 }
 .notifs_message{
@@ -678,7 +677,13 @@ a:hover, a:focus {
     font-size: 13px;
     padding: 0 8px;
 }
+.trends{
+    text-align: center;
+    color: #aaaaaa;
+    text-transform: capitalize;
+}
 
-#whatsapp{
-    /* display: none; */
+/* for tracking display of error div */
+.class_flex{
+    height: unset;
 }

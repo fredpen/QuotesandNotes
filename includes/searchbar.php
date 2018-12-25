@@ -13,6 +13,7 @@ $randQuote = $quote->fetchRandomQuote(); ?>
                     <div id="clear"> X </div>
                 </div>
             </form>
+            <h6 class="trends">Trending searches: inspiration, motivation, love, money </h6>
         </div>
 
         <div class="col-sm-12">

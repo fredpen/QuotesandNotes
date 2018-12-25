@@ -89,7 +89,7 @@ if ($quoteArray) {
 
                         <!-- whatsappp buttons -->
                         <?php if (detectMobile()) {
-                            $urlencodedtext = urlencode($row['content']) ?>
+                            $urlencodedtext = urlencode($row['content'] . " https://quotesandnote.com/") ?>
                             <a id="whatsapp" href="https://wa.me/?text=<?php echo $urlencodedtext; ?>" class="btn btn-just-icon btn-round btn-whatsapp">
                                 <i class="fab fa-whatsapp"></i>
                             </a>
@@ -196,13 +196,12 @@ if ($quoteArray) {
                         </footer>
                     </div>
 
-                    <form action="index.php" method="POST">
-                        <!-- enter additional message -->
+                    <div>
                         <div class="input-group">
                             <span class="input-group-addon">
                                 <i class="material-icons">edit</i>
                             </span>
-                            <input type="text" name="additionalMessage" class="form-control" placeholder="text goes here">
+                            <input id="quote_text" type="text" name="additionalMessage" class="form-control" placeholder="text goes here">
                         </div>
 
                         <!-- enter receipientMail -->
@@ -210,12 +209,12 @@ if ($quoteArray) {
                             <span class="input-group-addon">
                                 <i class="material-icons">mail</i>
                             </span>
-                            <input type="text" name="receipientMail" class="form-control" placeholder="receipient's mail">
+                            <input id="quote_mail" type="email" name="receipientMail" class="mail_text form-control" placeholder="receipient's mail">
                         </div>
 
                         <!-- mail sent buttons -->
                         <div class="mailButton">
-                            <button type="submit" name="mailButton" class="btn btn-round btn-md btn-primary text-lowercase">Mail quote </button>
+                            <button onclick="mail_quote('<?php echo $row['content']; ?>', '<?php echo $row['author']; ?>')" name="mailButton" class="btn btn-round btn-md btn-primary text-lowercase">Mail quote </button>
                         </div>
 
                         <div class="pull-right text-right">
@@ -230,9 +229,18 @@ if ($quoteArray) {
                             </a>
 
                             <!-- whatsappp buttons -->
-                            <a href="#pablo" class="btn btn-just-icon btn-round btn-whatsapp">
+                           <?php if (detectMobile()) {
+                                $urlencodedtext = urlencode($row['content'] . " https://quotesandnote.com/") ?>
+                            <a id="whatsapp" href="https://wa.me/?text=<?php echo $urlencodedtext; ?>" class="btn btn-just-icon btn-round btn-whatsapp">
                                 <i class="fab fa-whatsapp"></i>
                             </a>
+                                <?php 
+                            } else { ?>
+                            <a onclick="whats_app()" class="btn btn-just-icon btn-round btn-whatsapp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                                <?php 
+                            } ?>
                             
                             <!-- twitter buttons -->
                             <a class="twitter-share-button"
@@ -245,8 +253,7 @@ if ($quoteArray) {
                                 data-related="twitterapi,twitter">
                             </a>    
                         </div>
-
-                    </form>
+                    </div>
 
                 </div> 
             </div>
