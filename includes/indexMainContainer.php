@@ -214,7 +214,8 @@ if ($quoteArray) {
 
                         <!-- mail sent buttons -->
                         <div class="mailButton">
-                            <button onclick="mail_quote('<?php echo $row['content']; ?>', '<?php echo $row['author']; ?>')" name="mailButton" class="btn btn-round btn-md btn-primary text-lowercase">Mail quote </button>
+                            
+                            <button onclick="mail_quote('<?php echo $row['author']; ?>', <?php echo $row['id']; ?>)" name="mailButton" class="btn btn-round btn-md btn-primary text-lowercase"> Mail quote </button>
                         </div>
 
                         <div class="pull-right text-right">

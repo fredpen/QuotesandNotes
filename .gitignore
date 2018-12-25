@@ -2,3 +2,4 @@ allsql.sql
 test.php
 includes/databaseConfig.php
 .vscode/
+includes/handlers/ajax/mail_quote_handler.php

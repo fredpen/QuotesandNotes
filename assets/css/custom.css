@@ -643,7 +643,7 @@ a:hover, a:focus {
 }
 
 
-.errorDiv{
+#errorDiv{
     display: none;
    padding: 15px 10px;
     position: fixed;
@@ -657,8 +657,7 @@ a:hover, a:focus {
     font-weight: 600;
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.2);
 }
-
-.errorDiv:hover{
+#errorDiv:hover{
     border: 1px solid transparent;
 }
 .notifs_message{
@@ -685,5 +684,5 @@ a:hover, a:focus {
 
 /* for tracking display of error div */
 .class_flex{
-    height: unset;
+    min-height: 0;
 }

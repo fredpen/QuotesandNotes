@@ -4,13 +4,13 @@ var userId, firstname, lastname, username;
 // function for fading out the errordiv
 function fade_out() {
     $("#errorDiv").fadeOut("fast");
-    $("#errorDiv").toggleClass("class_flex");
+    $("#errorDiv").removeClass("class_flex");
 }
 
 // fading out the error div
 function fade_in() {
     $("#errorDiv").css("display", "flex");
-    $("#errorDiv").toggleClass("class_flex");
+    $("#errorDiv").addClass("class_flex");
 }
 
 // alert users trying to share using whatsapp on desktop
@@ -136,7 +136,6 @@ function likeSingleQuote(quoteId, check, num) {
     }
 };
 
-
 // function for validating emails
 function ValidateEmail(anymail) {
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(anymail)) {
@@ -146,17 +145,19 @@ function ValidateEmail(anymail) {
 }
 
 
-function mail_quote(author, content) {
+function mail_quote(author, quoteId) {
     let message = $("#quote_text").val();
-    let mail = $("#quote_mail").val();
+    let email = $("#quote_mail").val();
 
-    if (ValidateEmail(mail)) {
+    if (ValidateEmail(email)) {
 
         // make the ajax call
-        $.post("includes/handlers/ajax/mail_quote_handler.php", { mail: mail, author: author, content: content, message: message }, function (data) {
+        $.post("includes/handlers/ajax/mail_quote_handler.php", { email: email, author: author, quoteId: quoteId, message: message }, function (data) {
             if (data) {
                 alert("am back");
-                alert(data);
+
+                console.log(data);
+
             }
         })
 
@@ -165,22 +166,6 @@ function mail_quote(author, content) {
         fade_in();
         $(".notifs_message").text("You have entered an invalid email address !");
     }
-
-
-
-
-
-
-
-    // make the ajax call
-    // $.post("includes/handlers/ajax/mail_quote_handler.php", { mail: mail, author: author, content: content, message: message }, function (data) {
-    //     if (data) {
-    //         alert("am back");
-    //         alert(data);
-    //     }
-    // })
-    // if no email is provided; 
-    // 
 }
 
 
