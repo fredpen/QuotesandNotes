@@ -1,5 +1,6 @@
 <?php
 $pageTitle = "Quote";
+$page_description = $_GET['q'];
 $date = date("Y/m/d/m/s");
 if (isset($_GET['id'])) {
     $quoteId = $_GET['id'];

@@ -1,5 +1,6 @@
 <?php
 $pageTitle = "Authors";
+$page_description = "The best of spoken and written words from all the authors all around the globe. A community of driven people, lover of great words; sharing thier experience and opinions about quotes and notes different authors";
 require_once 'includes/header.php';
  // save the data from fetch author to authors
 $authorArray = $quote->fetchAuthor("5");

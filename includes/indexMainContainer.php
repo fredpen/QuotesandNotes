@@ -8,7 +8,9 @@ if ($quoteArray) {
         <div class="item">                
             <div class="card">
                 <div class="card-content">
-                    <a href="quote.php?id=<?php echo $quoteId; ?>"><p class="card-title"> <?php echo $row['content']; ?> </p></a>
+                     <a href="quote.php?q=<?php echo urlencode($row['content']); ?>&id=<?php echo $quoteId; ?>">
+                        <p class="card-title"> <?php echo $row['content']; ?> </p>
+                    </a>
                     <!-- the quote genre -->
                     <div class="card-description genreList">
                         <p class="label label-primary">
@@ -59,7 +61,7 @@ if ($quoteArray) {
                         </div>
                         <div class="numComments">
                             <?php $commentString = (mysqli_num_rows($comment->fetchComments($quoteId)) < 2 ? " comment" : " comments") ?>
-                            <a href="quote.php?id=<?php echo $quoteId; ?>"><i class="fas fa-comment black"></i> <?php echo mysqli_num_rows($comment->fetchComments($quoteId)) + 1; ?><?php echo $commentString ?></a>
+                            <a href="quote.php?q=<?php echo urlencode($row['content']); ?>&id=<?php echo $quoteId; ?>"><i class="fas fa-comment black"></i> <?php echo mysqli_num_rows($comment->fetchComments($quoteId)) + 1; ?><?php echo $commentString ?></a>
                         </div>
                     </footer>
 
@@ -102,8 +104,8 @@ if ($quoteArray) {
                         } ?>
                        
                         
-                        <!-- mail button -->
-                        <a href="quote.php?id=<?php echo $quoteId; ?>" class="btn btn-just-icon btn-round btn-github" data-toggle="tooltip" data-placement="top" title="mail quote to a friend" data-container="body">
+                        <!-- mail button --> 
+                        <a href="quote.php?q=<?php echo urlencode($row['content']); ?>&id=<?php echo $quoteId; ?>" class="btn btn-just-icon btn-round btn-github" data-toggle="tooltip" data-placement="top" title="mail quote to a friend" data-container="body">
                             <i class="fas fa-envelope"></i>
                         </a>
 
@@ -164,7 +166,6 @@ if ($quoteArray) {
                                 <?php 
                                 $check = ($quote->quoteLoveCheck($quoteId, $userId) ? "true" : "false");
                                 $numberOfQuoteLover = $quote->numberOfQuoteLover($quoteId);
-                                // $loveQuoteString = $quote->numberOfQuoteLoverString($quoteId, $userId);
                                 // check if a user is loggedin 
                                 if ($userId) {
                                     // if user has liked the quote before
@@ -174,7 +175,6 @@ if ($quoteArray) {
                                                   <i class="<?php echo $row['id']; ?> fas fa-heart red"></i> 
                                         </p>
 
-                                    <!-- if user has not liked the quote before -->
                                         <?php 
                                     } else { ?>
                                           <p onclick="likeSingleQuote(<?php echo $quoteId; ?>, <?php echo $check; ?>,  <?php echo $numberOfQuoteLover; ?>)" class="<?php echo $row['id']; ?>">
@@ -201,7 +201,7 @@ if ($quoteArray) {
                             <span class="input-group-addon">
                                 <i class="material-icons">edit</i>
                             </span>
-                            <input id="quote_text" type="text" name="additionalMessage" class="form-control" placeholder="text goes here">
+                            <input id="quote_text" type="text" name="additionalMessage" class="form-control" placeholder="Text goes here">
                         </div>
 
                         <!-- enter receipientMail -->
@@ -209,7 +209,7 @@ if ($quoteArray) {
                             <span class="input-group-addon">
                                 <i class="material-icons">mail</i>
                             </span>
-                            <input id="quote_mail" autofocus type="email" name="receipientMail" class="mail_text form-control" placeholder="receipient's mail">
+                            <input id="quote_mail" autofocus type="email" name="receipientMail" class="mail_text form-control" placeholder="Receipient's mail">
                         </div>
 
                         <!-- mail sent buttons -->

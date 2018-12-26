@@ -1,9 +1,12 @@
 <?php
 if (isset($_GET['author']) && isset($_GET['nm'])) {
     $authorId = (int)$_GET['author'];
+    $temp_page_title = $_GET['nm'];
     $pageTitle = $_GET['nm'];
-    $pageTitle = strip_tags(str_replace("_", " ", ($pageTitle))) . " Quotes";
+    $pageTitle = "Top " . strip_tags(str_replace("_", " ", ($pageTitle))) . " Quotes";
     $authorId = strip_tags($authorId);
+    $page_description = "The best of spoken and written words about " . $temp_page_title . ". Read experience and opinions of people about " . $temp_page_title . "quotes";
+
 } else {
     header("Location: index.php");
 }

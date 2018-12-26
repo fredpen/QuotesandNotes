@@ -2,7 +2,6 @@
 <html lang="en">
     <head>
         
-        <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130716173-1"></script>
         <script>
           window.dataLayer = window.dataLayer || [];
@@ -13,7 +12,11 @@
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <title> QuotesandNote - <?php echo $pageTitle; ?> || Search for any quotes from our robust collection</title>
+        <meta name="description" content="<?php echo $page_description; ?>">
+        
 
         <!-- favicon -->
         <link rel="apple-touch-icon" sizes="57x57" href="assets/images/icon/apple-icon-57x57.png">
@@ -43,7 +46,7 @@
         <meta property="og:description"   content="Bringing you the best of words from the greatest of minds" />
         <meta property="og:image"         content="" /> -->
 
-        <title> QN - <?php echo $pageTitle; ?></title>
+       
 
         <!--     Fonts and icons     -->
         <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash|Open+Sans" rel="stylesheet">

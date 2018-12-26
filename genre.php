@@ -5,8 +5,9 @@ if (isset($_GET['genre'])) {
 } else {
     header("Location: index.php");
 }
-
-$pageTitle = ucfirst($genre) . " Quotes";
+$page_description = $_GET['genre'];
+$pageTitle = "Top " . ucfirst($genre) . " Quotes";
+$page_description = "The best of spoken and written words about " . $temp_page_title . ". Read experience and opinions of people about " . $temp_page_title . "quotes";
 // import the header that houses the navbar and other dependencies
 require_once 'includes/header.php';
 include_once "includes/quote_of_moment.php";

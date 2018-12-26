@@ -53,10 +53,6 @@
     margin-bottom: 20px;
 }
 
-.item:hover{
-    border: 3px solid #8080801c;
-}
-
 /* for profile page, different masory style */
 @media screen and (min-width: 10px) {
     .profilePagemasonry{

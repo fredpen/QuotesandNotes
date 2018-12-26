@@ -33,7 +33,7 @@ function searchQuotes() {
                 // make the result container visible
                 $(".searchResult").fadeIn("fast");
                 $("#searchResult").html(data);
-                $(".notifs_message").html('Search done, thanks for the patience');
+                $(".notifs_message").html('Search done, thanks for the patience <i class="far fa-smile-wink"></i>');
             }
         })
     } else {
@@ -157,7 +157,7 @@ function mail_quote(author, quoteId) {
         $.post("includes/handlers/ajax/mail_quote_handler.php", { email: email, author: author, quoteId: quoteId, message: message }, function (data) {
 
             if (data) {
-                $(".notifs_message").text('quote has been sent to ' + email);
+                $(".notifs_message").html('quote has been sent to ' + email + '!! <i class="far fa-smile"></i>');
             } else if (data == "invalid_email") {
                 $(".notifs_message").text('The email you entered is invalid');
             } else {
