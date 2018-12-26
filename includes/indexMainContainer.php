@@ -209,7 +209,7 @@ if ($quoteArray) {
                             <span class="input-group-addon">
                                 <i class="material-icons">mail</i>
                             </span>
-                            <input id="quote_mail" type="email" name="receipientMail" class="mail_text form-control" placeholder="receipient's mail">
+                            <input id="quote_mail" autofocus type="email" name="receipientMail" class="mail_text form-control" placeholder="receipient's mail">
                         </div>
 
                         <!-- mail sent buttons -->
