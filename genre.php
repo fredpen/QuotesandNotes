@@ -5,8 +5,8 @@ if (isset($_GET['genre'])) {
 } else {
     header("Location: index.php");
 }
-$page_description = $_GET['genre'];
-$pageTitle = "Top " . ucfirst($genre) . " Quotes";
+$temp_page_title = $_GET['genre'];
+$pageTitle = "Top quotes about " . ucfirst($genre);
 $page_description = "The best of spoken and written words about " . $temp_page_title . ". Read experience and opinions of people about " . $temp_page_title . "quotes";
 // import the header that houses the navbar and other dependencies
 require_once 'includes/header.php';
@@ -39,5 +39,4 @@ $quoteArray = $quote->fetchQuotesFromSameGenre($genre);
 </div>
 
 <?php 
-// require_once 'includes/indexRightContainer.php';
 require_once 'includes/footer.php' ?>

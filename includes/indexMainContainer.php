@@ -231,10 +231,10 @@ if ($quoteArray) {
 
                             <!-- whatsappp buttons -->
                            <?php if (detectMobile()) {
-                                $urlencodedtext = urlencode($row['content'] . " https://quotesandnote.com/") ?>
-                            <a id="whatsapp" href="https://wa.me/?text=<?php echo $urlencodedtext; ?>" class="btn btn-just-icon btn-round btn-whatsapp">
-                                <i class="fab fa-whatsapp"></i>
-                            </a>
+                                $urlencodedtext = urlencode($row['content'] . " -" . imagify($row['author']) . " https://quotesandnote.com/") ?>
+                                <a id="whatsapp" href="https://wa.me/?text=<?php echo $urlencodedtext; ?>" class="btn btn-just-icon btn-round btn-whatsapp">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
                                 <?php 
                             } else { ?>
                             <a onclick="whats_app()" class="btn btn-just-icon btn-round btn-whatsapp">

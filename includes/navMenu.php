@@ -14,7 +14,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-        <title> QuotesandNote - <?php echo $pageTitle; ?> || Search for any quotes from our robust collection</title>
+        <title> QN - <?php echo $pageTitle; ?> || Search for any quotes from our robust collection</title>
+
+        <?php 
+        $temp_desc = "Bringing you the best of spoken and written words from the greatest of minds. QN is a community of word lovers; sharing thier experience and opinions about quotes and notes from great minds";
+
+        if (empty($page_description)) {
+            $page_description = $temp_desc;
+        }
+
+        ?>
         <meta name="description" content="<?php echo $page_description; ?>">
         
 
@@ -40,11 +49,11 @@
         <link rel="icon" type="image/ico" sizes="16x16" href="favicon.ico">
 
         <!-- You can use Open Graph tags to customize link previews. -->
-        <!-- <meta property="og:url"           content="http://localhost/Quotes&Notes/index.php" />
+        <meta property="og:url"           content="https://quotesandnote.com/" />
         <meta property="og:type"          content="website" />
-        <meta property="og:title"         content="Quotes and Notes" />
-        <meta property="og:description"   content="Bringing you the best of words from the greatest of minds" />
-        <meta property="og:image"         content="" /> -->
+        <meta property="og:title"       content="QuotesandNote - <?php echo $pageTitle; ?> || Search for any quotes from our robust collection" />
+        <meta property="og:description"   content="<?php echo $page_description; ?>" />
+        <meta property="og:image"         content="assets/images/icon/favicon-16x16.png" />
 
        
 
@@ -67,13 +76,6 @@
          <!-- custom js -->
         <script src="assets/js/custom.js"></script>
 
-        <?php if ($pageTitle == "Contribute") { ?>
-            <!-- contribute script -->
-            <script src="assets/js/contribute.js"></script>
-            <?php 
-        } ?>
-        
-        
         <script>
             <?php if ($userDetails) { ?>
                 userId = "<?php echo $userDetails['id']; ?>";
@@ -180,3 +182,4 @@
             <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>X</span></button>
         </div>
     </div>
+

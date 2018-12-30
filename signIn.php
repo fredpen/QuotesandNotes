@@ -1,6 +1,5 @@
 <?php
 $pageTitle = "Login";
-$page_description = "Bringing you the best of words from the greatest of minds. A community of driven people, lover of great words; sharing thier experience and opinions about quotes and notes from great minds";
 require_once 'includes/header.php';
 
 ?>
@@ -32,14 +31,14 @@ require_once 'includes/header.php';
 								<div class="input-group-addon">
 									<i class="material-icons">face</i>
 								</div>
-								<input type="text" name="loginEmail" value="<?php getInputValue('loginEmail'); ?>" class="form-control" placeholder="Email or Username">
+								<input required type="text" name="loginEmail" value="<?php getInputValue('loginEmail'); ?>" class="form-control" placeholder="Email or Username">
 							</div>
 
 							<div class="input-group">
 								<span class="input-group-addon">
 									<i class="material-icons">lock_outline</i>
 								</span>
-								<input type="password" name="loginPassword" placeholder="Password..." class="form-control"/>
+								<input required type="password" name="loginPassword" placeholder="Password..." class="form-control"/>
 							</div>
 
 							<div class="footer text-center">

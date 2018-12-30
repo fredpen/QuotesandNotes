@@ -1,6 +1,5 @@
 <?php
 $pageTitle = "Register";
-$page_description = "Bringing you the best of words from the greatest of minds. A community of driven people, lover of great words; sharing thier experience and opinions about quotes and notes from great minds";
 require_once 'includes/header.php';
 ?>
 

@@ -1,6 +1,4 @@
 <?php
-$pageTitle = "Quote";
-$page_description = $_GET['q'];
 $date = date("Y/m/d/m/s");
 if (isset($_GET['id'])) {
     $quoteId = $_GET['id'];
@@ -8,6 +6,7 @@ if (isset($_GET['id'])) {
     header("Location: index.php");
 }
 
+$pageTitle = $_GET['q'];
 require_once "includes/header.php";
 require_once "includes/quote_of_moment.php";
 
@@ -22,10 +21,6 @@ $quoteArray = "";
 
 <div class="fcontainer">
     <div class="frow">
-
-        <?php 
-        // require_once 'includes/indexLeftContainer.php';
-        ?>
 
         <div class="main-container">
                 <?php require_once 'includes/indexMainContainer.php'; ?>
