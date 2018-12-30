@@ -1,11 +1,12 @@
 <?php
 $pageTitle = "Login";
+$page_description = "Bringing you the best of words from the greatest of minds. A community of driven people, lover of great words; sharing thier experience and opinions about quotes and notes from great minds";
 require_once 'includes/header.php';
 
 ?>
 
 <!-- sign in  -->
-<div class="" style="background-image: url('assets/images/bg0.jpg'); background-size: cover; background-position: top center;">
+<div id="sign_background">
 	<div class="container">
 		<div class="row">
 

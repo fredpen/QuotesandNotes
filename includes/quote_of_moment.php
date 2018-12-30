@@ -6,7 +6,7 @@ $randQuote = $quote->fetchRandomQuote(); ?>
         <div class="quote_moment_card">
              <div class="tim-typo">
 
-                <p class="text-center title">Quote of the moment</p>
+                <!-- <p class="text-center title">Quote of the moment</p> -->
                 <blockquote>
                      <p class="quote-description"><?php echo $randQuote['content']; ?></p>
                   

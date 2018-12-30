@@ -32,7 +32,15 @@ body{
 /* the auth nav styles--------------- */
 
 #home .auth{
-    margin-top: 30px;
+    margin-top: 20px;
+}
+
+#home .navbar-toggle {
+    padding-left: 20px;
+}
+
+#home .navbar .navbar-brand{
+    padding-right: 20px;
 }
 
 #home #mainNav{
@@ -91,10 +99,11 @@ body{
     display: flex;
     align-items: center;
     height: 30px;
-    background:#eeeeeecf;
+    background:#333;
     position: fixed;
     top: 0px;
     z-index: 1000;
+    color: #fff;
 }
 
 #home #topNav ul{
@@ -105,15 +114,16 @@ body{
 }
 
 #home #topNav ul li a{
-    color: #000000de;
+    color: #fff;
     padding: 6px;
     text-transform: uppercase;
+    font-weight: 900;
 }
 
 #home #topNav ul li a:hover{
-    color: white;
+    background: #fff;
     padding: 5px;
-    background: black;
+    color: black;
 }
 
 #navBrand a{
@@ -136,7 +146,15 @@ hr{
 
 
 /* ---------------------------------------------------sign up */
-
+#sign_background{
+    height: 100vh;
+    background: #0F2027;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("../images/bg0.jpg");
+}
 #home .padding25{
   padding: 25px;
 }
@@ -181,6 +199,10 @@ hr{
   margin-top: 88px;
 }
 
+.topMargin-25{
+  margin-top: -25px;
+}
+
 .topMargin21{
   margin-top: 21px;
 }
@@ -212,9 +234,9 @@ hr{
 /* sign up page-------------------------------------------------- */
 
 #home #registerContainer{
-   background: #1f4037;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to left, #99f2c8, #1f4037);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to left, #99f2c8, #1f4037); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #1f4037;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #99f2c8, #1f4037);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #99f2c8, #1f4037); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     /* background-image: url("../images/registerbg.jpg"); */
     background-size: contain;
     background-position: center;
@@ -377,7 +399,24 @@ div .profile-photo-small{
 }
 
 #home .navbar{
-    margin-bottom: 0;
+    margin-top: 30px;
+}
+
+
+/* navigation */
+.nav_search{
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 0 7px;
+    border: 1px solid #d2d2d2cf;
+    margin: 0 auto;
+    margin-top: 6px;
+}
+
+#home  .container-fluid> .navbar-header{
+    width: 56vw;
 }
 
 #home .author_nav{
@@ -431,9 +470,9 @@ div .profile-photo-small{
 }
 
 #clear{
-    font-size: 18px;
+   font-size: 16px;
     cursor: pointer;
-    color: #9c27b0;
+    color: #294d5d;
     font-weight: 900;
     padding: 0 0 0 10px;
 }
@@ -519,6 +558,11 @@ div .profile-photo-small{
     font-size: 184%;
 }
 
+.index_search{
+    width: 100%;
+    border: 0;
+}
+
 #home .searchControl {
     background-image: linear-gradient(#ffffffeb, #ffffffeb);
     color: #9c27b0;
@@ -531,13 +575,19 @@ div .profile-photo-small{
 .searchResult{
     display: none;
     background: #ffffffde;
-    padding: 10px;
+    padding: 5px;
     max-width: 800px;
     margin: 0 auto;
     z-index: 9999;
     max-height: 34vh;
     overflow-y: scroll;
     scroll-behavior: smooth;
+    margin-top: -32px;
+    
+}
+
+#searchResult{
+    margin-bottom: 0;
 }
 
 /* left index container */
@@ -579,10 +629,15 @@ a:hover, a:focus {
     display: block;
     width: 100%;
     text-align: center;
+    margin-top: -12px;
 }
 
 #singleCard .form-group{
-    margin-top: 5px;
+    margin-top: 0;
+}
+
+#singleCard footer{
+    padding-top: 0;
 }
 
 #singleCard{
@@ -647,7 +702,7 @@ a:hover, a:focus {
     display: none;
    padding: 15px 10px;
     position: fixed;
-    top: 80px;
+    top: 82px;
     max-width: 90vw;
     right: 0;
     z-index: 99999;
@@ -685,4 +740,8 @@ a:hover, a:focus {
 /* for tracking display of error div */
 .class_flex{
     min-height: 0;
+}
+
+#home blockquote{
+    font-size: 14px;
 }

@@ -1,4 +1,5 @@
 <?php
+$nav_title = "home";
 $pageTitle = "Home of quotes and notes by the brightest minds to ever walk the earth";
 $page_description = "Bringing you the best of words from the greatest of minds. A community of driven people, lover of great words; sharing thier experience and opinions about quotes and notes from great minds";
 require_once 'includes/header.php';

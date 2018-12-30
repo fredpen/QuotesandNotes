@@ -231,10 +231,18 @@
 }
 
 /* media quries for the navbar */
-@media screen and (max-width: 770px){
+@media screen and (max-width: 768px){
     #home #mainNavContainer .navbar-main,
     #topNav{
         display: none;
+    }
+
+    #home .navbar {
+        margin-top: 0;
+    }
+
+    #home .container-fluid> .navbar-header{
+        width: 100%;
     }
 
     #home #mainNavContainer .navbar-main2{

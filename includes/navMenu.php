@@ -90,91 +90,93 @@
 
     <body id="home" class="index-page">
 
-        <nav id="topNav">
-            <ul class="navbar-nav nav">
-                <li id="navrand"></i>Authors:</li>
-                <?php foreach ($validChar as $key) { ?>
-                    <li><a href="authors.php#<?php echo $key; ?>"><?php echo $key; ?></a></li>
-                    <?php 
-                }; ?> 
-            </ul>
-        </nav>
+    <nav id="topNav">
+        <ul class="navbar-nav nav">
+            <li id="navrand"></i>Authors:</li>
+            <?php foreach ($validChar as $key) { ?>
+                <li><a href="authors.php#<?php echo $key; ?>"><?php echo $key; ?></a></li>
+                <?php 
+            }; ?> 
+        </ul>
+    </nav>
 
-        <nav class="navbar navbar-default navbar-primary <?php echo ($pageTitle == "Authors" || $pageTitle == "Contribute" ? "" : "navbar-fixed-top"); ?>  auth">
-            <div id="mainNavContainer" class="container">
+  
+    <nav class="navbar navbar-default navbar-fixed-top">
+    
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.php">QN</a>
 
-                <div>
-                     <ul class="nav navbar-nav">
-                        <li id="navBrand"><a href="index.php">QN</a></li>
-                    </ul>
-                </div>
-                <div class="navbar-main">
-                    <ul class="nav navbar-nav">
-                        <li><a href="uploadQuote.php">Contribute</a></li>
-                        <li><a href="blog/home.php">blog</a></li>
-                        <li><a href="authors.php">Authors</a></li>
-                        <!-- <li><a href="genres.php">Genres</a></li> -->
-                    </ul>
-                </div>
+                <form method="get" action="index.php">
+                    <div class="form-group nav_search">
+                        <input onclick="searchQuotes()" oninput="searchQuotes()" id="seachQuotes" type="text" name="searchString" placeholder="Search quotes" class="form-control searchControl">
+                        <div id="clear"> X </div>
+                    </div>
+                </form>
 
-                <!-- for smaller screen sizes -->
-                <div class="navbar-main2">
-                    <div id="mainNavContainerDropdown" class="dropdown">
-                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Menu
-                            <span class="caret"></span>
-                        </button>
+            </div>
 
-                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-                            <li><a href="uploadQuote.php">Contribute</a></li>
-                            <li><a href="blog/home.php">blog</a></li>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="blog/home.php">blog</a></li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="material-icons"></i> Sections
+                            <b class="caret"></b>
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-with-icons">
+                           <li><a href="uploadQuote.php">Contribute</a></li>
                             <li><a href="authors.php">Authors</a></li>
-                           <!-- <li><a href="genres.php">Genres</a></li> -->
                         </ul>
-                    </div>  
-                </div>
-                
-                <div id="mainNavContainerDropdown" class="dropdown">
-                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Hi 
-                        <?php if ($userDetails) {
-                            echo $userDetails['lastname'];
-                        } else {
-                            echo "Guest";
-                        } ?>
-                        <span class="caret"></span>
-                    </button>
+                    </li>
 
-                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-                         <?php if ($userDetails) { ?>
-                            <li>
-                                <a href="profilePage.php?id=<?php echo $userDetails['id']; ?>">Profile <i class="fas fa-user"></i></i></a>
-                            </li>
-                            <li>
-                                <a href="logOut.php">Sign out <i class="fas fa-sign-out-alt"></i></a>
-                            </li>
-                            <?php 
-                        } else { ?>
-                            <li>
-                                <a href="signIn.php">Log in <i class="fas fa-sign-in-alt"></i> </a>
-                            </li>
-                            <li>
-                                <a href="register.php">Register <i class="fas fa-user"></i></a>
-                            </li>
-                           
-                            <?php 
-                        }; ?>
-                    </ul>
-                </div>  
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hi 
+                            <?php echo ($userDetails ? $userDetails['lastname'] : "Guest"); ?>
+                            <b class="caret"></b>
+                        </a>
 
-            </div>
-        </nav>
-
-        <div class="testing">
-            <p>This site is under development. suggestions are welcome and should be submitted to contactus@quotesandnote.com</p>
-        </div>
-        
-        <div id="errorDiv" role='alert'>
-            <span class="notifs_message"></span>
-            <div class="button_container">
-                <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>X</span></button>
+                        <ul class="dropdown-menu dropdown-with-icons">
+                            <?php if ($userDetails) { ?>
+                                <li>
+                                    <a href="profilePage.php?id=<?php echo $userDetails['id']; ?>">Profile <i class="fas fa-user"></i></i></a>
+                                </li>
+                                <li>
+                                    <a href="logOut.php">Sign out <i class="fas fa-sign-out-alt"></i></a>
+                                </li>
+                                <?php 
+                            } else { ?>
+                                <li>
+                                    <a href="signIn.php">Log in <i class="fas fa-sign-in-alt"></i> </a>
+                                </li>
+                                <li>
+                                    <a href="register.php">Register <i class="fas fa-user"></i></a>
+                                </li>
+                                <?php 
+                            }; ?>
+                        </ul>
+                    </li>
+                </ul>
             </div>
         </div>
+    </nav>
+
+    <div class="testing">
+        <p>This site is under development. suggestions are welcome and should be submitted to contactus@quotesandnote.com</p>
+    </div>
+    
+    <div id="errorDiv" role='alert'>
+        <span class="notifs_message"></span>
+        <div class="button_container">
+            <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>X</span></button>
+        </div>
+    </div>

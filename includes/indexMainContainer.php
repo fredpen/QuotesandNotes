@@ -8,7 +8,7 @@ if ($quoteArray) {
         <div class="item">                
             <div class="card">
                 <div class="card-content">
-                     <a href="quote.php?q=<?php echo urlencode($row['content']); ?>&id=<?php echo $quoteId; ?>">
+                    <a href="quote.php?q=<?php echo urlencode($row['content']); ?>&id=<?php echo $quoteId; ?>">
                         <p class="card-title"> <?php echo $row['content']; ?> </p>
                     </a>
                     <!-- the quote genre -->
@@ -91,7 +91,7 @@ if ($quoteArray) {
 
                         <!-- whatsappp buttons -->
                         <?php if (detectMobile()) {
-                            $urlencodedtext = urlencode($row['content'] . " https://quotesandnote.com/") ?>
+                            $urlencodedtext = urlencode($row['content'] . " -" . imagify($row['author']) . " https://quotesandnote.com/") ?>
                             <a id="whatsapp" href="https://wa.me/?text=<?php echo $urlencodedtext; ?>" class="btn btn-just-icon btn-round btn-whatsapp">
                                 <i class="fab fa-whatsapp"></i>
                             </a>
@@ -197,7 +197,7 @@ if ($quoteArray) {
                     </div>
 
                     <div>
-                        <div class="input-group">
+                        <div class="input-group topMargin-25">
                             <span class="input-group-addon">
                                 <i class="material-icons">edit</i>
                             </span>

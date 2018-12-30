@@ -19,8 +19,8 @@ if (isset($_GET['quote_string'])) {
         // create a new array and push all search results into the array
         while ($row = mysqli_fetch_array($query)) {
             echo '<li class="list-group-item text-capitalise">
-                        <a class="text-capitalise" href="quote.php?id=' . $row["id"] . '">' . $row["content"] . '</a>
-                    </li>';
+                <a class="text-capitalise" href="quote.php?q=' . urlencode($row['content']) . '&id=' . $row["id"] . '">' . $row["content"] . '</a>
+            </li>';
         }
     } else {
         echo '<li class="list-group-item text-capitalise">we do not have any quote related to your search term at the moment, please check back later</li>';

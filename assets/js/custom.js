@@ -19,11 +19,7 @@ function whats_app() {
     $(".notifs_message").text('You can only share with whatsapp on mobile');
 }
 
-// search for quotes from the database based on user search term
-function searchQuotes() {
-
-    let quote_string = $("#seachQuotes").val();
-
+function search_log(quote_string) {
     if (quote_string.length >= 2) {
         fade_in();
         $(".notifs_message").text('Searching . . .');
@@ -41,6 +37,19 @@ function searchQuotes() {
         fade_out();
     }
 }
+
+// search for quotes from the database based on user search term
+function searchQuotes() {
+    let quote_string = $("#seachQuotes").val();
+    search_log(quote_string);
+}
+
+// the serach bar for the index page
+function index_search() {
+    let quote_string = $(".index_search").val();
+    search_log(quote_string);
+}
+
 
 // comment on a post
 function post_comment(quoteId) {
@@ -175,6 +184,10 @@ function mail_quote(author, quoteId) {
 
 
 $(document).ready(function () {
+
+    $("#home").on("scroll", function () {
+        alert("you scrolled me");
+    })
 
     // fadeout the search term and bar when it loses focus
     $(".frow").on("click", function () {

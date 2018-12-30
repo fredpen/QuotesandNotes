@@ -9,7 +9,7 @@ $randQuote = $quote->fetchRandomQuote(); ?>
             <form method="get" action="index.php">
                 <div class="form-group search">
                     <button type="submit" data-toggle="tooltip" title="search quotes"><i class="fas fa-search"></i></button>
-                    <input onclick="searchQuotes()" oninput="searchQuotes()" id="seachQuotes" type="text" name="searchString" placeholder="Search quotes" class="form-control searchControl">
+                    <input onclick="onclick=index_search()" oninput="index_search()" class="index_search" type="text" name="searchString" placeholder="Search quotes" class="form-control searchControl">
                     <div id="clear"> X </div>
                 </div>
             </form>
