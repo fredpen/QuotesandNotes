@@ -188,7 +188,7 @@
         <div id="cookieConsent">
             <div id="closeCookieConsent">x</div>
             This website is using cookies. 
-            <a href="privacy_policy.php">More info</a>.
+            <a href="cookie_policy.php">More info</a>.
             <a onclick="cookie_consent()" class="cookieConsentOK">That's Fine</a>
         </div>
 

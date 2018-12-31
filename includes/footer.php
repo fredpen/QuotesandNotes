@@ -33,10 +33,10 @@
 
             <ul class="pull-left">
                 <li><a href="blog/home.php">Blog</a></li>
-                <li><a href="privacy_policy.php">Privacy and Cookie Policy</a></li>
-                <li><a href="#pablo">Discover</a></li>
-                <!-- <li> <a href="#pablo">Payment</a></li> -->
-                <li><a href="#pablo">Contact Us</a></li>
+                <li><a href="privacy_policy.php">Privacy Policy</a></li>
+                <li><a href="cookie_policy.php">Cookie Policy</a></li>
+                <li><a href="uploadQuote.php">Contribute</a></li>
+                <li> <a href="mailto:contactus@quotesandnote.com" title="send an email to contactus@quotesandnote.com">Contact us</a></li>
             </ul>
         </div>
         <hr/>
