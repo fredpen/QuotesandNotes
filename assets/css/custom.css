@@ -126,7 +126,7 @@ body{
     color: black;
 }
 
-#navBrand a{
+#navBrand {
     font-size: 18px;
     font-weight: 900;
     font-family: 'Berkshire Swash', cursive;
@@ -469,7 +469,8 @@ div .profile-photo-small{
     border: 2px solid #808080bd;
 }
 
-#clear{
+#clear,
+#nav_clear{
    font-size: 16px;
     cursor: pointer;
     color: #294d5d;
@@ -561,6 +562,7 @@ div .profile-photo-small{
 .index_search{
     width: 100%;
     border: 0;
+    background: #fff;
 }
 
 #home .searchControl {
@@ -572,7 +574,8 @@ div .profile-photo-small{
 }
 
 /* search result container */
-.searchResult{
+.searchResult,
+.nav_searchResult {
     display: none;
     background: #ffffffde;
     padding: 5px;
@@ -583,10 +586,19 @@ div .profile-photo-small{
     overflow-y: scroll;
     scroll-behavior: smooth;
     margin-top: -32px;
-    
 }
 
-#searchResult{
+.nav_searchResult {
+    max-height: 70vh;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    position: absolute;
+    top: 40px;
+    margin-left: 31px;
+}
+
+#searchResult,
+#nav_searchResult{
     margin-bottom: 0;
 }
 
@@ -745,3 +757,54 @@ a:hover, a:focus {
 #home blockquote{
     font-size: 13px;
 }
+
+
+/* cookie styling *//*Cookie Consent Begin*/
+#cookieConsent {
+    background-color: rgba(20,20,20,0.8);
+    min-height: 26px;
+    font-size: 14px;
+    color: #ccc;
+    line-height: 26px;
+    padding: 8px 0 8px 30px;
+    font-family: "Trebuchet MS",Helvetica,sans-serif;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
+    z-index: 9999;
+}
+#cookieConsent a {
+    color: #4B8EE7;
+    text-decoration: none;
+    cursor: pointer;
+}
+#closeCookieConsent {
+    float: right;
+    display: inline-block;
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    margin: -15px 0 0 0;
+    font-weight: bold;
+}
+#closeCookieConsent:hover {
+    color: #FFF;
+}
+#cookieConsent a.cookieConsentOK {
+    background-color: #F1D600;
+    color: #000;
+    display: inline-block;
+    border-radius: 5px;
+    padding: 0 20px;
+    cursor: pointer;
+    float: right;
+    margin: 0 60px 0 10px;
+}
+
+#cookieConsent a.cookieConsentOK:hover {
+    background-color: #E0C91F;
+}
+
+/*Cookie Consent End*/

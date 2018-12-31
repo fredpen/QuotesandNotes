@@ -19,7 +19,47 @@ function whats_app() {
     $(".notifs_message").text('You can only share with whatsapp on mobile');
 }
 
-function search_log(quote_string) {
+function cookie_consent() {
+    $("#cookieConsent").fadeOut(200);
+    $.post("includes/handlers/ajax/cookie_consent.php");
+}
+
+// search for quotes from the database based on user search term
+function searchquotes() {
+    let quote_string = $("#search_quotes").val();
+
+    if (quote_string.length >= 2) {
+        fade_in();
+        $(".notifs_message").text('Searching . . .');
+
+        $.get("includes/handlers/ajax/searchQuote.php", { quote_string: quote_string }, function (data) {
+            if (data) {
+                // make the result container visible
+                $(".nav_searchResult").fadeIn("fast");
+                $("#nav_searchResult").html(data);
+                fade_out();
+            }
+        })
+    } else {
+        $(".searchResult").fadeOut("fast");
+        fade_out();
+    }
+}
+
+
+// clear error div when escape button is pressed
+function keyCode(event) {
+    var x = event.keyCode;
+    if (x == 27) {
+        $(".searchResult").fadeOut("fast");
+        $(".nav_searchResult").fadeOut("fast");
+        $("#errorDiv").fadeOut("fast");
+    }
+}
+
+// the serach bar for the index page
+function index_search() {
+    let quote_string = $(".index_search").val();
     if (quote_string.length >= 2) {
         fade_in();
         $(".notifs_message").text('Searching . . .');
@@ -29,7 +69,7 @@ function search_log(quote_string) {
                 // make the result container visible
                 $(".searchResult").fadeIn("fast");
                 $("#searchResult").html(data);
-                $(".notifs_message").html('Search done, thanks for the patience <i class="far fa-smile-wink"></i>');
+                fade_out();
             }
         })
     } else {
@@ -37,19 +77,6 @@ function search_log(quote_string) {
         fade_out();
     }
 }
-
-// search for quotes from the database based on user search term
-function searchQuotes() {
-    let quote_string = $("#seachQuotes").val();
-    search_log(quote_string);
-}
-
-// the serach bar for the index page
-function index_search() {
-    let quote_string = $(".index_search").val();
-    search_log(quote_string);
-}
-
 
 // comment on a post
 function post_comment(quoteId) {
@@ -184,6 +211,12 @@ function mail_quote(author, quoteId) {
 
 
 $(document).ready(function () {
+    // fade out cookie
+    setTimeout(function () {
+        $("#cookieConsent").fadeIn(200);
+    }, 4000);
+
+
 
     $("#home").on("scroll", function () {
         alert("you scrolled me");
@@ -192,6 +225,14 @@ $(document).ready(function () {
     // fadeout the search term and bar when it loses focus
     $(".frow").on("click", function () {
         $(".searchResult").fadeOut("fast");
+        $(".nav_searchResult").fadeOut("fast");
+    })
+
+    // clear search term from the nav search
+    $("#nav_clear").on("click", function () {
+        $("#search_quotes").val("");
+        $(".nav_searchResult").fadeOut("fast");
+        $("#errorDiv").fadeOut("fast");
     })
 
     // clear search term
@@ -206,4 +247,9 @@ $(document).ready(function () {
         fade_out();
     })
 
+
+
 });
+function test(event) {
+    event.fadeOut();
+}

@@ -114,14 +114,20 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php">QN</a>
+                <a id="navBrand" class="navbar-brand" href="index.php">QN</a>
 
                 <form method="get" action="index.php">
                     <div class="form-group nav_search">
-                        <input onclick="searchQuotes()" oninput="searchQuotes()" id="seachQuotes" type="text" name="searchString" placeholder="Search quotes" class="form-control searchControl">
-                        <div id="clear"> X </div>
+                        <input id="search_quotes" type="text" name="searchString" placeholder="Search quotes" class="form-control searchControl" onclick="searchquotes()" oninput="searchquotes()" onkeydown="keyCode(event)">
+                        <div id="nav_clear"> X </div>
                     </div>
                 </form>
+
+                <div class="col-sm-12">
+                    <div class="nav_searchResult">
+                        <ul id="nav_searchResult" class='list-group'></ul>
+                    </div>
+                </div>
 
             </div>
 
@@ -172,9 +178,22 @@
         </div>
     </nav>
 
+    
+
     <div class="testing">
         <p>This site is under development. suggestions are welcome and should be submitted to contactus@quotesandnote.com</p>
     </div>
+
+    <?php if ($new_visitor) { ?>
+        <div id="cookieConsent">
+            <div id="closeCookieConsent">x</div>
+            This website is using cookies. 
+            <a href="privacy_policy.php">More info</a>.
+            <a onclick="cookie_consent()" class="cookieConsentOK">That's Fine</a>
+        </div>
+
+        <?php 
+    }; ?>
     
     <div id="errorDiv" role='alert'>
         <span class="notifs_message"></span>

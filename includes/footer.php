@@ -32,8 +32,8 @@
             <hr/>
 
             <ul class="pull-left">
-                <li><a href="#pablo">Blog</a></li>
-                <li><a href="#pablo">Presentation</a></li>
+                <li><a href="blog/home.php">Blog</a></li>
+                <li><a href="privacy_policy.php">Privacy and Cookie Policy</a></li>
                 <li><a href="#pablo">Discover</a></li>
                 <!-- <li> <a href="#pablo">Payment</a></li> -->
                 <li><a href="#pablo">Contact Us</a></li>
