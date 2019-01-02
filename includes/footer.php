@@ -1,4 +1,3 @@
-<!--     *********    BIG FOOTER     *********      -->
     <footer id="footer" class="footer footer-black footer-big">
         <div class="container-fluid">
             <div class="content">
@@ -6,8 +5,8 @@
 
                     <div class="col-md-6">
                         <h5>About Us</h5>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic nostrum, itaque dignissimos provident quis voluptas, vitae ratione dolor, placeat quidem sit dolore suscipit tempora quaerat deleniti. Distinctio necessitatibus explicabo quibusdam. </p>
-                        <p>We love the web and care deeply for how users interact with a digital product. We power businesses and individuals to create better looking web projects around the world. </p>
+                        <p>At Quotes and Note, We bring you the best of spoken and wrritten words from the greatest of minds. </p>
+                        <p>We are a community of driven people, lover of great words; sharing thier experience and opinions about quotes and notes from great minds</p>
                     </div>
 
                     <div class="col-md-6">
@@ -36,7 +35,8 @@
                 <li><a href="privacy_policy.php">Privacy Policy</a></li>
                 <li><a href="cookie_policy.php">Cookie Policy</a></li>
                 <li><a href="uploadQuote.php">Contribute</a></li>
-                <li> <a href="mailto:contactus@quotesandnote.com" title="send an email to contactus@quotesandnote.com">Contact us</a></li>
+                <li> <a href="contact_us.php" title="contact">Contact us</a></li>
+                <li> <a href="about_us.php" title="Meet the team">About us</a></li>
             </ul>
         </div>
         <hr/>

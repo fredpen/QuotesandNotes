@@ -18,7 +18,7 @@ $num = 0;
         // require_once 'includes/indexLeftContainer.php'; 
         ?>
 
-        <div class="main-container">
+        <div class="main-container topMargin65">
             <div class="text-center table-responsive">
                 <table class="table table-striped">
                     <thead>

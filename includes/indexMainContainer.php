@@ -1,5 +1,4 @@
  <?php 
-
 $num = 1;
 if ($quoteArray) {
     foreach ($quoteArray as $row) {
@@ -8,9 +7,11 @@ if ($quoteArray) {
         <div class="item">                
             <div class="card">
                 <div class="card-content">
+
                     <a href="quote.php?q=<?php echo urlencode($row['content']); ?>&id=<?php echo $quoteId; ?>">
                         <p class="card-title"> <?php echo $row['content']; ?> </p>
                     </a>
+
                     <!-- the quote genre -->
                     <div class="card-description genreList">
                         <p class="label label-primary">
@@ -23,6 +24,7 @@ if ($quoteArray) {
                             <a class="genre" href='genre.php?genre=<?php echo $row['genre3'] ?>'><?php echo $row['genre3']; ?></a>
                         </p>
                     </div>
+
                     <footer class="quote-footer quote_footer">
                         <div>
                             <?php 
@@ -32,6 +34,7 @@ if ($quoteArray) {
 
                             // check if a user is loggedin 
                             if ($userId) {
+                                
                                 // if user has liked the quote before
                                 if ($check == "true") { ?>
                                     <p onclick="likeQuote(<?php echo $quoteId; ?>, <?php echo $check; ?>,  <?php echo $numberOfQuoteLover; ?>)" class="<?php echo $row['id']; ?>">
@@ -39,7 +42,7 @@ if ($quoteArray) {
                                             <span class="<?php echo $row['id'] ?>quoteText"><?php echo $loveQuoteString; ?></span>
                                     </p>
 
-                                <!-- if user has not liked the quote before -->
+                                    <!-- if user has not liked the quote before -->
                                     <?php 
                                 } else { ?>
                                     <p onclick="likeQuote(<?php echo $quoteId; ?>, <?php echo $check; ?>,  <?php echo $numberOfQuoteLover; ?>)" class="<?php echo $row['id']; ?>">
@@ -52,17 +55,19 @@ if ($quoteArray) {
                                 // if there is no logged in user
                             } else { ?>
                                 <p onclick="likeQuote(<?php echo $quoteId; ?>, <?php echo $check; ?>,  <?php echo $numberOfQuoteLover; ?>)" class="<?php echo $row['id']; ?>">
-                                    <!-- Button trigger modal for liking quotes-->
+                                        <!-- Button trigger modal for liking quotes-->
                                         <i class="<?php echo $row['id']; ?> fas fa-heart black"></i>
-                                        <span class="<?php echo $row['id'] ?>quoteText"><?php echo $loveQuoteString ?>                       
+                                        <span class="<?php echo $row['id'] ?>quoteText"><?php echo $loveQuoteString ?>              
                                 </p>
                                 <?php 
                             }; ?>
                         </div>
+
                         <div class="numComments">
                             <?php $commentString = (mysqli_num_rows($comment->fetchComments($quoteId)) < 2 ? " comment" : " comments") ?>
                             <a href="quote.php?q=<?php echo urlencode($row['content']); ?>&id=<?php echo $quoteId; ?>"><i class="fas fa-comment black"></i> <?php echo mysqli_num_rows($comment->fetchComments($quoteId)) + 1; ?><?php echo $commentString ?></a>
                         </div>
+
                     </footer>
 
                     <!-- quotes author and image -->
@@ -91,10 +96,11 @@ if ($quoteArray) {
 
                         <!-- whatsappp buttons -->
                         <?php if (detectMobile()) {
-                            $urlencodedtext = urlencode($row['content'] . " -" . imagify($row['author']) . " https://quotesandnote.com/") ?>
+                            $urlencodedtext = urlencode($row['content'] . " -" . imagify($row['author'])) ?>
                             <a id="whatsapp" href="https://wa.me/?text=<?php echo $urlencodedtext; ?>" class="btn btn-just-icon btn-round btn-whatsapp">
                                 <i class="fab fa-whatsapp"></i>
                             </a>
+
                             <?php 
                         } else { ?>
                             <a onclick="whats_app()" class="btn btn-just-icon btn-round btn-whatsapp">
@@ -209,12 +215,12 @@ if ($quoteArray) {
                             <span class="input-group-addon">
                                 <i class="material-icons">mail</i>
                             </span>
-                            <input id="quote_mail" autofocus type="email" name="receipientMail" class="mail_text form-control" placeholder="Receipient's mail">
+
+                            <input required="required" id="quote_mail" autofocus type="email" name="receipientMail" class="mail_text form-control" placeholder="Receipient's mail">
                         </div>
 
                         <!-- mail sent buttons -->
                         <div class="mailButton">
-                            
                             <button onclick="mail_quote('<?php echo $row['author']; ?>', <?php echo $row['id']; ?>)" name="mailButton" class="btn btn-round btn-md btn-primary text-lowercase"> Mail quote </button>
                         </div>
 
@@ -231,7 +237,7 @@ if ($quoteArray) {
 
                             <!-- whatsappp buttons -->
                            <?php if (detectMobile()) {
-                                $urlencodedtext = urlencode($row['content'] . " -" . imagify($row['author']) . " https://quotesandnote.com/") ?>
+                                $urlencodedtext = urlencode($row['content'] . " -" . imagify($row['author'])) ?>
                                 <a id="whatsapp" href="https://wa.me/?text=<?php echo $urlencodedtext; ?>" class="btn btn-just-icon btn-round btn-whatsapp">
                                     <i class="fab fa-whatsapp"></i>
                                 </a>

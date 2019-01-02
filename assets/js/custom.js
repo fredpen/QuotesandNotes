@@ -191,6 +191,8 @@ function mail_quote(author, quoteId) {
 
         // make the ajax call
         $.post("includes/handlers/ajax/mail_quote_handler.php", { email: email, author: author, quoteId: quoteId, message: message }, function (data) {
+            console.log(data);
+
 
             if (data) {
                 $(".notifs_message").html('quote has been sent to ' + email + '!! <i class="far fa-smile"></i>');

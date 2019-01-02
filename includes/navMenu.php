@@ -51,8 +51,8 @@
         <!-- You can use Open Graph tags to customize link previews. -->
         <meta property="og:url"           content="https://quotesandnote.com/" />
         <meta property="og:type"          content="website" />
-        <meta property="og:title"       content="QuotesandNote - <?php echo $pageTitle; ?> || Search for any quotes from our robust collection" />
-        <meta property="og:description"   content="<?php echo $page_description; ?>" />
+        <meta property="og:title"       content="QuotesandNote - <?php echo $pageTitle; ?> | Search for any quotes from our robust collection" />
+        <meta property="og:description"   content="Bringing you the best of spoken and written words from the greatest of minds." />
         <meta property="og:image"         content="assets/images/icon/favicon-16x16.png" />
 
        

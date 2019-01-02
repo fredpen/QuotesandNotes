@@ -29,6 +29,12 @@ body{
    padding: 0;
 }
 
+.full-width{
+    width: 100%;
+    margin: 0 auto;
+    max-width: 500px;
+}
+
 /* the auth nav styles--------------- */
 
 #home .auth{
@@ -199,6 +205,7 @@ hr{
   margin-top: 88px;
 }
 
+
 .topMargin-25{
   margin-top: -25px;
 }
@@ -354,6 +361,12 @@ div .profile-photo-small{
     font-weight: 700;
 }
 
+#home blockquote p{
+    font-size: 16px;
+    color: #fff;
+    font-style: normal;
+}
+
 #quote_moment .author a{
     color: #aaaaaa;
 }
@@ -364,6 +377,7 @@ div .profile-photo-small{
     max-width: 60vw;
     margin: 0 auto;
     margin-top: 111px;
+    margin-bottom: 60px;
 }
 
 #home .displayNone{
@@ -808,3 +822,28 @@ a:hover, a:focus {
 }
 
 /*Cookie Consent End*/
+
+/* contact us page */
+#home .main-raised {
+    margin: 0 auto;
+    margin-top: -65px;
+}
+
+
+.font30{
+    font-size: 30px;
+}
+
+.width100{
+    width: 100%;
+}
+
+
+/* about me page */
+#about_me_bg{
+    background: #0f0c29;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+}
