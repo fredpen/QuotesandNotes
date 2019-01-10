@@ -1,11 +1,11 @@
 <?php
 if (isset($_GET['author']) && isset($_GET['nm'])) {
     $authorId = (int)$_GET['author'];
-    $temp_page_title = $_GET['nm'];
-    $pageTitle = $_GET['nm'];
-    $pageTitle = "Top " . strip_tags(imagify($pageTitle)) . " Quotes";
     $authorId = strip_tags($authorId);
-    $page_description = "The best of spoken and written words from " . imagify($temp_page_title) . ". Read experience and opinions of people about " . imagify($temp_page_title) . "'s quotes";
+    $temp_page_title = $_GET['nm'];
+    $temp_page_title = str_replace("_", " ", $temp_page_title);
+    $pageTitle = "Top " . strip_tags($temp_page_title) . " Quotes";
+    $page_description = "The best of spoken and written words from " . $temp_page_title . ". Read experience and opinions of people about " . $temp_page_title . "'s quotes";
 
 } else {
     header("Location: index.php");

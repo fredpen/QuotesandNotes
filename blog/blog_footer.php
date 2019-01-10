@@ -31,12 +31,12 @@
             <hr/>
 
             <ul class="pull-left">
-                <li><a href="blog/home.php">Blog</a></li>
-                <li><a href="privacy_policy.php">Privacy Policy</a></li>
-                <li><a href="cookie_policy.php">Cookie Policy</a></li>
-                <li><a href="uploadQuote.php">Contribute</a></li>
-                <li> <a href="contact_us.php" title="contact">Contact us</a></li>
-                <li> <a href="about_us.php" title="Meet the team">About us</a></li>
+                <li><a href="../blog/home.php">Blog</a></li>
+                <li><a href="../privacy_policy.php">Privacy Policy</a></li>
+                <li><a href="../cookie_policy.php">Cookie Policy</a></li>
+                <li><a href="../uploadQuote.php">Contribute</a></li>
+                <li> <a href="../contact_us.php" title="contact">Contact us</a></li>
+                <li> <a href="../about_us.php" title="Meet the team">About us</a></li>
             </ul>
         </div>
         <hr/>
@@ -44,32 +44,29 @@
 </footer>
 </body>
 
- <!-- twitter script -->
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
 <!--   Core JS Files   -->
-<script src="assets/js/lib/bootstrap.min.js" type="text/javascript"></script>
-<script src="assets/js/lib/material.min.js"></script>
+<script src="../assets/js/lib/bootstrap.min.js" type="text/javascript"></script>
+<script src="../assets/js/lib/material.min.js"></script>
 
 <!--  Plugin for Date Time Picker and Full Calendar Plugin-->
-<script src="assets/js/lib/moment.min.js"></script>
+<script src="../assets/js/lib/moment.min.js"></script>
 
 <!--	Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-<script src="assets/js/lib/nouislider.min.js" type="text/javascript"></script>
+<script src="../assets/js/lib/nouislider.min.js" type="text/javascript"></script>
 
 <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
-<script src="assets/js/lib/bootstrap-datetimepicker.js" type="text/javascript"></script>
+<script src="../assets/js/lib/bootstrap-datetimepicker.js" type="text/javascript"></script>
 
 <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
-<script src="assets/js/lib/bootstrap-selectpicker.js" type="text/javascript"></script>
+<script src="../assets/js/lib/bootstrap-selectpicker.js" type="text/javascript"></script>
 
 <!--	Plugin for Tags, full documentation here: http://xoxco.com/projects/code/tagsinput/  -->
-<script src="assets/js/lib/bootstrap-tagsinput.js"></script>
+<script src="../assets/js/lib/bootstrap-tagsinput.js"></script>
 
 <!--	Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
-<script src="assets/js/lib/jasny-bootstrap.min.js"></script>
+<script src="../assets/js/lib/jasny-bootstrap.min.js"></script>
 
 <!-- Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc -->
-<script src="assets/js/lib/material-kit.js?v=1.2.1" type="text/javascript"></script>
+<script src="../assets/js/lib/material-kit.js?v=1.2.1" type="text/javascript"></script>
 
 </html>

@@ -98,6 +98,10 @@
         padding: 10px;
     }
 
+    #quote_moment_socials{
+        display: none;
+    }
+
   
 }
 
@@ -129,6 +133,10 @@
 
      .author_title {
         font-size: 4.5vw;
+    }
+
+    #quote_moment_socials{
+        display: block;
     }
 }
 
@@ -212,11 +220,11 @@
 /* media queries for the h1 and p on the jumbotron */
 @media screen and (min-width: 10px){
     #jumbotron h1{
-        font-size: 9vw
+        font-size: 7vw
     }
 
     #jumbotron p{
-        font-size: 3vw;
+        font-size: 2vw;
     }
 }
 

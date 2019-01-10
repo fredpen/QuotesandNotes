@@ -1,6 +1,18 @@
 // variables
 var userId, firstname, lastname, username;
 
+// facebook share
+function fb_share(quote, genre1) {
+    FB.ui({
+        method: 'share',
+        display: 'popup',
+        href: 'quotesandnote.com',
+        hashtag: '#' + genre1,
+        quote: quote,
+    }, function (response) { });
+}
+
+
 // function for fading out the errordiv
 function fade_out() {
     $("#errorDiv").fadeOut("fast");
@@ -249,9 +261,16 @@ $(document).ready(function () {
         fade_out();
     })
 
+    // hide the cookoe message when user click the x button
+    $("#closeCookieConsent").on("click", function () {
+        $("#cookieConsent").fadeOut("fast");
+    })
+
 
 
 });
+
+
 function test(event) {
     event.fadeOut();
 }

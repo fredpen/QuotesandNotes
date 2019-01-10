@@ -145,12 +145,8 @@ require_once "includes/quote_of_moment.php";
                         we will not be liable for any loss or damage of any nature.</p>
 
                      <h4 class="title width100">Contact Us</h4>
-                        <p>If you have questions or comments about this Cookie Policy, please contact us at: contactus@quotesandnote.com or use the contact form at the <a href="contact_us.php">Contact us page</a></p>
-
-                    <h4 class="title width100">Credit</h4>
-                        <p>This Terms and conditions page was created at <a style="color:inherit;text-decoration:none;cursor:text;"
-                            href="https://termsandconditionstemplate.com">termsandconditionstemplate.com</a> generator.</p>		
-
+                        <p>If you have questions or comments about this Cookie Policy, please contact us at: contactus@quotesandnote.com or use the contact form at the <a href="contact_us.php">Contact us page</a
+                        ></p>
                     </div>
                 </div>
             </div>

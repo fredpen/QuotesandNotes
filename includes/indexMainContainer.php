@@ -84,13 +84,25 @@ if ($quoteArray) {
 
                     <!-- share and edit buttons -->
                     <div class="pull-right col-xs-12 text-right">
+
+                        <!-- edit buttons -->
                         <?php if ($userId == 1) { ?>
-                        <a data-toggle="tooltip" data-placement="top" title="Edit quote" data-container="body" class="btn btn-just-icon btn-round btn-twitter" href="edit.php?id=<?php echo $quoteId ?>"><i class="fas fa-edit"></i>
-                        </a> <?php 
+                            <a 
+                                data-toggle="tooltip" 
+                                data-placement="top" 
+                                title="Edit quote" 
+                                data-container="body" 
+                                class="btn btn-just-icon btn-round btn-twitter" 
+                                href="edit.php?id=<?php echo $quoteId ?>"><i class="fas fa-edit"></i>
+                            </a> 
+                            <?php 
                         } ?>
                         
-                        <!-- facebook buttons -->
-                        <a href="#pablo" class="btn btn-just-icon btn-round btn-facebook">
+                        <!-- facebook button -->
+                        <a 
+                            id="shareBtn" 
+                            onclick="fb_share('<?php echo $row['content']; ?>', '<?php echo $row['genre1']; ?>') " 
+                            class="btn btn-just-icon btn-round btn-facebook">
                             <i class="fab fa-facebook-f"></i>
                         </a>
 
@@ -230,13 +242,15 @@ if ($quoteArray) {
                             </a> <?php 
                             } ?>
                             
-                            <!-- facebook buttons -->
-                            <a href="#pablo" class="btn btn-just-icon btn-round btn-facebook">
+                            <!-- facebook button -->
+                            <a 
+                                id="shareBtn" 
+                                onclick="fb_share('<?php echo $row['content']; ?>', '<?php echo $row['genre1']; ?>') " class="btn btn-just-icon btn-round btn-facebook">
                                 <i class="fab fa-facebook-f"></i>
                             </a>
 
                             <!-- whatsappp buttons -->
-                           <?php if (detectMobile()) {
+                            <?php if (detectMobile()) {
                                 $urlencodedtext = urlencode($row['content'] . " -" . imagify($row['author'])) ?>
                                 <a id="whatsapp" href="https://wa.me/?text=<?php echo $urlencodedtext; ?>" class="btn btn-just-icon btn-round btn-whatsapp">
                                     <i class="fab fa-whatsapp"></i>
