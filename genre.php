@@ -12,10 +12,8 @@ $page_description = "The best of spoken and written words about " . $temp_page_t
 require_once 'includes/header.php';
 include_once "includes/quote_of_moment.php";
 
- // save the data from fetch author to authors
-$authorArray = $quote->fetchAuthor("5");
 // save the data from fetch genre
-$genreArray = $quote->fetchGenre("5");
+$genreArray = $quote->fetchGenre("20");
 
 // query the all quotes of thesame author
 $quoteArray = $quote->fetchQuotesFromSameGenre($genre);
@@ -25,8 +23,9 @@ $quoteArray = $quote->fetchQuotesFromSameGenre($genre);
     <div class="frow">
 
         <!-- left section of the main container  -->
-        <?php require_once 'includes/indexLeftContainer.php'; ?>
-
+        <div class="topMargin80">
+            <?php require_once 'includes/indexLeftContainer.php'; ?>
+        </div>
         
         <div class="main-container">
             <h1 class="title text-center genre_title"><?php echo $genre ?> Quotes</h1>

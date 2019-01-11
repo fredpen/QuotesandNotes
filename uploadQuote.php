@@ -2,40 +2,21 @@
 $pageTitle = "Contribute";
 require_once 'includes/header.php';
 require_once "includes/quote_of_moment.php";
-  // save the data from fetch author to authors
+ // save the data from fetch author to authors
 $authorArray = $quote->fetchAuthor("all");
-    // save the data from fetch genre
+// save the data from fetch genre
 $genreArray = $quote->fetchGenre("all");
 
-
-
-$newUser = false;
-$quoteSuccessful = false;
-$uploadFailure = false;
 $errorMessages = array();
 $errors = [
     $loginError = "<strong>Holy guacamole!</strong> You need to log in first. You can do that",
-    $serverError = "<strong>Holy guacamole!</strong> Sorry cant upload quote at the moment",
+    $serverError = "<strong>Holy guacamole! </strong> Sorry cant upload quote at the moment",
     $successMessage = "<strong>Your quote has successfully been uploaded!</strong> Thanks for contributing",
-    $duplicateError = "<strong>Sorry!</strong>but the quote is already in our database",
-    $fieldError = "<strong>oops!</strong> sorry but it seems you left one or two field(s) empty",
+    $duplicateError = "<strong>Sorry! </strong>but the quote is already in our database",
+    $fieldError = "<strong>oops! </strong> sorry but it seems you left one or two field(s) empty",
 ];
 
-function upload()
-{
-    $uploadQuote = $quote->uploadQuote($content, $genre1, $genre2, $genre3, $author, $userId);
-        // if quotes already exists
-    if ($uploadQuote == "exists") {
-        array_push($errorMessages, $duplicateError);
-        // if quote is successfully uploaded
-    } elseif ($uploadQuote) {
-        array_push($errorMessages, $successMessage);
-         // if quote fail to upload relating to database
-    } else {
-        array_push($errorMessages, $serverError);
-    }
-}
-
+// check for errors after trying to upload the quote
 function checkError($errorMessages, $errors)
 {
     // check if there is an error
@@ -92,6 +73,17 @@ $theError = checkError($errorMessages, $errors);
 <div class="fcontainer">
     <div class="frow">
 
+        <?php if ($theError) { ?>
+            <div id="upload_error" role='alert'>
+                <span class="notifs_message"><?php echo $theError ?> </span>
+                <div class="button_container">
+                    <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>X</span></button>
+                </div>
+            </div>
+
+            <?php 
+        } ?>
+       
         <div class="main main-raised topMargin0">
             <div class="contact-content">
                 <h1 class="title bright text-center font30">Contribute    </h1>

@@ -28,6 +28,7 @@ $m_genre1 = $randQuote['genre1'];
             </div>
 
             <div id="quote_moment_socials" class="text-right">
+
                 <a class="twitter-share-button"
                     href="https://twitter.com/share"
                     data-text="<?php echo $randQuote['content'] ?>"
@@ -56,11 +57,7 @@ $m_genre1 = $randQuote['genre1'];
                     <i class="fab fa-facebook-f"></i>
                 </div>
 
-                <a 
-                    href="quote.php?q=<?php echo urlencode($row['content']); ?>&id=<?php echo $quoteId; ?>" class="btn btn-just-icon btn-round btn-github" data-toggle="tooltip" data-placement="top" title="mail quote to a friend" data-container="body">
-                    <i class="fas fa-envelope"></i>
-                </a>
-
+                <!-- mail button -->
                 <a 
                     href="mailto:youremail?Subject=Illuminate,%20Inspire,%20Sustain&body=<?php echo urlencode($m_content) . 'find more quotes like this at http://quotesandnote.com' ?> " 
                     class="btn btn-just-icon btn-round btn-github" 

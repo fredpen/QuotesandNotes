@@ -15,10 +15,8 @@ if (isset($_GET['author']) && isset($_GET['nm'])) {
 require_once 'includes/header.php';
 include_once "includes/quote_of_moment.php";
 
- // save the data from fetch author to authors
-$authorArray = $quote->fetchAuthor("5");
 // save the data from fetch genre
-$genreArray = $quote->fetchGenre("5");
+$genreArray = $quote->fetchGenre("20");
 
 // query the all quotes of thesame author
 $quoteArray = $quote->fetchQuotesFromSameAuthor($authorId);
@@ -30,7 +28,10 @@ $authorDetails = $quote->fetchAuthorDetails($authorId);
     <div class="frow">
 
         <!-- left section of the main container  -->
-        <?php require_once 'includes/indexLeftContainer.php'; ?>
+        <div class="topMargin80">
+            <?php require_once 'includes/indexLeftContainer.php'; ?>
+        </div>
+        
 
         <div class="main-container">
 
@@ -93,7 +94,7 @@ $authorDetails = $quote->fetchAuthorDetails($authorId);
             </div>
 
             <!-- the main container that houses the quotes by the author  -->
-            <h1 class="title text-center author_title"> Quotes by <?php echo imagify($authorDetails['author']); ?></h1>
+            <h1 class="title text-center author_title"> <?php echo imagify($authorDetails['author']); ?>'s quotes</h1>
 
             <div class="masonry"><?php require_once 'includes/indexMainContainer.php'; ?>
 

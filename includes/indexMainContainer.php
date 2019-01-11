@@ -97,6 +97,17 @@ if ($quoteArray) {
                             </a> 
                             <?php 
                         } ?>
+
+                        <!-- twitter buttons -->
+                        <a class="twitter-share-button"
+                            href="https://twitter.com/share"
+                            data-text="<?php echo $row['content'] ?>"
+                            data-url="https://quotesandnote.com"
+                            data-hashtags="<?php echo $row['genre1'] . "," . $row['genre2'] . "," . $row['genre3'] ?>"
+                            data-via="d_name_is_fred"
+                            data-show-count="true"
+                            data-related="twitterapi,twitter">
+                        </a>
                         
                         <!-- facebook button -->
                         <a 
@@ -121,23 +132,17 @@ if ($quoteArray) {
                             <?php 
                         } ?>
                        
-                        
-                        <!-- mail button --> 
-                        <a href="quote.php?q=<?php echo urlencode($row['content']); ?>&id=<?php echo $quoteId; ?>" class="btn btn-just-icon btn-round btn-github" data-toggle="tooltip" data-placement="top" title="mail quote to a friend" data-container="body">
+                        <a 
+                            href="mailto:youremail?Subject=Illuminate,%20Inspire,%20Sustain&body=<?php echo urlencode($row['content']) . 'find more quotes like this at http://quotesandnote.com' ?> " 
+                            class="btn btn-just-icon btn-round btn-github" 
+                            data-toggle="tooltip" 
+                            data-placement="top" 
+                            title="mail quote to a friend" 
+                            data-container="body"
+                            target="_top">
                             <i class="fas fa-envelope"></i>
                         </a>
-
-                        <!-- twitter buttons -->
-                        <a class="twitter-share-button"
-                            href="https://twitter.com/share"
-                            data-text="<?php echo $row['content'] ?>"
-                            data-url="https://quotesandnote.com"
-                            data-hashtags="<?php echo $row['genre1'] . "," . $row['genre2'] . "," . $row['genre3'] ?>"
-                            data-via="d_name_is_fred"
-                            data-show-count="true"
-                            data-related="twitterapi,twitter">
-                        </a>
-
+                        
                     </div>
                 </div> <!-- end of card content -->
             </div>
@@ -215,33 +220,24 @@ if ($quoteArray) {
                     </div>
 
                     <div>
-                        <div class="input-group topMargin-25">
-                            <span class="input-group-addon">
-                                <i class="material-icons">edit</i>
-                            </span>
-                            <input id="quote_text" type="text" name="additionalMessage" class="form-control" placeholder="Text goes here">
-                        </div>
-
-                        <!-- enter receipientMail -->
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                                <i class="material-icons">mail</i>
-                            </span>
-
-                            <input required="required" id="quote_mail" autofocus type="email" name="receipientMail" class="mail_text form-control" placeholder="Receipient's mail">
-                        </div>
-
-                        <!-- mail sent buttons -->
-                        <div class="mailButton">
-                            <button onclick="mail_quote('<?php echo $row['author']; ?>', <?php echo $row['id']; ?>)" name="mailButton" class="btn btn-round btn-md btn-primary text-lowercase"> Mail quote </button>
-                        </div>
-
                         <div class="pull-right text-right">
                             <?php if ($userId == 1) { ?>
                             <a data-toggle="tooltip" data-placement="top" title="Edit quote" data-container="body" class="btn btn-just-icon btn-round btn-twitter" href="edit.php?id=<?php echo $quoteId ?>"><i class="fas fa-edit"></i>
                             </a> <?php 
                             } ?>
                             
+                             <!-- twitter buttons -->
+                            <a class="twitter-share-button"
+                                href="https://twitter.com/share"
+                                data-text="<?php echo $row['content'] ?>"
+                                data-url="https://quotesandnote.com"
+                                data-hashtags="<?php echo $row['genre1'] . "," . $row['genre2'] . "," . $row['genre3'] ?>"
+                                data-via="d_name_is_fred"
+                                data-show-count="true"
+                                data-related="twitterapi,twitter">
+                            </a>    
+
+
                             <!-- facebook button -->
                             <a 
                                 id="shareBtn" 
@@ -263,16 +259,18 @@ if ($quoteArray) {
                                 <?php 
                             } ?>
                             
-                            <!-- twitter buttons -->
-                            <a class="twitter-share-button"
-                                href="https://twitter.com/share"
-                                data-text="<?php echo $row['content'] ?>"
-                                data-url="https://quotesandnote.com"
-                                data-hashtags="<?php echo $row['genre1'] . "," . $row['genre2'] . "," . $row['genre3'] ?>"
-                                data-via="d_name_is_fred"
-                                data-show-count="true"
-                                data-related="twitterapi,twitter">
-                            </a>    
+                           
+                             <!-- mail button -->
+                            <a 
+                                href="mailto:youremail?Subject=Illuminate,%20Inspire,%20Sustain&body=<?php echo urlencode($m_content) . 'find more quotes like this at http://quotesandnote.com' ?> " 
+                                class="btn btn-just-icon btn-round btn-github" 
+                                data-toggle="tooltip" 
+                                data-placement="top" 
+                                title="mail quote to a friend" 
+                                data-container="body"
+                                target="_top">
+                                <i class="fas fa-envelope"></i>
+                            </a>
                         </div>
                     </div>
 

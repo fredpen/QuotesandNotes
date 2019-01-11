@@ -49,6 +49,7 @@ class Quote
         if (mysqli_num_rows($query) > 0) return false;
         
          // if not then push the quote
+        $content = ucfirst(strtolower($content));
         $dt = date("Y-m-d h:i:s");
         $stmt = $this->con->prepare("INSERT INTO quotes VALUES('', ?, ?, ?, ?, ?, ?, ? )");
         $stmt->bind_param("sssssss", $dt, $content, $userId, $author, $genre1, $genre2, $genre3);

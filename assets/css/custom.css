@@ -22,7 +22,6 @@
 
 body{
    background: #d2d2d2;
-   border-top: 2px solid #9c27b0;
 }
 
 .full-width-col  {
@@ -108,8 +107,8 @@ body{
     height: 30px;
     background:#333;
     position: fixed;
-    top: 3px;
     z-index: 1000;
+    border-top: 2px solid #9c27b0;
     color: #fff;
 }
 
@@ -206,6 +205,9 @@ hr{
   margin-top: 88px;
 }
 
+.topMargin80{
+  margin-top: 80px;
+}
 
 .topMargin-25{
   margin-top: -25px;
@@ -620,12 +622,25 @@ div .profile-photo-small{
     scroll-behavior: smooth;
     position: absolute;
     top: 40px;
-    margin-left: 31px;
+    width: 90vw;
 }
 
 #searchResult,
 #nav_searchResult{
     margin-bottom: 0;
+}
+
+#nav_searchResult a:hover{
+    color:#9c27b0;
+}
+
+
+#nav_searchResult a{
+    color: #585858;
+}
+
+#nav_searchResult li:hover{
+    background: #d0cccc;
 }
 
 /* left index container */
@@ -707,6 +722,7 @@ a:hover, a:focus {
 .singleCard{
     display: flex;
     justify-content: center;
+    margin-top: 20px;
 }
 
 .singleCardGenreList{
@@ -736,7 +752,8 @@ a:hover, a:focus {
 }
 
 
-#errorDiv{
+#errorDiv,
+#upload_error {
     display: none;
    padding: 15px 10px;
     position: fixed;
@@ -753,6 +770,11 @@ a:hover, a:focus {
 #errorDiv:hover{
     border: 1px solid transparent;
 }
+
+#upload_error{
+    display: flex;
+}
+
 .notifs_message{
     margin: 0;
     align-self: center;

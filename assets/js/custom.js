@@ -242,6 +242,11 @@ $(document).ready(function () {
         $(".nav_searchResult").fadeOut("fast");
     })
 
+    $("#jumbotron").on("click", function () {
+        $(".searchResult").fadeOut("fast");
+        $(".nav_searchResult").fadeOut("fast");
+    })
+
     // clear search term from the nav search
     $("#nav_clear").on("click", function () {
         $("#search_quotes").val("");
