@@ -16,9 +16,11 @@ if (isset($_COOKIE['user']) || isset($_SESSION['email'])) {
    $userDetails = $account->userDetails($id);
    $userId = $userDetails['id'];
    $last_name = $userDetails['lastname'];
+   $auth = $userDetails['auth'];
 
 } else {
    $userDetails = "";
    $userId = '';
+   $auth = "";
 }
 ?>

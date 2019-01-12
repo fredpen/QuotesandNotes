@@ -88,7 +88,7 @@ $theError = checkError($errorMessages, $errors);
             <div class="contact-content">
                 <h1 class="title bright text-center font30">Contribute    </h1>
                 
-                <?php if ($userId == 1) { ?>
+                <?php if ($auth == 1) { ?>
 
                     <div class="frow">
                         <form action="uploadQuote.php" method="post">
