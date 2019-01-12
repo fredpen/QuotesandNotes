@@ -154,13 +154,11 @@ hr{
 /* ---------------------------------------------------sign up */
 #sign_background{
     height: 100vh;
-    background: #0F2027;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-image: url("../images/bg0.jpg");
+    background: #DA4453;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #89216B, #DA4453);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #89216B, #DA4453); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+
 #home .padding25{
   padding: 25px;
 }
