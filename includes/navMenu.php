@@ -23,10 +23,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-        <title> QN - <?php echo $pageTitle; ?> | Search for any quotes from our robust collection</title>
+        <title> QN - <?php echo $pageTitle; ?></title>
 
         <?php 
-        $temp_desc = "Bringing you the best of spoken and written words from the greatest of minds. QN is a community of word lovers; sharing thier experience and opinions about quotes and notes from great minds";
+        $temp_desc = "Bringing you the best of spoken and written words from the greatest of minds. Real people sharing thier experience and opinions about quotes";
 
         if (empty($page_description)) {
             $page_description = $temp_desc;
@@ -201,9 +201,7 @@
             </div>
         </nav>
 
-        <div class="testing">
-            <p>This site is under development. suggestions are welcome and should be submitted to contactus@quotesandnote.com</p>
-        </div>
+       
 
         <?php if ($new_visitor) { ?>
             <div id="cookieConsent">

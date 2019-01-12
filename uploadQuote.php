@@ -1,5 +1,6 @@
 <?php
 $pageTitle = "Contribute";
+$page_description = "Help build our collection of quotes. We have amazing rewards for uplooads";
 require_once 'includes/header.php';
 require_once "includes/quote_of_moment.php";
  // save the data from fetch author to authors

@@ -149,22 +149,22 @@ if ($quoteArray) {
         </div>
         <?php 
         // the ads logic: for every 5 quotes put an ad up
-        if ($num % 5 == 0) { ?>
-            <!-- <div class="item">                
-                <div class="card">
-                    <h1> ads</h1>
-                </div>
-            </div> -->
+        // if ($num % 5 !== 0) { ?>
+        <!-- //     <div class="item">                
+        //         <div class="card">
+        //             <h1> ads</h1>
+        //         </div>
+        //     </div> -->
             <?php 
-        }
-        $num++;
-        continue;
-    };
+        // }
+        // $num++;
+        // continue;
+        };
       
 
 // if its not quote array is not coming as an associative array
-} elseif ($quoteDetails) {
-    $row = $quoteDetails; ?>
+    } elseif ($quoteDetails) {
+        $row = $quoteDetails; ?>
 
     <div class="singleCard">
         <div id="singleCard" class="card">

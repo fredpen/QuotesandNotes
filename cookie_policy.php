@@ -1,5 +1,6 @@
 <?php
 $pageTitle = "Cookie and Privacy policies";
+$page_description = "Kindly read through our updated policy as regards the use of cookies on our site";
 require_once 'includes/header.php';
 require_once "includes/quote_of_moment.php";
 ?> 

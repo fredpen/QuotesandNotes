@@ -1,5 +1,6 @@
 <?php
 $pageTitle = "Privacy policies";
+$page_description = "Kindly read through our updated privacy policies";
 require_once 'includes/header.php';
 require_once "includes/quote_of_moment.php";
 ?> 

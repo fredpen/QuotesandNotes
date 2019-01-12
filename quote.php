@@ -7,6 +7,7 @@ if (isset($_GET['id'])) {
 }
 
 $pageTitle = $_GET['q'];
+$page_description = "Find more quotes like " . $pageTitle;
 require_once "includes/header.php";
 require_once "includes/quote_of_moment.php";
 

@@ -6,7 +6,7 @@ if (isset($_GET['genre'])) {
     header("Location: index.php");
 }
 $temp_page_title = $_GET['genre'];
-$pageTitle = "Top quotes about " . ucfirst($genre);
+$pageTitle = "Top " . ucfirst($genre) . " Quotes";
 $page_description = "The best of spoken and written words about " . $temp_page_title . ". Read experience and opinions of people about " . $temp_page_title . "quotes";
 // import the header that houses the navbar and other dependencies
 require_once 'includes/header.php';

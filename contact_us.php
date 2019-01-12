@@ -1,7 +1,7 @@
 <?php
 $nav_title = "Contact us";
-$pageTitle = "Home of quotes and notes by the brightest minds to ever walk the earth";
-$page_description = "Bringing you the best of words from the greatest of minds. A community of driven people, lover of great words; sharing thier experience and opinions about quotes and notes from great minds";
+$pageTitle = $nav_title;
+$page_description = "You can easily reach us at QN through the following communication channels";
 
 require_once 'includes/header.php';
 require_once "includes/quote_of_moment.php";
