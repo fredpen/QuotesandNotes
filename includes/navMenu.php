@@ -74,7 +74,11 @@
         <!-- jquery script -->
         <script src="assets/js/lib/jquery.min.js" type="text/javascript"></script>
 
-         <!-- custom js -->
+        <?php if ($pageTitle === "Contribute") { ?>
+            <script src="assets/js/upload_quote.js"></script>
+            <?php 
+        } ?>
+
         <script src="assets/js/custom.js"></script>
 
         <script>
@@ -161,9 +165,10 @@
                             <a href="#" class="dropdown-toggle elipsis" data-toggle="dropdown">...</a>
 
                             <ul class="dropdown-menu dropdown-with-icons">
-                            <li><a href="about_us.php">About me</a></li>
                                 <li><a href="authors.php">Authors</a></li>
+                                <li><a href="about_us.php">Meet the team</a></li>
                             </ul>
+                            
                         </li>
 
                         <li><a href="blog/home.php">blog</a></li>

@@ -40,7 +40,7 @@
             </ul>
         </div>
         <hr/>
-    <div class="copyright pull-center">&copy; 2018 - <?php echo date("Y"); ?>QuotesandNotes All Rights Reserved.</div>
+    <div class="copyright pull-center">&copy; 2018 - <?php echo date("Y"); ?>  QuotesandNotes All Rights Reserved.</div>
 </footer>
 </body>
 

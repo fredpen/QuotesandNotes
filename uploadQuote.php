@@ -3,15 +3,11 @@ $pageTitle = "Contribute";
 $page_description = "Help build our collection of quotes. We have amazing rewards for uplooads";
 require_once 'includes/header.php';
 require_once "includes/quote_of_moment.php";
- // save the data from fetch author to authors
 $authorArray = $quote->fetchAuthor("all");
-// save the data from fetch genre
 $genreArray = $quote->fetchGenre("all");
 
 $errorMessages = array();
 $errors = [
-    $loginError = "<strong>Holy guacamole!</strong> You need to log in first. You can do that",
-    $serverError = "<strong>Holy guacamole! </strong> Sorry cant upload quote at the moment",
     $successMessage = "<strong>Your quote has successfully been uploaded!</strong> Thanks for contributing",
     $duplicateError = "<strong>Sorry! </strong>but the quote is already in our database",
     $fieldError = "<strong>oops! </strong> sorry but it seems you left one or two field(s) empty",
@@ -20,7 +16,6 @@ $errors = [
 // check for errors after trying to upload the quote
 function checkError($errorMessages, $errors)
 {
-    // check if there is an error
     if (count($errorMessages) > 0) {
         foreach ($errorMessages as $errorMessage) {
             foreach ($errors as $error) {
@@ -34,37 +29,26 @@ function checkError($errorMessages, $errors)
 }
 
 if (isset($_POST['uploadQuoteButton'])) {
-    // check if there is a logged in user
-    if ($userDetails) {
-      // check if all the needed boxes are filled
-        if ($_POST['author'] !== "author" && isset($_POST['genreList']) && count($_POST['genreList']) == 3) {
-            // store all fields into variables
-            $content = $quote->sanitiseQuote($_POST['quote']);
-            $author = $_POST['author'];
-            $genre = $_POST['genreList'];
-            $genre1 = $genre[0];
-            $genre2 = $genre[1];
-            $genre3 = $genre[2];
 
-            $uploadQuote = $quote->uploadQuote($content, $genre1, $genre2, $genre3, $author, $userId);
-            // if quotes already exists
-            if (!$uploadQuote) {
-                array_push($errorMessages, $duplicateError);
-            // if quote is successfully uploaded
-            } elseif ($uploadQuote) {
-                array_push($errorMessages, $successMessage);
-             // if quote fail to upload relating to database
-            } else {
-                array_push($errorMessages, $serverError);
-            }
+    if ($_POST['author'] !== "author" && isset($_POST['genreList']) && count($_POST['genreList']) == 3) {
+        
+        // store all fields into variables
+        $content = $quote->sanitiseQuote($_POST['quote']);
+        $author = $_POST['author'];
+        $genre = $_POST['genreList'];
+        $genre1 = $genre[0];
+        $genre2 = $genre[1];
+        $genre3 = $genre[2];
 
-            // if there is no logged in user
+        $uploadQuote = $quote->uploadQuote($content, $genre1, $genre2, $genre3, $author, $userId);
+
+        if ($uploadQuote) {
+            array_push($errorMessages, $successMessage);
         } else {
-            array_push($errorMessages, $fieldError);
+            array_push($errorMessages, $duplicateError);
         }
-    // if there is no logged in user
     } else {
-        array_push($errorMessages, $loginError);
+        array_push($errorMessages, $fieldError);
     }
 }
 
@@ -78,7 +62,7 @@ $theError = checkError($errorMessages, $errors);
             <div id="upload_error" role='alert'>
                 <span class="notifs_message"><?php echo $theError ?> </span>
                 <div class="button_container">
-                    <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>X</span></button>
+                    <button id="upload_mess" type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>X</span></button>
                 </div>
             </div>
 
@@ -106,29 +90,30 @@ $theError = checkError($errorMessages, $errors);
                                 <select name="author" class="grace" data-style="btn btn-primary btn-round" title="Choose Author" data-size="7">
                                     <option name="select Author" value="author">Choose Author</option>
                                     <?php while ($row = mysqli_fetch_array($authorArray)) { ?>
-                                        <option name="author" value="<?php echo $row['id']; ?>"><?php echo imagify($row['author']); ?></option>
+                                        <option name="author" value="<?php echo $row['id']; ?>"><?php echo imagify(ucfirst(strtolower($row['author']))); ?></option>
                                         <?php 
                                     } ?>
                                 </select>
                             </div>
 
                             <div class="col-sm-12 genreSelection">
-                                <?php while ($row = mysqli_fetch_array($genreArray)) {; ?>
+                                <?php while ($row = mysqli_fetch_array($genreArray)) { ?>
                                     <div class="checkbox genreSelect">
                                         <label>
                                             <input type="checkbox" value="<?php echo $row['id']; ?>" name="genreList[]">
-                                            <?php echo $row['genre1']; ?>
+                                            <?php echo (ucfirst(strtolower($row['genre1']))); ?>
                                         </label>
                                     </div>
                                     <?php 
                                 }; ?>
                             </div>
-                
+
                             <div class="col-sm-12  text-center">
-                                <button onclick="contribute()" ondblclick="contribute()" id="submitQuote" type="submit" name="uploadQuoteButton" class="btn btn-primary btn-lg" data-toggle="tooltip" data-Button group placement="top" title="Select three genre category before submitting the quote">Submit
+                                <button onclick="contribute()" id="submitQuote" type="submit" name="uploadQuoteButton" class="btn btn-primary btn-lg" data-toggle="tooltip" data-Button group placement="top" title="Select three genre category before submitting the quote">Submit
                                 </button>
                             </div>
 
+                           
                         </form>
 
                     </div>

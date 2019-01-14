@@ -29,6 +29,12 @@ if ($pageTitle !== "Login" && $pageTitle !== "Register") {
     $quote = new Quote($con);
 }
 
+
+if ($pageTitle === "Contribute") { ?>
+    <script src="assets/js/upload_quote.js"><script>;
+    <?php 
+}
+
 if ($pageTitle == "Login" || $pageTitle == "Register") {
     require_once 'includes/handlers/account_handler.php';
 }

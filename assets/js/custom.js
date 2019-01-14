@@ -13,6 +13,7 @@ function fb_share(quote, genre1) {
 }
 
 
+
 // function for fading out the errordiv
 function fade_out() {
     $("#errorDiv").fadeOut("fast");
@@ -151,7 +152,6 @@ function likeQuote(quoteId, check, num) {
 };
 
 
-
 // like quote on the quote page
 function likeSingleQuote(quoteId, check, num) {
 
@@ -184,43 +184,6 @@ function likeSingleQuote(quoteId, check, num) {
     }
 };
 
-// function for validating emails
-function ValidateEmail(anymail) {
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(anymail)) {
-        return (true)
-    }
-    return (false)
-}
-
-
-function mail_quote(author, quoteId) {
-    let message = $("#quote_text").val();
-    let email = $("#quote_mail").val();
-
-    if (ValidateEmail(email)) {
-        fade_in();
-        $(".notifs_message").text('sending quote to ' + email);
-
-        // make the ajax call
-        $.post("includes/handlers/ajax/mail_quote_handler.php", { email: email, author: author, quoteId: quoteId, message: message }, function (data) {
-            console.log(data);
-
-
-            if (data) {
-                $(".notifs_message").html('quote has been sent to ' + email + '!! <i class="far fa-smile"></i>');
-            } else if (data == "invalid_email") {
-                $(".notifs_message").text('The email you entered is invalid');
-            } else {
-                $(".notifs_message").text('Sorry, but we couldnt send your quote at the moment');
-            }
-        })
-
-    } else {
-        $(".mail_text").css("border-bottom", "1px solid red");
-        fade_in();
-        $(".notifs_message").text("You have entered an invalid email address !");
-    }
-}
 
 
 
@@ -230,11 +193,6 @@ $(document).ready(function () {
         $("#cookieConsent").fadeIn(200);
     }, 4000);
 
-
-
-    $("#home").on("scroll", function () {
-        alert("you scrolled me");
-    })
 
     // fadeout the search term and bar when it loses focus
     $(".frow").on("click", function () {
@@ -271,11 +229,17 @@ $(document).ready(function () {
         $("#cookieConsent").fadeOut("fast");
     })
 
+    // hide the cookoe message when user click the x button on upload button
+    $("#closeCookieConsent").on("click", function () {
+        $("#cookieConsent").fadeOut("fast");
+    })
+
+    // clear the upload message
+    $("#upload_mess").on("click", function () {
+        $("#upload_error").fadeOut("fast");
+    })
 
 
 });
 
 
-function test(event) {
-    event.fadeOut();
-}

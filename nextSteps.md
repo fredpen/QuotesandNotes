@@ -27,3 +27,9 @@ additional points -----loveQuote ajax page
 
     in the profile page instead of fetchprofiledetails twice better to create to functions each doing two different things
     apparetnly it turn out that i do not two function doing thesame thing in the sense of profileinfo() and profiledetails()
+
+
+
+php can collect all the from the form
+
+now if the button is set then the function can be called

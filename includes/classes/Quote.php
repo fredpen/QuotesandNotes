@@ -31,21 +31,24 @@ class Quote
         return ucfirst($quote);
     }
 
+
     public function imagify($string)
     {
         $string = str_replace("_", " ", $string);
         return $string;
     }
 
+
     // upload quote into the database
     public function uploadQuote($content, $genre1, $genre2, $genre3, $author, $userId)
     {
-         // shorten the content to a max of 50 characters
+        // shorten the content to a max of 50 characters
         $search = substr($content, 0, 50);
+        $search = str_replace("'", "", $search);
         $sql = "SELECT content FROM quotes WHERE content LIKE '%$search%'";
         $query = mysqli_query($this->con, $sql);
 
-        // check if there is already a quote similar to the quote to be uploaded
+        // // check if there is already a quote similar to the quote to be uploaded
         if (mysqli_num_rows($query) > 0) return false;
         
          // if not then push the quote
