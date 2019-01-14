@@ -36,7 +36,7 @@
                 <li><a href="cookie_policy.php">Cookie Policy</a></li>
                 <li><a href="uploadQuote.php">Contribute</a></li>
                 <li> <a href="contact_us.php" title="contact">Contact us</a></li>
-                <li> <a href="about_us.php" title="Meet the team">About us</a></li>
+                <li> <a href="about_us.php" title="Meet the team">Meet the team</a></li>
             </ul>
         </div>
         <hr/>
@@ -46,7 +46,7 @@
 
 
 <!-- jquery script -->
-<script src="assets/js/lib/jquery.min.js" type="text/javascript"></script>
+
 <script src="assets/js/custom.js"></script>
  <!-- twitter script -->
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

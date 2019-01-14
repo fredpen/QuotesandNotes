@@ -99,6 +99,7 @@
         padding: 10px;
     }
 
+    
     #quote_moment_socials{
         display: none;
     }
@@ -223,19 +224,15 @@
     #jumbotron h1{
         font-size: 7vw
     }
-
-    #jumbotron p{
-        font-size: 2vw;
-    }
 }
 
 @media screen and (min-width: 1000px){
     #jumbotron h1{
-        font-size: 6em
+        font-size: 5em
     }
 
     #jumbotron p{
-        font-size: 3vw;
+        font-size: 1.5vw;
     }
 }
 

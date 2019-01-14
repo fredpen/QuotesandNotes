@@ -69,6 +69,8 @@
         <link href="assets/css/lib/material-kit.css?v=1.2.1" rel="stylesheet"/>
         <link href="assets/css/custom.css" rel="stylesheet"/>
         <link href="assets/css/grid.css" rel="stylesheet"/>
+
+        <script src="assets/js/lib/jquery.min.js" type="text/javascript"></script>
         
         <script>
             <?php if ($userDetails) { ?>
@@ -200,7 +202,7 @@
         <?php if ($new_visitor) { ?>
             <div id="cookieConsent">
                 <div id="closeCookieConsent">x</div>
-                This website is using cookies. 
+                We use cookies. 
                 <a href="cookie_policy.php">More info</a>.
                 <a onclick="cookie_consent()" class="cookieConsentOK">That's Fine</a>
             </div>
