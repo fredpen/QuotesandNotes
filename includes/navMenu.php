@@ -4,7 +4,7 @@
 
         <!-- You can use Open Graph tags to customize link previews. -->
         <meta property="og:title" content="QN">
-        <meta property="og:url" content="https://quotesandnote.com/">
+        <meta property="og:url" content="https://quotesandnote.com">
         <meta property="og:description" content="Bringing you the best of spoken and written words from the greatest of minds">
         <meta property="og:image" content="https://www.quotesandnote.com/assets/images/bg0.jpg">
         <meta property="og:site_name" content="Quotes and Notes">
@@ -70,17 +70,6 @@
         <link href="assets/css/custom.css" rel="stylesheet"/>
         <link href="assets/css/grid.css" rel="stylesheet"/>
         
-       
-        <!-- jquery script -->
-        <script src="assets/js/lib/jquery.min.js" type="text/javascript"></script>
-
-        <?php if ($pageTitle === "Contribute") { ?>
-            <script src="assets/js/upload_quote.js"></script>
-            <?php 
-        } ?>
-
-        <script src="assets/js/custom.js"></script>
-
         <script>
             <?php if ($userDetails) { ?>
                 userId = "<?php echo $userDetails['id']; ?>";
@@ -168,7 +157,7 @@
                                 <li><a href="authors.php">Authors</a></li>
                                 <li><a href="about_us.php">Meet the team</a></li>
                             </ul>
-                            
+
                         </li>
 
                         <li><a href="blog/home.php">blog</a></li>

@@ -44,6 +44,10 @@
 </footer>
 </body>
 
+
+<!-- jquery script -->
+<script src="assets/js/lib/jquery.min.js" type="text/javascript"></script>
+<script src="assets/js/custom.js"></script>
  <!-- twitter script -->
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
